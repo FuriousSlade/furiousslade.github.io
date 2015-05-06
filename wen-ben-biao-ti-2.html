@@ -103,8 +103,8 @@ blog            </a>
         dsq.src = '//furiousslade.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
-      </script>
-      <!--兼容版，可保证页面完全兼容-->
+      
+<!--高速版，加载速度快，使用前需测试页面的兼容性-->
 <div id="SOHUCS"></div>
 <script>
   (function(){
@@ -117,8 +117,10 @@ blog            </a>
     s.charset = 'utf-8';
     s.src =  'http://assets.changyan.sohu.com/upload/changyan.js?conf='+ conf +'&appid=' + appid;
     h.insertBefore(s,h.firstChild);
+    window.SCS_NO_IFRAME = true;
   })()
-</script>
+</script>                
+
 
       <noscript>Please enable JavaScript to view the comments.</noscript>
 >>>>>>> c169e841f543e45088d2f83ef31625535c76c825
