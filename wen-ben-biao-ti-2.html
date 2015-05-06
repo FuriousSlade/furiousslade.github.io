@@ -51,6 +51,22 @@
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
       </script>
+      <!--兼容版，可保证页面完全兼容-->
+<div id="SOHUCS"></div>
+<script>
+  (function(){
+    var appid = 'cyrLap3TW',
+    conf = 'prod_a8746c82e2913bacf9362280ee7d9261';
+    var doc = document,
+    s = doc.createElement('script'),
+    h = doc.getElementsByTagName('head')[0] || doc.head || doc.documentElement;
+    s.type = 'text/javascript';
+    s.charset = 'utf-8';
+    s.src =  'http://assets.changyan.sohu.com/upload/changyan.js?conf='+ conf +'&appid=' + appid;
+    h.insertBefore(s,h.firstChild);
+  })()
+</script>
+
       <noscript>Please enable JavaScript to view the comments.</noscript>
     </div>
 
@@ -94,21 +110,6 @@
     }());
 </script>
 
-<!--兼容版，可保证页面完全兼容-->
-<div id="SOHUCS"></div>
-<script>
-  (function(){
-    var appid = 'cyrLap3TW',
-    conf = 'prod_a8746c82e2913bacf9362280ee7d9261';
-    var doc = document,
-    s = doc.createElement('script'),
-    h = doc.getElementsByTagName('head')[0] || doc.head || doc.documentElement;
-    s.type = 'text/javascript';
-    s.charset = 'utf-8';
-    s.src =  'http://assets.changyan.sohu.com/upload/changyan.js?conf='+ conf +'&appid=' + appid;
-    h.insertBefore(s,h.firstChild);
-  })()
-</script>
 
 </body>
 </html>
