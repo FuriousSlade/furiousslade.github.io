@@ -2,7 +2,7 @@
 <html lang="zh"
 >
 <head>
-    <title>blog</title>
+    <title>Slade's blog</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -10,23 +10,24 @@
 
 
 
-<link rel="canonical" href="http://furiousslade.github.io">
+<link rel="canonical" href="">
         <meta name="author" content="Slade" />
 
     <!-- Open Graph tags -->
-        <meta property="og:site_name" content="blog" />
+        <meta property="og:site_name" content="Slade's blog" />
         <meta property="og:type" content="website"/>
-        <meta property="og:title" content="blog"/>
-        <meta property="og:url" content="http://furiousslade.github.io"/>
-        <meta property="og:description" content="blog"/>
+        <meta property="og:title" content="Slade's blog"/>
+        <meta property="og:url" content=""/>
+        <meta property="og:description" content="Slade's blog"/>
 
 
     <!-- Bootstrap -->
-        <link rel="stylesheet" href="http://furiousslade.github.io/theme/css/bootstrap.min.css" type="text/css"/>
-    <link href="http://furiousslade.github.io/theme/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="/theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="/theme/css/font-awesome.min.css" rel="stylesheet">
 
-    <link href="http://furiousslade.github.io/theme/css/pygments/native.css" rel="stylesheet">
-    <link rel="stylesheet" href="http://furiousslade.github.io/theme/css/style.css" type="text/css"/>
+    <link href="/theme/css/pygments/native.css" rel="stylesheet">
+    <link href="/theme/tipuesearch/tipuesearch.css" rel="stylesheet">
+    <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
 
 
 </head>
@@ -41,17 +42,25 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="http://furiousslade.github.io/" class="navbar-brand">
-blog            </a>
+            <a href="/" class="navbar-brand">
+Slade's blog            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
+                         <li><a href="/pages/about">
+                             About Me
+                          </a></li>
                         <li >
-                            <a href="http://furiousslade.github.io/wen-zhang-lei-bie/index.html">文章类别</a>
+                            <a href="/category/blog">Blog</a>
                         </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="http://furiousslade.github.io/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+              <li><span>
+                <form class="navbar-search" action="/search">
+                  <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input" required>
+                </form></span>
+              </li>
+              <li><a href="/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
@@ -64,30 +73,14 @@ blog            </a>
         <div class="col-sm-9">
 
             <article>
-                <h2><a href="http://furiousslade.github.io/wen-ben-biao-ti-2.html">文本标题2</a></h2>
-                <div class="summary"><h2>这里是内容</h2>
-                    <a class="btn btn-default btn-xs" href="http://furiousslade.github.io/wen-ben-biao-ti-2.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://furiousslade.github.io/wen-ben-biao-ti-3.html">文本标题3</a></h2>
-                <div class="summary"><h2>这里是内容</h2>
-                    <a class="btn btn-default btn-xs" href="http://furiousslade.github.io/wen-ben-biao-ti-3.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://furiousslade.github.io/wen-ben-biao-ti-5.html">文本标题5</a></h2>
-                <div class="summary"><h2>这里是内容</h2>
-                    <a class="btn btn-default btn-xs" href="http://furiousslade.github.io/wen-ben-biao-ti-5.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://furiousslade.github.io/wen-ben-biao-ti-aaa.html">文本标题aaa</a></h2>
-                <div class="summary"><h2>这里是内容</h2>
-                    <a class="btn btn-default btn-xs" href="http://furiousslade.github.io/wen-ben-biao-ti-aaa.html">more ...</a>
+                <h2><a href="/posts/2013/04/test2/">文章标题</a></h2>
+                <div class="summary"><p>Install Redmine on Centos 6.5
+dependencies packages</p>
+<p>These are the basic software packages for environment settings and utility tools to compile other packages in the next section.
+Copy the block command and execute in the Putty Windows :
+This is a long command line, copy all and implementation.
+yum -y ...</p>
+                    <a class="btn btn-default btn-xs" href="/posts/2013/04/test2/">more ...</a>
                 </div>
             </article>
             <hr/>
@@ -100,28 +93,22 @@ blog            </a>
     <ul class="list-group list-group-flush">
             <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
               <ul class="list-group" id="social">
-                <li class="list-group-item"><a href="#"><i class="fa fa-you-can-add-links-in-your-config-file-square fa-lg"></i> You can add links in your config file</a></li>
-                <li class="list-group-item"><a href="#"><i class="fa fa-another-social-link-square fa-lg"></i> Another social link</a></li>
+                <li class="list-group-item"><a href="tencent://message/?uin=175439093"><i class="fa fa-qq:175439093-square fa-lg"></i> QQ:175439093</a></li>
               </ul>
             </li>
 
 
 
-            <li class="list-group-item"><a href="http://furiousslade.github.io/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+            <li class="list-group-item"><a href="/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
                 <ul class="list-group " id="tags">
-                    <li class="list-group-item tag-1">
-                        <a href="http://furiousslade.github.io/tag/python.html">
-                            python
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-1">
-                        <a href="http://furiousslade.github.io/tag/blog.html">
-                            blog
+                    <li class="list-group-item tag-4">
+                        <a href="/tag/biao-qian-2.html">
+                            标签2
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://furiousslade.github.io/tag/pyton.html">
-                            pyton
+                        <a href="/tag/biao-qian-1.html">
+                            标签1
                         </a>
                     </li>
                 </ul>
@@ -143,11 +130,6 @@ blog            </a>
                 Jinja2
             </a>
         </li>
-        <li class="list-group-item">
-            <a href="#" target="_blank">
-                You can modify those links in your config file
-            </a>
-        </li>
       </ul>
     </li>
     </ul>
@@ -160,7 +142,7 @@ blog            </a>
    <div class="container">
       <hr>
       <div class="row">
-         <div class="col-xs-10">&copy; 2015 Slade
+         <div class="col-xs-10">&copy; 2013 Slade
             &middot; Powered by <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
             <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
@@ -168,184 +150,22 @@ blog            </a>
       </div>
    </div>
 </footer>
-<script src="http://furiousslade.github.io/theme/js/jquery.min.js"></script>
+<script src="/theme/js/jquery.min.js"></script>
 
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="http://furiousslade.github.io/theme/js/bootstrap.min.js"></script>
+<script src="/theme/js/bootstrap.min.js"></script>
 
 <!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
-<script src="http://furiousslade.github.io/theme/js/respond.min.js"></script>
+<script src="/theme/js/respond.min.js"></script>
 
-    <!-- Disqus -->
-    <script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-        var disqus_shortname = 'furiousslade'; // required: replace example with your forum shortname
 
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function () {
-            var s = document.createElement('script');
-            s.async = true;
-            s.type = 'text/javascript';
-            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
-            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-        }());
-    </script>
-    <!-- End Disqus Code -->
-
-<<<<<<< HEAD
-=======
-<body id="index" class="home">
-        <header id="banner" class="body">
-                <h1><a href="http://furiousslade.github.io/">blog </a></h1>
-                <nav><ul>
-                    <li><a href="http://furiousslade.github.io/wen-zhang-lei-bie/index.html">文章类别</a></li>
-                </ul></nav>
-        </header><!-- /#banner -->
-
-            <aside id="featured" class="body">
-                <article>
-                    <h1 class="entry-title"><a href="http://furiousslade.github.io/wen-ben-biao-ti-2.html">文本标题2</a></h1>
-<footer class="post-info">
-        <abbr class="published" title="2015-05-03T00:00:00+00:00">
-                Published: 周日 03 五月 2015
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="http://furiousslade.github.io/author/slade.html">Slade</a>
-        </address>
-<p>In <a href="http://furiousslade.github.io/wen-zhang-lei-bie/index.html">文章类别</a>. </p>
-<p>tags: <a href="http://furiousslade.github.io/tag/python.html">python</a> </p>
-</footer><!-- /.post-info --><h2>这里是内容</h2><p>There are <a href="http://furiousslade.github.io/wen-ben-biao-ti-2.html#disqus_thread">comments</a>.</p>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="http://furiousslade.github.io/wen-ben-biao-ti-3.html" rel="bookmark"
-                           title="Permalink to 文本标题3">文本标题3</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2015-05-03T00:00:00+00:00">
-                Published: 周日 03 五月 2015
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="http://furiousslade.github.io/author/slade.html">Slade</a>
-        </address>
-<p>In <a href="http://furiousslade.github.io/wen-zhang-lei-bie/index.html">文章类别</a>. </p>
-<p>tags: <a href="http://furiousslade.github.io/tag/blog.html">blog</a> <a href="http://furiousslade.github.io/tag/pyton.html">pyton</a> </p>
-</footer><!-- /.post-info -->                <h2>这里是内容</h2>
-                <a class="readmore" href="http://furiousslade.github.io/wen-ben-biao-ti-3.html">read more</a>
-<p>There are <a href="http://furiousslade.github.io/wen-ben-biao-ti-3.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="http://furiousslade.github.io/wen-ben-biao-ti-5.html" rel="bookmark"
-                           title="Permalink to 文本标题5">文本标题5</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2015-05-03T00:00:00+00:00">
-                Published: 周日 03 五月 2015
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="http://furiousslade.github.io/author/slade.html">Slade</a>
-        </address>
-<p>In <a href="http://furiousslade.github.io/wen-zhang-lei-bie/index.html">文章类别</a>. </p>
-<p>tags: <a href="http://furiousslade.github.io/tag/python.html">python</a> </p>
-</footer><!-- /.post-info -->                <h2>这里是内容</h2>
-                <a class="readmore" href="http://furiousslade.github.io/wen-ben-biao-ti-5.html">read more</a>
-<p>There are <a href="http://furiousslade.github.io/wen-ben-biao-ti-5.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="http://furiousslade.github.io/wen-ben-biao-ti-aaa.html" rel="bookmark"
-                           title="Permalink to 文本标题aaa">文本标题aaa</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2015-05-03T00:00:00+00:00">
-                Published: 周日 03 五月 2015
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="http://furiousslade.github.io/author/slade.html">Slade</a>
-        </address>
-<p>In <a href="http://furiousslade.github.io/wen-zhang-lei-bie/index.html">文章类别</a>. </p>
-<p>tags: <a href="http://furiousslade.github.io/tag/blog.html">blog</a> </p>
-</footer><!-- /.post-info -->                <h2>这里是内容</h2>
-                <a class="readmore" href="http://furiousslade.github.io/wen-ben-biao-ti-aaa.html">read more</a>
-<p>There are <a href="http://furiousslade.github.io/wen-ben-biao-ti-aaa.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
-            </article></li>
-                </ol><!-- /#posts-list -->
-<p class="paginator">
-    Page 1 / 1
-</p>
-                </section><!-- /#content -->
-        <section id="extras" class="body">
-                <div class="blogroll">
-                        <h2>blogroll</h2>
-                        <ul>
-                            <li><a href="http://getpelican.com/">Pelican</a></li>
-                            <li><a href="http://python.org/">Python.org</a></li>
-                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
-                            <li><a href="#">You can modify those links in your config file</a></li>
-                        </ul>
-                </div><!-- /.blogroll -->
-                <div class="social">
-                        <h2>social</h2>
-                        <ul>
-
-                            <li><a href="#">You can add links in your config file</a></li>
-                            <li><a href="#">Another social link</a></li>
-                        </ul>
-                </div><!-- /.social -->
-        </section><!-- /#extras -->
-
-        <footer id="contentinfo" class="body">
-                <address id="about" class="vcard body">
-                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
-                </address><!-- /#about -->
-
-                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
-        </footer><!-- /#contentinfo -->
-
-<script type="text/javascript">
-    var disqus_shortname = 'furiousslade';
-    (function () {
-        var s = document.createElement('script'); s.async = true;
-        s.type = 'text/javascript';
-        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
-        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-    }());
-</script>
-
-<!--兼容版，可保证页面完全兼容-->
-<div id="SOHUCS"></div>
-<script>
-  (function(){
-    var appid = 'cyrLap3TW',
-    conf = 'prod_a8746c82e2913bacf9362280ee7d9261';
-    var doc = document,
-    s = doc.createElement('script'),
-    h = doc.getElementsByTagName('head')[0] || doc.head || doc.documentElement;
-    s.type = 'text/javascript';
-    s.charset = 'utf-8';
-    s.src =  'http://assets.changyan.sohu.com/upload/changyan.js?conf='+ conf +'&appid=' + appid;
-    h.insertBefore(s,h.firstChild);
-  })()
-</script>
-
->>>>>>> c169e841f543e45088d2f83ef31625535c76c825
 </body>
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','LoxNpwx5egXhtGUNRV95','2.0.0');
+</script>
 </html>

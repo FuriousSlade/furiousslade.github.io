@@ -2,7 +2,7 @@
 <html lang="zh"
 >
 <head>
-    <title>Tags - blog</title>
+    <title>Tags - Slade's blog</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -14,19 +14,20 @@
         <meta name="author" content="Slade" />
 
     <!-- Open Graph tags -->
-        <meta property="og:site_name" content="blog" />
+        <meta property="og:site_name" content="Slade's blog" />
         <meta property="og:type" content="website"/>
-        <meta property="og:title" content="blog"/>
-        <meta property="og:url" content="http://furiousslade.github.io"/>
-        <meta property="og:description" content="blog"/>
+        <meta property="og:title" content="Slade's blog"/>
+        <meta property="og:url" content=""/>
+        <meta property="og:description" content="Slade's blog"/>
 
 
     <!-- Bootstrap -->
-        <link rel="stylesheet" href="http://furiousslade.github.io/theme/css/bootstrap.min.css" type="text/css"/>
-    <link href="http://furiousslade.github.io/theme/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="/theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="/theme/css/font-awesome.min.css" rel="stylesheet">
 
-    <link href="http://furiousslade.github.io/theme/css/pygments/native.css" rel="stylesheet">
-    <link rel="stylesheet" href="http://furiousslade.github.io/theme/css/style.css" type="text/css"/>
+    <link href="/theme/css/pygments/native.css" rel="stylesheet">
+    <link href="/theme/tipuesearch/tipuesearch.css" rel="stylesheet">
+    <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
 
 
 </head>
@@ -41,17 +42,25 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="http://furiousslade.github.io/" class="navbar-brand">
-blog            </a>
+            <a href="/" class="navbar-brand">
+Slade's blog            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
+                         <li><a href="/pages/about">
+                             About Me
+                          </a></li>
                         <li >
-                            <a href="http://furiousslade.github.io/wen-zhang-lei-bie/index.html">文章类别</a>
+                            <a href="/category/blog">Blog</a>
                         </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="http://furiousslade.github.io/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+              <li><span>
+                <form class="navbar-search" action="/search">
+                  <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input" required>
+                </form></span>
+              </li>
+              <li><a href="/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
@@ -64,42 +73,28 @@ blog            </a>
         <div class="col-sm-9">
 
     <section id="tags">
-        <h1>Tags for blog</h1>
+        <h1>Tags for Slade's blog</h1>
         <div class="panel-group" id="accordion">            <div class="panel panel-default">
                 <div class="panel-heading">
                     <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse-blog">blog <span class="badge pull-right">2</span></a>
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse-biao-qian-1">标签1 <span class="badge pull-right">1</span></a>
                     </h4>
                 </div>
-                <div id="collapse-blog" class="panel-collapse collapse">
+                <div id="collapse-biao-qian-1" class="panel-collapse collapse">
                     <div class="panel-body">
-                        <p><span class="categories-timestamp"><time datetime="2015-05-03T00:00:00+00:00">周日 03 五月 2015</time></span> <a href="http://furiousslade.github.io/wen-ben-biao-ti-3.html">文本标题3</a></p>
-                        <p><span class="categories-timestamp"><time datetime="2015-05-03T00:00:00+00:00">周日 03 五月 2015</time></span> <a href="http://furiousslade.github.io/wen-ben-biao-ti-aaa.html">文本标题aaa</a></p>
+                        <p><span class="categories-timestamp"><time datetime="2013-04-18T00:00:00+08:00">2013-04-18 周四</time></span> <a href="/posts/2013/04/test2/">文章标题</a></p>
                     </div>
                 </div>
             </div>
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse-python">python <span class="badge pull-right">2</span></a>
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse-biao-qian-2">标签2 <span class="badge pull-right">1</span></a>
                     </h4>
                 </div>
-                <div id="collapse-python" class="panel-collapse collapse">
+                <div id="collapse-biao-qian-2" class="panel-collapse collapse">
                     <div class="panel-body">
-                        <p><span class="categories-timestamp"><time datetime="2015-05-03T00:00:00+00:00">周日 03 五月 2015</time></span> <a href="http://furiousslade.github.io/wen-ben-biao-ti-2.html">文本标题2</a></p>
-                        <p><span class="categories-timestamp"><time datetime="2015-05-03T00:00:00+00:00">周日 03 五月 2015</time></span> <a href="http://furiousslade.github.io/wen-ben-biao-ti-5.html">文本标题5</a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse-pyton">pyton <span class="badge pull-right">1</span></a>
-                    </h4>
-                </div>
-                <div id="collapse-pyton" class="panel-collapse collapse">
-                    <div class="panel-body">
-                        <p><span class="categories-timestamp"><time datetime="2015-05-03T00:00:00+00:00">周日 03 五月 2015</time></span> <a href="http://furiousslade.github.io/wen-ben-biao-ti-3.html">文本标题3</a></p>
+                        <p><span class="categories-timestamp"><time datetime="2013-04-18T00:00:00+08:00">2013-04-18 周四</time></span> <a href="/posts/2013/04/test2/">文章标题</a></p>
                     </div>
                 </div>
             </div>
@@ -114,28 +109,22 @@ blog            </a>
     <ul class="list-group list-group-flush">
             <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
               <ul class="list-group" id="social">
-                <li class="list-group-item"><a href="#"><i class="fa fa-you-can-add-links-in-your-config-file-square fa-lg"></i> You can add links in your config file</a></li>
-                <li class="list-group-item"><a href="#"><i class="fa fa-another-social-link-square fa-lg"></i> Another social link</a></li>
+                <li class="list-group-item"><a href="tencent://message/?uin=175439093"><i class="fa fa-qq:175439093-square fa-lg"></i> QQ:175439093</a></li>
               </ul>
             </li>
 
 
 
-            <li class="list-group-item"><a href="http://furiousslade.github.io/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+            <li class="list-group-item"><a href="/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
                 <ul class="list-group " id="tags">
-                    <li class="list-group-item tag-1">
-                        <a href="http://furiousslade.github.io/tag/python.html">
-                            python
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-1">
-                        <a href="http://furiousslade.github.io/tag/blog.html">
-                            blog
+                    <li class="list-group-item tag-4">
+                        <a href="/tag/biao-qian-2.html">
+                            标签2
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://furiousslade.github.io/tag/pyton.html">
-                            pyton
+                        <a href="/tag/biao-qian-1.html">
+                            标签1
                         </a>
                     </li>
                 </ul>
@@ -157,11 +146,6 @@ blog            </a>
                 Jinja2
             </a>
         </li>
-        <li class="list-group-item">
-            <a href="#" target="_blank">
-                You can modify those links in your config file
-            </a>
-        </li>
       </ul>
     </li>
     </ul>
@@ -174,7 +158,7 @@ blog            </a>
    <div class="container">
       <hr>
       <div class="row">
-         <div class="col-xs-10">&copy; 2015 Slade
+         <div class="col-xs-10">&copy; 2013 Slade
             &middot; Powered by <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
             <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
@@ -182,29 +166,22 @@ blog            </a>
       </div>
    </div>
 </footer>
-<script src="http://furiousslade.github.io/theme/js/jquery.min.js"></script>
+<script src="/theme/js/jquery.min.js"></script>
 
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="http://furiousslade.github.io/theme/js/bootstrap.min.js"></script>
+<script src="/theme/js/bootstrap.min.js"></script>
 
 <!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
-<script src="http://furiousslade.github.io/theme/js/respond.min.js"></script>
+<script src="/theme/js/respond.min.js"></script>
 
-    <!-- Disqus -->
-    <script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-        var disqus_shortname = 'furiousslade'; // required: replace example with your forum shortname
-
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function () {
-            var s = document.createElement('script');
-            s.async = true;
-            s.type = 'text/javascript';
-            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
-            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-        }());
-    </script>
-    <!-- End Disqus Code -->
 
 </body>
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','LoxNpwx5egXhtGUNRV95','2.0.0');
+</script>
 </html>
