@@ -1,0 +1,15 @@
+/*go to top*/
+#d-top {
+       position: fixed;
+      float: right;
+      z-index: 10;
+      right: 100px;
+      bottom: 40px;
+      }
+#d-top img {
+      width: 42px;
+      opacity: 0.7;
+      }
+img {
+      border: medium none;
+      } 
