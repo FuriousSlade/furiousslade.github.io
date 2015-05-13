@@ -10,18 +10,18 @@
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="Android, Test, " />
+<meta name="keywords" content="Android, Work, " />
 
-<meta property="og:title" content="Adb常用命令 "/>
-<meta property="og:url" content="http://furiousslade.github.io/posts/2015/adbmore.html" />
-<meta property="og:description" content="常用命令 adb devices # 查看已连接PC的终端 adb shell # 连接终端 adb -s [devicesId] shell # 多台设备根据设备号连接终端 adb push xxx.apk /mnt/sdcard/xxx.apk # 将本地文件传送至手机 adb pull /mnt/sdcard/xxx.apk xxx.apk # 将手机中的文件传送至本地" />
+<meta property="og:title" content="在Android shell下无法使用cp命令的解决方案 "/>
+<meta property="og:url" content="http://furiousslade.github.io/posts/2015/05/NoCpUseCat.html" />
+<meta property="og:description" content="在Android shell 下可能并没有安装cp命令，一般都不会安装。需要的可以自己安装busybox工具。在紧急的情况下可以使用cat命令来代替cp。 adb shell cd /mnt/sdcard cat xxx.apk &gt;&gt; yyy.apk # 将/mnt/sdcard目录下的xxx.apk复制为yyy.apk Busybox是一个集成了一百多个最常用linux命令和工具的软件。需要选择适合你手机cpu的版本来安装。查看手机CPU信息，根据Processor来选择安装版本。 cat /proc/cpuinfo Processor : ARMv7 Processor rev 2 (v7l) ... 将busybox复制到 /system/xbin 目录下，并修改文件权限，使其可执行。 cat busybox-armv7l &gt;&gt; /system/xbin/busybox chmod 775 busybox busybox ..." />
 <meta property="og:site_name" content="Slade&#39;s blog 测试人的逼格修养" />
 <meta property="og:article:author" content="Slade" />
 <meta property="og:article:published_time" content="2015-05-12T00:00:00+08:00" />
-<meta name="twitter:title" content="Adb常用命令 ">
-<meta name="twitter:description" content="常用命令 adb devices # 查看已连接PC的终端 adb shell # 连接终端 adb -s [devicesId] shell # 多台设备根据设备号连接终端 adb push xxx.apk /mnt/sdcard/xxx.apk # 将本地文件传送至手机 adb pull /mnt/sdcard/xxx.apk xxx.apk # 将手机中的文件传送至本地">
+<meta name="twitter:title" content="在Android shell下无法使用cp命令的解决方案 ">
+<meta name="twitter:description" content="在Android shell 下可能并没有安装cp命令，一般都不会安装。需要的可以自己安装busybox工具。在紧急的情况下可以使用cat命令来代替cp。 adb shell cd /mnt/sdcard cat xxx.apk &gt;&gt; yyy.apk # 将/mnt/sdcard目录下的xxx.apk复制为yyy.apk Busybox是一个集成了一百多个最常用linux命令和工具的软件。需要选择适合你手机cpu的版本来安装。查看手机CPU信息，根据Processor来选择安装版本。 cat /proc/cpuinfo Processor : ARMv7 Processor rev 2 (v7l) ... 将busybox复制到 /system/xbin 目录下，并修改文件权限，使其可执行。 cat busybox-armv7l &gt;&gt; /system/xbin/busybox chmod 775 busybox busybox ...">
 
-        <title>Adb常用命令  · Slade&#39;s blog 测试人的逼格修养
+        <title>在Android shell下无法使用cp命令的解决方案  · Slade&#39;s blog 测试人的逼格修养
 </title>
         <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
@@ -59,7 +59,7 @@
 <article>
 <div class="row-fluid">
     <header class="page-header span10 offset2">
-    <h1><a href="http://furiousslade.github.io/posts/2015/adbmore.html"> Adb常用命令  </a></h1>
+    <h1><a href="http://furiousslade.github.io/posts/2015/05/NoCpUseCat.html"> 在Android shell下无法使用cp命令的解决方案  </a></h1>
     </header>
 </div>
 
@@ -67,13 +67,28 @@
         <div class="span8 offset2 article-content">
 
             
-            <h1>常用命令</h1>
-<div class="highlight"><pre>adb devices     # 查看已连接PC的终端
-adb shell       # 连接终端
-adb -s [devicesId] shell    # 多台设备根据设备号连接终端
-adb push xxx.apk /mnt/sdcard/xxx.apk        # 将本地文件传送至手机    
-adb pull /mnt/sdcard/xxx.apk xxx.apk        # 将手机中的文件传送至本地
+            <p>在Android shell 下可能并没有安装cp命令，一般都不会安装。需要的可以自己安装busybox工具。在紧急的情况下可以使用cat命令来代替cp。</p>
+<div class="highlight"><pre>adb shell
+cd /mnt/sdcard  
+cat xxx.apk &gt;&gt; yyy.apk      # 将/mnt/sdcard目录下的xxx.apk复制为yyy.apk
 </pre></div>
+
+
+<p><a herf="http://www.busybox.net/downloads/binaries/" target="_black">Busybox</a>是一个集成了一百多个最常用linux命令和工具的软件。需要选择适合你手机cpu的版本来安装。查看手机CPU信息，根据Processor来选择安装版本。</p>
+<div class="highlight"><pre>cat /proc/cpuinfo
+Processor       : ARMv7 Processor rev 2 (v7l)
+...
+</pre></div>
+
+
+<p>将busybox复制到 /system/xbin 目录下，并修改文件权限，使其可执行。</p>
+<div class="highlight"><pre>cat busybox-armv7l &gt;&gt; /system/xbin/busybox
+chmod 775 busybox
+busybox --install
+</pre></div>
+
+
+<p>大功告成，现在就可以在Android shell下使用常用的linux命令了。</p>
             
             
             <hr/>
@@ -83,7 +98,7 @@ adb pull /mnt/sdcard/xxx.apk xxx.apk        # 将手机中的文件传送至本�
             <h4>Published</h4>
             <time pubdate="pubdate" datetime="2015-05-12T00:00:00+08:00">五月 12, 2015</time>
             <h4>Category</h4>
-            <a class="category-link" href="http://furiousslade.github.io/categories.html#test-ref">Test</a>
+            <a class="category-link" href="http://furiousslade.github.io/categories.html#work-ref">Work</a>
             <h4>Tags</h4>
             <ul class="list-of-tags tags-in-article">
                 <li><a href="http://furiousslade.github.io/tags.html#android-ref">Android
