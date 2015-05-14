@@ -10,18 +10,18 @@
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="Redmine, Work, " />
+<meta name="keywords" content="Android, Work, " />
 
-<meta property="og:title" content="Redmine异步发送邮件 "/>
-<meta property="og:url" content="http://furiousslade.github.io/posts/2015/05/RedmineEmail.html" />
-<meta property="og:description" content="当Redmine配置邮件后，会发现提交Bug等操作响应缓慢。是因为Redmine在确定邮件发送完成后才会返回提交成功的页面。设置成异步发送邮件，操作流程就流畅了。 vim /var/www/redmine/config/configuration.yml delivery_method：async_smtp or delivery_method: async_sendmail" />
+<meta property="og:title" content="在Android shell下无法使用cp命令的解决方案 "/>
+<meta property="og:url" content="http://furiousslade.github.io/posts/2015/NoCpUseCat.html" />
+<meta property="og:description" content="在Android shell 下可能并没有安装cp命令，一般都不会安装。需要的可以自己安装busybox工具。在紧急的情况下可以使用cat命令来代替cp。 adb shell cd /mnt/sdcard cat xxx.apk &gt;&gt; yyy.apk # 将/mnt/sdcard目录下的xxx.apk复制为yyy.apk Busybox是一个集成了一百多个最常用linux命令和工具的软件。需要选择适合你手机cpu的版本来安装。查看手机CPU信息，根据Processor来选择安装版本。 cat /proc/cpuinfo Processor : ARMv7 Processor rev 2 (v7l) ... 将busybox复制到 /system/xbin 目录下，并修改文件权限，使其可执行。 cat busybox-armv7l &gt;&gt; /system/xbin/busybox chmod 775 busybox busybox ..." />
 <meta property="og:site_name" content="Slade&#39;s blog 测试人的逼格修养" />
 <meta property="og:article:author" content="Slade" />
 <meta property="og:article:published_time" content="2015-05-12T00:00:00+08:00" />
-<meta name="twitter:title" content="Redmine异步发送邮件 ">
-<meta name="twitter:description" content="当Redmine配置邮件后，会发现提交Bug等操作响应缓慢。是因为Redmine在确定邮件发送完成后才会返回提交成功的页面。设置成异步发送邮件，操作流程就流畅了。 vim /var/www/redmine/config/configuration.yml delivery_method：async_smtp or delivery_method: async_sendmail">
+<meta name="twitter:title" content="在Android shell下无法使用cp命令的解决方案 ">
+<meta name="twitter:description" content="在Android shell 下可能并没有安装cp命令，一般都不会安装。需要的可以自己安装busybox工具。在紧急的情况下可以使用cat命令来代替cp。 adb shell cd /mnt/sdcard cat xxx.apk &gt;&gt; yyy.apk # 将/mnt/sdcard目录下的xxx.apk复制为yyy.apk Busybox是一个集成了一百多个最常用linux命令和工具的软件。需要选择适合你手机cpu的版本来安装。查看手机CPU信息，根据Processor来选择安装版本。 cat /proc/cpuinfo Processor : ARMv7 Processor rev 2 (v7l) ... 将busybox复制到 /system/xbin 目录下，并修改文件权限，使其可执行。 cat busybox-armv7l &gt;&gt; /system/xbin/busybox chmod 775 busybox busybox ...">
 
-        <title>Redmine异步发送邮件  · Slade&#39;s blog 测试人的逼格修养
+        <title>在Android shell下无法使用cp命令的解决方案  · Slade&#39;s blog 测试人的逼格修养
 </title>
         <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
@@ -59,7 +59,7 @@
 <article>
 <div class="row-fluid">
     <header class="page-header span10 offset2">
-    <h1><a href="http://furiousslade.github.io/posts/2015/05/RedmineEmail.html"> Redmine异步发送邮件  </a></h1>
+    <h1><a href="http://furiousslade.github.io/posts/2015/NoCpUseCat.html"> 在Android shell下无法使用cp命令的解决方案  </a></h1>
     </header>
 </div>
 
@@ -67,15 +67,28 @@
         <div class="span8 offset2 article-content">
 
             
-            <p>当Redmine配置邮件后，会发现提交Bug等操作响应缓慢。是因为Redmine在确定邮件发送完成后才会返回提交成功的页面。设置成异步发送邮件，操作流程就流畅了。</p>
-<div class="highlight"><pre>vim /var/www/redmine/config/configuration.yml
-delivery_method：async_smtp
+            <p>在Android shell 下可能并没有安装cp命令，一般都不会安装。需要的可以自己安装busybox工具。在紧急的情况下可以使用cat命令来代替cp。</p>
+<div class="highlight"><pre>adb shell
+cd /mnt/sdcard  
+cat xxx.apk &gt;&gt; yyy.apk      # 将/mnt/sdcard目录下的xxx.apk复制为yyy.apk
 </pre></div>
 
 
-<p>or</p>
-<div class="highlight"><pre><span class="n">delivery_method</span><span class="o">:</span> <span class="n">async_sendmail</span>
+<p><a herf="http://www.busybox.net/downloads/binaries/" target="_black">Busybox</a>是一个集成了一百多个最常用linux命令和工具的软件。需要选择适合你手机cpu的版本来安装。查看手机CPU信息，根据Processor来选择安装版本。</p>
+<div class="highlight"><pre>cat /proc/cpuinfo
+Processor       : ARMv7 Processor rev 2 (v7l)
+...
 </pre></div>
+
+
+<p>将busybox复制到 /system/xbin 目录下，并修改文件权限，使其可执行。</p>
+<div class="highlight"><pre>cat busybox-armv7l &gt;&gt; /system/xbin/busybox
+chmod 775 busybox
+busybox --install
+</pre></div>
+
+
+<p>大功告成，现在就可以在Android shell下使用常用的linux命令了。</p>
             
             
             <hr/>
@@ -88,7 +101,7 @@ delivery_method：async_smtp
             <a class="category-link" href="http://furiousslade.github.io/categories.html#work-ref">Work</a>
             <h4>Tags</h4>
             <ul class="list-of-tags tags-in-article">
-                <li><a href="http://furiousslade.github.io/tags.html#redmine-ref">Redmine
+                <li><a href="http://furiousslade.github.io/tags.html#android-ref">Android
                     <span>3</span>
 </a></li>
             </ul>

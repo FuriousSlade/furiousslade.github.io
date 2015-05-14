@@ -10,18 +10,18 @@
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="Redmine, Work, " />
+<meta name="keywords" content="Android, Work, " />
 
-<meta property="og:title" content="Redmine使用Mongrel服务器 "/>
-<meta property="og:url" content="http://furiousslade.github.io/posts/2015/05/InstallMongrel.html" />
-<meta property="og:description" content="由于Redmine自带的Webrick Web服务器发布的问题，需要使用Mongrel组件来替换Webrick。Mongrel是一种快速的针对Ruby的Http服务器，专门为部署发布ROR应用而产生的。Mongrel相比Rails自带的纯Ruby服务器Webrick速度快很多并支持并发访问，有望成为Ruby的Tomcat. 替换其自带的服务器webrick为mongrel，方法： gem install mongrel rails 3.1以上执行: gem install mongrel –pre 修改redmine下gemfile，在gemfile中加入： gem &#39;mongrel&#39; 如果安装的mongrel pre， 则gemfile中加: gem &#39;mongrel&#39;,&#39;~&gt; 1.2.0.pre2&#39; 删除gemfile.lock文件，重新执行: bundle install 执行 ruby script/rails server mongrel -e production" />
+<meta property="og:title" content="解决Android复制文件报“Read-only file system”的问题 "/>
+<meta property="og:url" content="http://furiousslade.github.io/posts/2015/ReadOnlyFileSystem.html" />
+<meta property="og:description" content="问题 当往android的/system目录下拷贝文件时一般是会报“Read-only file system”。因为/system目录默认是只读的。 解决方法 首先是获取手机的root权限后 adb shell su # 切换成ROOT用户 mount -o rw,remount /system #将/system目录设置为读写模式 mount -o ro,remount /system #将/system目录设置为只读模式" />
 <meta property="og:site_name" content="Slade&#39;s blog 测试人的逼格修养" />
 <meta property="og:article:author" content="Slade" />
-<meta property="og:article:published_time" content="2015-05-13T00:00:00+08:00" />
-<meta name="twitter:title" content="Redmine使用Mongrel服务器 ">
-<meta name="twitter:description" content="由于Redmine自带的Webrick Web服务器发布的问题，需要使用Mongrel组件来替换Webrick。Mongrel是一种快速的针对Ruby的Http服务器，专门为部署发布ROR应用而产生的。Mongrel相比Rails自带的纯Ruby服务器Webrick速度快很多并支持并发访问，有望成为Ruby的Tomcat. 替换其自带的服务器webrick为mongrel，方法： gem install mongrel rails 3.1以上执行: gem install mongrel –pre 修改redmine下gemfile，在gemfile中加入： gem &#39;mongrel&#39; 如果安装的mongrel pre， 则gemfile中加: gem &#39;mongrel&#39;,&#39;~&gt; 1.2.0.pre2&#39; 删除gemfile.lock文件，重新执行: bundle install 执行 ruby script/rails server mongrel -e production">
+<meta property="og:article:published_time" content="2015-05-12T00:00:00+08:00" />
+<meta name="twitter:title" content="解决Android复制文件报“Read-only file system”的问题 ">
+<meta name="twitter:description" content="问题 当往android的/system目录下拷贝文件时一般是会报“Read-only file system”。因为/system目录默认是只读的。 解决方法 首先是获取手机的root权限后 adb shell su # 切换成ROOT用户 mount -o rw,remount /system #将/system目录设置为读写模式 mount -o ro,remount /system #将/system目录设置为只读模式">
 
-        <title>Redmine使用Mongrel服务器  · Slade&#39;s blog 测试人的逼格修养
+        <title>解决Android复制文件报“Read-only file system”的问题  · Slade&#39;s blog 测试人的逼格修养
 </title>
         <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
@@ -59,7 +59,7 @@
 <article>
 <div class="row-fluid">
     <header class="page-header span10 offset2">
-    <h1><a href="http://furiousslade.github.io/posts/2015/05/InstallMongrel.html"> Redmine使用Mongrel服务器  </a></h1>
+    <h1><a href="http://furiousslade.github.io/posts/2015/ReadOnlyFileSystem.html"> 解决Android复制文件报“Read-only file system”的问题  </a></h1>
     </header>
 </div>
 
@@ -67,29 +67,15 @@
         <div class="span8 offset2 article-content">
 
             
-            <p>由于Redmine自带的Webrick Web服务器发布的问题，需要使用Mongrel组件来替换Webrick。Mongrel是一种快速的针对Ruby的Http服务器，专门为部署发布ROR应用而产生的。Mongrel相比Rails自带的纯Ruby服务器Webrick速度快很多并支持并发访问，有望成为Ruby的Tomcat.</p>
-<ol>
-<li>
-<p>替换其自带的服务器webrick为mongrel，方法：</p>
-<p><code>gem install mongrel</code></p>
-<p>rails 3.1以上执行:</p>
-<p><code>gem install mongrel –pre</code></p>
-</li>
-<li>
-<p>修改redmine下gemfile，在gemfile中加入：</p>
-<p><code>gem 'mongrel'</code></p>
-<p>如果安装的mongrel pre， 则gemfile中加:</p>
-<p><code>gem 'mongrel','~&gt; 1.2.0.pre2'</code></p>
-</li>
-<li>
-<p>删除gemfile.lock文件，重新执行: </p>
-<p><code>bundle install</code></p>
-</li>
-<li>
-<p>执行</p>
-<p><code>ruby script/rails server mongrel -e production</code></p>
-</li>
-</ol>
+            <h1>问题</h1>
+<p>当往android的/system目录下拷贝文件时一般是会报“Read-only file system”。因为/system目录默认是只读的。</p>
+<h1>解决方法</h1>
+<p>首先是获取手机的<strong>root权限</strong>后</p>
+<div class="highlight"><pre>adb shell
+su # 切换成ROOT用户
+mount -o rw,remount /system     #将/system目录设置为读写模式
+mount -o ro,remount /system     #将/system目录设置为只读模式
+</pre></div>
             
             
             <hr/>
@@ -97,12 +83,12 @@
         <section>
         <div class="span2" style="float:right;font-size:0.9em;">
             <h4>Published</h4>
-            <time pubdate="pubdate" datetime="2015-05-13T00:00:00+08:00">五月 13, 2015</time>
+            <time pubdate="pubdate" datetime="2015-05-12T00:00:00+08:00">五月 12, 2015</time>
             <h4>Category</h4>
             <a class="category-link" href="http://furiousslade.github.io/categories.html#work-ref">Work</a>
             <h4>Tags</h4>
             <ul class="list-of-tags tags-in-article">
-                <li><a href="http://furiousslade.github.io/tags.html#redmine-ref">Redmine
+                <li><a href="http://furiousslade.github.io/tags.html#android-ref">Android
                     <span>3</span>
 </a></li>
             </ul>
