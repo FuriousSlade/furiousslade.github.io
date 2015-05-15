@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://furiousslade.github.io/</loc>
-<lastmod>2015-05-15T22:46:34-00:00</lastmod>
+<lastmod>2015-05-15T22:56:50-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://furiousslade.github.io/archives.html</loc>
-<lastmod>2015-05-15T22:46:34-00:00</lastmod>
+<lastmod>2015-05-15T22:56:50-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://furiousslade.github.io/tags.html</loc>
-<lastmod>2015-05-15T22:46:34-00:00</lastmod>
+<lastmod>2015-05-15T22:56:50-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://furiousslade.github.io/categories.html</loc>
-<lastmod>2015-05-15T22:46:34-00:00</lastmod>
+<lastmod>2015-05-15T22:56:50-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -137,8 +137,15 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://furiousslade.github.io/tag/redmine.html</loc>
-<lastmod>2015-05-13T00:00:00+08:06</lastmod>
+<loc>http://furiousslade.github.io/tag/python.html</loc>
+<lastmod>2015-05-15T15:09:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://furiousslade.github.io/tag/robotium.html</loc>
+<lastmod>2015-05-15T15:40:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -151,14 +158,21 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://furiousslade.github.io/tag/android.html</loc>
-<lastmod>2015-05-15T15:40:00+08:06</lastmod>
+<loc>http://furiousslade.github.io/tag/redmine.html</loc>
+<lastmod>2015-05-15T00:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://furiousslade.github.io/tag/robotium.html</loc>
+<loc>http://furiousslade.github.io/tag/linux.html</loc>
+<lastmod>2015-05-15T00:00:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://furiousslade.github.io/tag/android.html</loc>
 <lastmod>2015-05-15T15:40:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
