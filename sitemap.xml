@@ -4,140 +4,140 @@ xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitem
 xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
-<loc>sladeblog.com/</loc>
-<lastmod>2015-05-15T08:11:51-00:00</lastmod>
+<loc>http://furiousslade.github.io/</loc>
+<lastmod>2015-05-15T08:33:46-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>sladeblog.com/archives.html</loc>
-<lastmod>2015-05-15T08:11:51-00:00</lastmod>
+<loc>http://furiousslade.github.io/archives.html</loc>
+<lastmod>2015-05-15T08:33:46-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>sladeblog.com/tags.html</loc>
-<lastmod>2015-05-15T08:11:51-00:00</lastmod>
+<loc>http://furiousslade.github.io/tags.html</loc>
+<lastmod>2015-05-15T08:33:46-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>sladeblog.com/categories.html</loc>
-<lastmod>2015-05-15T08:11:51-00:00</lastmod>
+<loc>http://furiousslade.github.io/categories.html</loc>
+<lastmod>2015-05-15T08:33:46-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>sladeblog.com/posts/2015/AppiumIOS.html</loc>
+<loc>http://furiousslade.github.io/posts/2015/AppiumIOS.html</loc>
 <lastmod>2015-05-13T00:00:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.7</priority>
 </url>
 
 <url>
-<loc>sladeblog.com/posts/2015/InstallMongrel.html</loc>
+<loc>http://furiousslade.github.io/posts/2015/InstallMongrel.html</loc>
 <lastmod>2015-05-13T00:00:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.7</priority>
 </url>
 
 <url>
-<loc>sladeblog.com/posts/2015/InstallRedmine.html</loc>
+<loc>http://furiousslade.github.io/posts/2015/InstallRedmine.html</loc>
 <lastmod>2015-05-13T00:00:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.7</priority>
 </url>
 
 <url>
-<loc>sladeblog.com/posts/2015/NoCpUseCat.html</loc>
+<loc>http://furiousslade.github.io/posts/2015/NoCpUseCat.html</loc>
 <lastmod>2015-05-12T00:00:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.7</priority>
 </url>
 
 <url>
-<loc>sladeblog.com/posts/2015/ReadOnlyFileSystem.html</loc>
+<loc>http://furiousslade.github.io/posts/2015/ReadOnlyFileSystem.html</loc>
 <lastmod>2015-05-12T00:00:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.7</priority>
 </url>
 
 <url>
-<loc>sladeblog.com/posts/2015/RedmineEmail.html</loc>
+<loc>http://furiousslade.github.io/posts/2015/RedmineEmail.html</loc>
 <lastmod>2015-05-12T00:00:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.7</priority>
 </url>
 
 <url>
-<loc>sladeblog.com/posts/2015/adbmore.html</loc>
+<loc>http://furiousslade.github.io/posts/2015/adbmore.html</loc>
 <lastmod>2015-05-12T00:00:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.7</priority>
 </url>
 
 <url>
-<loc>sladeblog.com/posts/2015/BlogStart.html</loc>
+<loc>http://furiousslade.github.io/posts/2015/BlogStart.html</loc>
 <lastmod>2015-05-11T00:00:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.7</priority>
 </url>
 
 <url>
-<loc>sladeblog.com/category/code</loc>
+<loc>http://furiousslade.github.io/category/code</loc>
 <lastmod>2015-05-13T00:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>sladeblog.com/category/diy</loc>
+<loc>http://furiousslade.github.io/category/diy</loc>
 <lastmod>2015-05-11T00:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>sladeblog.com/category/work</loc>
+<loc>http://furiousslade.github.io/category/work</loc>
 <lastmod>2015-05-13T00:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>sladeblog.com/tag/appium.html</loc>
+<loc>http://furiousslade.github.io/tag/appium.html</loc>
 <lastmod>2015-05-13T00:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>sladeblog.com/tag/redmine.html</loc>
+<loc>http://furiousslade.github.io/tag/redmine.html</loc>
 <lastmod>2015-05-13T00:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>sladeblog.com/tag/ios.html</loc>
+<loc>http://furiousslade.github.io/tag/ios.html</loc>
 <lastmod>2015-05-13T00:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>sladeblog.com/tag/android.html</loc>
+<loc>http://furiousslade.github.io/tag/android.html</loc>
 <lastmod>2015-05-12T00:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>sladeblog.com/author/slade.html</loc>
+<loc>http://furiousslade.github.io/author/slade.html</loc>
 <lastmod>2015-05-13T00:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
