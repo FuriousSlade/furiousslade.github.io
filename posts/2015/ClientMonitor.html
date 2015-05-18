@@ -10,18 +10,18 @@
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="Android, Work, " />
+<meta name="keywords" content="Android, iOS, Work, " />
 
-<meta property="og:title" content="在Android shell下无法使用cp命令的解决方案 "/>
-<meta property="og:url" content="http://furiousslade.github.io/posts/2015/NoCpUseCat.html" />
-<meta property="og:description" content="在Android shell 下可能并没有安装cp命令，一般都不会安装。需要的可以自己安装busybox工具。在紧急的情况下可以使用cat命令来代替cp。 adb shell cd /mnt/sdcard cat xxx.apk &gt;&gt; yyy.apk # 将/mnt/sdcard目录下的xxx.apk复制为yyy.apk Busybox是一个集成了一百多个最常用linux命令和工具的软件。需要选择适合你手机cpu的版本来安装。查看手机CPU信息，根据Processor来选择安装版本。 cat /proc/cpuinfo Processor : ARMv7 Processor rev 2 (v7l) ... 将busybox复制到 /system/xbin 目录下，并修改文件权限，使其可执行。 cat busybox-armv7l &gt;&gt; /system/xbin/busybox chmod 775 busybox busybox ..." />
+<meta property="og:title" content="移动客户端的性能监控 "/>
+<meta property="og:url" content="http://furiousslade.github.io/posts/2015/ClientMonitor.html" />
+<meta property="og:description" content="起因 在测试一款通话类APP时，需要精确的统计客户端的流量消耗，电量消耗，CPU，内存等指标。磕磕碰碰的最终还是顺利的完成。在测试Android客户端的程中我一开始使用了Android SDK中的DDMS工具。 DDMS ddms位于&#34;D:\adt-bundle-windows-x86\sdk\tools&#34;相似的目录下。运行ddms.bat 选择相应的应用进程例如：com.paobao.verytele 选择Network标签。可以看到该进程网络统计模块。 RX为下行数据，TX为上行数据。可选择统计数据的时间间隔（250ms），点击Start，就会开始采集数据。 因为DDMS使用起来并不是最符合我的需求，所以在这里只做简单的介绍，具体功能可以自己挖掘。 Emmagee 最终Android端我选择了网易开源项目Emmagee。支持中文，简单直观的选择应用开启统计，可设置采集间隔，并可以设置将报告发送至指定邮箱。报告为Excel格式，统计了APP的CPU、内存、流量、电量以及整体性能状态。 GT iOS端的性能监测工具找到了腾讯的项目GT ..." />
 <meta property="og:site_name" content="Slade&#39;s blog 测试人的逼格修养" />
 <meta property="og:article:author" content="Slade" />
-<meta property="og:article:published_time" content="2015-05-12T00:00:00+08:00" />
-<meta name="twitter:title" content="在Android shell下无法使用cp命令的解决方案 ">
-<meta name="twitter:description" content="在Android shell 下可能并没有安装cp命令，一般都不会安装。需要的可以自己安装busybox工具。在紧急的情况下可以使用cat命令来代替cp。 adb shell cd /mnt/sdcard cat xxx.apk &gt;&gt; yyy.apk # 将/mnt/sdcard目录下的xxx.apk复制为yyy.apk Busybox是一个集成了一百多个最常用linux命令和工具的软件。需要选择适合你手机cpu的版本来安装。查看手机CPU信息，根据Processor来选择安装版本。 cat /proc/cpuinfo Processor : ARMv7 Processor rev 2 (v7l) ... 将busybox复制到 /system/xbin 目录下，并修改文件权限，使其可执行。 cat busybox-armv7l &gt;&gt; /system/xbin/busybox chmod 775 busybox busybox ...">
+<meta property="og:article:published_time" content="2015-05-18T00:00:00+08:00" />
+<meta name="twitter:title" content="移动客户端的性能监控 ">
+<meta name="twitter:description" content="起因 在测试一款通话类APP时，需要精确的统计客户端的流量消耗，电量消耗，CPU，内存等指标。磕磕碰碰的最终还是顺利的完成。在测试Android客户端的程中我一开始使用了Android SDK中的DDMS工具。 DDMS ddms位于&#34;D:\adt-bundle-windows-x86\sdk\tools&#34;相似的目录下。运行ddms.bat 选择相应的应用进程例如：com.paobao.verytele 选择Network标签。可以看到该进程网络统计模块。 RX为下行数据，TX为上行数据。可选择统计数据的时间间隔（250ms），点击Start，就会开始采集数据。 因为DDMS使用起来并不是最符合我的需求，所以在这里只做简单的介绍，具体功能可以自己挖掘。 Emmagee 最终Android端我选择了网易开源项目Emmagee。支持中文，简单直观的选择应用开启统计，可设置采集间隔，并可以设置将报告发送至指定邮箱。报告为Excel格式，统计了APP的CPU、内存、流量、电量以及整体性能状态。 GT iOS端的性能监测工具找到了腾讯的项目GT ...">
 
-        <title>在Android shell下无法使用cp命令的解决方案  · Slade&#39;s blog 测试人的逼格修养
+        <title>移动客户端的性能监控  · Slade&#39;s blog 测试人的逼格修养
 </title>
         <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
@@ -59,7 +59,7 @@
 <article>
 <div class="row-fluid">
     <header class="page-header span10 offset2">
-    <h1><a href="http://furiousslade.github.io/posts/2015/NoCpUseCat.html"> 在Android shell下无法使用cp命令的解决方案  </a></h1>
+    <h1><a href="http://furiousslade.github.io/posts/2015/ClientMonitor.html"> 移动客户端的性能监控  </a></h1>
     </header>
 </div>
 
@@ -67,28 +67,23 @@
         <div class="span8 offset2 article-content">
 
             
-            <p>在Android shell 下可能并没有安装cp命令，一般都不会安装。需要的可以自己安装busybox工具。在紧急的情况下可以使用cat命令来代替cp。</p>
-<div class="highlight"><pre>adb shell
-cd /mnt/sdcard  
-cat xxx.apk &gt;&gt; yyy.apk      # 将/mnt/sdcard目录下的xxx.apk复制为yyy.apk
-</pre></div>
-
-
-<p><a herf="http://www.busybox.net/downloads/binaries/" target="_black">Busybox</a>是一个集成了一百多个最常用linux命令和工具的软件。需要选择适合你手机cpu的版本来安装。查看手机CPU信息，根据Processor来选择安装版本。</p>
-<div class="highlight"><pre>cat /proc/cpuinfo
-Processor       : ARMv7 Processor rev 2 (v7l)
-...
-</pre></div>
-
-
-<p>将busybox复制到 /system/xbin 目录下，并修改文件权限，使其可执行。</p>
-<div class="highlight"><pre>cat busybox-armv7l &gt;&gt; /system/xbin/busybox
-chmod 775 busybox
-busybox --install
-</pre></div>
-
-
-<p>大功告成，现在就可以在Android shell下使用常用的linux命令了。</p>
+            <h1>起因</h1>
+<p>在测试一款通话类APP时，需要精确的统计客户端的流量消耗，电量消耗，CPU，内存等指标。磕磕碰碰的最终还是顺利的完成。在测试Android客户端的程中我一开始使用了Android SDK中的DDMS工具。</p>
+<h2>DDMS</h2>
+<p>ddms位于"D:\adt-bundle-windows-x86\sdk\tools"相似的目录下。运行ddms.bat</p>
+<p><img alt="" src="http://ww1.sinaimg.cn/bmiddle/0067jSM2jw1es8e5cej4wj311y0kgn6v.jpg" /></p>
+<p>选择相应的应用进程例如：com.paobao.verytele 选择Network标签。可以看到该进程网络统计模块。</p>
+<p><img alt="" src="http://ww3.sinaimg.cn/bmiddle/0067jSM2jw1es8e8si1m1j30wq0i779j.jpg" /></p>
+<p><strong>RX</strong>为下行数据，<strong>TX</strong>为上行数据。可选择统计数据的时间间隔（250ms），点击Start，就会开始采集数据。</p>
+<p><img alt="" src="http://ww3.sinaimg.cn/bmiddle/0067jSM2jw1es8ea2im2wj30wq0i7gr7.jpg" /></p>
+<p>因为DDMS使用起来并不是最符合我的需求，所以在这里只做简单的介绍，具体功能可以自己挖掘。</p>
+<h2>Emmagee</h2>
+<p>最终Android端我选择了网易开源项目<a href="https://github.com/NetEase/Emmagee" target="_blank">Emmagee</a>。支持中文，简单直观的选择应用开启统计，可设置采集间隔，并可以设置将报告发送至指定邮箱。报告为Excel格式，统计了APP的CPU、内存、流量、电量以及整体性能状态。</p>
+<p><img src="https://github.com/andrewleo/pictures/raw/master/Emmagee/V2.0/homepage.png" width="180px" /></p>
+<p><img src="https://github.com/andrewleo/pictures/raw/master/Emmagee/V2.0/settings.png" width="180px" /></p>
+<p><img src="https://github.com/andrewleo/pictures/raw/master/Emmagee/V2.0/mailsettings.png" width="180px" /></p>
+<h2>GT</h2>
+<p>iOS端的性能监测工具找到了腾讯的项目<a href="http://gt.tencent.com/index.html" target="_blank">GT</a>.GT本身支持Android和iOS双平台，不过Android没有Emmagee更易用而已。iOS端是一个Framework包，必须嵌入APP工程。我让开发帮我集成进了APP中，同样可以统计APP的CPU、内存、流量、电量以及整体性能状态。</p>
             
             
             <hr/>
@@ -96,13 +91,16 @@ busybox --install
         <section>
         <div class="span2" style="float:right;font-size:0.9em;">
             <h4>Published</h4>
-            <time pubdate="pubdate" datetime="2015-05-12T00:00:00+08:00">五月 12, 2015</time>
+            <time pubdate="pubdate" datetime="2015-05-18T00:00:00+08:00">五月 18, 2015</time>
             <h4>Category</h4>
             <a class="category-link" href="http://furiousslade.github.io/categories.html#work-ref">Work</a>
             <h4>Tags</h4>
             <ul class="list-of-tags tags-in-article">
                 <li><a href="http://furiousslade.github.io/tags.html#android-ref">Android
                     <span>5</span>
+</a></li>
+                <li><a href="http://furiousslade.github.io/tags.html#ios-ref">iOS
+                    <span>2</span>
 </a></li>
             </ul>
     <h4>Social</h4>
