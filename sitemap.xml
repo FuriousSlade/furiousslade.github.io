@@ -5,30 +5,37 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://furiousslade.github.io/</loc>
-<lastmod>2015-05-20T00:44:47-00:00</lastmod>
+<lastmod>2015-06-01T22:54:47-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://furiousslade.github.io/archives.html</loc>
-<lastmod>2015-05-20T00:44:47-00:00</lastmod>
+<lastmod>2015-06-01T22:54:47-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://furiousslade.github.io/tags.html</loc>
-<lastmod>2015-05-20T00:44:47-00:00</lastmod>
+<lastmod>2015-06-01T22:54:47-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://furiousslade.github.io/categories.html</loc>
-<lastmod>2015-05-20T00:44:47-00:00</lastmod>
+<lastmod>2015-06-01T22:54:47-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://furiousslade.github.io/posts/2015/AdbError.html</loc>
+<lastmod>2015-06-01T00:00:00+08:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
 </url>
 
 <url>
@@ -131,7 +138,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://furiousslade.github.io/category/work</loc>
-<lastmod>2015-05-18T00:00:00+08:06</lastmod>
+<lastmod>2015-06-01T00:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -173,14 +180,14 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://furiousslade.github.io/tag/android.html</loc>
-<lastmod>2015-05-18T00:00:00+08:06</lastmod>
+<lastmod>2015-06-01T00:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://furiousslade.github.io/author/slade.html</loc>
-<lastmod>2015-05-18T00:00:00+08:06</lastmod>
+<lastmod>2015-06-01T00:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
