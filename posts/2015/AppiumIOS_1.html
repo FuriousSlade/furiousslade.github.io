@@ -14,12 +14,12 @@
 
 <meta property="og:title" content="基于Appium实现IOS自动化测试 "/>
 <meta property="og:url" content="http://furiousslade.github.io/posts/2015/AppiumIOS_1.html" />
-<meta property="og:description" content="基于appium的ios自动化测试的实现 appium的安装 要实现ios自动化前提是有一台Mac OS X操作系统的设备可以是正统的mac或是黑苹果。然后去appium官网下载appium服务端。osx上不推荐使用命令行安装，因为命令行看装会缺失appium inspector这个重要的元素定位工具。建议使用dmg安装包安装appium。然后在安装相应的appium client，我用的是python。pip install appium-python-client来完成client的安装。 ios演示Demo的创建 先安装xcode。因为没有开发者证书所以只能用ios模拟器来演示，在这里不多说了。从https://github.com/appium/sample-code上下载appium的演示DEMO。下载后进入 sample-code/apps/TestApp 目录下执行 xcodebuild -sdk iphonesimulator 来编译所需的TestApp。看到 BUILD SUCCEEDED TestApp就编译成功了。 在 sample-code-master/sample-code/apps/TestApp/build ..." />
+<meta property="og:description" content="Appium的安装 要实现ios自动化前提是有一台Mac OS X操作系统的设备可以是正统的mac或是黑苹果。然后去appium官网下载appium服务端。osx上不推荐使用命令行安装，因为命令行看装会缺失appium inspector这个重要的元素定位工具。建议使用dmg安装包安装appium。然后在安装相应的appium client，我用的是python。pip install appium-python-client来完成client的安装。 iOS演示Demo的创建 先安装xcode。因为没有开发者证书所以只能用ios模拟器来演示，在这里不多说了。从https://github.com/appium/sample-code上下载appium的演示DEMO。 下载后进入sample-code/apps/TestApp目录下 执行xcodebuild -sdk iphonesimulator来编译所需的TestApp。 看到BUILD SUCCEEDEDTestApp就编译成功了。 在sample-code-master/sample-code/apps/TestApp/build ..." />
 <meta property="og:site_name" content="Slade&#39;s blog 测试人的逼格修养" />
 <meta property="og:article:author" content="Slade" />
 <meta property="og:article:published_time" content="2015-06-29T17:30:00+08:00" />
 <meta name="twitter:title" content="基于Appium实现IOS自动化测试 ">
-<meta name="twitter:description" content="基于appium的ios自动化测试的实现 appium的安装 要实现ios自动化前提是有一台Mac OS X操作系统的设备可以是正统的mac或是黑苹果。然后去appium官网下载appium服务端。osx上不推荐使用命令行安装，因为命令行看装会缺失appium inspector这个重要的元素定位工具。建议使用dmg安装包安装appium。然后在安装相应的appium client，我用的是python。pip install appium-python-client来完成client的安装。 ios演示Demo的创建 先安装xcode。因为没有开发者证书所以只能用ios模拟器来演示，在这里不多说了。从https://github.com/appium/sample-code上下载appium的演示DEMO。下载后进入 sample-code/apps/TestApp 目录下执行 xcodebuild -sdk iphonesimulator 来编译所需的TestApp。看到 BUILD SUCCEEDED TestApp就编译成功了。 在 sample-code-master/sample-code/apps/TestApp/build ...">
+<meta name="twitter:description" content="Appium的安装 要实现ios自动化前提是有一台Mac OS X操作系统的设备可以是正统的mac或是黑苹果。然后去appium官网下载appium服务端。osx上不推荐使用命令行安装，因为命令行看装会缺失appium inspector这个重要的元素定位工具。建议使用dmg安装包安装appium。然后在安装相应的appium client，我用的是python。pip install appium-python-client来完成client的安装。 iOS演示Demo的创建 先安装xcode。因为没有开发者证书所以只能用ios模拟器来演示，在这里不多说了。从https://github.com/appium/sample-code上下载appium的演示DEMO。 下载后进入sample-code/apps/TestApp目录下 执行xcodebuild -sdk iphonesimulator来编译所需的TestApp。 看到BUILD SUCCEEDEDTestApp就编译成功了。 在sample-code-master/sample-code/apps/TestApp/build ...">
 
         <title>基于Appium实现IOS自动化测试  · Slade&#39;s blog 测试人的逼格修养
 </title>
@@ -67,22 +67,18 @@
         <div class="span8 offset2 article-content">
 
             
-            <h1>基于appium的ios自动化测试的实现</h1>
-<h2>appium的安装</h2>
+            <h2>Appium的安装</h2>
 <p>要实现ios自动化前提是有一台Mac OS X操作系统的设备可以是正统的mac或是黑苹果。然后去<a href='http://appium.io' target='_blank'>appium官网</a>下载appium服务端。osx上不推荐使用命令行安装，因为命令行看装会缺失appium inspector这个重要的元素定位工具。建议使用dmg安装包安装appium。然后在安装相应的appium client，我用的是python。<code>pip install appium-python-client</code>来完成client的安装。</p>
-<h2>ios演示Demo的创建</h2>
-<p>先安装<strong>xcode</strong>。因为没有开发者证书所以只能用ios模拟器来演示，在这里不多说了。从<a href="https://github.com/appium/sample-code" target="_blank">https://github.com/appium/sample-code</a>上下载appium的演示DEMO。下载后进入
-<code>sample-code/apps/TestApp</code>
-目录下执行
-<code>xcodebuild -sdk iphonesimulator</code>
-来编译所需的TestApp。看到
-<code>BUILD SUCCEEDED</code>
-TestApp就编译成功了。
-在
-<code>sample-code-master/sample-code/apps/TestApp/build/release-iphonesimulator</code>
-目录下可以看到TestApp.app就是后面所需要使用的app。</p>
-<h2>appium的配置</h2>
-<p>启动appium,点击<strong>苹果</strong>图标.
+<h2>iOS演示Demo的创建</h2>
+<p>先安装<strong>xcode</strong>。因为没有开发者证书所以只能用ios模拟器来演示，在这里不多说了。从<a href="https://github.com/appium/sample-code" target="_blank">https://github.com/appium/sample-code</a>上下载appium的演示DEMO。</p>
+<ol>
+<li>下载后进入<code>sample-code/apps/TestApp</code>目录下</li>
+<li>执行<code>xcodebuild -sdk iphonesimulator</code>来编译所需的TestApp。</li>
+<li>看到<code>BUILD SUCCEEDED</code>TestApp就编译成功了。</li>
+<li>在<code>sample-code-master/sample-code/apps/TestApp/build/release-iphonesimulator</code>目录下可以看到TestApp.app就是后面所需要使用的app。</li>
+</ol>
+<h2>Appium的配置</h2>
+<p>启动appium,点击<strong>苹果</strong>图标。
 <img alt="" src="http://ww2.sinaimg.cn/large/0067jSM2gw1etlbot0j3fj31100wemzq.jpg" />
 点击”Choose”,选择之前编译生成的TestApp.app。并选择模拟设备”iPhone6"，系统版本为”8.3”。最后再次点击苹果图标确认设置。
 <img alt="" src="http://ww1.sinaimg.cn/large/0067jSM2gw1etlbp3wwuxj31280wejyc.jpg" />
