@@ -4,6 +4,7 @@
         <meta charset="utf-8"> 
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
         <meta name="author" content="Slade" />
         <meta name="copyright" content="Slade" />
 
@@ -15,17 +16,24 @@
 <meta property="og:title" content="Install Redmine on Centos "/>
 <meta property="og:url" content="http://furiousslade.github.io/posts/2015/InstallRedmine.html" />
 <meta property="og:description" content="Install Redmine on Centos 65 dependencies packages These are the basic software packages for environment settings and utility tools to compile other packages in the next section. Copy the block command and execute in the Putty Windows : This is a long command line, copy all and implementation. yum -y install ..." />
-<meta property="og:site_name" content="Slade&#39;s blog 测试人的逼格修养" />
+<meta property="og:site_name" content="Slade == u&#39;死累的&#39;" />
 <meta property="og:article:author" content="Slade" />
 <meta property="og:article:published_time" content="2015-05-13T00:00:00+08:00" />
 <meta name="twitter:title" content="Install Redmine on Centos ">
 <meta name="twitter:description" content="Install Redmine on Centos 65 dependencies packages These are the basic software packages for environment settings and utility tools to compile other packages in the next section. Copy the block command and execute in the Putty Windows : This is a long command line, copy all and implementation. yum -y install ...">
 
-        <title>Install Redmine on Centos  · Slade&#39;s blog 测试人的逼格修养
+        <title>Install Redmine on Centos  · Slade == u&#39;死累的&#39;
 </title>
-        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
-        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <!-- <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet"> -->
+
+        <link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/bootstrap/2.3.2/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="http://cdn.bootcss.com/bootstrap/2.3.2/css/bootstrap-responsive.min.css">
+
+
+
+        <link href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="http://furiousslade.github.io/theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://furiousslade.github.io/theme/tipuesearch/tipuesearch.css" media="screen">
         <link rel="stylesheet" type="text/css" href="http://furiousslade.github.io/theme/css/elegant.css" media="screen">
         <link rel="stylesheet" type="text/css" href="http://furiousslade.github.io/theme/css/custom.css" media="screen">
     </head>
@@ -39,14 +47,14 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </a>
-                    <a class="brand" href="http://furiousslade.github.io/"><span class=site-name>Slade's blog 测试人的逼格修养</span></a>
+                    <a class="brand" href="http://furiousslade.github.io/"><span class=site-name>Slade == u'死累的'</span></a>
                     <div class="nav-collapse collapse">
                         <ul class="nav pull-right top-menu">
                             <li ><a href="http://furiousslade.github.io">Home</a></li>
                             <li ><a href="http://furiousslade.github.io/categories.html">Categories</a></li>
                             <li ><a href="http://furiousslade.github.io/tags.html">Tags</a></li>
                             <li ><a href="http://furiousslade.github.io/archives.html">Archives</a></li>
-                            <li><form class="navbar-search"><input type="text" class="st-default-search-input" style="padding-left:25px;"></form></li>
+                            <li><form class="navbar-search" action="http://furiousslade.github.io/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
                         </ul>
                     </div>
                 </div>
@@ -67,17 +75,15 @@
         <div class="span8 offset2 article-content">
 
             
-            <h1>Install Redmine on Centos 65</h1>
-<h2>dependencies packages</h2>
+            <h1 id="install-redmine-on-centos-65">Install Redmine on Centos 65</h1>
+<h2 id="dependencies-packages">dependencies packages</h2>
 <p>These are the basic software packages for environment settings and utility tools to compile other packages in the next section.
 Copy the block command and execute in the Putty Windows :
 This is a long command line, copy all and implementation.</p>
-<div class="highlight"><pre>yum -y install nano zip unzip libyaml-devel zlib-devel curl-devel openssl-devel httpd-devel apr-devel apr-util-devel mysql-devel gcc ruby-devel gcc-c++ make postgresql-devel ImageMagick-devel sqlite-devel perl-LDAP mod_perl perl-Digest-SHA
-</pre></div>
-
-
+<pre><code>yum -y install nano zip unzip libyaml-devel zlib-devel curl-devel openssl-devel httpd-devel apr-devel apr-util-devel mysql-devel gcc ruby-devel gcc-c++ make postgresql-devel ImageMagick-devel sqlite-devel perl-LDAP mod_perl perl-Digest-SHA
+</code></pre>
 <p><img alt="" src="http://ww2.sinaimg.cn/large/0067jSM2jw9es2omiwa33j30kj0c8tft.jpg" /></p>
-<h2>Install Apache and MySQL</h2>
+<h2 id="install-apache-and-mysql">Install Apache and MySQL</h2>
 <p>Apache is a server application for communicating over the HTTP protocol. Apache runs on operating systems such as Unix, Linux, Microsoft Windows, and other operating systems.
 Apache play an important role in the development of the internet and the world wide web.
 MySQL is the database management free open source most popular on the world, MySQL has high speed, stability and ease of use, portability, operating on multiple operating systems offer a large system is very powerful utility functions.
@@ -101,19 +107,19 @@ Delete the test database, select Yes
 Remove test database and access to it? [Y/n] y
 Reload privilege tables, select Yes
 Reload privilege tables now? [Y/n] y</p>
-<h2>Turn off SELinux</h2>
+<h2 id="turn-off-selinux">Turn off SELinux</h2>
 <p>SELinux is a security feature advanced for Linux operating system, when installing the system you need to turn off this feature to get the process done smoothly, after successful you can turn on back if you want.
 nano /etc/selinux/config
 Change the file content :
 SELINUX=disabled</p>
 <p><img alt="" src="http://ww1.sinaimg.cn/mw690/0067jSM2jw9es2omiub74j30ku0ctq8k.jpg" /></p>
 <p>Press CTRL + O to save the file and press CTRL + X to exit.</p>
-<h2>Set up the Hostname</h2>
+<h2 id="set-up-the-hostname">Set up the Hostname</h2>
 <p>By default when installing a new OS Centos not set the hostname, so we need to setting with the command :
 nano /etc/hosts</p>
 <p><img alt="" src="http://ww1.sinaimg.cn/mw690/0067jSM2jw9es2omjawb7j30ku0ctjui.jpg" /></p>
 <p>Add your domain name or host name that you set on both the command line, save the file and exit, the server name will be changed when restarting.</p>
-<h2>Configuring the Firewall</h2>
+<h2 id="configuring-the-firewall">Configuring the Firewall</h2>
 <p>We do not want to turn off the firewall because it's quite important, so you need to add rules to allow port 80 for HTTP and port 443 for HTTPS.
 In the Centos OS, you can configuration firewall by editing files iptables and ip6tables.
 nano /etc/sysconfig/iptables</p>
@@ -131,7 +137,7 @@ Allow turn on the firewall when reboot the operating system.
 chkconfig iptables onchkconfig ip6tables on
 Finally, we need to restart the system to apply the changes to the SELinux and Hostname.
 reboot</p>
-<h2>Install Ruby</h2>
+<h2 id="install-ruby">Install Ruby</h2>
 <p>Ruby is a object-oriented programming language, capable of reflection. Syntax inherited from Ada and Perl with object-oriented features of Smalltalk, and also share some features with Python, Lisp, Dylan and CLU, Ruby is a single phase interpreter.
 Ruby provides programming patterns, including functional programming, object-oriented, imperative, reflective, it uses dynamic variable and automatic memory management.
 Install Ruby interpreter with version management program RVM.</p>
@@ -146,36 +152,32 @@ Install Ruby interpreter with version management program RVM.</p>
 <p><img alt="" src="http://ww3.sinaimg.cn/mw690/0067jSM2jw9es2omiudd4j30l50cttfj.jpg" /></p>
 <p>The installation process is pretty long time, but you do not need any intervention, after successful, you check with the following command :</p>
 <p><code>ruby -v</code></p>
-<h2>Install Rubygems</h2>
+<h2 id="install-rubygems">Install Rubygems</h2>
 <p>Rubygems is a Ruby's packages management program, very popular in applications written by Ruby language and the Ruby On Rails framework.</p>
 <p><code>yum -y install rubygems</code></p>
 <p><img alt="" src="http://ww1.sinaimg.cn/mw690/0067jSM2jw9es2omiu51aj30l50ctwkf.jpg" /></p>
-<h2>Install Passenger</h2>
+<h2 id="install-passenger">Install Passenger</h2>
 <p>The full name of the Passenger is Phusion Passenger, known as mod_rails or mod_rack, it is a web application intergrate with Apache and it can operate as a standalone web server support for the Ruby On Rails applications.
 Execute the following commands :</p>
 <p><code>gem install passengerpassenger-install-apache2-module</code></p>
 <p><img alt="" src="http://ww1.sinaimg.cn/mw690/0067jSM2jw9es2omiwh1cj30l50ctn2n.jpg" /></p>
 <p>After completed, we copy a notification block in the window to create the configuration file in the next steps (select block notification and press C to copy).
 LoadModule passenger_module /usr/local/rvm/gems/ruby-1.9.3-p545/gems/passenger-4.0.37/buildout/apache2/mod_passenger.so </p>
-<div class="highlight"><pre> PassengerRoot /usr/local/rvm/gems/ruby- 
+<pre><code> PassengerRoot /usr/local/rvm/gems/ruby- 
  1.9.3-p545/gems/passenger- 
  4.0.37 PassengerDefaultRuby /usr/local/rvm/gems/ruby- 
  1.9.3-p545/wrappers/ruby
-</pre></div>
-
-
+</code></pre>
 <p>Create a new virtual host file for Passenger :</p>
 <p><code>nano /etc/httpd/conf.d/passenger.conf</code></p>
 <p>Paste the command blocks into the empty file and save it, then restart the Apache service.</p>
 <p><code>service httpd restart</code></p>
-<h2>Create Database for Redmine</h2>
+<h2 id="create-database-for-redmine">Create Database for Redmine</h2>
 <p>Use MySQLAdmin to create an empty database for Redmine, saved password to fill in the configuration file in the next steps.</p>
-<div class="highlight"><pre>mysql --user=root --password=root_password_mysqlcreate database redmine_db character set utf8;create user &#39;redmine_admin&#39;@&#39;localhost&#39; identified by &#39;your_new_password&#39;;grant all privileges on redmine_db.* to &#39;redmine_admin&#39;@&#39;localhost&#39;;quit;
-</pre></div>
-
-
+<pre><code>mysql --user=root --password=root_password_mysqlcreate database redmine_db character set utf8;create user 'redmine_admin'@'localhost' identified by 'your_new_password';grant all privileges on redmine_db.* to 'redmine_admin'@'localhost';quit;
+</code></pre>
 <p><img alt="" src="http://ww4.sinaimg.cn/mw690/0067jSM2jw9es2omjc7poj30l50ctq7x.jpg" /></p>
-<h2>Install Redmine</h2>
+<h2 id="install-redmine">Install Redmine</h2>
 <p>Redmine is a main program of the project management system, we will download and install the program from the website of Redmine.
 Download Redmine version 2.5.x to directory "/var/www" on the Centos OS.</p>
 <p><code>cd /var/wwwwget http://www.redmine.org/releases/redmine-2.5.0.tar.gz</code></p>
@@ -186,35 +188,27 @@ The next, we need to configure the database was created from the above steps.</p
 <p><code>cd /var/www/redmine/configcp database.yml.example database.ymlnano database.yml</code></p>
 <p><img alt="" src="http://ww1.sinaimg.cn/mw690/0067jSM2jw9es2omixlf0j30l50ctn2r.jpg" /></p>
 <p>Enter name for database, enter username and password of the database. Press CTRL + O to save the file and CTRL + X to exit.</p>
-<h2>Setting up Rails</h2>
+<h2 id="setting-up-rails">Setting up Rails</h2>
 <p>Install the package library support for Rails using the Bundle.</p>
-<div class="highlight"><pre>cd /var/www/redminegem install bundlerbundle installrake generate_secret_token
-</pre></div>
-
-
+<pre><code>cd /var/www/redminegem install bundlerbundle installrake generate_secret_token
+</code></pre>
 <p><img alt="" src="http://ww4.sinaimg.cn/mw690/0067jSM2jw9es2omiud01j30l50ctwjt.jpg" /></p>
 <p>The next, we create the database table for the Redmine application.
 RAILS_ENV=production rake db:migrateRAILS_ENV=production rake redmine:load_default_data</p>
-<h2>Activate FCGI</h2>
-<div class="highlight"><pre>cd /var/www/redmine/publicmkdir plugin_assetscp dispatch.fcgi.example dispatch.fcgicp htaccess.fcgi.example .htaccess
-</pre></div>
-
-
-<h2>Setting up Apache and FastCGI</h2>
-<div class="highlight"><pre><span class="n">cd</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">rpm</span> <span class="o">--</span><span class="kn">import</span> <span class="nn">https</span><span class="p">:</span><span class="o">//</span><span class="n">fedoraproject</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">static</span><span class="o">/</span><span class="mo">060</span><span class="mi">8</span><span class="n">B895</span><span class="o">.</span><span class="n">txtwget</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">dl</span><span class="o">.</span><span class="n">fedoraproject</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">pub</span><span class="o">/</span><span class="n">epel</span><span class="o">/</span><span class="mi">6</span><span class="o">/</span><span class="n">x86_64</span><span class="o">/</span><span class="n">epel</span><span class="o">-</span><span class="n">release</span><span class="o">-</span><span class="mi">6</span><span class="o">-</span><span class="mf">8.</span><span class="n">noarch</span><span class="o">.</span><span class="n">rpmrpm</span> <span class="o">-</span><span class="n">ivh</span> <span class="n">epel</span><span class="o">-</span><span class="n">release</span><span class="o">-</span><span class="mi">6</span><span class="o">-</span><span class="mf">8.</span><span class="n">noarch</span><span class="o">.</span><span class="n">rpmyum</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">mod_fcgidrm</span> <span class="o">-</span><span class="n">rf</span> <span class="n">epel</span><span class="o">-</span><span class="n">release</span><span class="o">-</span><span class="mi">6</span><span class="o">-</span><span class="mf">8.</span><span class="n">noarch</span><span class="o">.</span><span class="n">rpm</span>
-</pre></div>
-
-
-<h2>Creating Files Directory</h2>
+<h2 id="activate-fcgi">Activate FCGI</h2>
+<pre><code>cd /var/www/redmine/publicmkdir plugin_assetscp dispatch.fcgi.example dispatch.fcgicp htaccess.fcgi.example .htaccess
+</code></pre>
+<h2 id="setting-up-apache-and-fastcgi">Setting up Apache and FastCGI</h2>
+<pre><code>cd /var/www/rpm --import https://fedoraproject.org/static/0608B895.txtwget http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpmrpm -ivh epel-release-6-8.noarch.rpmyum -y install mod_fcgidrm -rf epel-release-6-8.noarch.rpm
+</code></pre>
+<h2 id="creating-files-directory">Creating Files Directory</h2>
 <p>This directory contains data files generated during the operation of Redmine as document or image file, we create a new directory in the "/opt".</p>
-<div class="highlight"><pre>mkdir -p /opt/redmine/fileschown -R apache:apache /opt/redminecd /var/www/redmine/configcp configuration.yml.example configuration.ymlnano configuration.yml
-</pre></div>
-
-
+<pre><code>mkdir -p /opt/redmine/fileschown -R apache:apache /opt/redminecd /var/www/redmine/configcp configuration.yml.example configuration.ymlnano configuration.yml
+</code></pre>
 <p><img alt="" src="http://ww4.sinaimg.cn/mw690/0067jSM2jw9es2omiu1kej30l50ct0zk.jpg" /></p>
 <p>Enter the directory path containing the data files you just created in the previous step into the line "attachments_storage_path".
 Note: You must add a space at the begin of the path "/opt/redmine/files" after character ":"</p>
-<h2>Configuring Email</h2>
+<h2 id="configuring-email">Configuring Email</h2>
 <p>Another very important function of Redmine is using email to notify members when the contents of each project changes, Redmine can use many different methods to send email that is Sendmail, SMTP, GMail ...
 To configure the email we will edit the configuration file.</p>
 <p><code>nano /var/www/redmine/config/configuration.yml</code></p>
@@ -223,46 +217,36 @@ To configure the email we will edit the configuration file.</p>
 <p>Note : Do not use the Tab key to indent when editing the configuration file, you need to use the space bar on the keyboard.
 If you use GMail's SMTP, you need to register an email account with the login methods used password normal and disable two-step authentication by smart phone.
 Enter your Gmail account as below :</p>
-<div class="highlight"><pre><span class="n">email_delivery</span><span class="o">:</span><span class="n">delivery_method</span><span class="o">:</span> <span class="o">:</span><span class="n">smtp</span> <span class="n">smtp_settings</span><span class="o">:</span> <span class="n">enable_starttls_auto</span><span class="o">:</span> <span class="kc">true</span> <span class="n">address</span><span class="o">:</span> <span class="s2">&quot;smtp.gmail.com&quot;</span> <span class="n">port</span><span class="o">:</span> <span class="mi">587</span> <span class="n">domain</span><span class="o">:</span> <span class="s2">&quot;smtp.gmail.com&quot;</span> <span class="n">authentication</span><span class="o">:</span> <span class="o">:</span><span class="n">plain</span> <span class="n">user_name</span><span class="o">:</span> <span class="s2">&quot;your_email@gmail.com&quot;</span> <span class="n">password</span><span class="o">:</span> <span class="s2">&quot;your_password&quot;</span>
-</pre></div>
-
-
+<pre><code>email_delivery:delivery_method: :smtp smtp_settings: enable_starttls_auto: true address: "smtp.gmail.com" port: 587 domain: "smtp.gmail.com" authentication: :plain user_name: "your_email@gmail.com" password: "your_password"
+</code></pre>
 <p>Save the file configuration and exit.</p>
-<h2>Create Virtual Host for Redmine</h2>
+<h2 id="create-virtual-host-for-redmine">Create Virtual Host for Redmine</h2>
 <p>Create an Apache configuration file for the Redmine application at the port 80.</p>
 <p><code>nano /etc/httpd/conf.d/redmine.conf</code></p>
 <p>Copy the text below and paste into the editor window, note the information to change your domain name.
 80&gt; ServerName your_domain ServerAdmin your_domain </p>
-<div class="highlight"><pre> @domain.com DocumentRoot /var/www/redmine/public/ ErrorLog logs/redmine_error_log 
- &quot;/var/www/redmine/public/&quot;&gt; Options Indexes ExecCGI FollowSymLinks Order allow,deny Allow from all AllowOverride all
-</pre></div>
-
-
+<pre><code> @domain.com DocumentRoot /var/www/redmine/public/ ErrorLog logs/redmine_error_log 
+ "/var/www/redmine/public/"&gt; Options Indexes ExecCGI FollowSymLinks Order allow,deny Allow from all AllowOverride all
+</code></pre>
 <p>Save the file configuration and exit.</p>
-<h2>Running Redmine</h2>
+<h2 id="running-redmine">Running Redmine</h2>
 <p>Before execute Redmine in the first time, we must permission for the directory installed Redmine and restart Apache service.</p>
-<div class="highlight"><pre>cd /var/wwwchown -R apache:apache redminechmod -R 755 redmineservice httpd restart
-</pre></div>
-
-
+<pre><code>cd /var/wwwchown -R apache:apache redminechmod -R 755 redmineservice httpd restart
+</code></pre>
 <p><img alt="" src="http://ww2.sinaimg.cn/mw690/0067jSM2jw9es2omja76jj30ip0b5t9p.jpg" /></p>
 <p>Redmine will run at the following address URL :
 http://your-domain
 Login to system with an administrator account : admin / admin
 You can change your password after successful login.
 We can see Redmine has running but very primitive, in the next steps we will install the support plugins and customized Redmine to use professional.</p>
-<h2>Install Subversion</h2>
+<h2 id="install-subversion">Install Subversion</h2>
 <p>Subversion, also known as SVN, it is a version management system is very popular and easy to use, most programmers can use it competently.
 We need to create a folder to store data for Redmine, the following command creates a directory and permissions for the Apache service.</p>
-<div class="highlight"><pre>mkdir -p /opt/repositories/svnchown -R apache:apache /opt/repositories/chmod 0755 /opt/repositories
-</pre></div>
-
-
+<pre><code>mkdir -p /opt/repositories/svnchown -R apache:apache /opt/repositories/chmod 0755 /opt/repositories
+</code></pre>
 <p>The following command install Subversion and the packages :</p>
-<div class="highlight"><pre>yum install mod_dav_svn subversion subversion-ruby
-</pre></div>
-
-
+<pre><code>yum install mod_dav_svn subversion subversion-ruby
+</code></pre>
 <p><img alt="" src="http://ww4.sinaimg.cn/mw690/0067jSM2jw9es2omjdnw1j30l50ctn1r.jpg" /></p>
 <p>The next, we will create a directory and copy the file called "Redmine.pm", it responsible for interface data repository with Redmine and it is written by Perl language programming.
     mkdir /usr/lib64/perl5/vendor_perl/Apacheln -s /var/www/redmine/extra/svn/Redmine.pm /usr/lib64/perl5/vendor_perl/Apache/Redmine.pm</p>
@@ -272,16 +256,14 @@ To support the authentication and access to data repository for each member, we 
 <p><code>nano /etc/httpd/conf.d/subversion.conf</code></p>
 <p>Add the following lines to the end and still retain the old contents of the file :
 PerlLoadModule Apache::Redmine </p>
-<div class="highlight"><pre>  <span class="nt">DAV</span> <span class="nt">svn</span> <span class="nt">SVNParentPath</span> 
- <span class="s2">&quot;/opt/repositories/svn&quot;</span> <span class="nt">SVNListParentPath</span> <span class="nt">on</span> <span class="nt">Order</span> <span class="nt">deny</span><span class="o">,</span><span class="nt">allow</span> <span class="nt">Deny</span> <span class="nt">from</span> <span class="nt">all</span> <span class="nt">Satisfy</span> <span class="nt">any</span> <span class="nt">LimitXMLRequestBody</span> 
- <span class="nt">0</span> <span class="nt">SVNPathAuthz</span> <span class="nt">off</span> <span class="nt">PerlAccessHandler</span> <span class="nt">Apache</span><span class="o">:</span><span class="nd">:Authn</span><span class="o">:</span><span class="nd">:Redmine</span><span class="o">:</span><span class="nd">:access_handler</span> <span class="nt">PerlAuthenHandler</span> <span class="nt">Apache</span><span class="o">:</span><span class="nd">:Authn</span><span class="o">:</span><span class="nd">:Redmine</span><span class="o">:</span><span class="nd">:authen_handler</span> <span class="nt">AuthType</span> <span class="nt">Basic</span> <span class="nt">AuthName</span> 
- <span class="s2">&quot;Subversion Repository&quot;</span> <span class="nt">Require</span> <span class="nt">valid-user</span> <span class="nt">RedmineDSN</span> 
- <span class="s2">&quot;DBI:mysql:database=redmine_db;host=localhost:3306&quot;</span> <span class="nt">RedmineDbUser</span> 
- <span class="s2">&quot;redmine_admin&quot;</span> <span class="nt">RedmineDbPass</span> 
- <span class="s2">&quot;your_password_database_redmine&quot;</span>
-</pre></div>
-
-
+<pre><code>  DAV svn SVNParentPath 
+ "/opt/repositories/svn" SVNListParentPath on Order deny,allow Deny from all Satisfy any LimitXMLRequestBody 
+ 0 SVNPathAuthz off PerlAccessHandler Apache::Authn::Redmine::access_handler PerlAuthenHandler Apache::Authn::Redmine::authen_handler AuthType Basic AuthName 
+ "Subversion Repository" Require valid-user RedmineDSN 
+ "DBI:mysql:database=redmine_db;host=localhost:3306" RedmineDbUser 
+ "redmine_admin" RedmineDbPass 
+ "your_password_database_redmine"
+</code></pre>
 <p>Note : You need to change the password in the "RedmineDbPass" to correct the database password of Redmine.
 At this point, we have finished the basic settings for Redmine.
 Thank you!</p>
@@ -301,15 +283,11 @@ Thank you!</p>
                     <span>4</span>
 </a></li>
             </ul>
-    <h4>Social</h4>
-                <ul class="list-of-tags tags-in-article">
-                <a class="category-link" href="mailto:175439093@qq.com" target="_blank">Email to me</a>
-                <p></p>
-                </ul>
-                <ul class="list-of-tags tags-in-article">
-                <a class="category-link" href="http://wpa.qq.com/msgrd?v=3&uin=175439093&site=qq&menu=yes" target="_blank">QQ:175439093</a>
-                <p></p>
-                </ul>
+<h4>Contact</h4>
+    <a href="mailto:175439093@qq.com" title="My email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=175439093&amp;site=qq&amp;menu=yes" title="My qq Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-qq sidebar-social-links"></i></a>
         </div>
         </section>
 </div>
@@ -320,22 +298,25 @@ Thank you!</p>
         </div>
         <div id="push"></div>
     </div>
-
-<div id = "d-top" style="display:none;">
-<a id ="d-top-a " href="#" title="回到顶部">
-<img src="http://static.blog.csdn.net/images/top.png" alt="TOP" /></a>
-</div>
+    <div id ="d-top" style="display:none;">
+    <a id ="d-top-a " href="#" title="回到顶部">
+    <img src="http://static.blog.csdn.net/images/top.png" alt="TOP" /></a>
+    </div>
 
 <footer>
 <div id="footer">
     <ul class="footer-content">
         <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
-        <!-- cnzz -->
-        <li><script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254964451'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1254964451%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script></li>
     </ul>
 </div>
-</footer>            <script src="http://code.jquery.com/jquery.min.js"></script>
-        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+<!--cnzz-->
+<div style="visibility:hidden">
+    <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254964451'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1254964451%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script>
+</div>
+
+</footer>            <script src="http://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+        <script src="http://cdn.bootcss.com/bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <!--<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script> -->
         <script>
             function validateForm(query)
             {
@@ -344,16 +325,9 @@ Thank you!</p>
         </script>
 
     
+                
     </body>
     <!-- Theme: Elegant built for Pelican
     License : http://oncrashreboot.com/pelican-elegant -->
-    <script type="text/javascript">
-  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
-  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
-  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
-  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
-
-  _st('install','LoxNpwx5egXhtGUNRV95','2.0.0');
-</script>
 </html>
 <script src="http://furiousslade.github.io/theme/js/gototop.js"></script>

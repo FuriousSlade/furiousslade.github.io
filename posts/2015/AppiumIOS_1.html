@@ -4,28 +4,36 @@
         <meta charset="utf-8"> 
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
         <meta name="author" content="Slade" />
         <meta name="copyright" content="Slade" />
 
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="Python, Appium, Work, " />
+<meta name="keywords" content=", Work, " />
 
 <meta property="og:title" content="基于Appium实现IOS自动化测试 "/>
 <meta property="og:url" content="http://furiousslade.github.io/posts/2015/AppiumIOS_1.html" />
 <meta property="og:description" content="Appium的安装 要实现ios自动化前提是有一台Mac OS X操作系统的设备可以是正统的mac或是黑苹果。然后去appium官网下载appium服务端。osx上不推荐使用命令行安装，因为命令行看装会缺失appium inspector这个重要的元素定位工具。建议使用dmg安装包安装appium。然后在安装相应的appium client，我用的是python。pip install appium-python-client来完成client的安装。 iOS演示Demo的创建 先安装xcode。因为没有开发者证书所以只能用ios模拟器来演示，在这里不多说了。从https://github.com/appium/sample-code上下载appium的演示DEMO。 下载后进入sample-code/apps/TestApp目录下 执行xcodebuild -sdk iphonesimulator来编译所需的TestApp。 看到BUILD SUCCEEDEDTestApp就编译成功了。 在sample-code-master/sample-code/apps/TestApp/build ..." />
-<meta property="og:site_name" content="Slade&#39;s blog 测试人的逼格修养" />
+<meta property="og:site_name" content="Slade == u&#39;死累的&#39;" />
 <meta property="og:article:author" content="Slade" />
 <meta property="og:article:published_time" content="2015-06-29T17:30:00+08:00" />
 <meta name="twitter:title" content="基于Appium实现IOS自动化测试 ">
 <meta name="twitter:description" content="Appium的安装 要实现ios自动化前提是有一台Mac OS X操作系统的设备可以是正统的mac或是黑苹果。然后去appium官网下载appium服务端。osx上不推荐使用命令行安装，因为命令行看装会缺失appium inspector这个重要的元素定位工具。建议使用dmg安装包安装appium。然后在安装相应的appium client，我用的是python。pip install appium-python-client来完成client的安装。 iOS演示Demo的创建 先安装xcode。因为没有开发者证书所以只能用ios模拟器来演示，在这里不多说了。从https://github.com/appium/sample-code上下载appium的演示DEMO。 下载后进入sample-code/apps/TestApp目录下 执行xcodebuild -sdk iphonesimulator来编译所需的TestApp。 看到BUILD SUCCEEDEDTestApp就编译成功了。 在sample-code-master/sample-code/apps/TestApp/build ...">
 
-        <title>基于Appium实现IOS自动化测试  · Slade&#39;s blog 测试人的逼格修养
+        <title>基于Appium实现IOS自动化测试  · Slade == u&#39;死累的&#39;
 </title>
-        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
-        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <!-- <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet"> -->
+
+        <link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/bootstrap/2.3.2/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="http://cdn.bootcss.com/bootstrap/2.3.2/css/bootstrap-responsive.min.css">
+
+
+
+        <link href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="http://furiousslade.github.io/theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://furiousslade.github.io/theme/tipuesearch/tipuesearch.css" media="screen">
         <link rel="stylesheet" type="text/css" href="http://furiousslade.github.io/theme/css/elegant.css" media="screen">
         <link rel="stylesheet" type="text/css" href="http://furiousslade.github.io/theme/css/custom.css" media="screen">
     </head>
@@ -39,14 +47,14 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </a>
-                    <a class="brand" href="http://furiousslade.github.io/"><span class=site-name>Slade's blog 测试人的逼格修养</span></a>
+                    <a class="brand" href="http://furiousslade.github.io/"><span class=site-name>Slade == u'死累的'</span></a>
                     <div class="nav-collapse collapse">
                         <ul class="nav pull-right top-menu">
                             <li ><a href="http://furiousslade.github.io">Home</a></li>
                             <li ><a href="http://furiousslade.github.io/categories.html">Categories</a></li>
                             <li ><a href="http://furiousslade.github.io/tags.html">Tags</a></li>
                             <li ><a href="http://furiousslade.github.io/archives.html">Archives</a></li>
-                            <li><form class="navbar-search"><input type="text" class="st-default-search-input" style="padding-left:25px;"></form></li>
+                            <li><form class="navbar-search" action="http://furiousslade.github.io/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
                         </ul>
                     </div>
                 </div>
@@ -67,9 +75,9 @@
         <div class="span8 offset2 article-content">
 
             
-            <h2>Appium的安装</h2>
+            <h2 id="appium">Appium的安装</h2>
 <p>要实现ios自动化前提是有一台Mac OS X操作系统的设备可以是正统的mac或是黑苹果。然后去<a href='http://appium.io' target='_blank'>appium官网</a>下载appium服务端。osx上不推荐使用命令行安装，因为命令行看装会缺失appium inspector这个重要的元素定位工具。建议使用dmg安装包安装appium。然后在安装相应的appium client，我用的是python。<code>pip install appium-python-client</code>来完成client的安装。</p>
-<h2>iOS演示Demo的创建</h2>
+<h2 id="iosdemo">iOS演示Demo的创建</h2>
 <p>先安装<strong>xcode</strong>。因为没有开发者证书所以只能用ios模拟器来演示，在这里不多说了。从<a href="https://github.com/appium/sample-code" target="_blank">https://github.com/appium/sample-code</a>上下载appium的演示DEMO。</p>
 <ol>
 <li>下载后进入<code>sample-code/apps/TestApp</code>目录下</li>
@@ -77,7 +85,7 @@
 <li>看到<code>BUILD SUCCEEDED</code>TestApp就编译成功了。</li>
 <li>在<code>sample-code-master/sample-code/apps/TestApp/build/release-iphonesimulator</code>目录下可以看到TestApp.app就是后面所需要使用的app。</li>
 </ol>
-<h2>Appium的配置</h2>
+<h2 id="appium_1">Appium的配置</h2>
 <p>启动appium,点击<strong>苹果</strong>图标。
 <img alt="" src="http://ww2.sinaimg.cn/large/0067jSM2gw1etlbot0j3fj31100wemzq.jpg" />
 点击”Choose”,选择之前编译生成的TestApp.app。并选择模拟设备”iPhone6"，系统版本为”8.3”。最后再次点击苹果图标确认设置。
@@ -86,64 +94,61 @@
 <img alt="" src="http://ww2.sinaimg.cn/large/0067jSM2gw1etlbpgwfv0j31100we4fs.jpg" />
 此时inspector工具和iOS模拟器会同时启动。使用inspector可以很方便的查看控件的各类属性。
 <img alt="" src="http://ww1.sinaimg.cn/large/0067jSM2gw1etlbpp9n9mj31kw0xldmw.jpg" /></p>
-<h2>测试代码</h2>
-<div class="highlight"><pre><span class="c"># coding=utf8</span>
-<span class="kn">import</span> <span class="nn">pytest</span>
-<span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">from</span> <span class="nn">appium</span> <span class="kn">import</span> <span class="n">webdriver</span>
-<span class="kn">import</span> <span class="nn">random</span>
+<h2 id="_1">测试代码</h2>
+<p>``` python</p>
+<h1 id="codingutf8">coding=utf8</h1>
+<p>import pytest
+import sys
+from appium import webdriver
+import random</p>
+<p>class TestClass(object):</p>
+<pre><code>'''初始化weddriver链接'''
+@classmethod
+def setup_class(self):
+    desired_caps = {}
+    # appium版本
+    desired_caps['appium-version'] = '1.4.1'
+    # 平台为iOS
+    desired_caps['platformName'] = 'iOS'
+    # 自启动被测应用
+    desired_caps['autoLaunch'] = 'true'
+    # iOS系统版本
+    desired_caps['platformVersion'] = '8.3' 
+    # 设备为iPhone模拟器
+    desired_caps['deviceName'] = 'iPhone Simulator'
+    # 需要上传至iPhone模拟器的被测应用
+    desired_caps[
+        'app'] = "/Users/slade/Downloads/sample-code-master/sample-code/apps/TestApp/build/release-iphonesimulator/TestApp.app"
+    # 创建webdriver链接
+    self.wd = webdriver.Remote('http://0.0.0.0:4723/wd/hub', desired_caps)
+    self.wd.implicitly_wait(30) # 等待元素出现时间为30秒
 
-<span class="k">class</span> <span class="nc">TestClass</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+'''验证TestApp求和功能'''
 
-    <span class="sd">&#39;&#39;&#39;初始化weddriver链接&#39;&#39;&#39;</span>
-    <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="nf">setup_class</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">desired_caps</span> <span class="o">=</span> <span class="p">{}</span>
-        <span class="c"># appium版本</span>
-        <span class="n">desired_caps</span><span class="p">[</span><span class="s">&#39;appium-version&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;1.4.1&#39;</span>
-        <span class="c"># 平台为iOS</span>
-        <span class="n">desired_caps</span><span class="p">[</span><span class="s">&#39;platformName&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;iOS&#39;</span>
-        <span class="c"># 自启动被测应用</span>
-        <span class="n">desired_caps</span><span class="p">[</span><span class="s">&#39;autoLaunch&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;true&#39;</span>
-        <span class="c"># iOS系统版本</span>
-        <span class="n">desired_caps</span><span class="p">[</span><span class="s">&#39;platformVersion&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;8.3&#39;</span> 
-        <span class="c"># 设备为iPhone模拟器</span>
-        <span class="n">desired_caps</span><span class="p">[</span><span class="s">&#39;deviceName&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;iPhone Simulator&#39;</span>
-        <span class="c"># 需要上传至iPhone模拟器的被测应用</span>
-        <span class="n">desired_caps</span><span class="p">[</span>
-            <span class="s">&#39;app&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;/Users/slade/Downloads/sample-code-master/sample-code/apps/TestApp/build/release-iphonesimulator/TestApp.app&quot;</span>
-        <span class="c"># 创建webdriver链接</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">wd</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Remote</span><span class="p">(</span><span class="s">&#39;http://0.0.0.0:4723/wd/hub&#39;</span><span class="p">,</span> <span class="n">desired_caps</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">wd</span><span class="o">.</span><span class="n">implicitly_wait</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span> <span class="c"># 等待元素出现时间为30秒</span>
+def test_one(self):
+    text_one = random.randint(1, 100)   # 创建1-100随机数
+    text_two = random.randint(1, 100)   # 创建1-100随机数
+    # 对第一个输入框输入第一个随机数
+    self.wd.find_element_by_name("TextField1").send_keys(text_one)
+    # 对第二个输入框输入第二个随机数
+    self.wd.find_element_by_name("IntegerB").send_keys(text_two)
+    # 点击求和按钮
+    self.wd.find_element_by_name("ComputeSumButton").click()
+    # 确定TestApp的求和计算结果
+    answer = self.wd.find_element_by_name("Answer").text
+    # 断言TestApp求和功能是否正确
+    assert int(answer) == text_one + text_two
 
-    <span class="sd">&#39;&#39;&#39;验证TestApp求和功能&#39;&#39;&#39;</span>
-
-    <span class="k">def</span> <span class="nf">test_one</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">text_one</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>   <span class="c"># 创建1-100随机数</span>
-        <span class="n">text_two</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>   <span class="c"># 创建1-100随机数</span>
-        <span class="c"># 对第一个输入框输入第一个随机数</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">wd</span><span class="o">.</span><span class="n">find_element_by_name</span><span class="p">(</span><span class="s">&quot;TextField1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">text_one</span><span class="p">)</span>
-        <span class="c"># 对第二个输入框输入第二个随机数</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">wd</span><span class="o">.</span><span class="n">find_element_by_name</span><span class="p">(</span><span class="s">&quot;IntegerB&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">text_two</span><span class="p">)</span>
-        <span class="c"># 点击求和按钮</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">wd</span><span class="o">.</span><span class="n">find_element_by_name</span><span class="p">(</span><span class="s">&quot;ComputeSumButton&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
-        <span class="c"># 确定TestApp的求和计算结果</span>
-        <span class="n">answer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">wd</span><span class="o">.</span><span class="n">find_element_by_name</span><span class="p">(</span><span class="s">&quot;Answer&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span>
-        <span class="c"># 断言TestApp求和功能是否正确</span>
-        <span class="k">assert</span> <span class="nb">int</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span> <span class="o">==</span> <span class="n">text_one</span> <span class="o">+</span> <span class="n">text_two</span>
-
-    <span class="sd">&#39;&#39;&#39;释放webdriver链接&#39;&#39;&#39;</span>
-    <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="nf">teardown_class</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">wd</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
-
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="c"># 使用了单元测试框架pytest作为驱动</span>
-    <span class="n">pytest</span><span class="o">.</span><span class="n">main</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s">&#39; -s&#39;</span><span class="p">)</span>
-</pre></div>
-
-
-<h2>执行</h2>
+'''释放webdriver链接'''
+@classmethod
+def teardown_class(self):
+    self.wd.quit()
+</code></pre>
+<p>if <strong>name</strong> == '<strong>main</strong>':
+    # 使用了单元测试框架pytest作为驱动
+    pytest.main(sys.argv[0] + ' -s')
+```</p>
+<h2 id="_2">执行</h2>
 <p><img alt="" src="http://ww1.sinaimg.cn/large/0067jSM2gw1etn2ma2khtg30hs0b4u0y.gif" /></p>
             
             
@@ -155,24 +160,11 @@
             <time pubdate="pubdate" datetime="2015-06-29T17:30:00+08:00"> 6 29, 2015</time>
             <h4>Category</h4>
             <a class="category-link" href="http://furiousslade.github.io/categories.html#work-ref">Work</a>
-            <h4>Tags</h4>
-            <ul class="list-of-tags tags-in-article">
-                <li><a href="http://furiousslade.github.io/tags.html#appium-ref">Appium
-                    <span>2</span>
-</a></li>
-                <li><a href="http://furiousslade.github.io/tags.html#python-ref">Python
-                    <span>1</span>
-</a></li>
-            </ul>
-    <h4>Social</h4>
-                <ul class="list-of-tags tags-in-article">
-                <a class="category-link" href="mailto:175439093@qq.com" target="_blank">Email to me</a>
-                <p></p>
-                </ul>
-                <ul class="list-of-tags tags-in-article">
-                <a class="category-link" href="http://wpa.qq.com/msgrd?v=3&uin=175439093&site=qq&menu=yes" target="_blank">QQ:175439093</a>
-                <p></p>
-                </ul>
+<h4>Contact</h4>
+    <a href="mailto:175439093@qq.com" title="My email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=175439093&amp;site=qq&amp;menu=yes" title="My qq Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-qq sidebar-social-links"></i></a>
         </div>
         </section>
 </div>
@@ -183,22 +175,25 @@
         </div>
         <div id="push"></div>
     </div>
-
-<div id = "d-top" style="display:none;">
-<a id ="d-top-a " href="#" title="回到顶部">
-<img src="http://static.blog.csdn.net/images/top.png" alt="TOP" /></a>
-</div>
+    <div id ="d-top" style="display:none;">
+    <a id ="d-top-a " href="#" title="回到顶部">
+    <img src="http://static.blog.csdn.net/images/top.png" alt="TOP" /></a>
+    </div>
 
 <footer>
 <div id="footer">
     <ul class="footer-content">
         <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
-        <!-- cnzz -->
-        <li><script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254964451'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1254964451%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script></li>
     </ul>
 </div>
-</footer>            <script src="http://code.jquery.com/jquery.min.js"></script>
-        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+<!--cnzz-->
+<div style="visibility:hidden">
+    <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254964451'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1254964451%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script>
+</div>
+
+</footer>            <script src="http://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+        <script src="http://cdn.bootcss.com/bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <!--<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script> -->
         <script>
             function validateForm(query)
             {
@@ -207,16 +202,9 @@
         </script>
 
     
+                
     </body>
     <!-- Theme: Elegant built for Pelican
     License : http://oncrashreboot.com/pelican-elegant -->
-    <script type="text/javascript">
-  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
-  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
-  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
-  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
-
-  _st('install','LoxNpwx5egXhtGUNRV95','2.0.0');
-</script>
 </html>
 <script src="http://furiousslade.github.io/theme/js/gototop.js"></script>

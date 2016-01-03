@@ -4,22 +4,30 @@
         <meta charset="utf-8"> 
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
         <meta name="author" content="Slade" />
         <meta name="copyright" content="Slade" />
 
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta property="og:title" content="Slade&#39;s blog 测试人的逼格修养"/>
-<meta name="twitter:title" content="Slade&#39;s blog 测试人的逼格修养">
+<meta property="og:title" content="软件测试人的逼格修养"/>
+<meta name="twitter:title" content="软件测试人的逼格修养">
 <meta property="og:url" content="http://furiousslade.github.io" />
-<meta property="og:site_name" content="Slade&#39;s blog 测试人的逼格修养" />
+<meta property="og:site_name" content="Slade == u&#39;死累的&#39;" />
 <meta property="og:article:author" content="Slade" />
-        <title>Slade&#39;s blog 测试人的逼格修养
+        <title>Slade == u&#39;死累的&#39;
 </title>
-        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
-        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <!-- <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet"> -->
+
+        <link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/bootstrap/2.3.2/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="http://cdn.bootcss.com/bootstrap/2.3.2/css/bootstrap-responsive.min.css">
+
+
+
+        <link href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="http://furiousslade.github.io/theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://furiousslade.github.io/theme/tipuesearch/tipuesearch.css" media="screen">
         <link rel="stylesheet" type="text/css" href="http://furiousslade.github.io/theme/css/elegant.css" media="screen">
         <link rel="stylesheet" type="text/css" href="http://furiousslade.github.io/theme/css/custom.css" media="screen">
     </head>
@@ -33,14 +41,14 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </a>
-                    <a class="brand" href="http://furiousslade.github.io/"><span class=site-name>Slade's blog 测试人的逼格修养</span></a>
+                    <a class="brand" href="http://furiousslade.github.io/"><span class=site-name>Slade == u'死累的'</span></a>
                     <div class="nav-collapse collapse">
                         <ul class="nav pull-right top-menu">
                             <li  class="active"><a href="http://furiousslade.github.io">Home</a></li>
                             <li ><a href="http://furiousslade.github.io/categories.html">Categories</a></li>
                             <li ><a href="http://furiousslade.github.io/tags.html">Tags</a></li>
                             <li ><a href="http://furiousslade.github.io/archives.html">Archives</a></li>
-                            <li><form class="navbar-search"><input type="text" class="st-default-search-input" style="padding-left:25px;"></form></li>
+                            <li><form class="navbar-search" action="http://furiousslade.github.io/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
                         </ul>
                     </div>
                 </div>
@@ -51,8 +59,19 @@
                 <div class="span1"></div>
                 <div class="span10">
 <div class="row-fluid">
+    <header class="page-header span10 offset2">
+    <h1><a href="http://furiousslade.github.io">软件测试人的逼格修养</a></h1>
+    </header>
 
     <div class="row-fluid">
+        <div class="span8 offset2">
+            <header>
+            <h1 id="about-me">About me</h1>
+            </header>
+            <div class="article-content">
+                I am Slade.<br>                       所以我一直死累的。<br>                       现就职于扎拉斯网络科技有限公司。<hr>
+            </div>
+        </div>
 
     </div>
 
@@ -172,38 +191,34 @@
         </div>
         <div id="push"></div>
     </div>
-
-<div id = "d-top" style="display:none;">
-<a id ="d-top-a " href="#" title="回到顶部">
-<img src="http://static.blog.csdn.net/images/top.png" alt="TOP" /></a>
-</div>
+    <div id ="d-top" style="display:none;">
+    <a id ="d-top-a " href="#" title="回到顶部">
+    <img src="http://static.blog.csdn.net/images/top.png" alt="TOP" /></a>
+    </div>
 
 <footer>
 <div id="footer">
     <ul class="footer-content">
         <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
-        <!-- cnzz -->
-        <li><script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254964451'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1254964451%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script></li>
     </ul>
 </div>
-</footer>        <script src="http://code.jquery.com/jquery.min.js"></script>
-        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+<!--cnzz-->
+<div style="visibility:hidden">
+    <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254964451'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1254964451%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script>
+</div>
+
+</footer>        <script src="http://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+        <script src="http://cdn.bootcss.com/bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <!--<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script> -->
         <script>
             function validateForm(query)
             {
                 return (query.length > 0);
             }
         </script>
+                
     </body>
     <!-- Theme: Elegant built for Pelican
     License : http://oncrashreboot.com/pelican-elegant -->
-    <script type="text/javascript">
-  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
-  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
-  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
-  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
-
-  _st('install','LoxNpwx5egXhtGUNRV95','2.0.0');
-</script>
 </html>
 <script src="http://furiousslade.github.io/theme/js/gototop.js"></script>
