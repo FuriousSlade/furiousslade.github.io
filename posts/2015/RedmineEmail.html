@@ -76,15 +76,59 @@
 
             
             <p>当Redmine配置邮件后，会发现提交Bug等操作响应缓慢。是因为Redmine在确定邮件发送完成后才会返回提交成功的页面。设置成异步发送邮件，操作流程就流畅了。</p>
-<pre><code>vim /var/www/redmine/config/configuration.yml
+<div class="highlight"><pre>vim /var/www/redmine/config/configuration.yml
 delivery_method：async_smtp
-</code></pre>
+</pre></div>
+
+
 <p>or</p>
-<pre><code>delivery_method: async_sendmail
-</code></pre>
+<div class="highlight"><pre><span class="n">delivery_method</span><span class="o">:</span> <span class="n">async_sendmail</span>
+</pre></div>
             
-            
+            <section>
+<div class="accordion" id="accordion2">
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
+                href="http://furiousslade.github.io/posts/2015/RedmineEmail.html#disqus_thread">
+                Comments
+            </a>
+        </div>
+        <div id="disqus_thread" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <div class="comments">
+                    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'furiousslade';
+        var disqus_identifier = 'http://furiousslade.github.io/posts/2015/RedmineEmail.html';
+    var disqus_url = 'http://furiousslade.github.io/posts/2015/RedmineEmail.html';
+
+    (function() {
+         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
             <hr/>
+<section>
+    <h2>Related Posts</h2>
+<ul class="related-posts-list">
+<li><a href="http://furiousslade.github.io/posts/2015/InstallRedmine.html" title="Install Redmine on Centos">Install Redmine on Centos</a></li>
+<li><a href="http://furiousslade.github.io/posts/2015/InstallMongrel.html" title="Redmine使用Mongrel服务器">Redmine使用Mongrel服务器</a></li>
+<li><a href="http://furiousslade.github.io/posts/2015/AutoStartOnLinux.html" title="让Redmine随Linux系统自动启动">让Redmine随Linux系统自动启动</a></li>
+</ul>
+<hr />
+</section>
         </div>
         <section>
         <div class="span2" style="float:right;font-size:0.9em;">
@@ -139,7 +183,45 @@ delivery_method：async_smtp
             }
         </script>
 
-    
+            <script type="text/javascript">
+var disqus_shortname = 'furiousslade';
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+<script  language="javascript" type="text/javascript">
+function uncollapse() {
+    if (window.location.hash.match(/^#comment-\d+$/)) {
+        $('#disqus_thread').collapse('show');
+    }
+}
+</script>
+<script type="text/javascript" language="JavaScript">
+uncollapse();
+window.onhashchange=function(){
+    if (window.location.hash.match(/^#comment-\d+$/))
+        window.location.reload(true);
+}
+</script>
+<script>
+$('#disqus_thread').on('shown', function () {
+    var link = document.getElementsByClassName('accordion-toggle');
+    var old_innerHTML = link[0].innerHTML;
+    $(link[0]).fadeOut(500, function() {
+        $(this).text('Click here to hide comments').fadeIn(500);
+    });
+    $('#disqus_thread').on('hidden', function () {
+        $(link[0]).fadeOut(500, function() {
+            $(this).text(old_innerHTML).fadeIn(500);
+        });
+    })
+})
+</script>
+
+
                 
     </body>
     <!-- Theme: Elegant built for Pelican

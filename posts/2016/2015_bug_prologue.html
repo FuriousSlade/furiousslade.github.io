@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8"> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+        <meta name="author" content="Slade" />
+        <meta name="copyright" content="Slade" />
+
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="Bug, Work, " />
+
+<meta property="og:title" content="2015年踩过的坑 "/>
+<meta property="og:url" content="http://furiousslade.github.io/posts/2016/2015_bug_prologue.html" />
+<meta property="og:description" content="序 自从来到扎拉斯后工作中挖了不少坑也填了不少坑。在新的一年开始时，在此做下记录。 一次正常的请求，生产服务器上确实同时收到了多个请求。 在定位一个运营反馈的线上问题时，发现数据库中落下了两条除了主键ID外完全一样的数据。让开发查看日志后确实发现服务器的一个节点在同一个时间收到了多个相同的请求。因为这个接口本身是一个极低访问量的接口。当初程序设计时为了预留扩张功能，数据库并没有做唯一性索引。也并未加数据库锁表操作（锁表风险太大），只是从程序逻辑上做了唯一性的限制。可以确定用户实际使用中确实只请求了一次，可能是因为网络抖动问题。造成服务器确实同时收到了相同的请求并成功落库。 因为该接口是一个低访问量的接口，最后为了在有预留可扩张功能的，又不锁表的前提下。使用了redis锁。通过redis来达到数据库操作锁的功能，来保证代码的逻辑上的唯一性限制能被正确的触发。而不会因为异常的并发问题造成数据异常。 分布式服务的定时任务造成了并发问题。 在生产环境上有一个job每天会定时去update数据，却发现部分数据被double了。在测试环境上这个功能是完全没有问题的，跑的很正确。因为是分布式服务，生产环境是集群服务造成了定时的job同时也跑了多个。同时去update数据，造成了部分数据被double了。因为读取数据库时间差的原因还有一定的运气因素也只是部分数据被double。不幸中的万幸。 从单个服务器来说这个job都是正确的，最终是依赖redis的分布式锁。来保证只有一台服务器的job会被正确执行。其他服务器的job在得知已有服务器在执行job后，会忽略该次job。 分布式服务同时收到大量的错误请求。 一次收到监控系统预警报告服务器收到大量的500请求。我们后续查看的服务器的日志发现几台通过nginx负载的服务器收到了大量的且相同的请求。这个请求是个异常请求，服务端也正确的捕获了异常，并根据接口约定，返回了相应的500错误。从程序逻辑上来说并没有问题。但诡异的是同一时间段所有负载机都收到了大量的会造成500错误的请求 ..." />
+<meta property="og:site_name" content="Slade == u&#39;死累的&#39;" />
+<meta property="og:article:author" content="Slade" />
+<meta property="og:article:published_time" content="2016-01-01T00:00:00+08:00" />
+<meta name="twitter:title" content="2015年踩过的坑 ">
+<meta name="twitter:description" content="序 自从来到扎拉斯后工作中挖了不少坑也填了不少坑。在新的一年开始时，在此做下记录。 一次正常的请求，生产服务器上确实同时收到了多个请求。 在定位一个运营反馈的线上问题时，发现数据库中落下了两条除了主键ID外完全一样的数据。让开发查看日志后确实发现服务器的一个节点在同一个时间收到了多个相同的请求。因为这个接口本身是一个极低访问量的接口。当初程序设计时为了预留扩张功能，数据库并没有做唯一性索引。也并未加数据库锁表操作（锁表风险太大），只是从程序逻辑上做了唯一性的限制。可以确定用户实际使用中确实只请求了一次，可能是因为网络抖动问题。造成服务器确实同时收到了相同的请求并成功落库。 因为该接口是一个低访问量的接口，最后为了在有预留可扩张功能的，又不锁表的前提下。使用了redis锁。通过redis来达到数据库操作锁的功能，来保证代码的逻辑上的唯一性限制能被正确的触发。而不会因为异常的并发问题造成数据异常。 分布式服务的定时任务造成了并发问题。 在生产环境上有一个job每天会定时去update数据，却发现部分数据被double了。在测试环境上这个功能是完全没有问题的，跑的很正确。因为是分布式服务，生产环境是集群服务造成了定时的job同时也跑了多个。同时去update数据，造成了部分数据被double了。因为读取数据库时间差的原因还有一定的运气因素也只是部分数据被double。不幸中的万幸。 从单个服务器来说这个job都是正确的，最终是依赖redis的分布式锁。来保证只有一台服务器的job会被正确执行。其他服务器的job在得知已有服务器在执行job后，会忽略该次job。 分布式服务同时收到大量的错误请求。 一次收到监控系统预警报告服务器收到大量的500请求。我们后续查看的服务器的日志发现几台通过nginx负载的服务器收到了大量的且相同的请求。这个请求是个异常请求，服务端也正确的捕获了异常，并根据接口约定，返回了相应的500错误。从程序逻辑上来说并没有问题。但诡异的是同一时间段所有负载机都收到了大量的会造成500错误的请求 ...">
+
+        <title>2015年踩过的坑  · Slade == u&#39;死累的&#39;
+</title>
+        <!-- <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet"> -->
+
+        <link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/bootstrap/2.3.2/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="http://cdn.bootcss.com/bootstrap/2.3.2/css/bootstrap-responsive.min.css">
+
+
+
+        <link href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="http://furiousslade.github.io/theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://furiousslade.github.io/theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://furiousslade.github.io/theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://furiousslade.github.io/theme/css/custom.css" media="screen">
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="http://furiousslade.github.io/"><span class=site-name>Slade == u'死累的'</span></a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right top-menu">
+                            <li ><a href="http://furiousslade.github.io">Home</a></li>
+                            <li ><a href="http://furiousslade.github.io/categories.html">Categories</a></li>
+                            <li ><a href="http://furiousslade.github.io/tags.html">Tags</a></li>
+                            <li ><a href="http://furiousslade.github.io/archives.html">Archives</a></li>
+                            <li><form class="navbar-search" action="http://furiousslade.github.io/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span1"></div>
+                <div class="span10">
+<article>
+<div class="row-fluid">
+    <header class="page-header span10 offset2">
+    <h1><a href="http://furiousslade.github.io/posts/2016/2015_bug_prologue.html"> 2015年踩过的坑  </a></h1>
+    </header>
+</div>
+
+<div class="row-fluid">
+    <div class="span2 table-of-content">
+        <nav>
+        <h4>Contents</h4>
+        <div class="toc">
+<ul>
+<li><a href="#_1">序</a></li>
+<li><a href="#_2">一次正常的请求，生产服务器上确实同时收到了多个请求。</a></li>
+<li><a href="#_3">分布式服务的定时任务造成了并发问题。</a></li>
+<li><a href="#_4">分布式服务同时收到大量的错误请求。</a></li>
+<li><a href="#tomcat">在测试环境测试通过的服务发布生产时tomcat报错，发布失败。</a></li>
+<li><a href="#404">对接的基础服务发布，造成我方调用大量404.对接的基础服务紧急回滚。</a></li>
+<li><a href="#bug">生产环境上的bug在测试环境难以重现。</a></li>
+<li><a href="#bug_1">开发基线分支选择错误造成修复的bug再次产生。</a></li>
+<li><a href="#_5">终</a></li>
+</ul>
+</div>
+        </nav>
+    </div>
+    <div class="span8 article-content">
+
+            
+            
+<h2 id="_1">序</h2>
+<p>自从来到扎拉斯后工作中挖了不少坑也填了不少坑。在新的一年开始时，在此做下记录。</p>
+<h2 id="_2">一次正常的请求，生产服务器上确实同时收到了多个请求。</h2>
+<p>在定位一个运营反馈的线上问题时，发现数据库中落下了两条除了主键ID外完全一样的数据。让开发查看日志后确实发现服务器的一个节点在同一个时间收到了多个相同的请求。因为这个接口本身是一个极低访问量的接口。当初程序设计时为了预留扩张功能，数据库并没有做唯一性索引。也并未加数据库锁表操作（锁表风险太大），只是从程序逻辑上做了唯一性的限制。可以确定用户实际使用中确实只请求了一次，可能是因为网络抖动问题。造成服务器确实同时收到了相同的请求并成功落库。</p>
+<p>因为该接口是一个低访问量的接口，最后为了在有预留可扩张功能的，又不锁表的前提下。使用了redis锁。通过redis来达到数据库操作锁的功能，来保证代码的逻辑上的唯一性限制能被正确的触发。而不会因为异常的并发问题造成数据异常。</p>
+<h2 id="_3">分布式服务的定时任务造成了并发问题。</h2>
+<p>在生产环境上有一个job每天会定时去update数据，却发现部分数据被double了。在测试环境上这个功能是完全没有问题的，跑的很正确。因为是分布式服务，生产环境是集群服务造成了定时的job同时也跑了多个。同时去update数据，造成了部分数据被double了。因为读取数据库时间差的原因还有一定的运气因素也只是部分数据被double。不幸中的万幸。</p>
+<p>从单个服务器来说这个job都是正确的，最终是依赖redis的分布式锁。来保证只有一台服务器的job会被正确执行。其他服务器的job在得知已有服务器在执行job后，会忽略该次job。</p>
+<h2 id="_4">分布式服务同时收到大量的错误请求。</h2>
+<p>一次收到监控系统预警报告服务器收到大量的500请求。我们后续查看的服务器的日志发现几台通过nginx负载的服务器收到了大量的且相同的请求。这个请求是个异常请求，服务端也正确的捕获了异常，并根据接口约定，返回了相应的500错误。从程序逻辑上来说并没有问题。但诡异的是同一时间段所有负载机都收到了大量的会造成500错误的请求。触发了监控系统发出了警报。</p>
+<p>之后跪了一发运维大哥。才知道运维大哥<strong>“新”</strong>配置了nginx的重试机制。当一台服务器请求失败后（500了），会向其他的负载机重试该次请求。结果就造成了，我们的服务器同时收到大量的会造成500的请求。nginx本来这个重试机制是一种容错手段。但却与我们的服务设计是冲突的。最后让运维大哥去掉该配置，皆大欢喜。</p>
+<h2 id="tomcat">在测试环境测试通过的服务发布生产时tomcat报错，发布失败。</h2>
+<p>哎，有时候真是说不清楚。在alpha和beta两个独立的测试环境测试通过的代码。准备上线，推到线上服务器的时候tomcat一直起不来，大量的报错。当时真是郁闷，完全没有方向。让运维重启了tomcat服务后也没用。后来开发上生产服务器追踪日志才发现是jar包冲突引起的tomcat大量报错无法无法加载。本身我们的java是通过maven来管理jar包的，理论上依赖应该关系没问题。最后定为到是我们使用的公司公用的soa框架的中的jar包和我们自己项目使用的jar包产生了冲突。只是测试环境走了大运走了一个合理的加载过程顺利发布。而在发布生生环境时发生冲突。只能根据公司框架来调整jar包。最终上线。</p>
+<h2 id="404">对接的基础服务发布，造成我方调用大量404.对接的基础服务紧急回滚。</h2>
+<p>事情很简单，我们对接的基础服务项目进行了技术改造并在测试环境测试通过后发布生产，因为生产环境的配置没有正确的修改。造成依赖方访问大量404，在发现问题后立马回滚到上个可用版本。</p>
+<p>在问题发生后我也反思过，作为一个被大量调用的基础服务。在大的技术改造发布时确实有很大的风险。一但发生问题影响面就很大。本身是做负载均衡的，可能是因为实际需要，他们发布时一口气发布了全部的服务器，造成了服务不可用。其实可以让运维配合先把一台服务器拉出集群，发布后验证服务可用后再加入集群，之后再全部发布或是依次发布。</p>
+<h2 id="bug">生产环境上的bug在测试环境难以重现。</h2>
+<p>在之前的一些线上问题的debug时经常发现一些问题在测试环境是无法重现的。换句活来说就是测试环境时，测试是通过的。但生产上却产生了bug。对于这种问题，相信对于每个测试人员来说都是很头疼的。我遇到的问题主要还是测试环境的架构和生产不相同。各种基础服务的配置、nginx的配置、多服务器负载均都会造成这中情况。被坑了不少次，但基于客观条件也只能劲量保证测试环境和生产环境架构相同，性能差些就差些。尽量能够把跟多的问题在测试过程中发现解决。</p>
+<h2 id="bug_1">开发基线分支选择错误造成修复的bug再次产生。</h2>
+<p>在测试前端的某个版本中发现过一个影藏较深的bug，开发修复后并发布后生产后。因为紧急增加了一个功能点，加班测试发布后了紧急版本后。突然发现线上部分用户使用时出现异常问题。debug后是发现是之前的修复的bug重现了。最终定位到是开发作为基线的开发分支选择错误。之后选择了正确的基线分支，bug是很快修复并重新发版。这次问题测试没有做全回归，回归测试覆盖不全是问题之一。但也从侧面表现出代码管理的重要性。修复的bug因为基线分支选择错误而产生bug，作为测试真的觉得很心累。之后也发现我们这边前端的分支管理混乱也要求合理管理分支。改进分支管理后，此类问题并未再现。</p>
+<h2 id="_5">终</h2>
+<p>其实对于所有线上的bug，测试都无法推脱说这是技术难点我没有责任，虽然不少问题测试确实很难发现，尤其是一些线程安全问题，并发性能问题。在快速的业务迭代中，往往没有那么多富裕的时间给测试。不过问题还是测试不充分造成的。只能在快速的业务迭代中和测试周期中努力找到一个好的平衡点。我认为开发的单元测试自测，就能从底层排除掉很多测试难以发现的问题。测试更该去关注集成测试、容错性、兼容性测试和性能测试，而不是操心单一模块是否可用，遇到好的队友还是很重要的。</p>
+            
+            <section>
+<div class="accordion" id="accordion2">
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
+                href="http://furiousslade.github.io/posts/2016/2015_bug_prologue.html#disqus_thread">
+                Comments
+            </a>
+        </div>
+        <div id="disqus_thread" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <div class="comments">
+                    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'furiousslade';
+        var disqus_identifier = 'http://furiousslade.github.io/posts/2016/2015_bug_prologue.html';
+    var disqus_url = 'http://furiousslade.github.io/posts/2016/2015_bug_prologue.html';
+
+    (function() {
+         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="span2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2016-01-01T00:00:00+08:00"> 1 1, 2016</time>
+            <h4>Category</h4>
+            <a class="category-link" href="http://furiousslade.github.io/categories.html#work-ref">Work</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="http://furiousslade.github.io/tags.html#bug-ref">Bug
+                    <span>1</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="mailto:175439093@qq.com" title="My email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+    <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=175439093&amp;site=qq&amp;menu=yes" title="My qq Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-qq sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="span1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+    <div id ="d-top" style="display:none;">
+    <a id ="d-top-a " href="#" title="回到顶部">
+    <img src="http://static.blog.csdn.net/images/top.png" alt="TOP" /></a>
+    </div>
+
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+<!--cnzz-->
+<div style="visibility:hidden">
+    <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254964451'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1254964451%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script>
+</div>
+
+</footer>            <script src="http://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+        <script src="http://cdn.bootcss.com/bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <!--<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script> -->
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+
+            <script type="text/javascript">
+var disqus_shortname = 'furiousslade';
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+<script  language="javascript" type="text/javascript">
+function uncollapse() {
+    if (window.location.hash.match(/^#comment-\d+$/)) {
+        $('#disqus_thread').collapse('show');
+    }
+}
+</script>
+<script type="text/javascript" language="JavaScript">
+uncollapse();
+window.onhashchange=function(){
+    if (window.location.hash.match(/^#comment-\d+$/))
+        window.location.reload(true);
+}
+</script>
+<script>
+$('#disqus_thread').on('shown', function () {
+    var link = document.getElementsByClassName('accordion-toggle');
+    var old_innerHTML = link[0].innerHTML;
+    $(link[0]).fadeOut(500, function() {
+        $(this).text('Click here to hide comments').fadeIn(500);
+    });
+    $('#disqus_thread').on('hidden', function () {
+        $(link[0]).fadeOut(500, function() {
+            $(this).text(old_innerHTML).fadeIn(500);
+        });
+    })
+})
+</script>
+
+
+                
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>
+<script src="http://furiousslade.github.io/theme/js/gototop.js"></script>

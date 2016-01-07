@@ -76,24 +76,72 @@
 
             
             <p>在Android shell 下可能并没有安装cp命令，一般都不会安装。需要的可以自己安装busybox工具。在紧急的情况下可以使用cat命令来代替cp。</p>
-<pre><code>adb shell
+<div class="highlight"><pre>adb shell
 cd /mnt/sdcard  
 cat xxx.apk &gt;&gt; yyy.apk      # 将/mnt/sdcard目录下的xxx.apk复制为yyy.apk
-</code></pre>
+</pre></div>
+
+
 <p><a herf="http://www.busybox.net/downloads/binaries/" target="_black">Busybox</a>是一个集成了一百多个最常用linux命令和工具的软件。需要选择适合你手机cpu的版本来安装。查看手机CPU信息，根据Processor来选择安装版本。</p>
-<pre><code>cat /proc/cpuinfo
+<div class="highlight"><pre>cat /proc/cpuinfo
 Processor       : ARMv7 Processor rev 2 (v7l)
 ...
-</code></pre>
+</pre></div>
+
+
 <p>将busybox复制到 /system/xbin 目录下，并修改文件权限，使其可执行。</p>
-<pre><code>cat busybox-armv7l &gt;&gt; /system/xbin/busybox
+<div class="highlight"><pre>cat busybox-armv7l &gt;&gt; /system/xbin/busybox
 chmod 775 busybox
 busybox --install
-</code></pre>
+</pre></div>
+
+
 <p>大功告成，现在就可以在Android shell下使用常用的linux命令了。</p>
             
-            
+            <section>
+<div class="accordion" id="accordion2">
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
+                href="http://furiousslade.github.io/posts/2015/NoCpUseCat.html#disqus_thread">
+                Comments
+            </a>
+        </div>
+        <div id="disqus_thread" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <div class="comments">
+                    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'furiousslade';
+        var disqus_identifier = 'http://furiousslade.github.io/posts/2015/NoCpUseCat.html';
+    var disqus_url = 'http://furiousslade.github.io/posts/2015/NoCpUseCat.html';
+
+    (function() {
+         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
             <hr/>
+<section>
+    <h2>Related Posts</h2>
+<ul class="related-posts-list">
+<li><a href="http://furiousslade.github.io/posts/2015/ReadOnlyFileSystem.html" title="解决Android复制文件报“Read-only file system”的问题">解决Android复制文件报“Read-only file system”的问题</a></li>
+<li><a href="http://furiousslade.github.io/posts/2015/Robotium.html" title="Robotium只有apk情况下的代码片段">Robotium只有apk情况下的代码片段</a></li>
+<li><a href="http://furiousslade.github.io/posts/2015/AdbError.html" title="Adb error: unknown host service 的解决方法">Adb error: unknown host service 的解决方法</a></li>
+</ul>
+<hr />
+</section>
         </div>
         <section>
         <div class="span2" style="float:right;font-size:0.9em;">
@@ -148,7 +196,45 @@ busybox --install
             }
         </script>
 
-    
+            <script type="text/javascript">
+var disqus_shortname = 'furiousslade';
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+<script  language="javascript" type="text/javascript">
+function uncollapse() {
+    if (window.location.hash.match(/^#comment-\d+$/)) {
+        $('#disqus_thread').collapse('show');
+    }
+}
+</script>
+<script type="text/javascript" language="JavaScript">
+uncollapse();
+window.onhashchange=function(){
+    if (window.location.hash.match(/^#comment-\d+$/))
+        window.location.reload(true);
+}
+</script>
+<script>
+$('#disqus_thread').on('shown', function () {
+    var link = document.getElementsByClassName('accordion-toggle');
+    var old_innerHTML = link[0].innerHTML;
+    $(link[0]).fadeOut(500, function() {
+        $(this).text('Click here to hide comments').fadeIn(500);
+    });
+    $('#disqus_thread').on('hidden', function () {
+        $(link[0]).fadeOut(500, function() {
+            $(this).text(old_innerHTML).fadeIn(500);
+        });
+    })
+})
+</script>
+
+
                 
     </body>
     <!-- Theme: Elegant built for Pelican

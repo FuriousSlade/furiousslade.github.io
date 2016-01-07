@@ -80,8 +80,10 @@
 <p>These are the basic software packages for environment settings and utility tools to compile other packages in the next section.
 Copy the block command and execute in the Putty Windows :
 This is a long command line, copy all and implementation.</p>
-<pre><code>yum -y install nano zip unzip libyaml-devel zlib-devel curl-devel openssl-devel httpd-devel apr-devel apr-util-devel mysql-devel gcc ruby-devel gcc-c++ make postgresql-devel ImageMagick-devel sqlite-devel perl-LDAP mod_perl perl-Digest-SHA
-</code></pre>
+<div class="highlight"><pre>yum -y install nano zip unzip libyaml-devel zlib-devel curl-devel openssl-devel httpd-devel apr-devel apr-util-devel mysql-devel gcc ruby-devel gcc-c++ make postgresql-devel ImageMagick-devel sqlite-devel perl-LDAP mod_perl perl-Digest-SHA
+</pre></div>
+
+
 <p><img alt="" src="http://ww2.sinaimg.cn/large/0067jSM2jw9es2omiwa33j30kj0c8tft.jpg" /></p>
 <h2 id="install-apache-and-mysql">Install Apache and MySQL</h2>
 <p>Apache is a server application for communicating over the HTTP protocol. Apache runs on operating systems such as Unix, Linux, Microsoft Windows, and other operating systems.
@@ -163,19 +165,23 @@ Execute the following commands :</p>
 <p><img alt="" src="http://ww1.sinaimg.cn/mw690/0067jSM2jw9es2omiwh1cj30l50ctn2n.jpg" /></p>
 <p>After completed, we copy a notification block in the window to create the configuration file in the next steps (select block notification and press C to copy).
 LoadModule passenger_module /usr/local/rvm/gems/ruby-1.9.3-p545/gems/passenger-4.0.37/buildout/apache2/mod_passenger.so </p>
-<pre><code> PassengerRoot /usr/local/rvm/gems/ruby- 
+<div class="highlight"><pre> PassengerRoot /usr/local/rvm/gems/ruby- 
  1.9.3-p545/gems/passenger- 
  4.0.37 PassengerDefaultRuby /usr/local/rvm/gems/ruby- 
  1.9.3-p545/wrappers/ruby
-</code></pre>
+</pre></div>
+
+
 <p>Create a new virtual host file for Passenger :</p>
 <p><code>nano /etc/httpd/conf.d/passenger.conf</code></p>
 <p>Paste the command blocks into the empty file and save it, then restart the Apache service.</p>
 <p><code>service httpd restart</code></p>
 <h2 id="create-database-for-redmine">Create Database for Redmine</h2>
 <p>Use MySQLAdmin to create an empty database for Redmine, saved password to fill in the configuration file in the next steps.</p>
-<pre><code>mysql --user=root --password=root_password_mysqlcreate database redmine_db character set utf8;create user 'redmine_admin'@'localhost' identified by 'your_new_password';grant all privileges on redmine_db.* to 'redmine_admin'@'localhost';quit;
-</code></pre>
+<div class="highlight"><pre>mysql --user=root --password=root_password_mysqlcreate database redmine_db character set utf8;create user &#39;redmine_admin&#39;@&#39;localhost&#39; identified by &#39;your_new_password&#39;;grant all privileges on redmine_db.* to &#39;redmine_admin&#39;@&#39;localhost&#39;;quit;
+</pre></div>
+
+
 <p><img alt="" src="http://ww4.sinaimg.cn/mw690/0067jSM2jw9es2omjc7poj30l50ctq7x.jpg" /></p>
 <h2 id="install-redmine">Install Redmine</h2>
 <p>Redmine is a main program of the project management system, we will download and install the program from the website of Redmine.
@@ -190,21 +196,29 @@ The next, we need to configure the database was created from the above steps.</p
 <p>Enter name for database, enter username and password of the database. Press CTRL + O to save the file and CTRL + X to exit.</p>
 <h2 id="setting-up-rails">Setting up Rails</h2>
 <p>Install the package library support for Rails using the Bundle.</p>
-<pre><code>cd /var/www/redminegem install bundlerbundle installrake generate_secret_token
-</code></pre>
+<div class="highlight"><pre>cd /var/www/redminegem install bundlerbundle installrake generate_secret_token
+</pre></div>
+
+
 <p><img alt="" src="http://ww4.sinaimg.cn/mw690/0067jSM2jw9es2omiud01j30l50ctwjt.jpg" /></p>
 <p>The next, we create the database table for the Redmine application.
 RAILS_ENV=production rake db:migrateRAILS_ENV=production rake redmine:load_default_data</p>
 <h2 id="activate-fcgi">Activate FCGI</h2>
-<pre><code>cd /var/www/redmine/publicmkdir plugin_assetscp dispatch.fcgi.example dispatch.fcgicp htaccess.fcgi.example .htaccess
-</code></pre>
+<div class="highlight"><pre>cd /var/www/redmine/publicmkdir plugin_assetscp dispatch.fcgi.example dispatch.fcgicp htaccess.fcgi.example .htaccess
+</pre></div>
+
+
 <h2 id="setting-up-apache-and-fastcgi">Setting up Apache and FastCGI</h2>
-<pre><code>cd /var/www/rpm --import https://fedoraproject.org/static/0608B895.txtwget http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpmrpm -ivh epel-release-6-8.noarch.rpmyum -y install mod_fcgidrm -rf epel-release-6-8.noarch.rpm
-</code></pre>
+<div class="highlight"><pre><span class="n">cd</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">rpm</span> <span class="o">--</span><span class="kn">import</span> <span class="nn">https</span><span class="p">:</span><span class="o">//</span><span class="n">fedoraproject</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">static</span><span class="o">/</span><span class="mo">060</span><span class="mi">8</span><span class="n">B895</span><span class="o">.</span><span class="n">txtwget</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">dl</span><span class="o">.</span><span class="n">fedoraproject</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">pub</span><span class="o">/</span><span class="n">epel</span><span class="o">/</span><span class="mi">6</span><span class="o">/</span><span class="n">x86_64</span><span class="o">/</span><span class="n">epel</span><span class="o">-</span><span class="n">release</span><span class="o">-</span><span class="mi">6</span><span class="o">-</span><span class="mf">8.</span><span class="n">noarch</span><span class="o">.</span><span class="n">rpmrpm</span> <span class="o">-</span><span class="n">ivh</span> <span class="n">epel</span><span class="o">-</span><span class="n">release</span><span class="o">-</span><span class="mi">6</span><span class="o">-</span><span class="mf">8.</span><span class="n">noarch</span><span class="o">.</span><span class="n">rpmyum</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">mod_fcgidrm</span> <span class="o">-</span><span class="n">rf</span> <span class="n">epel</span><span class="o">-</span><span class="n">release</span><span class="o">-</span><span class="mi">6</span><span class="o">-</span><span class="mf">8.</span><span class="n">noarch</span><span class="o">.</span><span class="n">rpm</span>
+</pre></div>
+
+
 <h2 id="creating-files-directory">Creating Files Directory</h2>
 <p>This directory contains data files generated during the operation of Redmine as document or image file, we create a new directory in the "/opt".</p>
-<pre><code>mkdir -p /opt/redmine/fileschown -R apache:apache /opt/redminecd /var/www/redmine/configcp configuration.yml.example configuration.ymlnano configuration.yml
-</code></pre>
+<div class="highlight"><pre>mkdir -p /opt/redmine/fileschown -R apache:apache /opt/redminecd /var/www/redmine/configcp configuration.yml.example configuration.ymlnano configuration.yml
+</pre></div>
+
+
 <p><img alt="" src="http://ww4.sinaimg.cn/mw690/0067jSM2jw9es2omiu1kej30l50ct0zk.jpg" /></p>
 <p>Enter the directory path containing the data files you just created in the previous step into the line "attachments_storage_path".
 Note: You must add a space at the begin of the path "/opt/redmine/files" after character ":"</p>
@@ -217,22 +231,28 @@ To configure the email we will edit the configuration file.</p>
 <p>Note : Do not use the Tab key to indent when editing the configuration file, you need to use the space bar on the keyboard.
 If you use GMail's SMTP, you need to register an email account with the login methods used password normal and disable two-step authentication by smart phone.
 Enter your Gmail account as below :</p>
-<pre><code>email_delivery:delivery_method: :smtp smtp_settings: enable_starttls_auto: true address: "smtp.gmail.com" port: 587 domain: "smtp.gmail.com" authentication: :plain user_name: "your_email@gmail.com" password: "your_password"
-</code></pre>
+<div class="highlight"><pre><span class="n">email_delivery</span><span class="o">:</span><span class="n">delivery_method</span><span class="o">:</span> <span class="o">:</span><span class="n">smtp</span> <span class="n">smtp_settings</span><span class="o">:</span> <span class="n">enable_starttls_auto</span><span class="o">:</span> <span class="kc">true</span> <span class="n">address</span><span class="o">:</span> <span class="s2">&quot;smtp.gmail.com&quot;</span> <span class="n">port</span><span class="o">:</span> <span class="mi">587</span> <span class="n">domain</span><span class="o">:</span> <span class="s2">&quot;smtp.gmail.com&quot;</span> <span class="n">authentication</span><span class="o">:</span> <span class="o">:</span><span class="n">plain</span> <span class="n">user_name</span><span class="o">:</span> <span class="s2">&quot;your_email@gmail.com&quot;</span> <span class="n">password</span><span class="o">:</span> <span class="s2">&quot;your_password&quot;</span>
+</pre></div>
+
+
 <p>Save the file configuration and exit.</p>
 <h2 id="create-virtual-host-for-redmine">Create Virtual Host for Redmine</h2>
 <p>Create an Apache configuration file for the Redmine application at the port 80.</p>
 <p><code>nano /etc/httpd/conf.d/redmine.conf</code></p>
 <p>Copy the text below and paste into the editor window, note the information to change your domain name.
 80&gt; ServerName your_domain ServerAdmin your_domain </p>
-<pre><code> @domain.com DocumentRoot /var/www/redmine/public/ ErrorLog logs/redmine_error_log 
- "/var/www/redmine/public/"&gt; Options Indexes ExecCGI FollowSymLinks Order allow,deny Allow from all AllowOverride all
-</code></pre>
+<div class="highlight"><pre> @domain.com DocumentRoot /var/www/redmine/public/ ErrorLog logs/redmine_error_log 
+ &quot;/var/www/redmine/public/&quot;&gt; Options Indexes ExecCGI FollowSymLinks Order allow,deny Allow from all AllowOverride all
+</pre></div>
+
+
 <p>Save the file configuration and exit.</p>
 <h2 id="running-redmine">Running Redmine</h2>
 <p>Before execute Redmine in the first time, we must permission for the directory installed Redmine and restart Apache service.</p>
-<pre><code>cd /var/wwwchown -R apache:apache redminechmod -R 755 redmineservice httpd restart
-</code></pre>
+<div class="highlight"><pre>cd /var/wwwchown -R apache:apache redminechmod -R 755 redmineservice httpd restart
+</pre></div>
+
+
 <p><img alt="" src="http://ww2.sinaimg.cn/mw690/0067jSM2jw9es2omja76jj30ip0b5t9p.jpg" /></p>
 <p>Redmine will run at the following address URL :
 http://your-domain
@@ -242,11 +262,15 @@ We can see Redmine has running but very primitive, in the next steps we will ins
 <h2 id="install-subversion">Install Subversion</h2>
 <p>Subversion, also known as SVN, it is a version management system is very popular and easy to use, most programmers can use it competently.
 We need to create a folder to store data for Redmine, the following command creates a directory and permissions for the Apache service.</p>
-<pre><code>mkdir -p /opt/repositories/svnchown -R apache:apache /opt/repositories/chmod 0755 /opt/repositories
-</code></pre>
+<div class="highlight"><pre>mkdir -p /opt/repositories/svnchown -R apache:apache /opt/repositories/chmod 0755 /opt/repositories
+</pre></div>
+
+
 <p>The following command install Subversion and the packages :</p>
-<pre><code>yum install mod_dav_svn subversion subversion-ruby
-</code></pre>
+<div class="highlight"><pre>yum install mod_dav_svn subversion subversion-ruby
+</pre></div>
+
+
 <p><img alt="" src="http://ww4.sinaimg.cn/mw690/0067jSM2jw9es2omjdnw1j30l50ctn1r.jpg" /></p>
 <p>The next, we will create a directory and copy the file called "Redmine.pm", it responsible for interface data repository with Redmine and it is written by Perl language programming.
     mkdir /usr/lib64/perl5/vendor_perl/Apacheln -s /var/www/redmine/extra/svn/Redmine.pm /usr/lib64/perl5/vendor_perl/Apache/Redmine.pm</p>
@@ -256,20 +280,64 @@ To support the authentication and access to data repository for each member, we 
 <p><code>nano /etc/httpd/conf.d/subversion.conf</code></p>
 <p>Add the following lines to the end and still retain the old contents of the file :
 PerlLoadModule Apache::Redmine </p>
-<pre><code>  DAV svn SVNParentPath 
- "/opt/repositories/svn" SVNListParentPath on Order deny,allow Deny from all Satisfy any LimitXMLRequestBody 
- 0 SVNPathAuthz off PerlAccessHandler Apache::Authn::Redmine::access_handler PerlAuthenHandler Apache::Authn::Redmine::authen_handler AuthType Basic AuthName 
- "Subversion Repository" Require valid-user RedmineDSN 
- "DBI:mysql:database=redmine_db;host=localhost:3306" RedmineDbUser 
- "redmine_admin" RedmineDbPass 
- "your_password_database_redmine"
-</code></pre>
+<div class="highlight"><pre>  <span class="nt">DAV</span> <span class="nt">svn</span> <span class="nt">SVNParentPath</span> 
+ <span class="s2">&quot;/opt/repositories/svn&quot;</span> <span class="nt">SVNListParentPath</span> <span class="nt">on</span> <span class="nt">Order</span> <span class="nt">deny</span><span class="o">,</span><span class="nt">allow</span> <span class="nt">Deny</span> <span class="nt">from</span> <span class="nt">all</span> <span class="nt">Satisfy</span> <span class="nt">any</span> <span class="nt">LimitXMLRequestBody</span> 
+ <span class="nt">0</span> <span class="nt">SVNPathAuthz</span> <span class="nt">off</span> <span class="nt">PerlAccessHandler</span> <span class="nt">Apache</span><span class="o">:</span><span class="nd">:Authn</span><span class="o">:</span><span class="nd">:Redmine</span><span class="o">:</span><span class="nd">:access_handler</span> <span class="nt">PerlAuthenHandler</span> <span class="nt">Apache</span><span class="o">:</span><span class="nd">:Authn</span><span class="o">:</span><span class="nd">:Redmine</span><span class="o">:</span><span class="nd">:authen_handler</span> <span class="nt">AuthType</span> <span class="nt">Basic</span> <span class="nt">AuthName</span> 
+ <span class="s2">&quot;Subversion Repository&quot;</span> <span class="nt">Require</span> <span class="nt">valid-user</span> <span class="nt">RedmineDSN</span> 
+ <span class="s2">&quot;DBI:mysql:database=redmine_db;host=localhost:3306&quot;</span> <span class="nt">RedmineDbUser</span> 
+ <span class="s2">&quot;redmine_admin&quot;</span> <span class="nt">RedmineDbPass</span> 
+ <span class="s2">&quot;your_password_database_redmine&quot;</span>
+</pre></div>
+
+
 <p>Note : You need to change the password in the "RedmineDbPass" to correct the database password of Redmine.
 At this point, we have finished the basic settings for Redmine.
 Thank you!</p>
             
-            
+            <section>
+<div class="accordion" id="accordion2">
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
+                href="http://furiousslade.github.io/posts/2015/InstallRedmine.html#disqus_thread">
+                Comments
+            </a>
+        </div>
+        <div id="disqus_thread" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <div class="comments">
+                    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'furiousslade';
+        var disqus_identifier = 'http://furiousslade.github.io/posts/2015/InstallRedmine.html';
+    var disqus_url = 'http://furiousslade.github.io/posts/2015/InstallRedmine.html';
+
+    (function() {
+         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
             <hr/>
+<section>
+    <h2>Related Posts</h2>
+<ul class="related-posts-list">
+<li><a href="http://furiousslade.github.io/posts/2015/RedmineEmail.html" title="Redmine异步发送邮件">Redmine异步发送邮件</a></li>
+<li><a href="http://furiousslade.github.io/posts/2015/InstallMongrel.html" title="Redmine使用Mongrel服务器">Redmine使用Mongrel服务器</a></li>
+<li><a href="http://furiousslade.github.io/posts/2015/AutoStartOnLinux.html" title="让Redmine随Linux系统自动启动">让Redmine随Linux系统自动启动</a></li>
+</ul>
+<hr />
+</section>
         </div>
         <section>
         <div class="span2" style="float:right;font-size:0.9em;">
@@ -324,7 +392,45 @@ Thank you!</p>
             }
         </script>
 
-    
+            <script type="text/javascript">
+var disqus_shortname = 'furiousslade';
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+<script  language="javascript" type="text/javascript">
+function uncollapse() {
+    if (window.location.hash.match(/^#comment-\d+$/)) {
+        $('#disqus_thread').collapse('show');
+    }
+}
+</script>
+<script type="text/javascript" language="JavaScript">
+uncollapse();
+window.onhashchange=function(){
+    if (window.location.hash.match(/^#comment-\d+$/))
+        window.location.reload(true);
+}
+</script>
+<script>
+$('#disqus_thread').on('shown', function () {
+    var link = document.getElementsByClassName('accordion-toggle');
+    var old_innerHTML = link[0].innerHTML;
+    $(link[0]).fadeOut(500, function() {
+        $(this).text('Click here to hide comments').fadeIn(500);
+    });
+    $('#disqus_thread').on('hidden', function () {
+        $(link[0]).fadeOut(500, function() {
+            $(this).text(old_innerHTML).fadeIn(500);
+        });
+    })
+})
+</script>
+
+
                 
     </body>
     <!-- Theme: Elegant built for Pelican

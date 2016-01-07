@@ -11,18 +11,18 @@
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary">
 
-<meta name="keywords" content="Android, iOS, Work, " />
+<meta name="keywords" content="Charles, Work, " />
 
-<meta property="og:title" content="移动客户端的性能监控 "/>
-<meta property="og:url" content="http://furiousslade.github.io/posts/2015/ClientMonitor.html" />
-<meta property="og:description" content="起因 在测试一款通话类APP时，需要精确的统计客户端的流量消耗，电量消耗，CPU，内存等指标。磕磕碰碰的最终还是顺利的完成。在测试Android客户端的程中我一开始使用了Android SDK中的DDMS工具。 DDMS ddms位于&#34;D:\adt-bundle-windows-x86\sdk\tools&#34;相似的目录下。运行ddms.bat 选择相应的应用进程例如：com.paobao.verytele 选择Network标签。可以看到该进程网络统计模块。 RX为下行数据，TX为上行数据。可选择统计数据的时间间隔（250ms），点击Start，就会开始采集数据。 因为DDMS使用起来并不是最符合我的需求，所以在这里只做简单的介绍，具体功能可以自己挖掘。 Emmagee 最终Android端我选择了网易开源项目Emmagee。支持中文，简单直观的选择应用开启统计，可设置采集间隔，并可以设置将报告发送至指定邮箱。报告为Excel格式，统计了APP的CPU、内存、流量、电量以及整体性能状态。 GT iOS端的性能监测工具找到了腾讯的项目GT ..." />
+<meta property="og:title" content="在Mac下使用抓包工具Charles抓取APP的Https请求。 "/>
+<meta property="og:url" content="http://furiousslade.github.io/posts/2016/charles_https.html" />
+<meta property="og:description" content="APP在实际生产环境的部分追求安全性的接口都是https的。抓包工具一般情况下是无法抓取显示https接口调用内容的。这对一些线上问题的追踪产生了一定的障碍。 我一直在mac下使用Charles这个软件来进行抓包分析。Charles本身就是支持抓取https请求的。在一番折腾后成功抓取了https请求。 在此记录下过程： 首先你需要安装Charles，可以从它的官网下载Charles。 下载所需要使用到的证书. Version of Charles prior to v3.10 used a single SSL Root Certificate. You can still download the legacy certificate bundle here or the certificate itself here (for installing on mobile devices). Note that these certificates will not ..." />
 <meta property="og:site_name" content="Slade == u&#39;死累的&#39;" />
 <meta property="og:article:author" content="Slade" />
-<meta property="og:article:published_time" content="2015-05-18T00:00:00+08:00" />
-<meta name="twitter:title" content="移动客户端的性能监控 ">
-<meta name="twitter:description" content="起因 在测试一款通话类APP时，需要精确的统计客户端的流量消耗，电量消耗，CPU，内存等指标。磕磕碰碰的最终还是顺利的完成。在测试Android客户端的程中我一开始使用了Android SDK中的DDMS工具。 DDMS ddms位于&#34;D:\adt-bundle-windows-x86\sdk\tools&#34;相似的目录下。运行ddms.bat 选择相应的应用进程例如：com.paobao.verytele 选择Network标签。可以看到该进程网络统计模块。 RX为下行数据，TX为上行数据。可选择统计数据的时间间隔（250ms），点击Start，就会开始采集数据。 因为DDMS使用起来并不是最符合我的需求，所以在这里只做简单的介绍，具体功能可以自己挖掘。 Emmagee 最终Android端我选择了网易开源项目Emmagee。支持中文，简单直观的选择应用开启统计，可设置采集间隔，并可以设置将报告发送至指定邮箱。报告为Excel格式，统计了APP的CPU、内存、流量、电量以及整体性能状态。 GT iOS端的性能监测工具找到了腾讯的项目GT ...">
+<meta property="og:article:published_time" content="2016-01-05T00:00:00+08:00" />
+<meta name="twitter:title" content="在Mac下使用抓包工具Charles抓取APP的Https请求。 ">
+<meta name="twitter:description" content="APP在实际生产环境的部分追求安全性的接口都是https的。抓包工具一般情况下是无法抓取显示https接口调用内容的。这对一些线上问题的追踪产生了一定的障碍。 我一直在mac下使用Charles这个软件来进行抓包分析。Charles本身就是支持抓取https请求的。在一番折腾后成功抓取了https请求。 在此记录下过程： 首先你需要安装Charles，可以从它的官网下载Charles。 下载所需要使用到的证书. Version of Charles prior to v3.10 used a single SSL Root Certificate. You can still download the legacy certificate bundle here or the certificate itself here (for installing on mobile devices). Note that these certificates will not ...">
 
-        <title>移动客户端的性能监控  · Slade == u&#39;死累的&#39;
+        <title>在Mac下使用抓包工具Charles抓取APP的Https请求。  · Slade == u&#39;死累的&#39;
 </title>
         <!-- <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet"> -->
 
@@ -67,7 +67,7 @@
 <article>
 <div class="row-fluid">
     <header class="page-header span10 offset2">
-    <h1><a href="http://furiousslade.github.io/posts/2015/ClientMonitor.html"> 移动客户端的性能监控  </a></h1>
+    <h1><a href="http://furiousslade.github.io/posts/2016/charles_https.html"> 在Mac下使用抓包工具Charles抓取APP的Https请求。  </a></h1>
     </header>
 </div>
 
@@ -75,31 +75,36 @@
         <div class="span8 offset2 article-content">
 
             
-            <h1 id="_1">起因</h1>
-<p>在测试一款通话类APP时，需要精确的统计客户端的流量消耗，电量消耗，CPU，内存等指标。磕磕碰碰的最终还是顺利的完成。在测试Android客户端的程中我一开始使用了Android SDK中的DDMS工具。</p>
-<h2 id="ddms">DDMS</h2>
-<p>ddms位于"D:\adt-bundle-windows-x86\sdk\tools"相似的目录下。运行ddms.bat</p>
-<p><img alt="" src="http://ww1.sinaimg.cn/bmiddle/0067jSM2jw1es8e5cej4wj311y0kgn6v.jpg" /></p>
-<p>选择相应的应用进程例如：com.paobao.verytele 选择Network标签。可以看到该进程网络统计模块。</p>
-<p><img alt="" src="http://ww3.sinaimg.cn/bmiddle/0067jSM2jw1es8e8si1m1j30wq0i779j.jpg" /></p>
-<p><strong>RX</strong>为下行数据，<strong>TX</strong>为上行数据。可选择统计数据的时间间隔（250ms），点击Start，就会开始采集数据。</p>
-<p><img alt="" src="http://ww3.sinaimg.cn/bmiddle/0067jSM2jw1es8ea2im2wj30wq0i7gr7.jpg" /></p>
-<p>因为DDMS使用起来并不是最符合我的需求，所以在这里只做简单的介绍，具体功能可以自己挖掘。</p>
-<h2 id="emmagee">Emmagee</h2>
-<p>最终Android端我选择了网易开源项目<a href="https://github.com/NetEase/Emmagee" target="_blank">Emmagee</a>。支持中文，简单直观的选择应用开启统计，可设置采集间隔，并可以设置将报告发送至指定邮箱。报告为Excel格式，统计了APP的CPU、内存、流量、电量以及整体性能状态。</p>
-<p><img src="http://ww1.sinaimg.cn/bmiddle/0067jSM2jw1esozs65rfwj30dc0m8ad8.jpg" width="180px" />
-<img src="http://ww1.sinaimg.cn/bmiddle/0067jSM2jw1esozs5stmnj30dc0m8jsb.jpg" width="180px" />
-<img src="http://ww3.sinaimg.cn/bmiddle/0067jSM2jw1esozs5vxrdj30dc0m83zr.jpg" width="180px" />
-<img src="http://ww2.sinaimg.cn/bmiddle/0067jSM2jw1esozs5qvt2j30dc0m8gnm.jpg" width="180px" /></p>
-<h2 id="gt">GT</h2>
-<p>iOS端的性能监测工具找到了腾讯的项目<a href="http://gt.tencent.com/index.html" target="_blank">GT</a>。GT本身支持Android和iOS双平台，不过Android没有Emmagee更易用而已。iOS端是一个Framework包，必须嵌入APP工程。我让开发帮我集成进了APP中，同样可以统计APP的CPU、内存、流量、电量以及整体性能状态。</p>
+            <p>APP在实际生产环境的部分追求安全性的接口都是https的。抓包工具一般情况下是无法抓取显示https接口调用内容的。这对一些线上问题的追踪产生了一定的障碍。</p>
+<p>我一直在mac下使用Charles这个软件来进行抓包分析。Charles本身就是支持抓取https请求的。在一番折腾后成功抓取了https请求。</p>
+<p>在此记录下过程：</p>
+<p>首先你需要安装Charles，可以从它的官网下载<a href="http://www.charlesproxy.com/download/" target="&quot;_blank">Charles</a>。</p>
+<p>下载所需要使用到的<a href="http://www.charlesproxy.com/documentation/additional/legacy-ssl-proxying/" target="&quot;_blank">证书</a>.</p>
+<blockquote>
+<p>Version of Charles prior to v3.10 used a single SSL Root Certificate. You can still download the legacy certificate bundle <strong>here</strong> or the certificate itself <strong>here</strong> (for installing on mobile devices). Note that these certificates will not work on Charles v3.10.</p>
+</blockquote>
+<p>在两个<strong>here</strong>处可以分别下载证书的压缩版本和可直接安装版本。</p>
+<p>建议下载直接安装的证书到手机后，我使用的Android手机，进入“设置“--&gt;“安全”--&gt;“从SD卡安装证书”，找到下载好的证书并导入。</p>
+<p>然后打开Charles进入Proxy--&gt;SSL Proxying Settings中勾选Enable SSL Proxying,并添加需要抓取的的域名和端口（443）。</p>
+<p>然后手机设置代理指向Mac，就可以开始抓取https请求了。</p>
+<h2 id="40">然而 (╯‵ □′ )╯︵┻━┻</h2>
+<p>我高兴的太早了。。。并不是所有的APP发出的HTTPS请求都能被正确的抓取到。Charles抓取HTTPS使用的是<a href="http://baike.baidu.com/view/1531871.htm" target="&quot;_blank" title="百度百科">代理中间人攻击</a>方法，是可以有效的被防御的。</p>
+<blockquote>
+<p>中间人攻击（Man-in-the-MiddleAttack，简称“MITM攻击”）是一种“间接”的入侵攻击，这种攻击模式是通过各种技术手段将受入侵者控制的一台计算机虚拟放置在网络连接中的两台通信计算机之间，这台计算机就称为“中间人”。</p>
+</blockquote>
+<p>只要客户端在SSL协议握手时对服务器返回的证书做校验，伪造的证书就会被识别出来就GG了。</p>
+<p>能抓到https请求的，说明APP就是</p>
+<p>有BUG_(:з」∠)_ </p>
+<p>有BUG_(:з」∠)_ </p>
+<p>有BUG_(:з」∠)_ </p>
+<p>Charles抓取HTTPS请求的结果最终并不理想，但至少HTTPS请求是否会被中间人攻击也能作为一个测试点去关注。</p>
             
             <section>
 <div class="accordion" id="accordion2">
     <div class="accordion-group">
         <div class="accordion-heading">
             <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
-                href="http://furiousslade.github.io/posts/2015/ClientMonitor.html#disqus_thread">
+                href="http://furiousslade.github.io/posts/2016/charles_https.html#disqus_thread">
                 Comments
             </a>
         </div>
@@ -109,8 +114,8 @@
                     <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'furiousslade';
-        var disqus_identifier = 'http://furiousslade.github.io/posts/2015/ClientMonitor.html';
-    var disqus_url = 'http://furiousslade.github.io/posts/2015/ClientMonitor.html';
+        var disqus_identifier = 'http://furiousslade.github.io/posts/2016/charles_https.html';
+    var disqus_url = 'http://furiousslade.github.io/posts/2016/charles_https.html';
 
     (function() {
          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -129,29 +134,17 @@
 </section>
 
             <hr/>
-<section>
-    <h2>Related Posts</h2>
-<ul class="related-posts-list">
-<li><a href="http://furiousslade.github.io/posts/2015/ReadOnlyFileSystem.html" title="解决Android复制文件报“Read-only file system”的问题">解决Android复制文件报“Read-only file system”的问题</a></li>
-<li><a href="http://furiousslade.github.io/posts/2015/AppiumIOS.html" title="Appium在iOS端实现的脚本片段">Appium在iOS端实现的脚本片段</a></li>
-<li><a href="http://furiousslade.github.io/posts/2015/Robotium.html" title="Robotium只有apk情况下的代码片段">Robotium只有apk情况下的代码片段</a></li>
-</ul>
-<hr />
-</section>
         </div>
         <section>
         <div class="span2" style="float:right;font-size:0.9em;">
             <h4>Published</h4>
-            <time pubdate="pubdate" datetime="2015-05-18T00:00:00+08:00"> 5 18, 2015</time>
+            <time pubdate="pubdate" datetime="2016-01-05T00:00:00+08:00"> 1 5, 2016</time>
             <h4>Category</h4>
             <a class="category-link" href="http://furiousslade.github.io/categories.html#work-ref">Work</a>
             <h4>Tags</h4>
             <ul class="list-of-tags tags-in-article">
-                <li><a href="http://furiousslade.github.io/tags.html#android-ref">Android
-                    <span>6</span>
-</a></li>
-                <li><a href="http://furiousslade.github.io/tags.html#ios-ref">iOS
-                    <span>2</span>
+                <li><a href="http://furiousslade.github.io/tags.html#charles-ref">Charles
+                    <span>1</span>
 </a></li>
             </ul>
 <h4>Contact</h4>
