@@ -1,0 +1,213 @@
+body,
+html {
+    height: 100%;
+    width: 100%;
+}
+
+#container {
+    min-height: 90%;
+    margin-bottom: 0px;
+}
+
+#center_page > div > header {
+    border-bottom:3px dotted #F00;
+    border-right:0;
+    border-left:0;
+    width:100%;
+}
+
+/*index*/
+#content {
+    margin-top: 0px;
+}
+#posts-list > li > article > div.tagged {
+    padding-top: 5px;
+    padding-bottom: 10px;
+}
+#posts-list > li > article > div.tagged > i {
+    font-size: 1.5em;
+}
+/*post-list*/
+#posts-list > li > article > div.entry-content > p > img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+#posts-list > li > article > div.row > div.comment-count.col-md-3 {
+    padding-top: 0.5em;
+}
+#posts-list > li > article > div.row > div.comment-count.col-md-3 > i {
+    padding-right: 5px;
+    font-size: 1.5em;
+}
+
+/*Categories*/
+#accordion> div > div > h4 > a {
+    display:block;
+    height:100%;
+    width:100%;
+    text-decoration:none;
+}
+#accordion> div > div > h4 > a > span {
+    margin-left: 5px;
+
+}
+#center_page > div:nth-child(2) > div > ul > li {
+    padding-top: 3px;
+}
+
+/*article*/
+#content > article > div.comments {
+    margin-top: 0px;
+}
+#container > div.row-fluid {
+    margin-bottom: 35px;
+}
+#content > article > header {
+    padding-top: 1px;
+}
+#content > article > div.comments {
+    padding-bottom: 1px;
+}
+#content > article > div.entry-content > p > img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+/*tags*/
+#center_page > div > div > ul > li > time {
+    padding-right: 5px;
+}
+#center_page > div > div > ul > li > a > span {
+    margin-left: 5px;
+}
+
+/*sidebar_left*/
+#sidebar_left {
+    margin-top: 0px;
+}
+.list-inline li {
+    padding-right: 0;
+}
+.list-inline i {
+    font-size: 1.3em;
+}
+#sidebar_left > div > div.panel-body > ul > li > div {
+    height: 220px;
+    width: 200px;
+}
+#sidebar_left > div > div.panel-body > ul > li > div > h3 {
+    text-align:center;
+}
+#sidebar_left > div > div.panel-heading > i {
+    font-size: 1.3em;
+}
+
+/*sidebar_right*/
+#sidebar_right {
+    margin-top: 0px;
+}
+
+/*Footer*/
+body > footer.footer {
+    height: 30px;
+    clear: both;
+}
+.push,
+#footer {
+    height: 30px;
+    clear: both;
+}
+ul.footer-content {
+    list-style: none;
+    margin: -1px 0 0 0;
+    padding: 5px 5px 0;
+    display: table;
+    height: 30px;
+    width: 100%;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+ul.footer-content li {
+    padding-left: 5px;
+    display: table-cell;
+    vertical-align: middle;
+    height: 100%;
+}
+.swain-power {
+    text-align: right;
+}
+.swain-license {
+    text-align: left;
+}
+.swain-subtitle {
+    text-align: left;
+}
+
+
+/*blockquote*/
+#content > article > div.entry-content > blockquote {
+    border-left: 0;
+    margin: 20px 0 20px 2em;
+    padding: 0 0 0 20px;
+}
+#content > article > div.entry-content > blockquote:before {
+    color: #646464;
+    content: '\f10d';
+    font: 25px FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    margin-left: -2em;
+    text-decoration: inherit;
+    position:absolute;
+}
+#posts-list > li > article > div.entry-content > blockquote {
+    border-left: 0;
+    margin: 20px 0 20px 2em;
+    padding: 0 0 0 20px;
+}
+#posts-list > li > article > div.entry-content > blockquote:before {
+    color: #646464;
+    content: '\f10d';
+    font: 25px FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    margin-left: -2em;
+    text-decoration: inherit;
+    position:absolute;
+}
+
+
+/*TOC*/
+#sidebar_left > div > div.panel-body > nav > div > ul {
+    margin-left: -25px;
+}
+
+/*tipue_search*/
+#tipue_search_input {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: auto;
+    height: 30px;
+    border-radius: 25px;
+}
+.h01
+{
+     color: red;
+     font-size: 1.5em;
+}
+
+
+
+/*go to top*/
+#d-top {
+      position: fixed;
+      float: right;
+      z-index: 10;
+      right: 20px;
+      bottom: 200px;
+      }
+#d-top i {
+      opacity: 0.8;
+      }
