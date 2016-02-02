@@ -97,6 +97,49 @@
                 <li class="list-group-item">
                     <article class="hentry">
                         <header>
+                            <h2><a href="http://furiousslade.github.io/posts/2015/InstallMongrel.html" rel="bookmark" title="Permalink to Redmine使用Mongrel服务器">Redmine使用Mongrel服务器</a></h2>
+                        </header>
+                        <div class="tagged">
+                                <i class="fa fa-tags"></i>
+                                    <a class="label label-default" href="http://furiousslade.github.io/tags.html#redmine-ref">Redmine</a>
+                        </div>
+                        <div class="entry-content">
+                            <p>由于Redmine自带的Webrick Web服务器发布的问题，需要使用Mongrel组件来替换Webrick。Mongrel是一种快速的针对Ruby的Http服务器，专门为部署发布ROR应用而产生的。Mongrel相比Rails自带的纯Ruby服务器Webrick速度快很多并支持并发访问，有望成为Ruby的Tomcat.</p>
+<ol>
+<li>
+<p>替换其自带的服务器webrick为mongrel，方法：</p>
+<p><code>gem install mongrel</code></p>
+<p>rails 3.1以上执行:</p>
+<p><code>gem install mongrel –pre</code></p>
+</li>
+<li>
+<p>修改redmine下gemfile，在gemfile中加入：</p>
+<p><code>gem 'mongrel'</code></p>
+<p>如果安装的mongrel pre， 则gemfile中加:</p>
+<p><code>gem 'mongrel','~&gt; 1.2.0.pre2'</code></p>
+</li>
+<li>
+<p>删除gemfile.lock文件，重新执行: </p>
+<p><code>bundle install</code></p>
+</li>
+<li>
+<p>执行</p>
+<p><code>ruby script/rails server mongrel -e production</code></p>
+</li>
+</ol>
+                        </div>
+                        <div class="row">
+                        <div class="read-me col-md-9"><a class="btn btn-success"  type="button" href="http://furiousslade.github.io/posts/2015/InstallMongrel.html" rel="bookmark" title="Permalink to Redmine使用Mongrel服务器">Read more</a>
+                        </div>
+                        <div class="comment-count col-md-3"><i class="fa fa-commenting"></i><a href="http://furiousslade.github.io/posts/2015/InstallMongrel.html#disqus_thread">_(:з」∠)_</a>
+</div>
+                        </div>
+                        <!-- /.entry-content -->
+                    </article>
+                </li>
+                <li class="list-group-item">
+                    <article class="hentry">
+                        <header>
                             <h2><a href="http://furiousslade.github.io/posts/2015/InstallRedmine.html" rel="bookmark" title="Permalink to Install Redmine on Centos">Install Redmine on Centos</a></h2>
                         </header>
                         <div class="tagged">
@@ -249,6 +292,8 @@ adb pull /mnt/sdcard/xxx.apk xxx.apk        # 将手机中的文件传送至本�
                             <h2><a href="http://furiousslade.github.io/posts/2015/BlogStart.html" rel="bookmark" title="Permalink to Blog Start!">Blog Start!</a></h2>
                         </header>
                         <div class="tagged">
+                                <i class="fa fa-tags"></i>
+                                    <a class="label label-default" href="http://furiousslade.github.io/tags.html#pelican-ref">Pelican</a>
                         </div>
                         <div class="entry-content">
                             <p>Blog前期的搭建终于完成。可以开始装逼之旅了，作为一个IT人没有自己的博客总觉得有点low。建立博客的初衷是为了学习和记录，逼格的提升是次要的（xxx：骗谁啊！？）。</p>
