@@ -29,7 +29,6 @@ html {
 }
 /*post-list*/
 #posts-list > li > article > div.entry-content > p > img {
-    display: block;
     max-width: 100%;
     height: auto;
 }
@@ -70,7 +69,6 @@ html {
     padding-bottom: 1px;
 }
 #content > article > div.entry-content > p > img {
-    display: block;
     max-width: 100%;
     height: auto;
 }
