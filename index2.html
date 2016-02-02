@@ -97,105 +97,37 @@
                 <li class="list-group-item">
                     <article class="hentry">
                         <header>
-                            <h2><a href="http://furiousslade.github.io/posts/2015/InstallMongrel.html" rel="bookmark" title="Permalink to Redmine使用Mongrel服务器">Redmine使用Mongrel服务器</a></h2>
-                        </header>
-                        <div class="tagged">
-                                <i class="fa fa-tags"></i>
-                                    <a class="label label-default" href="http://furiousslade.github.io/tags.html#redmine-ref">Redmine</a>
-                        </div>
-                        <div class="entry-content">
-                            <p>由于Redmine自带的Webrick Web服务器发布的问题，需要使用Mongrel组件来替换Webrick。Mongrel是一种快速的针对Ruby的Http服务器，专门为部署发布ROR应用而产生的。Mongrel相比Rails自带的纯Ruby服务器Webrick速度快很多并支持并发访问，有望成为Ruby的Tomcat.</p>
-<ol>
-<li>
-<p>替换其自带的服务器webrick为mongrel，方法：</p>
-<p><code>gem install mongrel</code></p>
-<p>rails 3.1以上执行:</p>
-<p><code>gem install mongrel –pre</code></p>
-</li>
-<li>
-<p>修改redmine下gemfile，在gemfile中加入：</p>
-<p><code>gem 'mongrel'</code></p>
-<p>如果安装的mongrel pre， 则gemfile中加:</p>
-<p><code>gem 'mongrel','~&gt; 1.2.0.pre2'</code></p>
-</li>
-<li>
-<p>删除gemfile.lock文件，重新执行: </p>
-<p><code>bundle install</code></p>
-</li>
-<li>
-<p>执行</p>
-<p><code>ruby script/rails server mongrel -e production</code></p>
-</li>
-</ol>
-                        </div>
-                        <div class="row">
-                        <div class="read-me col-md-9"><a class="btn btn-success"  type="button" href="http://furiousslade.github.io/posts/2015/InstallMongrel.html" rel="bookmark" title="Permalink to Redmine使用Mongrel服务器">Read more</a>
-                        </div>
-                        <div class="comment-count col-md-3"><i class="fa fa-commenting"></i><a href="http://furiousslade.github.io/posts/2015/InstallMongrel.html#disqus_thread">_(:з」∠)_</a>
-</div>
-                        </div>
-                        <!-- /.entry-content -->
-                    </article>
-                </li>
-                <li class="list-group-item">
-                    <article class="hentry">
-                        <header>
-                            <h2><a href="http://furiousslade.github.io/posts/2015/InstallRedmine.html" rel="bookmark" title="Permalink to Install Redmine on Centos">Install Redmine on Centos</a></h2>
-                        </header>
-                        <div class="tagged">
-                                <i class="fa fa-tags"></i>
-                                    <a class="label label-default" href="http://furiousslade.github.io/tags.html#redmine-ref">Redmine</a>
-                        </div>
-                        <div class="entry-content">
-                            <h1 id="install-redmine-on-centos-65">Install Redmine on Centos 65</h1>
-<h2 id="dependencies-packages">dependencies packages</h2>
-<p>These are the basic software packages for environment settings and utility tools to compile other packages in the next section.
-Copy the block command and execute in the Putty Windows :
-This is a long command line, copy all and implementation.</p>
-<div class="highlight"><pre>yum -y install ...</pre></div>
-                        </div>
-                        <div class="row">
-                        <div class="read-me col-md-9"><a class="btn btn-success"  type="button" href="http://furiousslade.github.io/posts/2015/InstallRedmine.html" rel="bookmark" title="Permalink to Install Redmine on Centos">Read more</a>
-                        </div>
-                        <div class="comment-count col-md-3"><i class="fa fa-commenting"></i><a href="http://furiousslade.github.io/posts/2015/InstallRedmine.html#disqus_thread">_(:з」∠)_</a>
-</div>
-                        </div>
-                        <!-- /.entry-content -->
-                    </article>
-                </li>
-                <li class="list-group-item">
-                    <article class="hentry">
-                        <header>
-                            <h2><a href="http://furiousslade.github.io/posts/2015/NoCpUseCat.html" rel="bookmark" title="Permalink to 在Android shell下无法使用cp命令的解决方案">在Android shell下无法使用cp命令的解决方案</a></h2>
+                            <h2><a href="http://furiousslade.github.io/posts/2015/ClientMonitor.html" rel="bookmark" title="Permalink to 移动客户端的性能监控">移动客户端的性能监控</a></h2>
                         </header>
                         <div class="tagged">
                                 <i class="fa fa-tags"></i>
                                     <a class="label label-default" href="http://furiousslade.github.io/tags.html#android-ref">Android</a>
+                                    <a class="label label-default" href="http://furiousslade.github.io/tags.html#ios-ref">iOS</a>
                         </div>
                         <div class="entry-content">
-                            <p>在Android shell 下可能并没有安装cp命令，一般都不会安装。需要的可以自己安装busybox工具。在紧急的情况下可以使用cat命令来代替cp。</p>
-<div class="highlight"><pre>adb shell
-cd /mnt/sdcard  
-cat xxx.apk &gt;&gt; yyy.apk      # 将/mnt/sdcard目录下的xxx.apk复制为yyy.apk
-</pre></div>
-
-
-<p><a herf="http://www.busybox.net/downloads/binaries/" target="_black">Busybox</a>是一个集成了一百多个最常用linux命令和工具的软件。需要选择适合你手机cpu的版本来安装。查看手机CPU信息，根据Processor来选择安装版本。</p>
-<div class="highlight"><pre>cat /proc/cpuinfo
-Processor       : ARMv7 Processor rev 2 (v7l)
-...
-</pre></div>
-
-
-<p>将busybox复制到 /system/xbin 目录下，并修改文件权限，使其可执行。</p>
-<div class="highlight"><pre>cat busybox-armv7l &gt;&gt; /system/xbin/busybox
-chmod 775 busybox
-busybox ...</pre></div>
+                            <h1 id="_1">起因</h1>
+<p>在测试一款通话类APP时，需要精确的统计客户端的流量消耗，电量消耗，CPU，内存等指标。磕磕碰碰的最终还是顺利的完成。在测试Android客户端的程中我一开始使用了Android SDK中的DDMS工具。</p>
+<h2 id="ddms">DDMS</h2>
+<p>ddms位于"D:\adt-bundle-windows-x86\sdk\tools"相似的目录下。运行ddms.bat</p>
+<p><img alt="" src="http://ww1.sinaimg.cn/bmiddle/0067jSM2jw1es8e5cej4wj311y0kgn6v.jpg" /></p>
+<p>选择相应的应用进程例如：com.paobao.verytele 选择Network标签。可以看到该进程网络统计模块。</p>
+<p><img alt="" src="http://ww3.sinaimg.cn/bmiddle/0067jSM2jw1es8e8si1m1j30wq0i779j.jpg" /></p>
+<p><strong>RX</strong>为下行数据，<strong>TX</strong>为上行数据。可选择统计数据的时间间隔（250ms），点击Start，就会开始采集数据。</p>
+<p><img alt="" src="http://ww3.sinaimg.cn/bmiddle/0067jSM2jw1es8ea2im2wj30wq0i7gr7.jpg" /></p>
+<p>因为DDMS使用起来并不是最符合我的需求，所以在这里只做简单的介绍，具体功能可以自己挖掘。</p>
+<h2 id="emmagee">Emmagee</h2>
+<p>最终Android端我选择了网易开源项目<a href="https://github.com/NetEase/Emmagee" target="_blank">Emmagee</a>。支持中文，简单直观的选择应用开启统计，可设置采集间隔，并可以设置将报告发送至指定邮箱。报告为Excel格式，统计了APP的CPU、内存、流量、电量以及整体性能状态。</p>
+<p><img src="http://ww1.sinaimg.cn/bmiddle/0067jSM2jw1esozs65rfwj30dc0m8ad8.jpg" width="180px" />
+<img src="http://ww1.sinaimg.cn/bmiddle/0067jSM2jw1esozs5stmnj30dc0m8jsb.jpg" width="180px" />
+<img src="http://ww3.sinaimg.cn/bmiddle/0067jSM2jw1esozs5vxrdj30dc0m83zr.jpg" width="180px" />
+<img src="http://ww2.sinaimg.cn/bmiddle/0067jSM2jw1esozs5qvt2j30dc0m8gnm.jpg" width="180px" /></p>
+<h2 id="gt">GT</h2>
+<p>iOS端的性能监测工具找到了腾讯的项目<a href="http://gt.tencent.com/index.html" target="_blank">GT ...</a></p>
                         </div>
                         <div class="row">
-                        <div class="read-me col-md-9"><a class="btn btn-success"  type="button" href="http://furiousslade.github.io/posts/2015/NoCpUseCat.html" rel="bookmark" title="Permalink to 在Android shell下无法使用cp命令的解决方案">Read more</a>
+                        <div class="read-me col-md-9"><a class="btn btn-success"  type="button" href="http://furiousslade.github.io/posts/2015/ClientMonitor.html" rel="bookmark" title="Permalink to 移动客户端的性能监控">Read more</a>
                         </div>
-                        <div class="comment-count col-md-3"><i class="fa fa-commenting"></i><a href="http://furiousslade.github.io/posts/2015/NoCpUseCat.html#disqus_thread">_(:з」∠)_</a>
+                        <div class="comment-count col-md-3"><i class="fa fa-commenting"></i><a href="http://furiousslade.github.io/posts/2015/ClientMonitor.html#disqus_thread">_(:з」∠)_</a>
 </div>
                         </div>
                         <!-- /.entry-content -->
@@ -204,27 +136,36 @@ busybox ...</pre></div>
                 <li class="list-group-item">
                     <article class="hentry">
                         <header>
-                            <h2><a href="http://furiousslade.github.io/posts/2015/ReadOnlyFileSystem.html" rel="bookmark" title="Permalink to 解决Android复制文件报“Read-only file system”的问题">解决Android复制文件报“Read-only file system”的问题</a></h2>
+                            <h2><a href="http://furiousslade.github.io/posts/2015/Robotium.html" rel="bookmark" title="Permalink to Robotium只有apk情况下的代码片段">Robotium只有apk情况下的代码片段</a></h2>
                         </header>
                         <div class="tagged">
                                 <i class="fa fa-tags"></i>
                                     <a class="label label-default" href="http://furiousslade.github.io/tags.html#android-ref">Android</a>
+                                    <a class="label label-default" href="http://furiousslade.github.io/tags.html#robotium-ref">Robotium</a>
                         </div>
                         <div class="entry-content">
-                            <h1 id="_1">问题</h1>
-<p>当往android的/system目录下拷贝文件时一般是会报“Read-only file system”。因为/system目录默认是只读的。</p>
-<h1 id="_2">解决方法</h1>
-<p>首先是获取手机的<strong>root权限</strong>后</p>
-<div class="highlight"><pre>adb shell
-su # 切换成ROOT用户
-mount -o rw,remount /system     #将/system目录设置为读写模式
-mount -o ro,remount /system     #将/system目录设置为只读模式
-</pre></div>
+                            <div class="highlight"><pre><span class="n">package</span> <span class="n">com</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">tt</span><span class="o">.</span><span class="n">test</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">com.robotium.solo.Solo</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">android.app.Activity</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">android.provider.UserDictionary.Words</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">android.test.ActivityInstrumentationTestCase2</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">android.view.View</span><span class="p">;</span>
+
+
+<span class="nd">@SuppressWarnings</span><span class="p">(</span><span class="s">&quot;rawtypes&quot;</span><span class="p">)</span>
+<span class="n">public</span> <span class="k">class</span> <span class="nc">TestVs</span> <span class="n">extends</span> <span class="n">ActivityInstrumentationTestCase2</span><span class="p">{</span>
+
+    <span class="n">public</span> <span class="n">Solo</span> <span class="n">solo</span><span class="p">;</span>
+
+    <span class="n">public</span> <span class="n">Activity</span> <span class="n">activity</span><span class="p">;</span>
+    <span class="n">private</span> <span class="n">static</span> <span class="n">Class</span><span class="o">&lt;</span><span class="err">?</span><span class="o">&gt;</span> <span class="n">launchActivityClass</span><span class="p">;</span>
+    <span class="n">private</span> <span class="n">static</span> <span class="n">String</span> <span class="n">mainActiviy</span> <span class="o">=</span> <span class="s">&quot;com.paobao ...</span></pre></div>
                         </div>
                         <div class="row">
-                        <div class="read-me col-md-9"><a class="btn btn-success"  type="button" href="http://furiousslade.github.io/posts/2015/ReadOnlyFileSystem.html" rel="bookmark" title="Permalink to 解决Android复制文件报“Read-only file system”的问题">Read more</a>
+                        <div class="read-me col-md-9"><a class="btn btn-success"  type="button" href="http://furiousslade.github.io/posts/2015/Robotium.html" rel="bookmark" title="Permalink to Robotium只有apk情况下的代码片段">Read more</a>
                         </div>
-                        <div class="comment-count col-md-3"><i class="fa fa-commenting"></i><a href="http://furiousslade.github.io/posts/2015/ReadOnlyFileSystem.html#disqus_thread">_(:з」∠)_</a>
+                        <div class="comment-count col-md-3"><i class="fa fa-commenting"></i><a href="http://furiousslade.github.io/posts/2015/Robotium.html#disqus_thread">_(:з」∠)_</a>
 </div>
                         </div>
                         <!-- /.entry-content -->
@@ -233,27 +174,83 @@ mount -o ro,remount /system     #将/system目录设置为只读模式
                 <li class="list-group-item">
                     <article class="hentry">
                         <header>
-                            <h2><a href="http://furiousslade.github.io/posts/2015/RedmineEmail.html" rel="bookmark" title="Permalink to Redmine异步发送邮件">Redmine异步发送邮件</a></h2>
+                            <h2><a href="http://furiousslade.github.io/posts/2015/Jpype.html" rel="bookmark" title="Permalink to Python调用Java的代码片段">Python调用Java的代码片段</a></h2>
+                        </header>
+                        <div class="tagged">
+                                <i class="fa fa-tags"></i>
+                                    <a class="label label-default" href="http://furiousslade.github.io/tags.html#python-ref">Python</a>
+                        </div>
+                        <div class="entry-content">
+                            <div class="highlight"><pre><span class="c"># coding:utf-8</span>
+<span class="c"># 使用jpype第三方库创建jvm使用java类</span>
+<span class="kn">import</span> <span class="nn">jpype</span>
+
+<span class="k">class</span> <span class="nc">MyDes</span><span class="p">:</span>
+
+    <span class="nd">@staticmethod</span>  <span class="c"># 建立静态方法</span>
+    <span class="k">def</span> <span class="nf">encode</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+        <span class="c"># 读取系统jvm环境变量</span>
+        <span class="n">jvmPath</span> <span class="o">=</span> <span class="n">jpype</span><span class="o">.</span><span class="n">getDefaultJVMPath</span><span class="p">()</span>
+        <span class="c"># 设置javaClass文件路径,可以是一个jar包</span>
+        <span class="n">classpath</span> <span class="o">=</span> <span class="s">&quot;D:</span><span class="se">\\</span><span class="s">git</span><span class="se">\\</span><span class="s">VeryTeleTest</span><span class="se">\\</span><span class="s">JavaServer&quot;</span>
+        <span class="n">jvmArg</span> <span class="o">=</span> <span class="s">&quot;-Djava.class.path=&quot;</span> <span class="o">+</span> <span class="n">classpath</span>
+        <span class="c"># 尝试开启jvm</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">jpype</span><span class="o">.</span><span class="n">isJVMStarted</span><span class="p">():</span>
+            <span class="n">jpype</span><span class="o">.</span><span class="n">startJVM</span><span class="p">(</span><span class="n">jvmPath</span><span class="p">,</span> <span class="n">jvmArg</span><span class="p">)</span>
+            <span class="c"># 开启多线程支持</span>
+            <span class="n">jpype</span><span class="o">.</span><span class="n">attachThreadToJVM</span><span class="p">()</span>
+        <span class="c"># 导入MyDes.class(DES加密模块)</span>
+        <span class="n">javaClass</span> <span class="o">=</span> <span class="n">jpype</span><span class="o">.</span><span class="n">JClass</span><span class="p">(</span><span class="s">&quot;MyDes&quot;</span><span class="p">)</span>
+        <span class="n">key1</span> <span class="o">=</span> <span class="s">&quot;xxxxxxxxxxxxxxxxx&quot;</span>  <span class="c"># 秘钥1 ...</span></pre></div>
+                        </div>
+                        <div class="row">
+                        <div class="read-me col-md-9"><a class="btn btn-success"  type="button" href="http://furiousslade.github.io/posts/2015/Jpype.html" rel="bookmark" title="Permalink to Python调用Java的代码片段">Read more</a>
+                        </div>
+                        <div class="comment-count col-md-3"><i class="fa fa-commenting"></i><a href="http://furiousslade.github.io/posts/2015/Jpype.html#disqus_thread">_(:з」∠)_</a>
+</div>
+                        </div>
+                        <!-- /.entry-content -->
+                    </article>
+                </li>
+                <li class="list-group-item">
+                    <article class="hentry">
+                        <header>
+                            <h2><a href="http://furiousslade.github.io/posts/2015/AutoStartOnLinux.html" rel="bookmark" title="Permalink to 让Redmine随Linux系统自动启动">让Redmine随Linux系统自动启动</a></h2>
                         </header>
                         <div class="tagged">
                                 <i class="fa fa-tags"></i>
                                     <a class="label label-default" href="http://furiousslade.github.io/tags.html#redmine-ref">Redmine</a>
+                                    <a class="label label-default" href="http://furiousslade.github.io/tags.html#linux-ref">Linux</a>
                         </div>
                         <div class="entry-content">
-                            <p>当Redmine配置邮件后，会发现提交Bug等操作响应缓慢。是因为Redmine在确定邮件发送完成后才会返回提交成功的页面。设置成异步发送邮件，操作流程就流畅了。</p>
-<div class="highlight"><pre>vim /var/www/redmine/config/configuration.yml
-delivery_method：async_smtp
+                            <h1 id="_1">起因</h1>
+<p>最近因为机房经常停电，导致服务器频繁重启。每次都要手动去启动Redmine，我懒。所以把启动redmine的过程加入到了Linux系统启动过程中。</p>
+<h1 id="centos-65">我使用的是CentOS 6.5</h1>
+<h2 id="1">方法 1：</h2>
+<p>可能因发行版本不同rc.local的位置可能有不同 </p>
+<div class="highlight"><pre>    vim /etc/rc.local
 </pre></div>
 
 
-<p>or</p>
-<div class="highlight"><pre><span class="n">delivery_method</span><span class="o">:</span> <span class="n">async_sendmail</span>
+<p>在用户登录前执行，权限大。但无法使用“~”作为路劲，因为用户尚未登录，没有用户主目录。可以在/var/log/boot.log看到日志</p>
+<h2 id="2">方法 2：</h2>
+<div class="highlight"><pre>    sudo vi /etc/profile
 </pre></div>
+
+
+<p>权限等同当前登录用户，有可能会有权限不足的问题。可以用'~'指定主目录。</p>
+<h2 id="redminelinux">实现Redmine随Linux系统自启动</h2>
+<p>编辑 /etc/rc.local 文件</p>
+<div class="highlight"><pre>vim /etc/rc.local
+</pre></div>
+
+
+<p>添加如下字段，因为启用Redmine必须先启动Mysql ...</p>
                         </div>
                         <div class="row">
-                        <div class="read-me col-md-9"><a class="btn btn-success"  type="button" href="http://furiousslade.github.io/posts/2015/RedmineEmail.html" rel="bookmark" title="Permalink to Redmine异步发送邮件">Read more</a>
+                        <div class="read-me col-md-9"><a class="btn btn-success"  type="button" href="http://furiousslade.github.io/posts/2015/AutoStartOnLinux.html" rel="bookmark" title="Permalink to 让Redmine随Linux系统自动启动">Read more</a>
                         </div>
-                        <div class="comment-count col-md-3"><i class="fa fa-commenting"></i><a href="http://furiousslade.github.io/posts/2015/RedmineEmail.html#disqus_thread">_(:з」∠)_</a>
+                        <div class="comment-count col-md-3"><i class="fa fa-commenting"></i><a href="http://furiousslade.github.io/posts/2015/AutoStartOnLinux.html#disqus_thread">_(:з」∠)_</a>
 </div>
                         </div>
                         <!-- /.entry-content -->
@@ -262,50 +259,36 @@ delivery_method：async_smtp
                 <li class="list-group-item">
                     <article class="hentry">
                         <header>
-                            <h2><a href="http://furiousslade.github.io/posts/2015/adbmore.html" rel="bookmark" title="Permalink to Adb常用命令">Adb常用命令</a></h2>
+                            <h2><a href="http://furiousslade.github.io/posts/2015/AppiumIOS.html" rel="bookmark" title="Permalink to Appium在iOS端实现的脚本片段">Appium在iOS端实现的脚本片段</a></h2>
                         </header>
                         <div class="tagged">
                                 <i class="fa fa-tags"></i>
-                                    <a class="label label-default" href="http://furiousslade.github.io/tags.html#android-ref">Android</a>
+                                    <a class="label label-default" href="http://furiousslade.github.io/tags.html#appium-ref">Appium</a>
+                                    <a class="label label-default" href="http://furiousslade.github.io/tags.html#ios-ref">iOS</a>
                         </div>
                         <div class="entry-content">
-                            <h1 id="_1">常用命令</h1>
-<div class="highlight"><pre>adb devices     # 查看已连接PC的终端
-adb shell       # 连接终端
-adb -s [devicesId] shell    # 多台设备根据设备号连接终端
-adb push xxx.apk /mnt/sdcard/xxx.apk        # 将本地文件传送至手机    
-adb pull /mnt/sdcard/xxx.apk xxx.apk        # 将手机中的文件传送至本地
-</pre></div>
+                            <div class="highlight"><pre><span class="c"># coding:utf-8</span>
+<span class="kn">from</span> <span class="nn">appium</span> <span class="kn">import</span> <span class="n">webdriver</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="n">success</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="n">desired_caps</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">desired_caps</span><span class="p">[</span><span class="s">&#39;appium-version&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;1.0&#39;</span>
+<span class="n">desired_caps</span><span class="p">[</span><span class="s">&#39;platformName&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;iOS&#39;</span>
+<span class="n">desired_caps</span><span class="p">[</span><span class="s">&#39;autoLaunch&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;true&#39;</span>
+<span class="n">desired_caps</span><span class="p">[</span><span class="s">&#39;platformVersion&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;8.1.2&#39;</span>
+<span class="n">desired_caps</span><span class="p">[</span><span class="s">&#39;deviceName&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;TestIphone6&#39;</span>
+<span class="n">desired_caps</span><span class="p">[</span><span class="s">&#39;bundleId&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;io.appium.TestApp&#39;</span>
+<span class="n">desired_caps</span><span class="p">[</span><span class="s">&#39;udid&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;d67350bd7dc62308dea8e919803441128cb11745&#39;</span>
+
+<span class="n">wd</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Remote</span><span class="p">(</span><span class="s">&#39;http://0.0.0.0:4723 ...</span></pre></div>
                         </div>
                         <div class="row">
-                        <div class="read-me col-md-9"><a class="btn btn-success"  type="button" href="http://furiousslade.github.io/posts/2015/adbmore.html" rel="bookmark" title="Permalink to Adb常用命令">Read more</a>
+                        <div class="read-me col-md-9"><a class="btn btn-success"  type="button" href="http://furiousslade.github.io/posts/2015/AppiumIOS.html" rel="bookmark" title="Permalink to Appium在iOS端实现的脚本片段">Read more</a>
                         </div>
-                        <div class="comment-count col-md-3"><i class="fa fa-commenting"></i><a href="http://furiousslade.github.io/posts/2015/adbmore.html#disqus_thread">_(:з」∠)_</a>
-</div>
-                        </div>
-                        <!-- /.entry-content -->
-                    </article>
-                </li>
-                <li class="list-group-item">
-                    <article class="hentry">
-                        <header>
-                            <h2><a href="http://furiousslade.github.io/posts/2015/BlogStart.html" rel="bookmark" title="Permalink to Blog Start!">Blog Start!</a></h2>
-                        </header>
-                        <div class="tagged">
-                                <i class="fa fa-tags"></i>
-                                    <a class="label label-default" href="http://furiousslade.github.io/tags.html#pelican-ref">Pelican</a>
-                        </div>
-                        <div class="entry-content">
-                            <p>Blog前期的搭建终于完成。可以开始装逼之旅了，作为一个IT人没有自己的博客总觉得有点low。建立博客的初衷是为了学习和记录，逼格的提升是次要的（xxx：骗谁啊！？）。</p>
-<p>我最终选择了 <a href="https://github.com/getpelican/pelican.git" title="Pelican github">Pelican</a> + <a href="https://github.com" title="GitHub">github</a> 的组合。
-之所以选择了Pelican没有选择Jekyll因为工作本身用<a href="https://www.python.org/">Python</a>较多,非常喜欢Python的语法结构，爱屋及乌。</p>
-<p>Pelican选择了<a href="https://github.com/talha131/pelican-elegant.git">elegant</a>这个皮肤，功能非常的齐全。可惜Pelican自带的站内搜索插件调试了多次都失败了。最后选用了<a href="https://swiftype.com">Swiftype</a>作为站内搜索。从网上搞了段代码实现了<strong>返回顶部</strong>的功能。使用Cygwin解决了Windows系统下的使用无法使用make的问题。</p>
-<p>在这个过程中接触了html、css、JavaScript、模板语法、markdown语法、git、github。</p>
-                        </div>
-                        <div class="row">
-                        <div class="read-me col-md-9"><a class="btn btn-success"  type="button" href="http://furiousslade.github.io/posts/2015/BlogStart.html" rel="bookmark" title="Permalink to Blog Start!">Read more</a>
-                        </div>
-                        <div class="comment-count col-md-3"><i class="fa fa-commenting"></i><a href="http://furiousslade.github.io/posts/2015/BlogStart.html#disqus_thread">_(:з」∠)_</a>
+                        <div class="comment-count col-md-3"><i class="fa fa-commenting"></i><a href="http://furiousslade.github.io/posts/2015/AppiumIOS.html#disqus_thread">_(:з」∠)_</a>
 </div>
                         </div>
                         <!-- /.entry-content -->
@@ -315,7 +298,8 @@ adb pull /mnt/sdcard/xxx.apk xxx.apk        # 将手机中的文件传送至本�
                             <br/>
                             <div><h3 class="paginator text-center">
         <a href="http://furiousslade.github.io/index.html"><i class="fa fa-chevron-circle-left"></i></a>
-    Page 2 / 2
+    Page 2 / 4
+        <a href="http://furiousslade.github.io/index3.html"><i class="fa fa-chevron-circle-right"></i></a>
 </h3>
 </div>
                         </div><!-- /#content -->

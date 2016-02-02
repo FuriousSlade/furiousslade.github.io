@@ -43,7 +43,7 @@
 
             <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li ><a href="http://furiousslade.github.io">Home</a></li>
+                    <li  class="active"><a href="http://furiousslade.github.io">Home</a></li>
                     <li ><a href="http://furiousslade.github.io/categories.html">Categories</a></li>
                     <li ><a href="http://furiousslade.github.io/tags.html">Tags</a></li>
                     <li ><a href="http://furiousslade.github.io/archives.html">Archives</a></li>
@@ -94,50 +94,6 @@
             <div class="col-md-8" id="center_page">
     <div id="content" class="row">
         <ul class="list-group list-unstyled" id="posts-list">
-                <li class="list-group-item">
-                    <article class="hentry">
-                        <header>
-                            <h2><a href="http://furiousslade.github.io/posts/2015/AutoStartOnLinux.html" rel="bookmark" title="Permalink to 让Redmine随Linux系统自动启动">让Redmine随Linux系统自动启动</a></h2>
-                        </header>
-                        <div class="tagged">
-                                <i class="fa fa-tags"></i>
-                                    <a class="label label-default" href="http://furiousslade.github.io/tags.html#redmine-ref">Redmine</a>
-                                    <a class="label label-default" href="http://furiousslade.github.io/tags.html#linux-ref">Linux</a>
-                        </div>
-                        <div class="entry-content">
-                            <h1 id="_1">起因</h1>
-<p>最近因为机房经常停电，导致服务器频繁重启。每次都要手动去启动Redmine，我懒。所以把启动redmine的过程加入到了Linux系统启动过程中。</p>
-<h1 id="centos-65">我使用的是CentOS 6.5</h1>
-<h2 id="1">方法 1：</h2>
-<p>可能因发行版本不同rc.local的位置可能有不同 </p>
-<div class="highlight"><pre>    vim /etc/rc.local
-</pre></div>
-
-
-<p>在用户登录前执行，权限大。但无法使用“~”作为路劲，因为用户尚未登录，没有用户主目录。可以在/var/log/boot.log看到日志</p>
-<h2 id="2">方法 2：</h2>
-<div class="highlight"><pre>    sudo vi /etc/profile
-</pre></div>
-
-
-<p>权限等同当前登录用户，有可能会有权限不足的问题。可以用'~'指定主目录。</p>
-<h2 id="redminelinux">实现Redmine随Linux系统自启动</h2>
-<p>编辑 /etc/rc.local 文件</p>
-<div class="highlight"><pre>vim /etc/rc.local
-</pre></div>
-
-
-<p>添加如下字段，因为启用Redmine必须先启动Mysql ...</p>
-                        </div>
-                        <div class="row">
-                        <div class="read-me col-md-9"><a class="btn btn-success"  type="button" href="http://furiousslade.github.io/posts/2015/AutoStartOnLinux.html" rel="bookmark" title="Permalink to 让Redmine随Linux系统自动启动">Read more</a>
-                        </div>
-                        <div class="comment-count col-md-3"><i class="fa fa-commenting"></i><a href="http://furiousslade.github.io/posts/2015/AutoStartOnLinux.html#disqus_thread">_(:з」∠)_</a>
-</div>
-                        </div>
-                        <!-- /.entry-content -->
-                    </article>
-                </li>
                 <li class="list-group-item">
                     <article class="hentry">
                         <header>
@@ -274,12 +230,41 @@ mount -o ro,remount /system     #将/system目录设置为只读模式
                         <!-- /.entry-content -->
                     </article>
                 </li>
+                <li class="list-group-item">
+                    <article class="hentry">
+                        <header>
+                            <h2><a href="http://furiousslade.github.io/posts/2015/RedmineEmail.html" rel="bookmark" title="Permalink to Redmine异步发送邮件">Redmine异步发送邮件</a></h2>
+                        </header>
+                        <div class="tagged">
+                                <i class="fa fa-tags"></i>
+                                    <a class="label label-default" href="http://furiousslade.github.io/tags.html#redmine-ref">Redmine</a>
+                        </div>
+                        <div class="entry-content">
+                            <p>当Redmine配置邮件后，会发现提交Bug等操作响应缓慢。是因为Redmine在确定邮件发送完成后才会返回提交成功的页面。设置成异步发送邮件，操作流程就流畅了。</p>
+<div class="highlight"><pre>vim /var/www/redmine/config/configuration.yml
+delivery_method：async_smtp
+</pre></div>
+
+
+<p>or</p>
+<div class="highlight"><pre><span class="n">delivery_method</span><span class="o">:</span> <span class="n">async_sendmail</span>
+</pre></div>
+                        </div>
+                        <div class="row">
+                        <div class="read-me col-md-9"><a class="btn btn-success"  type="button" href="http://furiousslade.github.io/posts/2015/RedmineEmail.html" rel="bookmark" title="Permalink to Redmine异步发送邮件">Read more</a>
+                        </div>
+                        <div class="comment-count col-md-3"><i class="fa fa-commenting"></i><a href="http://furiousslade.github.io/posts/2015/RedmineEmail.html#disqus_thread">_(:з」∠)_</a>
+</div>
+                        </div>
+                        <!-- /.entry-content -->
+                    </article>
+                </li>
                         </ul><!-- /#posts-list -->
                             <br/>
                             <div><h3 class="paginator text-center">
-        <a href="http://furiousslade.github.io/category/work.html"><i class="fa fa-chevron-circle-left"></i></a>
-    Page 2 / 3
-        <a href="http://furiousslade.github.io/category/work3.html"><i class="fa fa-chevron-circle-right"></i></a>
+        <a href="http://furiousslade.github.io/index2.html"><i class="fa fa-chevron-circle-left"></i></a>
+    Page 3 / 4
+        <a href="http://furiousslade.github.io/index4.html"><i class="fa fa-chevron-circle-right"></i></a>
 </h3>
 </div>
                         </div><!-- /#content -->
