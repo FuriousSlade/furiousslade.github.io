@@ -72,6 +72,12 @@ html {
     max-width: 100%;
     height: auto;
 }
+#content > div {
+    padding-bottom: 15px;
+}
+#content > div > div > div > a {
+    width: 45px;
+}
 /*tags*/
 #center_page > div > div > ul > li > time {
     padding-right: 5px;
