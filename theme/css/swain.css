@@ -75,9 +75,12 @@ html {
 #content > div {
     padding-bottom: 15px;
 }
+
+/*pagination*/
 #content > div > div > div > a {
-    width: 45px;
+    width: 50px;
 }
+
 /*tags*/
 #center_page > div > div > ul > li > time {
     padding-right: 5px;
