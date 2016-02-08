@@ -180,6 +180,20 @@ ul.footer-content li {
     margin: 20px 0 20px 2em;
     padding: 0 0 0 20px;
 }
+#content > article > div.entry-content > blockquote > p {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-variant: normal;
+    text-transform: none;
+    font-size: inherit;
+    line-height: 1.5em;
+}
+#posts-list > li > article > div.entry-content > blockquote > p {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-variant: normal;
+    text-transform: none;
+    font-size: inherit;
+    line-height: 1.5em;
+}
 #posts-list > li > article > div.entry-content > blockquote:before {
     color: #646464;
     content: '\f10d';
