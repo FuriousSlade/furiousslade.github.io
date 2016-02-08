@@ -9,6 +9,10 @@ html {
     margin-bottom: 0px;
 }
 
+p,code,pre {
+    font-size: 15px;
+}
+
 #center_page > div > header {
     border-bottom:3px dotted #F00;
     border-right:0;
@@ -75,7 +79,9 @@ html {
 #content > div {
     padding-bottom: 15px;
 }
-
+#center_page > div > div > div > div > span {
+    font-size: 20px;
+}
 /*pagination*/
 #content > div > div > div > a {
     width: 50px;
