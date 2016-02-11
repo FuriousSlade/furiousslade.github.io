@@ -28,14 +28,15 @@
 
 <body>
     <!-- navbar start -->
-    <nav class="navbar navbar-default navbar-static-top">
+    <nav class="navbar navbar-inverse navbar-static-top">
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                 <span class="sr-only">Toggle navigation</span>
+                <i class="fa fa-bars fa-lg fa-inverse"></i>
+<!--                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
+                <span class="icon-bar"></span> -->
                 </button>
                 <a class="navbar-brand" href="http://furiousslade.github.io">Slade == u'死累的'</a>
             </div>
@@ -46,8 +47,8 @@
                     <li ><a href="http://furiousslade.github.io/categories.html">Categories</a></li>
                     <li ><a href="http://furiousslade.github.io/tags.html">Tags</a></li>
                     <li ><a href="http://furiousslade.github.io/archives.html">Archives</a></li>
-                    <li><form class="navbar-search" action="http://furiousslade.github.io/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
                 </ul>
+                <form class="navbar-search navbar-form navbar-right" action="http://furiousslade.github.io/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form>
             </div>
         </div>
     </nav>
@@ -79,14 +80,16 @@
             <div class="col-md-8" id="center_page">
 <section id="content" class="body">
   <article>
-    <header>
-      <h1 class="entry-title">
-        <a href="http://furiousslade.github.io/posts/2016/2015_bug_prologue.html" rel="bookmark"
-           title="Permalink to 2015年踩过的坑">2015年踩过的坑</a></h1>
-    </header>
-    <hr/>
-    <div class="entry-content">
-      
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <header>
+          <h1 class="entry-title">
+            <a href="http://furiousslade.github.io/posts/2016/2015_bug_prologue.html" rel="bookmark"
+               title="Permalink to 2015年踩过的坑">2015年踩过的坑</a></h1>
+        </header>
+        <hr/>
+        <div class="entry-content">
+          
 <h2 id="_1">序</h2>
 <p>自从来到扎拉斯后工作中挖了不少坑也填了不少坑。在新的一年开始时，在此做下记录。</p>
 <h2 id="_2">一次正常的请求，生产服务器上确实同时收到了多个请求。</h2>
@@ -109,27 +112,30 @@
 <p>在测试前端的某个版本中发现过一个隐藏较深的bug，开发修复后并发布后生产后。因为紧急增加了一个功能点，加班测试发布后了紧急版本后。突然发现线上部分用户使用时出现异常问题。debug后是发现是之前的修复的bug重现了。最终定位到是开发作为基线的开发分支选择错误。之后选择了正确的基线分支，bug是很快修复并重新发版。这次问题测试没有做全回归，回归测试覆盖不全是问题之一。但也从侧面表现出代码管理的重要性。修复的bug因为基线分支选择错误而产生bug，作为测试真的觉得很心累。之后也发现我们这边前端的分支管理混乱也要求合理管理分支。改进分支管理后，此类问题并未再现。</p>
 <h2 id="_5">终</h2>
 <p>其实对于所有线上的bug，测试都无法推脱说这是技术难点我没有责任，虽然不少问题测试确实很难发现，尤其是一些线程安全问题，并发性能问题。在快速的业务迭代中，往往没有那么多富裕的时间给测试。不过问题还是测试不充分造成的。只能在快速的业务迭代中和测试周期中努力找到一个好的平衡点。我认为开发的单元测试自测，就能从底层排除掉很多测试难以发现的问题。测试更该去关注集成测试、容错性、兼容性测试和性能测试，而不是操心单一模块是否可用，遇到好的队友还是很重要的。</p>
-    </div><!-- /.entry-content -->
-
-
-
-    <hr>
-    <div class="comments">
-      <div id="disqus_thread"></div>
-        <script type="text/javascript">
-            var disqus_shortname = 'furiousslade';
-                var disqus_identifier = 'http://furiousslade.github.io/posts/2016/2015_bug_prologue.html';
-            var disqus_url = 'http://furiousslade.github.io/posts/2016/2015_bug_prologue.html';
-
-            (function() {
-                 var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                 dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-                 (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-             })();
-        </script>
-        <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div><!-- /.entry-content -->
     </div>
+  </div>      
 
+
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="comments">
+          <div id="disqus_thread"></div>
+            <script type="text/javascript">
+                var disqus_shortname = 'furiousslade';
+                    var disqus_identifier = 'http://furiousslade.github.io/posts/2016/2015_bug_prologue.html';
+                var disqus_url = 'http://furiousslade.github.io/posts/2016/2015_bug_prologue.html';
+
+                (function() {
+                     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                     dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                 })();
+            </script>
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+            </div>
+    </div>
   </article>
 </section>
             </div>
@@ -139,7 +145,7 @@
     <div class="panel-body">
       <div class="published">
                 <h5>Published</h5>
-                <p>2016-01-01</p>
+                <p><time>2016-01-01</time></p>
       </div>
       <div class="category">
               <h5>Category</h5>

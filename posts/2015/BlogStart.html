@@ -28,14 +28,15 @@
 
 <body>
     <!-- navbar start -->
-    <nav class="navbar navbar-default navbar-static-top">
+    <nav class="navbar navbar-inverse navbar-static-top">
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                 <span class="sr-only">Toggle navigation</span>
+                <i class="fa fa-bars fa-lg fa-inverse"></i>
+<!--                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
+                <span class="icon-bar"></span> -->
                 </button>
                 <a class="navbar-brand" href="http://furiousslade.github.io">Slade == u'死累的'</a>
             </div>
@@ -46,8 +47,8 @@
                     <li ><a href="http://furiousslade.github.io/categories.html">Categories</a></li>
                     <li ><a href="http://furiousslade.github.io/tags.html">Tags</a></li>
                     <li ><a href="http://furiousslade.github.io/archives.html">Archives</a></li>
-                    <li><form class="navbar-search" action="http://furiousslade.github.io/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
                 </ul>
+                <form class="navbar-search navbar-form navbar-right" action="http://furiousslade.github.io/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form>
             </div>
         </div>
     </nav>
@@ -59,20 +60,23 @@
             <div class="col-md-8" id="center_page">
 <section id="content" class="body">
   <article>
-    <header>
-      <h1 class="entry-title">
-        <a href="http://furiousslade.github.io/posts/2015/BlogStart.html" rel="bookmark"
-           title="Permalink to Blog Start!">Blog Start!</a></h1>
-    </header>
-    <hr/>
-    <div class="entry-content">
-      <p>Blog前期的搭建终于完成。可以开始装逼之旅了，作为一个IT人没有自己的博客总觉得有点low。建立博客的初衷是为了学习和记录，逼格的提升是次要的（xxx：骗谁啊！？）。</p>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <header>
+          <h1 class="entry-title">
+            <a href="http://furiousslade.github.io/posts/2015/BlogStart.html" rel="bookmark"
+               title="Permalink to Blog Start!">Blog Start!</a></h1>
+        </header>
+        <hr/>
+        <div class="entry-content">
+          <p>Blog前期的搭建终于完成。可以开始装逼之旅了，作为一个IT人没有自己的博客总觉得有点low。建立博客的初衷是为了学习和记录，逼格的提升是次要的（xxx：骗谁啊！？）。</p>
 <p>我最终选择了 <a href="https://github.com/getpelican/pelican.git" title="Pelican github">Pelican</a> + <a href="https://github.com" title="GitHub">github</a> 的组合。
 之所以选择了Pelican没有选择Jekyll因为工作本身用<a href="https://www.python.org/">Python</a>较多,非常喜欢Python的语法结构，爱屋及乌。</p>
 <p>Pelican选择了<a href="https://github.com/talha131/pelican-elegant.git">elegant</a>这个皮肤，功能非常的齐全。可惜Pelican自带的站内搜索插件调试了多次都失败了。最后选用了<a href="https://swiftype.com">Swiftype</a>作为站内搜索。从网上搞了段代码实现了<strong>返回顶部</strong>的功能。使用Cygwin解决了Windows系统下的使用无法使用make的问题。</p>
 <p>在这个过程中接触了html、css、JavaScript、模板语法、markdown语法、git、github。</p>
-    </div><!-- /.entry-content -->
-
+        </div><!-- /.entry-content -->
+    </div>
+  </div>      
     <div class="panel panel-default">
       <div class="panel-heading">Related posts</div>
       <div class="panel-body">
@@ -83,23 +87,25 @@
     </div>
 
 
-    <hr>
-    <div class="comments">
-      <div id="disqus_thread"></div>
-        <script type="text/javascript">
-            var disqus_shortname = 'furiousslade';
-                var disqus_identifier = 'http://furiousslade.github.io/posts/2015/BlogStart.html';
-            var disqus_url = 'http://furiousslade.github.io/posts/2015/BlogStart.html';
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="comments">
+          <div id="disqus_thread"></div>
+            <script type="text/javascript">
+                var disqus_shortname = 'furiousslade';
+                    var disqus_identifier = 'http://furiousslade.github.io/posts/2015/BlogStart.html';
+                var disqus_url = 'http://furiousslade.github.io/posts/2015/BlogStart.html';
 
-            (function() {
-                 var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                 dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-                 (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-             })();
-        </script>
-        <noscript>Please enable JavaScript to view the comments.</noscript>
+                (function() {
+                     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                     dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                 })();
+            </script>
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+            </div>
     </div>
-
   </article>
 </section>
             </div>
@@ -109,7 +115,7 @@
     <div class="panel-body">
       <div class="published">
                 <h5>Published</h5>
-                <p>2015-05-11</p>
+                <p><time>2015-05-11</time></p>
       </div>
       <div class="category">
               <h5>Category</h5>

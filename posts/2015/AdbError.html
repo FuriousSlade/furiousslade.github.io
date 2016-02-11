@@ -28,14 +28,15 @@
 
 <body>
     <!-- navbar start -->
-    <nav class="navbar navbar-default navbar-static-top">
+    <nav class="navbar navbar-inverse navbar-static-top">
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                 <span class="sr-only">Toggle navigation</span>
+                <i class="fa fa-bars fa-lg fa-inverse"></i>
+<!--                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
+                <span class="icon-bar"></span> -->
                 </button>
                 <a class="navbar-brand" href="http://furiousslade.github.io">Slade == u'死累的'</a>
             </div>
@@ -46,8 +47,8 @@
                     <li ><a href="http://furiousslade.github.io/categories.html">Categories</a></li>
                     <li ><a href="http://furiousslade.github.io/tags.html">Tags</a></li>
                     <li ><a href="http://furiousslade.github.io/archives.html">Archives</a></li>
-                    <li><form class="navbar-search" action="http://furiousslade.github.io/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
                 </ul>
+                <form class="navbar-search navbar-form navbar-right" action="http://furiousslade.github.io/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form>
             </div>
         </div>
     </nav>
@@ -59,14 +60,16 @@
             <div class="col-md-8" id="center_page">
 <section id="content" class="body">
   <article>
-    <header>
-      <h1 class="entry-title">
-        <a href="http://furiousslade.github.io/posts/2015/AdbError.html" rel="bookmark"
-           title="Permalink to Adb error: unknown host service 的解决方法">Adb error: unknown host service 的解决方法</a></h1>
-    </header>
-    <hr/>
-    <div class="entry-content">
-      <h1 id="adb-shell">在命令行输入adb shell后输出如下错误：</h1>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <header>
+          <h1 class="entry-title">
+            <a href="http://furiousslade.github.io/posts/2015/AdbError.html" rel="bookmark"
+               title="Permalink to Adb error: unknown host service 的解决方法">Adb error: unknown host service 的解决方法</a></h1>
+        </header>
+        <hr/>
+        <div class="entry-content">
+          <h1 id="adb-shell">在命令行输入adb shell后输出如下错误：</h1>
 <div class="highlight"><pre>adb server is out of date.  killing... 
 ADB server didn&#39;t ACK 
 * failed to start daemon * 
@@ -94,37 +97,40 @@ TCP    127.0.0.1:5354         127.0.0.1:49156        ESTABLISHED     1868
 <div class="highlight"><pre>C:\Users\Slade&gt;taskkill /F /PID 972
 成功: 已终止 PID 为 972 的进程。
 </pre></div>
-    </div><!-- /.entry-content -->
-
+        </div><!-- /.entry-content -->
+    </div>
+  </div>      
     <div class="panel panel-default">
       <div class="panel-heading">Related posts</div>
       <div class="panel-body">
         <ul class="list-unstyled">
         <li><a href="http://furiousslade.github.io/posts/2015/ReadOnlyFileSystem.html">解决Android复制文件报“Read-only file system”的问题</a></li>
         <li><a href="http://furiousslade.github.io/posts/2015/adbmore.html">Adb常用命令</a></li>
-        <li><a href="http://furiousslade.github.io/posts/2015/ClientMonitor.html">移动客户端的性能监控</a></li>
+        <li><a href="http://furiousslade.github.io/posts/2015/NoCpUseCat.html">在Android shell下无法使用cp命令的解决方案</a></li>
         </ul>
       </div>
     </div>
 
 
-    <hr>
-    <div class="comments">
-      <div id="disqus_thread"></div>
-        <script type="text/javascript">
-            var disqus_shortname = 'furiousslade';
-                var disqus_identifier = 'http://furiousslade.github.io/posts/2015/AdbError.html';
-            var disqus_url = 'http://furiousslade.github.io/posts/2015/AdbError.html';
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="comments">
+          <div id="disqus_thread"></div>
+            <script type="text/javascript">
+                var disqus_shortname = 'furiousslade';
+                    var disqus_identifier = 'http://furiousslade.github.io/posts/2015/AdbError.html';
+                var disqus_url = 'http://furiousslade.github.io/posts/2015/AdbError.html';
 
-            (function() {
-                 var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                 dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-                 (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-             })();
-        </script>
-        <noscript>Please enable JavaScript to view the comments.</noscript>
+                (function() {
+                     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                     dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                 })();
+            </script>
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+            </div>
     </div>
-
   </article>
 </section>
             </div>
@@ -134,7 +140,7 @@ TCP    127.0.0.1:5354         127.0.0.1:49156        ESTABLISHED     1868
     <div class="panel-body">
       <div class="published">
                 <h5>Published</h5>
-                <p>2015-06-01</p>
+                <p><time>2015-06-01</time></p>
       </div>
       <div class="category">
               <h5>Category</h5>

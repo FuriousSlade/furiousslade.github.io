@@ -8,11 +8,12 @@
     font-weight: normal;
     font-style: normal;
 }
+
 div > div > h4 > a,
 a.label.label-default,
 a.btn.btn-default.btn-sm,
 a.btn.btn-default.btn-xs,
-pre,code,footer,p,time,
+footer,time,
 #center_page > div > div > div > div > span {
     font-family: Fixedsys500c;
     font-size: inherit;
@@ -22,5 +23,9 @@ pre,code,footer,p,time,
     font-size: 18px;
 }
 span.h01 {
-    font-family: Fixedsys500c;  
+    font-family: Fixedsys500c;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: Fixedsys500c;
 }

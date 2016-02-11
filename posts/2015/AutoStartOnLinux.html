@@ -28,14 +28,15 @@
 
 <body>
     <!-- navbar start -->
-    <nav class="navbar navbar-default navbar-static-top">
+    <nav class="navbar navbar-inverse navbar-static-top">
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                 <span class="sr-only">Toggle navigation</span>
+                <i class="fa fa-bars fa-lg fa-inverse"></i>
+<!--                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
+                <span class="icon-bar"></span> -->
                 </button>
                 <a class="navbar-brand" href="http://furiousslade.github.io">Slade == u'死累的'</a>
             </div>
@@ -46,8 +47,8 @@
                     <li ><a href="http://furiousslade.github.io/categories.html">Categories</a></li>
                     <li ><a href="http://furiousslade.github.io/tags.html">Tags</a></li>
                     <li ><a href="http://furiousslade.github.io/archives.html">Archives</a></li>
-                    <li><form class="navbar-search" action="http://furiousslade.github.io/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form></li>
                 </ul>
+                <form class="navbar-search navbar-form navbar-right" action="http://furiousslade.github.io/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input"></form>
             </div>
         </div>
     </nav>
@@ -59,14 +60,16 @@
             <div class="col-md-8" id="center_page">
 <section id="content" class="body">
   <article>
-    <header>
-      <h1 class="entry-title">
-        <a href="http://furiousslade.github.io/posts/2015/AutoStartOnLinux.html" rel="bookmark"
-           title="Permalink to 让Redmine随Linux系统自动启动">让Redmine随Linux系统自动启动</a></h1>
-    </header>
-    <hr/>
-    <div class="entry-content">
-      <h1 id="_1">起因</h1>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <header>
+          <h1 class="entry-title">
+            <a href="http://furiousslade.github.io/posts/2015/AutoStartOnLinux.html" rel="bookmark"
+               title="Permalink to 让Redmine随Linux系统自动启动">让Redmine随Linux系统自动启动</a></h1>
+        </header>
+        <hr/>
+        <div class="entry-content">
+          <h1 id="_1">起因</h1>
 <p>最近因为机房经常停电，导致服务器频繁重启。每次都要手动去启动Redmine，我懒。所以把启动redmine的过程加入到了Linux系统启动过程中。</p>
 <h1 id="centos-65">我使用的是CentOS 6.5</h1>
 <h2 id="1">方法 1：</h2>
@@ -96,8 +99,9 @@ rails server Mongrel -d -e production -b 0.0.0.0 -p 3000
 
 
 <p>之后再断电就不用手工启动服务了。机房断电太坑了。</p>
-    </div><!-- /.entry-content -->
-
+        </div><!-- /.entry-content -->
+    </div>
+  </div>      
     <div class="panel panel-default">
       <div class="panel-heading">Related posts</div>
       <div class="panel-body">
@@ -110,23 +114,25 @@ rails server Mongrel -d -e production -b 0.0.0.0 -p 3000
     </div>
 
 
-    <hr>
-    <div class="comments">
-      <div id="disqus_thread"></div>
-        <script type="text/javascript">
-            var disqus_shortname = 'furiousslade';
-                var disqus_identifier = 'http://furiousslade.github.io/posts/2015/AutoStartOnLinux.html';
-            var disqus_url = 'http://furiousslade.github.io/posts/2015/AutoStartOnLinux.html';
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="comments">
+          <div id="disqus_thread"></div>
+            <script type="text/javascript">
+                var disqus_shortname = 'furiousslade';
+                    var disqus_identifier = 'http://furiousslade.github.io/posts/2015/AutoStartOnLinux.html';
+                var disqus_url = 'http://furiousslade.github.io/posts/2015/AutoStartOnLinux.html';
 
-            (function() {
-                 var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                 dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-                 (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-             })();
-        </script>
-        <noscript>Please enable JavaScript to view the comments.</noscript>
+                (function() {
+                     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                     dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                 })();
+            </script>
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+            </div>
     </div>
-
   </article>
 </section>
             </div>
@@ -136,7 +142,7 @@ rails server Mongrel -d -e production -b 0.0.0.0 -p 3000
     <div class="panel-body">
       <div class="published">
                 <h5>Published</h5>
-                <p>2015-05-15</p>
+                <p><time>2015-05-15</time></p>
       </div>
       <div class="category">
               <h5>Category</h5>
