@@ -277,13 +277,13 @@ span.h01 {
     color: black;
 }
 /*go to top*/
-#d-top {
+#go-top {
       position: fixed;
       float: right;
       z-index: 10;
       right: 20px;
       bottom: 200px;
       }
-#d-top i {
+#go-top i {
       opacity: 0.8;
       }
