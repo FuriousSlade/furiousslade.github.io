@@ -115,7 +115,9 @@ body > nav > div > div.navbar-header > button > i {
     padding-right: 5px;
     font-size: 1.5em;
 }
-
+#index-pagination {
+    padding-bottom: 15px;
+}
 /*Categories*/
 #accordion> div > div > h4 > a {
     display:block;
