@@ -105,35 +105,34 @@ rails server Mongrel -d -e production -b 0.0.0.0 -p 3000
       <div class="panel-heading">Related posts</div>
       <div class="panel-body">
         <ul class="list-unstyled">
-        <li><a href="http://furiousslade.github.io/posts/2015/InstallMongrel.html">Redmine使用Mongrel服务器</a></li>
         <li><a href="http://furiousslade.github.io/posts/2015/RedmineEmail.html">Redmine异步发送邮件</a></li>
+        <li><a href="http://furiousslade.github.io/posts/2015/InstallMongrel.html">Redmine使用Mongrel服务器</a></li>
         <li><a href="http://furiousslade.github.io/posts/2015/InstallRedmine.html">Install Redmine on Centos</a></li>
         </ul>
       </div>
     </div>
 
 
-
     <div class="panel panel-default">
       <div class="panel-body">
-<!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="AutoStartOnLinux" data-title="让Redmine随Linux系统自动启动" data-url="http://furiousslade.github.io/posts/2015/AutoStartOnLinux.html"></div>
-<!-- 多说评论框 end -->
-<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"slade"};
-    (function() {
-        var ds = document.createElement('script');
-        ds.type = 'text/javascript';ds.async = true;
-        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-        ds.charset = 'UTF-8';
-        (document.getElementsByTagName('head')[0] 
-         || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-    </script>
-<!-- 多说公共JS代码 end -->
-      </div>
+        <div class="comments">
+          <div id="disqus_thread"></div>
+            <script type="text/javascript">
+                var disqus_shortname = 'furiousslade';
+                    var disqus_identifier = 'http://furiousslade.github.io/posts/2015/AutoStartOnLinux.html';
+                var disqus_url = 'http://furiousslade.github.io/posts/2015/AutoStartOnLinux.html';
+
+                (function() {
+                     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                     dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                 })();
+            </script>
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+        </div>
+            </div>
     </div>
+
 
   </article>
 </section>
@@ -192,5 +191,14 @@ var duoshuoQuery = {short_name:"slade"};
     </ul>
 </div>
 </footer>    
+<script type="text/javascript">
+    var disqus_shortname = 'furiousslade';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = 'https://' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
 </body>
 </html>
