@@ -24,6 +24,7 @@
 <link rel="stylesheet" type="text/css" href="http://furiousslade.github.io/theme/tipuesearch/tipuesearch.css" media="screen">
 <link rel="stylesheet" type="text/css" href="http://furiousslade.github.io/theme/css/pygments.css" media="screen">
 <link rel="stylesheet" type="text/css" href="http://furiousslade.github.io/theme/css/swain.css" media="screen">
+<link rel="stylesheet" type="text/css" href="http://furiousslade.github.io/theme/css/animate.css" media="screen">
         <link rel="icon" href="http://furiousslade.github.io/theme/images/favicon.ico" type="image/x-icon" />
 </head>
 
@@ -35,9 +36,6 @@
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                 <span class="sr-only">Toggle navigation</span>
                 <i class="fa fa-bars fa-lg fa-inverse"></i>
-<!--                 <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span> -->
                 </button>
                 <a class="navbar-brand" href="http://furiousslade.github.io">Slade == u'死累的'</a>
             </div>
@@ -56,7 +54,7 @@
     <!-- navbar end -->
     <div class="container-fluid" id="container">
         <div class="row-fluid">
-            <div class="col-md-2" id="sidebar_left">
+            <div class="col-md-2 fadeInLeft" id="sidebar_left">
 <div class="panel panel-primary">
     <div class="panel-heading"><i class="fa fa-user"></i></div>
     <div class="panel-body">
@@ -95,7 +93,7 @@
             <div class="col-md-8" id="center_page">
     <div id="content" class="row">
         <ul class="list-group list-unstyled" id="posts-list">
-                <li class="list-group-item">
+                <li class="list-group-item animate">
                     <article class="hentry">
                         <header>
                             <h2><a href="http://furiousslade.github.io/posts/2015/InstallMongrel.html" rel="bookmark" title="Permalink to Redmine使用Mongrel服务器">Redmine使用Mongrel服务器</a></h2>
@@ -138,7 +136,7 @@
                         <!-- /.entry-content -->
                     </article>
                 </li>
-                <li class="list-group-item">
+                <li class="list-group-item animate">
                     <article class="hentry">
                         <header>
                             <h2><a href="http://furiousslade.github.io/posts/2015/InstallRedmine.html" rel="bookmark" title="Permalink to Install Redmine on Centos">Install Redmine on Centos</a></h2>
@@ -164,7 +162,7 @@ This is a long command line, copy all and implementation.</p>
                         <!-- /.entry-content -->
                     </article>
                 </li>
-                <li class="list-group-item">
+                <li class="list-group-item animate">
                     <article class="hentry">
                         <header>
                             <h2><a href="http://furiousslade.github.io/posts/2015/NoCpUseCat.html" rel="bookmark" title="Permalink to 在Android shell下无法使用cp命令的解决方案">在Android shell下无法使用cp命令的解决方案</a></h2>
@@ -202,7 +200,7 @@ busybox ...</pre></div>
                         <!-- /.entry-content -->
                     </article>
                 </li>
-                <li class="list-group-item">
+                <li class="list-group-item animate">
                     <article class="hentry">
                         <header>
                             <h2><a href="http://furiousslade.github.io/posts/2015/ReadOnlyFileSystem.html" rel="bookmark" title="Permalink to 解决Android复制文件报“Read-only file system”的问题">解决Android复制文件报“Read-only file system”的问题</a></h2>
@@ -231,7 +229,7 @@ mount -o ro,remount /system     #将/system目录设置为只读模式
                         <!-- /.entry-content -->
                     </article>
                 </li>
-                <li class="list-group-item">
+                <li class="list-group-item animate">
                     <article class="hentry">
                         <header>
                             <h2><a href="http://furiousslade.github.io/posts/2015/RedmineEmail.html" rel="bookmark" title="Permalink to Redmine异步发送邮件">Redmine异步发送邮件</a></h2>
@@ -274,7 +272,7 @@ delivery_method：async_smtp
 </div>
                         </div><!-- /#content -->
             </div>
-            <div class="col-md-2" id="sidebar_right">
+            <div class="col-md-2 fadeInRight" id="sidebar_right">
 <div class="panel panel-primary">
   <div class="panel-heading"><i class="fa fa-hand-spock-o"></i> My Projects</div>
   <div class="panel-body">
@@ -336,6 +334,20 @@ delivery_method：async_smtp
         s.src = 'https://' + disqus_shortname + '.disqus.com/count.js';
         (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
     }());
+</script>
+<script type="text/javascript">
+    function setAnimate(i,callback){
+            $(".animate").first().addClass("fadeInUp").css("animation","fadeInUp "+(2+i/2)+"s").removeClass("animate");
+        };
+    var n = $('.animate').length;
+    $(document).ready(function() {
+        var i=0;
+        while(i < n)
+        {
+            setAnimate(i);
+            i++;
+        }
+    });
 </script>
 </body>
 </html>

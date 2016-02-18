@@ -24,6 +24,7 @@
 <link rel="stylesheet" type="text/css" href="http://furiousslade.github.io/theme/tipuesearch/tipuesearch.css" media="screen">
 <link rel="stylesheet" type="text/css" href="http://furiousslade.github.io/theme/css/pygments.css" media="screen">
 <link rel="stylesheet" type="text/css" href="http://furiousslade.github.io/theme/css/swain.css" media="screen">
+<link rel="stylesheet" type="text/css" href="http://furiousslade.github.io/theme/css/animate.css" media="screen">
         <link rel="icon" href="http://furiousslade.github.io/theme/images/favicon.ico" type="image/x-icon" />
 </head>
 
@@ -35,9 +36,6 @@
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                 <span class="sr-only">Toggle navigation</span>
                 <i class="fa fa-bars fa-lg fa-inverse"></i>
-<!--                 <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span> -->
                 </button>
                 <a class="navbar-brand" href="http://furiousslade.github.io">Slade == u'死累的'</a>
             </div>
@@ -56,7 +54,7 @@
     <!-- navbar end -->
     <div class="container-fluid" id="container">
         <div class="row-fluid">
-            <div class="col-md-2" id="sidebar_left">
+            <div class="col-md-2 fadeInLeft" id="sidebar_left">
 <div class="panel panel-primary">
     <div class="panel-heading"><i class="fa fa-user"></i></div>
     <div class="panel-body">
@@ -95,7 +93,7 @@
             <div class="col-md-8" id="center_page">
     <div id="content" class="row">
         <ul class="list-group list-unstyled" id="posts-list">
-                <li class="list-group-item">
+                <li class="list-group-item animate">
                     <article class="hentry">
                         <header>
                             <h2><a href="http://furiousslade.github.io/posts/2015/adbmore.html" rel="bookmark" title="Permalink to Adb常用命令">Adb常用命令</a></h2>
@@ -122,7 +120,7 @@ adb pull /mnt/sdcard/xxx.apk xxx.apk        # 将手机中的文件传送至本�
                         <!-- /.entry-content -->
                     </article>
                 </li>
-                <li class="list-group-item">
+                <li class="list-group-item animate">
                     <article class="hentry">
                         <header>
                             <h2><a href="http://furiousslade.github.io/posts/2015/BlogStart.html" rel="bookmark" title="Permalink to Blog Start!">Blog Start!</a></h2>
@@ -161,7 +159,7 @@ adb pull /mnt/sdcard/xxx.apk xxx.apk        # 将手机中的文件传送至本�
 </div>
                         </div><!-- /#content -->
             </div>
-            <div class="col-md-2" id="sidebar_right">
+            <div class="col-md-2 fadeInRight" id="sidebar_right">
 <div class="panel panel-primary">
   <div class="panel-heading"><i class="fa fa-hand-spock-o"></i> My Projects</div>
   <div class="panel-body">
@@ -223,6 +221,20 @@ adb pull /mnt/sdcard/xxx.apk xxx.apk        # 将手机中的文件传送至本�
         s.src = 'https://' + disqus_shortname + '.disqus.com/count.js';
         (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
     }());
+</script>
+<script type="text/javascript">
+    function setAnimate(i,callback){
+            $(".animate").first().addClass("fadeInUp").css("animation","fadeInUp "+(2+i/2)+"s").removeClass("animate");
+        };
+    var n = $('.animate').length;
+    $(document).ready(function() {
+        var i=0;
+        while(i < n)
+        {
+            setAnimate(i);
+            i++;
+        }
+    });
 </script>
 </body>
 </html>
