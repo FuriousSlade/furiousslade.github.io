@@ -228,7 +228,7 @@ adb pull /mnt/sdcard/xxx.apk xxx.apk        # 将手机中的文件传送至本�
 </script>
 <script type="text/javascript">
     function setAnimate(i,callback){
-            $(".animate").first().addClass("fadeInUp").css("animation","fadeInUp "+(2+i/2)+"s").removeClass("animate");
+            $(".animate").first().addClass("fadeInUp").css({"animation-delay":0+i/2 +"s","animation-fill-mode": "forwards"}).removeClass("animate");
         };
     var n = $('.animate').length;
     $(document).ready(function() {
