@@ -33,7 +33,7 @@ hr {
     border-top: 3px solid #eeeeee;
 }
 #container {
-    min-height: 90%;
+    min-height: 100%;
     margin-bottom: 0px;
     padding-left: 0px;
     padding-right: 0px;
@@ -127,9 +127,6 @@ body > nav > div > div.navbar-header > button > i {
 #accordion> div > div > h4 > a > span {
     margin-left: 5px;
 
-}
-#center_page > div:nth-child(2) > div > ul > li {
-    padding-top: 3px;
 }
 
 /*pagination*/

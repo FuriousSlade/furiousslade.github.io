@@ -363,18 +363,23 @@ adb pull /mnt/sdcard/xxx.apk xxx.apk        # 将手机中的文件传送至本�
     }());
 </script>
 <script type="text/javascript">
-    function setAnimate(i,callback){
-            $(".animate").first().addClass("fadeInUp").css({"animation-delay":0+i/2 +"s","animation-fill-mode": "forwards"}).removeClass("animate");
+    function setAnimate(i){
+            var f = document.getElementsByClassName("animate")[0];
+            f.classList.add("fadeInUp");
+            f.style.animationDelay = (0+i/2).toString()+"s";
+            f.style.animationFillMode = "forwards";
+            f.classList.remove("animate");
         };
-    var n = $('.animate').length;
-    $(document).ready(function() {
+    var n = document.getElementsByClassName("animate").length;
+    function initAnimate(){
         var i=0;
         while(i < n)
         {
             setAnimate(i);
             i++;
         }
-    });
+    };
+    window.onload = initAnimate();
 </script>
 </body>
 </html>
