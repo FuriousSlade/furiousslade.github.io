@@ -2,7 +2,7 @@ body,
 html {
     height: 100%;
     width: 100%;
-    background-color: #EDEDEF;
+    background-color: #C2C2C2;
     background-image: url(/theme/images/background.jpg);
 }
 h1,
@@ -43,7 +43,10 @@ p,code,pre {
     font-size: 15px;
     line-height: 1.5;
 }
-
+img {
+    max-width: 100%;
+    height: auto;
+}
 /*nav*/
 .navbar-toggle {
     margin: 0px 15px;
@@ -104,10 +107,6 @@ body > nav > div > div.navbar-header > button > i {
 #posts-list > li > article > div.tagged > i {
     font-size: 1.5em;
 }
-#posts-list > li > article > div.entry-content > p > img {
-    max-width: 100%;
-    height: auto;
-}
 #posts-list > li > article > div.row > div.comment-count.col-md-3 {
     padding-top: 0.5em;
 }
@@ -131,12 +130,6 @@ body > nav > div > div.navbar-header > button > i {
 }
 #center_page > div:nth-child(2) > div > ul > li {
     padding-top: 3px;
-}
-
-/*article*/
-#content > article > div > div > div > p > img {
-    max-width: 100%;
-    height: auto;
 }
 
 /*pagination*/

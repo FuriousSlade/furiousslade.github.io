@@ -109,7 +109,7 @@
 <p>首先你需要安装Charles，可以从它的官网下载<a href="http://www.charlesproxy.com/download/" target="&quot;_blank">Charles</a>。</p>
 <p>下载所需要使用到的<a href="http://www.charlesproxy.com/documentation/additional/legacy-ssl-proxying/" target="&quot;_blank">证书</a>.</p>
 <blockquote>
-<p>Version of Charles prior to v3.10 used a single SSL Root Certificate. You can still download the legacy certificate bundle <strong>here</strong> or the certificate itself <strong>here</strong> (for installing on mobile devices). Note that these certificates will not ...</p></blockquote>
+<p>Version of Charles prior to v3.10 used a single SSL Root Certificate. You can still download the ...</p></blockquote>
                         </div>
                         <div class="row">
                         <div class="read-me col-md-9"><a class="btn btn-success"  type="button" href="http://furiousslade.github.io/posts/2016/charles_https.html" rel="bookmark" title="Permalink to 在Mac下使用抓包工具Charles抓取APP的Https请求。">Read more</a>
@@ -137,10 +137,7 @@
 <p>在定位一个运营反馈的线上问题时，发现数据库中落下了两条除了主键ID外完全一样的数据。让开发查看日志后确实发现服务器的一个节点在同一个时间收到了多个相同的请求。因为这个接口本身是一个极低访问量的接口。当初程序设计时为了预留扩张功能，数据库并没有做唯一性索引。也并未加数据库锁表操作（锁表风险太大），只是从程序逻辑上做了唯一性的限制。可以确定用户实际使用中确实只请求了一次，可能是因为网络抖动问题。造成服务器确实同时收到了相同的请求并成功落库。</p>
 <p>因为该接口是一个低访问量的接口，最后为了在有预留可扩张功能的，又不锁表的前提下。使用了redis锁。通过redis来达到数据库操作锁的功能，来保证代码的逻辑上的唯一性限制能被正确的触发。而不会因为异常的并发问题造成数据异常。</p>
 <h2 id="_3">分布式服务的定时任务造成了并发问题。</h2>
-<p>在生产环境上有一个job每天会定时去update数据，却发现部分数据被double了。在测试环境上这个功能是完全没有问题的，跑的很正确。因为是分布式服务，生产环境是集群服务造成了定时的job同时也跑了多个。同时去update数据，造成了部分数据被double了。因为读取数据库时间差的原因还有一定的运气因素也只是部分数据被double。不幸中的万幸。</p>
-<p>从单个服务器来说这个job都是正确的，最终是依赖redis的分布式锁。来保证只有一台服务器的job会被正确执行。其他服务器的job在得知已有服务器在执行job后，会忽略该次job。</p>
-<h2 id="_4">分布式服务同时收到大量的错误请求。</h2>
-<p>一次收到监控系统预警报告服务器收到大量的500请求。我们后续查看的服务器的日志发现几台通过nginx负载的服务器收到了大量的且相同的请求。这个请求是个异常请求，服务端也正确的捕获了异常，并根据接口约定，返回了相应的500错误。从程序逻辑上来说并没有问题。但诡异的是同一时间段所有负载机都收到了大量的会造成500错误的请求 ...</p>
+<p>在生产环境上有一个job每天会定时去update数据，却发现部分数据被double了。在测试环境上这个功能是完全没有问题的，跑的很正确 ...</p>
                         </div>
                         <div class="row">
                         <div class="read-me col-md-9"><a class="btn btn-success"  type="button" href="http://furiousslade.github.io/posts/2016/2015_bug_prologue.html" rel="bookmark" title="Permalink to 2015年踩过的坑">Read more</a>
@@ -165,12 +162,7 @@
                             <h2 id="appium">Appium的安装</h2>
 <p>要实现ios自动化前提是有一台Mac OS X操作系统的设备可以是正统的mac或是黑苹果。然后去<a href='http://appium.io' target='_blank'>appium官网</a>下载appium服务端。osx上不推荐使用命令行安装，因为命令行看装会缺失appium inspector这个重要的元素定位工具。建议使用dmg安装包安装appium。然后在安装相应的appium client，我用的是python。<code>pip install appium-python-client</code>来完成client的安装。</p>
 <h2 id="iosdemo">iOS演示Demo的创建</h2>
-<p>先安装<strong>xcode</strong>。因为没有开发者证书所以只能用ios模拟器来演示，在这里不多说了。从<a href="https://github.com/appium/sample-code" target="_blank">https://github.com/appium/sample-code</a>上下载appium的演示DEMO。</p>
-<ol>
-<li>下载后进入<code>sample-code/apps/TestApp</code>目录下</li>
-<li>执行<code>xcodebuild -sdk iphonesimulator</code>来编译所需的TestApp。</li>
-<li>看到<code>BUILD SUCCEEDED</code>TestApp就编译成功了。</li>
-<li>在<code>sample-code-master/sample-code/apps/TestApp/build ...</code></li></ol>
+<p>先安装<strong>xcode</strong>。因为没有开发者证书所以只能用ios模拟器来演示，在这里不多说了。从<a href="https://github.com/appium/sample-code" target="_blank">https://github.com/appium/sample-code</a>上下载appium的演示DEMO ...</p>
                         </div>
                         <div class="row">
                         <div class="read-me col-md-9"><a class="btn btn-success"  type="button" href="http://furiousslade.github.io/posts/2015/AppiumIOS_1.html" rel="bookmark" title="Permalink to 基于Appium实现IOS自动化测试">Read more</a>
@@ -202,9 +194,7 @@ error: unknown host service
 <p>使用<code>netstat -ano</code>查看哪个程序占用了<strong>5037</strong>端口</p>
 <div class="highlight"><pre>活动连接
 
-协议      本地地址               外部地址                 状态           PID
-TCP    0.0.0.0:49154          0.0.0.0:0              LISTENING       1080
-TCP    0.0 ...</pre></div>
+协议 ...</pre></div>
                         </div>
                         <div class="row">
                         <div class="read-me col-md-9"><a class="btn btn-success"  type="button" href="http://furiousslade.github.io/posts/2015/AdbError.html" rel="bookmark" title="Permalink to Adb error: unknown host service 的解决方法">Read more</a>
@@ -233,22 +223,160 @@ TCP    0.0 ...</pre></div>
 <p><img alt="" src="http://ww1.sinaimg.cn/bmiddle/0067jSM2jw1es8e5cej4wj311y0kgn6v.jpg" /></p>
 <p>选择相应的应用进程例如：com.paobao.verytele 选择Network标签。可以看到该进程网络统计模块。</p>
 <p><img alt="" src="http://ww3.sinaimg.cn/bmiddle/0067jSM2jw1es8e8si1m1j30wq0i779j.jpg" /></p>
-<p><strong>RX</strong>为下行数据，<strong>TX</strong>为上行数据。可选择统计数据的时间间隔（250ms），点击Start，就会开始采集数据。</p>
-<p><img alt="" src="http://ww3.sinaimg.cn/bmiddle/0067jSM2jw1es8ea2im2wj30wq0i7gr7.jpg" /></p>
-<p>因为DDMS使用起来并不是最符合我的需求，所以在这里只做简单的介绍，具体功能可以自己挖掘。</p>
-<h2 id="emmagee">Emmagee</h2>
-<p>最终Android端我选择了网易开源项目<a href="https://github.com/NetEase/Emmagee" target="_blank">Emmagee</a>。支持中文，简单直观的选择应用开启统计，可设置采集间隔，并可以设置将报告发送至指定邮箱。报告为Excel格式，统计了APP的CPU、内存、流量、电量以及整体性能状态。</p>
-<p><img src="http://ww1.sinaimg.cn/bmiddle/0067jSM2jw1esozs65rfwj30dc0m8ad8.jpg" width="180px" />
-<img src="http://ww1.sinaimg.cn/bmiddle/0067jSM2jw1esozs5stmnj30dc0m8jsb.jpg" width="180px" />
-<img src="http://ww3.sinaimg.cn/bmiddle/0067jSM2jw1esozs5vxrdj30dc0m83zr.jpg" width="180px" />
-<img src="http://ww2.sinaimg.cn/bmiddle/0067jSM2jw1esozs5qvt2j30dc0m8gnm.jpg" width="180px" /></p>
-<h2 id="gt">GT</h2>
-<p>iOS端的性能监测工具找到了腾讯的项目<a href="http://gt.tencent.com/index.html" target="_blank">GT ...</a></p>
+<p><strong>RX</strong>为下行数据，<strong>TX</strong>为上行数据。可选择统计数据的时间间隔（250ms ...</p>
                         </div>
                         <div class="row">
                         <div class="read-me col-md-9"><a class="btn btn-success"  type="button" href="http://furiousslade.github.io/posts/2015/ClientMonitor.html" rel="bookmark" title="Permalink to 移动客户端的性能监控">Read more</a>
                         </div>
                         <div class="comment-count col-md-3"><i class="fa fa-commenting"></i><a href="http://furiousslade.github.io/posts/2015/ClientMonitor.html#disqus_thread">_(:з」∠)_</a>
+</div>
+                        </div>
+                        <!-- /.entry-content -->
+                    </article>
+                </li>
+                <li class="list-group-item animate">
+                    <article class="hentry">
+                        <header>
+                            <h2><a href="http://furiousslade.github.io/posts/2015/AutoStartOnLinux.html" rel="bookmark" title="Permalink to 让Redmine随Linux系统自动启动">让Redmine随Linux系统自动启动</a></h2>
+                        </header>
+                        <div class="tagged">
+                                <i class="fa fa-tags"></i>
+                                    <a class="label label-default" href="http://furiousslade.github.io/tags.html#redmine-ref">Redmine</a>
+                                    <a class="label label-default" href="http://furiousslade.github.io/tags.html#linux-ref">Linux</a>
+                        </div>
+                        <div class="entry-content">
+                            <h1 id="_1">起因</h1>
+<p>最近因为机房经常停电，导致服务器频繁重启。每次都要手动去启动Redmine，我懒。所以把启动redmine的过程加入到了Linux系统启动过程中。</p>
+<h1 id="centos-65">我使用的是CentOS 6.5</h1>
+<h2 id="1">方法 1：</h2>
+<p>可能因发行版本不同rc.local的位置可能有不同 </p>
+<div class="highlight"><pre>    vim /etc/rc.local
+</pre></div>
+
+
+<p>在用户登录前执行，权限大。但无法使用“~”作为路劲，因为用户尚未登录，没有用户主目录。可以在/var/log/boot.log看到日志</p>
+<h2 id="2">方法 2 ...</h2>
+                        </div>
+                        <div class="row">
+                        <div class="read-me col-md-9"><a class="btn btn-success"  type="button" href="http://furiousslade.github.io/posts/2015/AutoStartOnLinux.html" rel="bookmark" title="Permalink to 让Redmine随Linux系统自动启动">Read more</a>
+                        </div>
+                        <div class="comment-count col-md-3"><i class="fa fa-commenting"></i><a href="http://furiousslade.github.io/posts/2015/AutoStartOnLinux.html#disqus_thread">_(:з」∠)_</a>
+</div>
+                        </div>
+                        <!-- /.entry-content -->
+                    </article>
+                </li>
+                <li class="list-group-item animate">
+                    <article class="hentry">
+                        <header>
+                            <h2><a href="http://furiousslade.github.io/posts/2015/InstallMongrel.html" rel="bookmark" title="Permalink to Redmine使用Mongrel服务器">Redmine使用Mongrel服务器</a></h2>
+                        </header>
+                        <div class="tagged">
+                                <i class="fa fa-tags"></i>
+                                    <a class="label label-default" href="http://furiousslade.github.io/tags.html#redmine-ref">Redmine</a>
+                        </div>
+                        <div class="entry-content">
+                            <p>由于Redmine自带的Webrick Web服务器发布的问题，需要使用Mongrel组件来替换Webrick。Mongrel是一种快速的针对Ruby的Http服务器，专门为部署发布ROR应用而产生的。Mongrel相比Rails自带的纯Ruby服务器Webrick速度快很多并支持并发访问，有望成为Ruby的Tomcat.</p>
+<ol>
+<li>
+<p>替换其自带的服务器webrick为mongrel，方法：</p>
+<p><code>gem install mongrel</code></p>
+<p>rails 3.1以上执行:</p>
+<p><code>gem install mongrel –pre</code></p>
+</li>
+<li>
+<p>修改redmine下gemfile，在gemfile中加入：</p>
+<p><code>gem 'mongrel'</code></p>
+<p>如果安装的mongrel pre， 则gemfile中加:</p>
+<p><code>gem 'mongrel','~&gt; 1.2 ...</code></p></li></ol>
+                        </div>
+                        <div class="row">
+                        <div class="read-me col-md-9"><a class="btn btn-success"  type="button" href="http://furiousslade.github.io/posts/2015/InstallMongrel.html" rel="bookmark" title="Permalink to Redmine使用Mongrel服务器">Read more</a>
+                        </div>
+                        <div class="comment-count col-md-3"><i class="fa fa-commenting"></i><a href="http://furiousslade.github.io/posts/2015/InstallMongrel.html#disqus_thread">_(:з」∠)_</a>
+</div>
+                        </div>
+                        <!-- /.entry-content -->
+                    </article>
+                </li>
+                <li class="list-group-item animate">
+                    <article class="hentry">
+                        <header>
+                            <h2><a href="http://furiousslade.github.io/posts/2015/InstallRedmine.html" rel="bookmark" title="Permalink to Install Redmine on Centos">Install Redmine on Centos</a></h2>
+                        </header>
+                        <div class="tagged">
+                                <i class="fa fa-tags"></i>
+                                    <a class="label label-default" href="http://furiousslade.github.io/tags.html#redmine-ref">Redmine</a>
+                        </div>
+                        <div class="entry-content">
+                            <h1 id="install-redmine-on-centos-65">Install Redmine on Centos 65</h1>
+<h2 id="dependencies-packages">dependencies packages</h2>
+<p>These are the basic software packages for environment settings and utility tools to compile other packages in the next section.
+Copy the block ...</p>
+                        </div>
+                        <div class="row">
+                        <div class="read-me col-md-9"><a class="btn btn-success"  type="button" href="http://furiousslade.github.io/posts/2015/InstallRedmine.html" rel="bookmark" title="Permalink to Install Redmine on Centos">Read more</a>
+                        </div>
+                        <div class="comment-count col-md-3"><i class="fa fa-commenting"></i><a href="http://furiousslade.github.io/posts/2015/InstallRedmine.html#disqus_thread">_(:з」∠)_</a>
+</div>
+                        </div>
+                        <!-- /.entry-content -->
+                    </article>
+                </li>
+                <li class="list-group-item animate">
+                    <article class="hentry">
+                        <header>
+                            <h2><a href="http://furiousslade.github.io/posts/2015/NoCpUseCat.html" rel="bookmark" title="Permalink to 在Android shell下无法使用cp命令的解决方案">在Android shell下无法使用cp命令的解决方案</a></h2>
+                        </header>
+                        <div class="tagged">
+                                <i class="fa fa-tags"></i>
+                                    <a class="label label-default" href="http://furiousslade.github.io/tags.html#android-ref">Android</a>
+                        </div>
+                        <div class="entry-content">
+                            <p>在Android shell 下可能并没有安装cp命令，一般都不会安装。需要的可以自己安装busybox工具。在紧急的情况下可以使用cat命令来代替cp。</p>
+<div class="highlight"><pre>adb shell
+cd /mnt/sdcard  
+cat xxx.apk &gt;&gt; yyy.apk      # 将/mnt/sdcard目录下的xxx.apk复制为yyy.apk
+</pre></div>
+
+
+<p><a herf="http://www.busybox.net/downloads/binaries/" target="_black">Busybox</a>是一个集成了一百多个最常用linux命令和工具的软件。需要选择适合你手机cpu的版本来安装。查看手机CPU信息，根据Processor来选择安装版本。</p>
+<div class="highlight"><pre>cat /proc/cpuinfo
+Processor ...</pre></div>
+                        </div>
+                        <div class="row">
+                        <div class="read-me col-md-9"><a class="btn btn-success"  type="button" href="http://furiousslade.github.io/posts/2015/NoCpUseCat.html" rel="bookmark" title="Permalink to 在Android shell下无法使用cp命令的解决方案">Read more</a>
+                        </div>
+                        <div class="comment-count col-md-3"><i class="fa fa-commenting"></i><a href="http://furiousslade.github.io/posts/2015/NoCpUseCat.html#disqus_thread">_(:з」∠)_</a>
+</div>
+                        </div>
+                        <!-- /.entry-content -->
+                    </article>
+                </li>
+                <li class="list-group-item animate">
+                    <article class="hentry">
+                        <header>
+                            <h2><a href="http://furiousslade.github.io/posts/2015/ReadOnlyFileSystem.html" rel="bookmark" title="Permalink to 解决Android复制文件报“Read-only file system”的问题">解决Android复制文件报“Read-only file system”的问题</a></h2>
+                        </header>
+                        <div class="tagged">
+                                <i class="fa fa-tags"></i>
+                                    <a class="label label-default" href="http://furiousslade.github.io/tags.html#android-ref">Android</a>
+                        </div>
+                        <div class="entry-content">
+                            <h1 id="_1">问题</h1>
+<p>当往android的/system目录下拷贝文件时一般是会报“Read-only file system”。因为/system目录默认是只读的。</p>
+<h1 id="_2">解决方法</h1>
+<p>首先是获取手机的<strong>root权限</strong>后</p>
+<div class="highlight"><pre>adb shell
+su # 切换成ROOT用户
+mount -o rw,remount /system     #将/system目录设置为读写模式
+mount -o ro,remount /system     #将/system目录设置为只读模式
+</pre></div>
+                        </div>
+                        <div class="row">
+                        <div class="read-me col-md-9"><a class="btn btn-success"  type="button" href="http://furiousslade.github.io/posts/2015/ReadOnlyFileSystem.html" rel="bookmark" title="Permalink to 解决Android复制文件报“Read-only file system”的问题">Read more</a>
+                        </div>
+                        <div class="comment-count col-md-3"><i class="fa fa-commenting"></i><a href="http://furiousslade.github.io/posts/2015/ReadOnlyFileSystem.html#disqus_thread">_(:з」∠)_</a>
 </div>
                         </div>
                         <!-- /.entry-content -->
@@ -260,9 +388,9 @@ TCP    0.0 ...</pre></div>
 <div class="btn-group" role="group" aria-label="...">
         <a type="button" class="btn btn-default disabled" href="http://furiousslade.github.io/index.html"><i class="fa fa-chevron-left"></i><i class="fa fa-chevron-left"></i></a>
         <a type="button" class="btn btn-default disabled" href="http://furiousslade.github.io/"><i class="fa fa-chevron-left"></i></a>
-    <button type="button" class="btn btn-default disabled">1 / 3</button>
+    <button type="button" class="btn btn-default disabled">1 / 2</button>
         <a type="button" class="btn btn-default  " href="http://furiousslade.github.io/category/work2.html"><i class="fa fa-chevron-right"></i></a>
-        <a type="button" class="btn btn-default " href="http://furiousslade.github.io/index3.html"><i class="fa fa-chevron-right"></i><i class="fa fa-chevron-right"></i></a>
+        <a type="button" class="btn btn-default " href="http://furiousslade.github.io/index2.html"><i class="fa fa-chevron-right"></i><i class="fa fa-chevron-right"></i></a>
 </div>
 </div>
 </div>

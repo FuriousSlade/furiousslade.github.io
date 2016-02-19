@@ -96,42 +96,27 @@
                 <li class="list-group-item animate">
                     <article class="hentry">
                         <header>
-                            <h2><a href="http://furiousslade.github.io/posts/2015/AutoStartOnLinux.html" rel="bookmark" title="Permalink to 让Redmine随Linux系统自动启动">让Redmine随Linux系统自动启动</a></h2>
+                            <h2><a href="http://furiousslade.github.io/posts/2015/RedmineEmail.html" rel="bookmark" title="Permalink to Redmine异步发送邮件">Redmine异步发送邮件</a></h2>
                         </header>
                         <div class="tagged">
                                 <i class="fa fa-tags"></i>
                                     <a class="label label-default" href="http://furiousslade.github.io/tags.html#redmine-ref">Redmine</a>
-                                    <a class="label label-default" href="http://furiousslade.github.io/tags.html#linux-ref">Linux</a>
                         </div>
                         <div class="entry-content">
-                            <h1 id="_1">起因</h1>
-<p>最近因为机房经常停电，导致服务器频繁重启。每次都要手动去启动Redmine，我懒。所以把启动redmine的过程加入到了Linux系统启动过程中。</p>
-<h1 id="centos-65">我使用的是CentOS 6.5</h1>
-<h2 id="1">方法 1：</h2>
-<p>可能因发行版本不同rc.local的位置可能有不同 </p>
-<div class="highlight"><pre>    vim /etc/rc.local
+                            <p>当Redmine配置邮件后，会发现提交Bug等操作响应缓慢。是因为Redmine在确定邮件发送完成后才会返回提交成功的页面。设置成异步发送邮件，操作流程就流畅了。</p>
+<div class="highlight"><pre>vim /var/www/redmine/config/configuration.yml
+delivery_method：async_smtp
 </pre></div>
 
 
-<p>在用户登录前执行，权限大。但无法使用“~”作为路劲，因为用户尚未登录，没有用户主目录。可以在/var/log/boot.log看到日志</p>
-<h2 id="2">方法 2：</h2>
-<div class="highlight"><pre>    sudo vi /etc/profile
+<p>or</p>
+<div class="highlight"><pre><span class="n">delivery_method</span><span class="o">:</span> <span class="n">async_sendmail</span>
 </pre></div>
-
-
-<p>权限等同当前登录用户，有可能会有权限不足的问题。可以用'~'指定主目录。</p>
-<h2 id="redminelinux">实现Redmine随Linux系统自启动</h2>
-<p>编辑 /etc/rc.local 文件</p>
-<div class="highlight"><pre>vim /etc/rc.local
-</pre></div>
-
-
-<p>添加如下字段，因为启用Redmine必须先启动Mysql ...</p>
                         </div>
                         <div class="row">
-                        <div class="read-me col-md-9"><a class="btn btn-success"  type="button" href="http://furiousslade.github.io/posts/2015/AutoStartOnLinux.html" rel="bookmark" title="Permalink to 让Redmine随Linux系统自动启动">Read more</a>
+                        <div class="read-me col-md-9"><a class="btn btn-success"  type="button" href="http://furiousslade.github.io/posts/2015/RedmineEmail.html" rel="bookmark" title="Permalink to Redmine异步发送邮件">Read more</a>
                         </div>
-                        <div class="comment-count col-md-3"><i class="fa fa-commenting"></i><a href="http://furiousslade.github.io/posts/2015/AutoStartOnLinux.html#disqus_thread">_(:з」∠)_</a>
+                        <div class="comment-count col-md-3"><i class="fa fa-commenting"></i><a href="http://furiousslade.github.io/posts/2015/RedmineEmail.html#disqus_thread">_(:з」∠)_</a>
 </div>
                         </div>
                         <!-- /.entry-content -->
@@ -140,134 +125,25 @@
                 <li class="list-group-item animate">
                     <article class="hentry">
                         <header>
-                            <h2><a href="http://furiousslade.github.io/posts/2015/InstallMongrel.html" rel="bookmark" title="Permalink to Redmine使用Mongrel服务器">Redmine使用Mongrel服务器</a></h2>
-                        </header>
-                        <div class="tagged">
-                                <i class="fa fa-tags"></i>
-                                    <a class="label label-default" href="http://furiousslade.github.io/tags.html#redmine-ref">Redmine</a>
-                        </div>
-                        <div class="entry-content">
-                            <p>由于Redmine自带的Webrick Web服务器发布的问题，需要使用Mongrel组件来替换Webrick。Mongrel是一种快速的针对Ruby的Http服务器，专门为部署发布ROR应用而产生的。Mongrel相比Rails自带的纯Ruby服务器Webrick速度快很多并支持并发访问，有望成为Ruby的Tomcat.</p>
-<ol>
-<li>
-<p>替换其自带的服务器webrick为mongrel，方法：</p>
-<p><code>gem install mongrel</code></p>
-<p>rails 3.1以上执行:</p>
-<p><code>gem install mongrel –pre</code></p>
-</li>
-<li>
-<p>修改redmine下gemfile，在gemfile中加入：</p>
-<p><code>gem 'mongrel'</code></p>
-<p>如果安装的mongrel pre， 则gemfile中加:</p>
-<p><code>gem 'mongrel','~&gt; 1.2.0.pre2'</code></p>
-</li>
-<li>
-<p>删除gemfile.lock文件，重新执行: </p>
-<p><code>bundle install</code></p>
-</li>
-<li>
-<p>执行</p>
-<p><code>ruby script/rails server mongrel -e production</code></p>
-</li>
-</ol>
-                        </div>
-                        <div class="row">
-                        <div class="read-me col-md-9"><a class="btn btn-success"  type="button" href="http://furiousslade.github.io/posts/2015/InstallMongrel.html" rel="bookmark" title="Permalink to Redmine使用Mongrel服务器">Read more</a>
-                        </div>
-                        <div class="comment-count col-md-3"><i class="fa fa-commenting"></i><a href="http://furiousslade.github.io/posts/2015/InstallMongrel.html#disqus_thread">_(:з」∠)_</a>
-</div>
-                        </div>
-                        <!-- /.entry-content -->
-                    </article>
-                </li>
-                <li class="list-group-item animate">
-                    <article class="hentry">
-                        <header>
-                            <h2><a href="http://furiousslade.github.io/posts/2015/InstallRedmine.html" rel="bookmark" title="Permalink to Install Redmine on Centos">Install Redmine on Centos</a></h2>
-                        </header>
-                        <div class="tagged">
-                                <i class="fa fa-tags"></i>
-                                    <a class="label label-default" href="http://furiousslade.github.io/tags.html#redmine-ref">Redmine</a>
-                        </div>
-                        <div class="entry-content">
-                            <h1 id="install-redmine-on-centos-65">Install Redmine on Centos 65</h1>
-<h2 id="dependencies-packages">dependencies packages</h2>
-<p>These are the basic software packages for environment settings and utility tools to compile other packages in the next section.
-Copy the block command and execute in the Putty Windows :
-This is a long command line, copy all and implementation.</p>
-<div class="highlight"><pre>yum -y install ...</pre></div>
-                        </div>
-                        <div class="row">
-                        <div class="read-me col-md-9"><a class="btn btn-success"  type="button" href="http://furiousslade.github.io/posts/2015/InstallRedmine.html" rel="bookmark" title="Permalink to Install Redmine on Centos">Read more</a>
-                        </div>
-                        <div class="comment-count col-md-3"><i class="fa fa-commenting"></i><a href="http://furiousslade.github.io/posts/2015/InstallRedmine.html#disqus_thread">_(:з」∠)_</a>
-</div>
-                        </div>
-                        <!-- /.entry-content -->
-                    </article>
-                </li>
-                <li class="list-group-item animate">
-                    <article class="hentry">
-                        <header>
-                            <h2><a href="http://furiousslade.github.io/posts/2015/NoCpUseCat.html" rel="bookmark" title="Permalink to 在Android shell下无法使用cp命令的解决方案">在Android shell下无法使用cp命令的解决方案</a></h2>
+                            <h2><a href="http://furiousslade.github.io/posts/2015/adbmore.html" rel="bookmark" title="Permalink to Adb常用命令">Adb常用命令</a></h2>
                         </header>
                         <div class="tagged">
                                 <i class="fa fa-tags"></i>
                                     <a class="label label-default" href="http://furiousslade.github.io/tags.html#android-ref">Android</a>
                         </div>
                         <div class="entry-content">
-                            <p>在Android shell 下可能并没有安装cp命令，一般都不会安装。需要的可以自己安装busybox工具。在紧急的情况下可以使用cat命令来代替cp。</p>
-<div class="highlight"><pre>adb shell
-cd /mnt/sdcard  
-cat xxx.apk &gt;&gt; yyy.apk      # 将/mnt/sdcard目录下的xxx.apk复制为yyy.apk
-</pre></div>
-
-
-<p><a herf="http://www.busybox.net/downloads/binaries/" target="_black">Busybox</a>是一个集成了一百多个最常用linux命令和工具的软件。需要选择适合你手机cpu的版本来安装。查看手机CPU信息，根据Processor来选择安装版本。</p>
-<div class="highlight"><pre>cat /proc/cpuinfo
-Processor       : ARMv7 Processor rev 2 (v7l)
-...
-</pre></div>
-
-
-<p>将busybox复制到 /system/xbin 目录下，并修改文件权限，使其可执行。</p>
-<div class="highlight"><pre>cat busybox-armv7l &gt;&gt; /system/xbin/busybox
-chmod 775 busybox
-busybox ...</pre></div>
-                        </div>
-                        <div class="row">
-                        <div class="read-me col-md-9"><a class="btn btn-success"  type="button" href="http://furiousslade.github.io/posts/2015/NoCpUseCat.html" rel="bookmark" title="Permalink to 在Android shell下无法使用cp命令的解决方案">Read more</a>
-                        </div>
-                        <div class="comment-count col-md-3"><i class="fa fa-commenting"></i><a href="http://furiousslade.github.io/posts/2015/NoCpUseCat.html#disqus_thread">_(:з」∠)_</a>
-</div>
-                        </div>
-                        <!-- /.entry-content -->
-                    </article>
-                </li>
-                <li class="list-group-item animate">
-                    <article class="hentry">
-                        <header>
-                            <h2><a href="http://furiousslade.github.io/posts/2015/ReadOnlyFileSystem.html" rel="bookmark" title="Permalink to 解决Android复制文件报“Read-only file system”的问题">解决Android复制文件报“Read-only file system”的问题</a></h2>
-                        </header>
-                        <div class="tagged">
-                                <i class="fa fa-tags"></i>
-                                    <a class="label label-default" href="http://furiousslade.github.io/tags.html#android-ref">Android</a>
-                        </div>
-                        <div class="entry-content">
-                            <h1 id="_1">问题</h1>
-<p>当往android的/system目录下拷贝文件时一般是会报“Read-only file system”。因为/system目录默认是只读的。</p>
-<h1 id="_2">解决方法</h1>
-<p>首先是获取手机的<strong>root权限</strong>后</p>
-<div class="highlight"><pre>adb shell
-su # 切换成ROOT用户
-mount -o rw,remount /system     #将/system目录设置为读写模式
-mount -o ro,remount /system     #将/system目录设置为只读模式
+                            <h1 id="_1">常用命令</h1>
+<div class="highlight"><pre>adb devices     # 查看已连接PC的终端
+adb shell       # 连接终端
+adb -s [devicesId] shell    # 多台设备根据设备号连接终端
+adb push xxx.apk /mnt/sdcard/xxx.apk        # 将本地文件传送至手机    
+adb pull /mnt/sdcard/xxx.apk xxx.apk        # 将手机中的文件传送至本地
 </pre></div>
                         </div>
                         <div class="row">
-                        <div class="read-me col-md-9"><a class="btn btn-success"  type="button" href="http://furiousslade.github.io/posts/2015/ReadOnlyFileSystem.html" rel="bookmark" title="Permalink to 解决Android复制文件报“Read-only file system”的问题">Read more</a>
+                        <div class="read-me col-md-9"><a class="btn btn-success"  type="button" href="http://furiousslade.github.io/posts/2015/adbmore.html" rel="bookmark" title="Permalink to Adb常用命令">Read more</a>
                         </div>
-                        <div class="comment-count col-md-3"><i class="fa fa-commenting"></i><a href="http://furiousslade.github.io/posts/2015/ReadOnlyFileSystem.html#disqus_thread">_(:з」∠)_</a>
+                        <div class="comment-count col-md-3"><i class="fa fa-commenting"></i><a href="http://furiousslade.github.io/posts/2015/adbmore.html#disqus_thread">_(:з」∠)_</a>
 </div>
                         </div>
                         <!-- /.entry-content -->
@@ -279,9 +155,9 @@ mount -o ro,remount /system     #将/system目录设置为只读模式
 <div class="btn-group" role="group" aria-label="...">
         <a type="button" class="btn btn-default " href="http://furiousslade.github.io/index.html"><i class="fa fa-chevron-left"></i><i class="fa fa-chevron-left"></i></a>
         <a type="button" class="btn btn-default " href="http://furiousslade.github.io/category/work.html"><i class="fa fa-chevron-left"></i></a>
-    <button type="button" class="btn btn-default disabled">2 / 3</button>
-        <a type="button" class="btn btn-default  " href="http://furiousslade.github.io/category/work3.html"><i class="fa fa-chevron-right"></i></a>
-        <a type="button" class="btn btn-default " href="http://furiousslade.github.io/index3.html"><i class="fa fa-chevron-right"></i><i class="fa fa-chevron-right"></i></a>
+    <button type="button" class="btn btn-default disabled">2 / 2</button>
+        <a type="button" class="btn btn-default  disabled" href="http://furiousslade.github.io/"><i class="fa fa-chevron-right"></i></a>
+        <a type="button" class="btn btn-default disabled" href="http://furiousslade.github.io/index2.html"><i class="fa fa-chevron-right"></i><i class="fa fa-chevron-right"></i></a>
 </div>
 </div>
 </div>

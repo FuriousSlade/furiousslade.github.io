@@ -112,14 +112,7 @@ You zuo you die, don't ask me why.</p>
 <p>模板用别人的总是不太爽，还是自己作死写一个吧。</p>
 <p>基本完成，总算是用上了自己的模板。大量抄袭了<a href="https://github.com/talha131/pelican-elegant">Elegant</a>，Elegant是我用过功能最全面的Pelican theme了。</p>
 <h2 id="_1">简介</h2>
-<p>使用了bootstrap3、fontawesome，评论使用disqus,站内搜索使用了tipuesearch。社交信息对QQ和微信做了处理：点击展示对应的二维码。</p>
-<h2 id="live-demo">Live demo</h2>
-<p><a href="http://furiousslade.github.io">FuriouesSlade</a></p>
-<h2 id="_2">注意事项</h2>
-<p>Swain/static/images/ 目录下存放了头像、favicon.ico、QQ和微信的二维码图片。使用时请自行更换。</p>
-<h2 id="config-demo">Config demo</h2>
-<div class="highlight"><pre><span class="c"># -*- coding: utf-8 -*- #</span>
-<span class="kn">from</span> <span class="nn">__future__ ...</span></pre></div>
+<p>使用了bootstrap3、fontawesome，评论使用disqus,站内搜索使用了tipuesearch ...</p>
                         </div>
                         <div class="row">
                         <div class="read-me col-md-9"><a class="btn btn-success"  type="button" href="http://furiousslade.github.io/posts/2016/pelican_swain.html" rel="bookmark" title="Permalink to 用上了自己的模板pelican-swain">Read more</a>
@@ -146,7 +139,7 @@ You zuo you die, don't ask me why.</p>
 <p>首先你需要安装Charles，可以从它的官网下载<a href="http://www.charlesproxy.com/download/" target="&quot;_blank">Charles</a>。</p>
 <p>下载所需要使用到的<a href="http://www.charlesproxy.com/documentation/additional/legacy-ssl-proxying/" target="&quot;_blank">证书</a>.</p>
 <blockquote>
-<p>Version of Charles prior to v3.10 used a single SSL Root Certificate. You can still download the legacy certificate bundle <strong>here</strong> or the certificate itself <strong>here</strong> (for installing on mobile devices). Note that these certificates will not ...</p></blockquote>
+<p>Version of Charles prior to v3.10 used a single SSL Root Certificate. You can still download the ...</p></blockquote>
                         </div>
                         <div class="row">
                         <div class="read-me col-md-9"><a class="btn btn-success"  type="button" href="http://furiousslade.github.io/posts/2016/charles_https.html" rel="bookmark" title="Permalink to 在Mac下使用抓包工具Charles抓取APP的Https请求。">Read more</a>
@@ -174,10 +167,7 @@ You zuo you die, don't ask me why.</p>
 <p>在定位一个运营反馈的线上问题时，发现数据库中落下了两条除了主键ID外完全一样的数据。让开发查看日志后确实发现服务器的一个节点在同一个时间收到了多个相同的请求。因为这个接口本身是一个极低访问量的接口。当初程序设计时为了预留扩张功能，数据库并没有做唯一性索引。也并未加数据库锁表操作（锁表风险太大），只是从程序逻辑上做了唯一性的限制。可以确定用户实际使用中确实只请求了一次，可能是因为网络抖动问题。造成服务器确实同时收到了相同的请求并成功落库。</p>
 <p>因为该接口是一个低访问量的接口，最后为了在有预留可扩张功能的，又不锁表的前提下。使用了redis锁。通过redis来达到数据库操作锁的功能，来保证代码的逻辑上的唯一性限制能被正确的触发。而不会因为异常的并发问题造成数据异常。</p>
 <h2 id="_3">分布式服务的定时任务造成了并发问题。</h2>
-<p>在生产环境上有一个job每天会定时去update数据，却发现部分数据被double了。在测试环境上这个功能是完全没有问题的，跑的很正确。因为是分布式服务，生产环境是集群服务造成了定时的job同时也跑了多个。同时去update数据，造成了部分数据被double了。因为读取数据库时间差的原因还有一定的运气因素也只是部分数据被double。不幸中的万幸。</p>
-<p>从单个服务器来说这个job都是正确的，最终是依赖redis的分布式锁。来保证只有一台服务器的job会被正确执行。其他服务器的job在得知已有服务器在执行job后，会忽略该次job。</p>
-<h2 id="_4">分布式服务同时收到大量的错误请求。</h2>
-<p>一次收到监控系统预警报告服务器收到大量的500请求。我们后续查看的服务器的日志发现几台通过nginx负载的服务器收到了大量的且相同的请求。这个请求是个异常请求，服务端也正确的捕获了异常，并根据接口约定，返回了相应的500错误。从程序逻辑上来说并没有问题。但诡异的是同一时间段所有负载机都收到了大量的会造成500错误的请求 ...</p>
+<p>在生产环境上有一个job每天会定时去update数据，却发现部分数据被double了。在测试环境上这个功能是完全没有问题的，跑的很正确 ...</p>
                         </div>
                         <div class="row">
                         <div class="read-me col-md-9"><a class="btn btn-success"  type="button" href="http://furiousslade.github.io/posts/2016/2015_bug_prologue.html" rel="bookmark" title="Permalink to 2015年踩过的坑">Read more</a>
@@ -202,12 +192,7 @@ You zuo you die, don't ask me why.</p>
                             <h2 id="appium">Appium的安装</h2>
 <p>要实现ios自动化前提是有一台Mac OS X操作系统的设备可以是正统的mac或是黑苹果。然后去<a href='http://appium.io' target='_blank'>appium官网</a>下载appium服务端。osx上不推荐使用命令行安装，因为命令行看装会缺失appium inspector这个重要的元素定位工具。建议使用dmg安装包安装appium。然后在安装相应的appium client，我用的是python。<code>pip install appium-python-client</code>来完成client的安装。</p>
 <h2 id="iosdemo">iOS演示Demo的创建</h2>
-<p>先安装<strong>xcode</strong>。因为没有开发者证书所以只能用ios模拟器来演示，在这里不多说了。从<a href="https://github.com/appium/sample-code" target="_blank">https://github.com/appium/sample-code</a>上下载appium的演示DEMO。</p>
-<ol>
-<li>下载后进入<code>sample-code/apps/TestApp</code>目录下</li>
-<li>执行<code>xcodebuild -sdk iphonesimulator</code>来编译所需的TestApp。</li>
-<li>看到<code>BUILD SUCCEEDED</code>TestApp就编译成功了。</li>
-<li>在<code>sample-code-master/sample-code/apps/TestApp/build ...</code></li></ol>
+<p>先安装<strong>xcode</strong>。因为没有开发者证书所以只能用ios模拟器来演示，在这里不多说了。从<a href="https://github.com/appium/sample-code" target="_blank">https://github.com/appium/sample-code</a>上下载appium的演示DEMO ...</p>
                         </div>
                         <div class="row">
                         <div class="read-me col-md-9"><a class="btn btn-success"  type="button" href="http://furiousslade.github.io/posts/2015/AppiumIOS_1.html" rel="bookmark" title="Permalink to 基于Appium实现IOS自动化测试">Read more</a>
@@ -239,14 +224,173 @@ error: unknown host service
 <p>使用<code>netstat -ano</code>查看哪个程序占用了<strong>5037</strong>端口</p>
 <div class="highlight"><pre>活动连接
 
-协议      本地地址               外部地址                 状态           PID
-TCP    0.0.0.0:49154          0.0.0.0:0              LISTENING       1080
-TCP    0.0 ...</pre></div>
+协议 ...</pre></div>
                         </div>
                         <div class="row">
                         <div class="read-me col-md-9"><a class="btn btn-success"  type="button" href="http://furiousslade.github.io/posts/2015/AdbError.html" rel="bookmark" title="Permalink to Adb error: unknown host service 的解决方法">Read more</a>
                         </div>
                         <div class="comment-count col-md-3"><i class="fa fa-commenting"></i><a href="http://furiousslade.github.io/posts/2015/AdbError.html#disqus_thread">_(:з」∠)_</a>
+</div>
+                        </div>
+                        <!-- /.entry-content -->
+                    </article>
+                </li>
+                <li class="list-group-item animate">
+                    <article class="hentry">
+                        <header>
+                            <h2><a href="http://furiousslade.github.io/posts/2015/ClientMonitor.html" rel="bookmark" title="Permalink to 移动客户端的性能监控">移动客户端的性能监控</a></h2>
+                        </header>
+                        <div class="tagged">
+                                <i class="fa fa-tags"></i>
+                                    <a class="label label-default" href="http://furiousslade.github.io/tags.html#android-ref">Android</a>
+                                    <a class="label label-default" href="http://furiousslade.github.io/tags.html#ios-ref">iOS</a>
+                        </div>
+                        <div class="entry-content">
+                            <h1 id="_1">起因</h1>
+<p>在测试一款通话类APP时，需要精确的统计客户端的流量消耗，电量消耗，CPU，内存等指标。磕磕碰碰的最终还是顺利的完成。在测试Android客户端的程中我一开始使用了Android SDK中的DDMS工具。</p>
+<h2 id="ddms">DDMS</h2>
+<p>ddms位于"D:\adt-bundle-windows-x86\sdk\tools"相似的目录下。运行ddms.bat</p>
+<p><img alt="" src="http://ww1.sinaimg.cn/bmiddle/0067jSM2jw1es8e5cej4wj311y0kgn6v.jpg" /></p>
+<p>选择相应的应用进程例如：com.paobao.verytele 选择Network标签。可以看到该进程网络统计模块。</p>
+<p><img alt="" src="http://ww3.sinaimg.cn/bmiddle/0067jSM2jw1es8e8si1m1j30wq0i779j.jpg" /></p>
+<p><strong>RX</strong>为下行数据，<strong>TX</strong>为上行数据。可选择统计数据的时间间隔（250ms ...</p>
+                        </div>
+                        <div class="row">
+                        <div class="read-me col-md-9"><a class="btn btn-success"  type="button" href="http://furiousslade.github.io/posts/2015/ClientMonitor.html" rel="bookmark" title="Permalink to 移动客户端的性能监控">Read more</a>
+                        </div>
+                        <div class="comment-count col-md-3"><i class="fa fa-commenting"></i><a href="http://furiousslade.github.io/posts/2015/ClientMonitor.html#disqus_thread">_(:з」∠)_</a>
+</div>
+                        </div>
+                        <!-- /.entry-content -->
+                    </article>
+                </li>
+                <li class="list-group-item animate">
+                    <article class="hentry">
+                        <header>
+                            <h2><a href="http://furiousslade.github.io/posts/2015/Robotium.html" rel="bookmark" title="Permalink to Robotium只有apk情况下的代码片段">Robotium只有apk情况下的代码片段</a></h2>
+                        </header>
+                        <div class="tagged">
+                                <i class="fa fa-tags"></i>
+                                    <a class="label label-default" href="http://furiousslade.github.io/tags.html#android-ref">Android</a>
+                                    <a class="label label-default" href="http://furiousslade.github.io/tags.html#robotium-ref">Robotium</a>
+                        </div>
+                        <div class="entry-content">
+                            <div class="highlight"><pre><span class="n">package</span> <span class="n">com</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">tt</span><span class="o">.</span><span class="n">test</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">com.robotium.solo.Solo</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">android.app.Activity</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">android.provider.UserDictionary.Words</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">android.test.ActivityInstrumentationTestCase2</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">android.view.View</span><span class="p">;</span>
+
+
+<span class="nd">@SuppressWarnings</span><span class="p">(</span><span class="s">&quot;rawtypes&quot;</span><span class="p">)</span>
+<span class="n">public ...</span></pre></div>
+                        </div>
+                        <div class="row">
+                        <div class="read-me col-md-9"><a class="btn btn-success"  type="button" href="http://furiousslade.github.io/posts/2015/Robotium.html" rel="bookmark" title="Permalink to Robotium只有apk情况下的代码片段">Read more</a>
+                        </div>
+                        <div class="comment-count col-md-3"><i class="fa fa-commenting"></i><a href="http://furiousslade.github.io/posts/2015/Robotium.html#disqus_thread">_(:з」∠)_</a>
+</div>
+                        </div>
+                        <!-- /.entry-content -->
+                    </article>
+                </li>
+                <li class="list-group-item animate">
+                    <article class="hentry">
+                        <header>
+                            <h2><a href="http://furiousslade.github.io/posts/2015/Jpype.html" rel="bookmark" title="Permalink to Python调用Java的代码片段">Python调用Java的代码片段</a></h2>
+                        </header>
+                        <div class="tagged">
+                                <i class="fa fa-tags"></i>
+                                    <a class="label label-default" href="http://furiousslade.github.io/tags.html#python-ref">Python</a>
+                        </div>
+                        <div class="entry-content">
+                            <div class="highlight"><pre><span class="c"># coding:utf-8</span>
+<span class="c"># 使用jpype第三方库创建jvm使用java类</span>
+<span class="kn">import</span> <span class="nn">jpype</span>
+
+<span class="k">class</span> <span class="nc">MyDes</span><span class="p">:</span>
+
+    <span class="nd">@staticmethod</span>  <span class="c"># 建立静态方法</span>
+    <span class="k">def</span> <span class="nf">encode</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+        <span class="c"># 读取系统jvm环境变量</span>
+        <span class="n">jvmPath</span> <span class="o">=</span> <span class="n">jpype</span><span class="o">.</span><span class="n">getDefaultJVMPath</span><span class="p">()</span>
+        <span class="c"># 设置javaClass文件路径,可以是一个jar包</span>
+        <span class="n">classpath</span> <span class="o">=</span> <span class="s">&quot;D:</span><span class="se">\\</span><span class="s">git</span><span class="se">\\</span><span class="s">VeryTeleTest</span><span class="se">\\</span><span class="s">JavaServer&quot;</span>
+        <span class="n">jvmArg</span> <span class="o">=</span> <span class="s">&quot;-Djava.class.path=&quot;</span> <span class="o">+</span> <span class="n">classpath</span>
+        <span class="c"># 尝试开启jvm</span>
+        <span class="k">if ...</span></pre></div>
+                        </div>
+                        <div class="row">
+                        <div class="read-me col-md-9"><a class="btn btn-success"  type="button" href="http://furiousslade.github.io/posts/2015/Jpype.html" rel="bookmark" title="Permalink to Python调用Java的代码片段">Read more</a>
+                        </div>
+                        <div class="comment-count col-md-3"><i class="fa fa-commenting"></i><a href="http://furiousslade.github.io/posts/2015/Jpype.html#disqus_thread">_(:з」∠)_</a>
+</div>
+                        </div>
+                        <!-- /.entry-content -->
+                    </article>
+                </li>
+                <li class="list-group-item animate">
+                    <article class="hentry">
+                        <header>
+                            <h2><a href="http://furiousslade.github.io/posts/2015/AutoStartOnLinux.html" rel="bookmark" title="Permalink to 让Redmine随Linux系统自动启动">让Redmine随Linux系统自动启动</a></h2>
+                        </header>
+                        <div class="tagged">
+                                <i class="fa fa-tags"></i>
+                                    <a class="label label-default" href="http://furiousslade.github.io/tags.html#redmine-ref">Redmine</a>
+                                    <a class="label label-default" href="http://furiousslade.github.io/tags.html#linux-ref">Linux</a>
+                        </div>
+                        <div class="entry-content">
+                            <h1 id="_1">起因</h1>
+<p>最近因为机房经常停电，导致服务器频繁重启。每次都要手动去启动Redmine，我懒。所以把启动redmine的过程加入到了Linux系统启动过程中。</p>
+<h1 id="centos-65">我使用的是CentOS 6.5</h1>
+<h2 id="1">方法 1：</h2>
+<p>可能因发行版本不同rc.local的位置可能有不同 </p>
+<div class="highlight"><pre>    vim /etc/rc.local
+</pre></div>
+
+
+<p>在用户登录前执行，权限大。但无法使用“~”作为路劲，因为用户尚未登录，没有用户主目录。可以在/var/log/boot.log看到日志</p>
+<h2 id="2">方法 2 ...</h2>
+                        </div>
+                        <div class="row">
+                        <div class="read-me col-md-9"><a class="btn btn-success"  type="button" href="http://furiousslade.github.io/posts/2015/AutoStartOnLinux.html" rel="bookmark" title="Permalink to 让Redmine随Linux系统自动启动">Read more</a>
+                        </div>
+                        <div class="comment-count col-md-3"><i class="fa fa-commenting"></i><a href="http://furiousslade.github.io/posts/2015/AutoStartOnLinux.html#disqus_thread">_(:з」∠)_</a>
+</div>
+                        </div>
+                        <!-- /.entry-content -->
+                    </article>
+                </li>
+                <li class="list-group-item animate">
+                    <article class="hentry">
+                        <header>
+                            <h2><a href="http://furiousslade.github.io/posts/2015/AppiumIOS.html" rel="bookmark" title="Permalink to Appium在iOS端实现的脚本片段">Appium在iOS端实现的脚本片段</a></h2>
+                        </header>
+                        <div class="tagged">
+                                <i class="fa fa-tags"></i>
+                                    <a class="label label-default" href="http://furiousslade.github.io/tags.html#appium-ref">Appium</a>
+                                    <a class="label label-default" href="http://furiousslade.github.io/tags.html#ios-ref">iOS</a>
+                        </div>
+                        <div class="entry-content">
+                            <div class="highlight"><pre><span class="c"># coding:utf-8</span>
+<span class="kn">from</span> <span class="nn">appium</span> <span class="kn">import</span> <span class="n">webdriver</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="n">success</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="n">desired_caps</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">desired_caps</span><span class="p">[</span><span class="s">&#39;appium-version&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;1.0&#39;</span>
+<span class="n">desired_caps</span><span class="p">[</span><span class="s">&#39;platformName&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;iOS&#39;</span>
+<span class="n">desired_caps</span><span class="p">[</span><span class="s">&#39;autoLaunch&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;true&#39;</span>
+<span class="n">desired_caps</span><span class="p">[</span><span class="s">&#39;platformVersion&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;8.1.2 ...</span></pre></div>
+                        </div>
+                        <div class="row">
+                        <div class="read-me col-md-9"><a class="btn btn-success"  type="button" href="http://furiousslade.github.io/posts/2015/AppiumIOS.html" rel="bookmark" title="Permalink to Appium在iOS端实现的脚本片段">Read more</a>
+                        </div>
+                        <div class="comment-count col-md-3"><i class="fa fa-commenting"></i><a href="http://furiousslade.github.io/posts/2015/AppiumIOS.html#disqus_thread">_(:з」∠)_</a>
 </div>
                         </div>
                         <!-- /.entry-content -->
@@ -258,9 +402,9 @@ TCP    0.0 ...</pre></div>
 <div class="btn-group" role="group" aria-label="...">
         <a type="button" class="btn btn-default disabled" href="http://furiousslade.github.io/index.html"><i class="fa fa-chevron-left"></i><i class="fa fa-chevron-left"></i></a>
         <a type="button" class="btn btn-default disabled" href="http://furiousslade.github.io/"><i class="fa fa-chevron-left"></i></a>
-    <button type="button" class="btn btn-default disabled">1 / 4</button>
+    <button type="button" class="btn btn-default disabled">1 / 2</button>
         <a type="button" class="btn btn-default  " href="http://furiousslade.github.io/author/slade2.html"><i class="fa fa-chevron-right"></i></a>
-        <a type="button" class="btn btn-default " href="http://furiousslade.github.io/index4.html"><i class="fa fa-chevron-right"></i><i class="fa fa-chevron-right"></i></a>
+        <a type="button" class="btn btn-default " href="http://furiousslade.github.io/index2.html"><i class="fa fa-chevron-right"></i><i class="fa fa-chevron-right"></i></a>
 </div>
 </div>
 </div>
