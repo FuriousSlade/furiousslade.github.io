@@ -377,9 +377,15 @@ adb pull /mnt/sdcard/xxx.apk xxx.apk        # 将手机中的文件传送至本�
         {
             setAnimate(i);
             i++;
-        }
+        };
     };
     window.onload = initAnimate();
+    window.onload = function(){
+            for(var i=0,a;a=document.querySelectorAll("#posts-list > li")[i++];){
+                a.style.opacity = 1;
+            };
+        };
+
 </script>
 </body>
 </html>

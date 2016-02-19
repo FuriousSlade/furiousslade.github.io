@@ -224,9 +224,15 @@ You zuo you die, don't ask me why.</p>
         {
             setAnimate(i);
             i++;
-        }
+        };
     };
     window.onload = initAnimate();
+    window.onload = function(){
+            for(var i=0,a;a=document.querySelectorAll("#posts-list > li")[i++];){
+                a.style.opacity = 1;
+            };
+        };
+
 </script>
 </body>
 </html>
