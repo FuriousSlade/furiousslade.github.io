@@ -34,6 +34,8 @@
 .fadeInUp {
   -webkit-animation: fadeInUp 1s;
   animation: fadeInUp 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
 }
 
 @keyframes fadeInLeft {

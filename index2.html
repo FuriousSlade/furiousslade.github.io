@@ -367,7 +367,6 @@ adb pull /mnt/sdcard/xxx.apk xxx.apk        # 将手机中的文件传送至本�
             var f = document.getElementsByClassName("animate")[0];
             f.classList.add("fadeInUp");
             f.style.animationDelay = (0+i/2).toString()+"s";
-            f.style.animationFillMode = "forwards";
             f.classList.remove("animate");
         };
     var n = document.getElementsByClassName("animate").length;
@@ -380,11 +379,11 @@ adb pull /mnt/sdcard/xxx.apk xxx.apk        # 将手机中的文件传送至本�
         };
     };
     window.onload = initAnimate();
-    // window.onload = function(){
-    //         for(var i=0,a;a=document.querySelectorAll("#posts-list > li")[i++];){
-    //             a.style.opacity = 1;
-    //         };
-    //     };
+    window.onload = function(){
+            for(var i=0,a;a=document.querySelectorAll("#posts-list > li")[i++];){
+                a.style.opacity = 1;
+            };
+        };
 
 </script>
 </body>
