@@ -87,3 +87,40 @@
 .fadeIn {
   animation: fadeIn 1s;
 }
+
+a.tagged::before,a.tagged::after {
+  display: inline-block;
+  opacity: 1;
+  -webkit-transition: -webkit-transform 0.3s, opacity 0.2s;
+  -moz-transition: -moz-transform 0.3s, opacity 0.2s;
+  transition: transform 0.3s, opacity 0.2s;
+}
+a.tagged::before {
+  content: '[';
+  font-size: 1.2em;
+  opacity: 0;
+  -webkit-transform: translateX(-10px);
+  -moz-transform: translateX(-10px);
+  transform: translateX(-10px);
+}
+a.tagged::after {
+  content: ']';
+  font-size: 1.2em;
+  opacity: 0;
+  -webkit-transform: translateX(10px);
+  -moz-transform: translateX(10px);
+  transform: translateX(10px);
+}
+a.tagged:hover,
+a.tagged:focus {
+  text-decoration: none;
+}
+a.tagged:hover::before,
+a.tagged:hover::after,
+a.tagged:focus::before,
+a.tagged:focus::after {
+  opacity: 1;
+  -webkit-transform: translateX(0px);
+  -moz-transform: translateX(0px);
+  transform: translateX(0px);
+}

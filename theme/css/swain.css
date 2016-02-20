@@ -2,8 +2,8 @@ body,
 html {
     height: 100%;
     width: 100%;
-    background-color: #C2C2C2;
-    background-image: url(/theme/images/background.jpg);
+    background-color: #F5F8FA;
+    background-image: url(/theme/images/background.png);
 }
 h1,
 .h1 {
@@ -117,6 +117,10 @@ body > nav > div > div.navbar-header > button > i {
 #index-pagination {
     padding-bottom: 15px;
 }
+div.tagged > i {
+    padding: 0px 5px;
+}
+
 /*Categories*/
 #accordion> div > div > h4 > a {
     display:block;
