@@ -280,23 +280,12 @@ span.h01 {
 #tipue_search_results_count {
     color: black;
 }
-/*go to top*/
-#go-top {
-      position: fixed;
-      float: right;
-      z-index: 10;
-      right: 20px;
-      bottom: 200px;
-      }
-#go-top i {
-      opacity: 0.8;
-      }
+/* Mascot go to top*/
 .umaru {
     position: fixed;
-    /*float: right;*/
-    height: 150px;
-    width: auto;
-    z-index: 1;
-    right: 20px;
-    bottom: 30px;
+    height: auto;
+    width: 10%;
+    z-index: 10;
+    right: 35px;
+    bottom: 20px;
 }
