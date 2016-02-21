@@ -2,13 +2,10 @@ body,
 html {
     height: 100%;
     width: 100%;
-    background: url("/theme/images/umaru.png"),url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAABmJLR0QA7wDzAPq5LT36AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4AIVBRcFtLX3HQAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAAcElEQVRYw+3XuwqAMAyF4VzU939TB7dKG6cOYhFRhwz/GQOBD86S6LqVkB+zzO93a63i7qeZSaKo6mWWCmhmuYGjTFlhrTWJiLzAXnf6igECBAgQIECAAO/vwS8/xChlp2KAAAECBAgQIECAAAE+zgGmgQ9CadOaLQAAAABJRU5ErkJggg=="),
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAABmJLR0QA7wDzAPq5LT36AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4AIVBRcFtLX3HQAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAAcElEQVRYw+3XuwqAMAyF4VzU939TB7dKG6cOYhFRhwz/GQOBD86S6LqVkB+zzO93a63i7qeZSaKo6mWWCmhmuYGjTFlhrTWJiLzAXnf6igECBAgQIECAAO/vwS8/xChlp2KAAAECBAgQIECAAAE+zgGmgQ9CadOaLQAAAABJRU5ErkJggg=="),
         #EFF3FA;
-    background-size: 100px auto,40px 40px;
-    background-repeat: no-repeat,repeat;
-    background-position: bottom right ,0 0;
-    background-attachment: scroll,scroll;
     background-color: #EFF3FA;
+    z-index: 0;
 }
 
 h1,
@@ -95,6 +92,9 @@ body > nav > div > div.navbar-header > button > i {
 }
 
 /*index*/
+#center_page {
+    z-index: 2;
+}
 #content {
     margin-top: 0px;
 }
@@ -166,6 +166,7 @@ div.tagged > i {
 /*sidebar_left*/
 #sidebar_left {
     margin-top: 0px;
+    z-index: 3;
 }
 .list-inline li {
     padding-right: 0;
@@ -187,6 +188,7 @@ div.tagged > i {
 /*sidebar_right*/
 #sidebar_right {
     margin-top: 0px;
+    z-index: 3;
 }
 
 
@@ -289,3 +291,12 @@ span.h01 {
 #go-top i {
       opacity: 0.8;
       }
+.umaru {
+    position: fixed;
+    /*float: right;*/
+    height: 150px;
+    width: auto;
+    z-index: 1;
+    right: 20px;
+    bottom: 30px;
+}
