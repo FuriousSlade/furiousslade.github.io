@@ -6,8 +6,8 @@ html {
         #EFF3FA;
     background-size: 100px auto,40px 40px;
     background-repeat: no-repeat,repeat;
-    -webkit-background-position: 98% 95%,0 0;
-    -webkit-background-attachment: fixed,scroll;
+    background-position: bottom right ,0 0;
+    background-attachment: scroll,scroll;
     background-color: #EFF3FA;
 }
 
