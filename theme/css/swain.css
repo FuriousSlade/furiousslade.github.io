@@ -284,8 +284,9 @@ span.h01 {
 .umaru {
     position: fixed;
     height: auto;
-    width: 10%;
+    width: 15%;
+    max-width: 110px;
     z-index: 10;
-    right: 35px;
+    right: 20px;
     bottom: 20px;
 }
