@@ -9,6 +9,6 @@ $(function(){
             d_top.hide();
             }
     $('#go-top-i').click(function(){
-    $("html,body").animate({scrollTop: 0},d);
+    $("html,body").animate({scrollTop: 0},d).dequeue();
 });
 }});
