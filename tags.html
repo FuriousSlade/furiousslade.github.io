@@ -66,34 +66,34 @@
     <div class="col-md-12">
         <ul class="list-of-tags list-inline">
             <li>
-            <a class="btn btn-default btn-sm" type="button" href="#android-ref">Android<span class="badge"> 6</span></a>
+            <a class="btn btn-default btn-sm animate fadeInUp" type="button" href="#android-ref">Android<span class="badge"> 6</span></a>
             </li>
             <li>
-            <a class="btn btn-default btn-sm" type="button" href="#appium-ref">Appium<span class="badge"> 2</span></a>
+            <a class="btn btn-default btn-sm animate fadeInUp" type="button" href="#appium-ref">Appium<span class="badge"> 2</span></a>
             </li>
             <li>
-            <a class="btn btn-default btn-sm" type="button" href="#bug-ref">Bug<span class="badge"> 1</span></a>
+            <a class="btn btn-default btn-sm animate fadeInUp" type="button" href="#bug-ref">Bug<span class="badge"> 1</span></a>
             </li>
             <li>
-            <a class="btn btn-default btn-sm" type="button" href="#charles-ref">Charles<span class="badge"> 1</span></a>
+            <a class="btn btn-default btn-sm animate fadeInUp" type="button" href="#charles-ref">Charles<span class="badge"> 1</span></a>
             </li>
             <li>
-            <a class="btn btn-default btn-sm" type="button" href="#ios-ref">iOS<span class="badge"> 2</span></a>
+            <a class="btn btn-default btn-sm animate fadeInUp" type="button" href="#ios-ref">iOS<span class="badge"> 2</span></a>
             </li>
             <li>
-            <a class="btn btn-default btn-sm" type="button" href="#linux-ref">Linux<span class="badge"> 1</span></a>
+            <a class="btn btn-default btn-sm animate fadeInUp" type="button" href="#linux-ref">Linux<span class="badge"> 1</span></a>
             </li>
             <li>
-            <a class="btn btn-default btn-sm" type="button" href="#pelican-ref">Pelican<span class="badge"> 2</span></a>
+            <a class="btn btn-default btn-sm animate fadeInUp" type="button" href="#pelican-ref">Pelican<span class="badge"> 2</span></a>
             </li>
             <li>
-            <a class="btn btn-default btn-sm" type="button" href="#python-ref">Python<span class="badge"> 2</span></a>
+            <a class="btn btn-default btn-sm animate fadeInUp" type="button" href="#python-ref">Python<span class="badge"> 2</span></a>
             </li>
             <li>
-            <a class="btn btn-default btn-sm" type="button" href="#redmine-ref">Redmine<span class="badge"> 4</span></a>
+            <a class="btn btn-default btn-sm animate fadeInUp" type="button" href="#redmine-ref">Redmine<span class="badge"> 4</span></a>
             </li>
             <li>
-            <a class="btn btn-default btn-sm" type="button" href="#robotium-ref">Robotium<span class="badge"> 1</span></a>
+            <a class="btn btn-default btn-sm animate fadeInUp" type="button" href="#robotium-ref">Robotium<span class="badge"> 1</span></a>
             </li>
         </ul>
     </div>
@@ -193,6 +193,23 @@
         s.src = 'https://' + disqus_shortname + '.disqus.com/count.js';
         (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
     }());
+</script>
+<script type="text/javascript">
+    function setAnimate(i){
+            var f = document.getElementsByClassName("animate")[0];
+            f.style.animationDelay = (0+i/10).toString()+"s";
+            f.classList.remove("animate");
+        };
+    var n = document.getElementsByClassName("animate").length;
+    function initAnimate(){
+        var i=0;
+        while(i < n)
+        {
+            setAnimate(i);
+            i++;
+        };
+    };
+    window.onload = initAnimate();
 </script>
 </body>
 </html>

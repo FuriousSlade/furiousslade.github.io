@@ -80,10 +80,6 @@
   }
 }
 
-#posts-list > li {
-  opacity: 0
-}
-
 .fadeIn {
   animation: fadeIn 1s;
 }

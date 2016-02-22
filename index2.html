@@ -90,7 +90,7 @@
             <div class="col-md-8" id="center_page">
     <div id="content" class="row">
         <ul class="list-group list-unstyled" id="posts-list">
-                <li class="list-group-item animate">
+                <li class="list-group-item animate fadeInUp">
                     <article class="hentry">
                         <header>
                             <h2><a href="http://furiousslade.github.io/posts/2015/InstallMongrel.html" rel="bookmark" title="Permalink to Redmine使用Mongrel服务器。">Redmine使用Mongrel服务器。</a></h2>
@@ -113,7 +113,7 @@
                         <!-- /.entry-content -->
                     </article>
                 </li>
-                <li class="list-group-item animate">
+                <li class="list-group-item animate fadeInUp">
                     <article class="hentry">
                         <header>
                             <h2><a href="http://furiousslade.github.io/posts/2015/InstallRedmine.html" rel="bookmark" title="Permalink to Install Redmine on Centos.">Install Redmine on Centos.</a></h2>
@@ -136,7 +136,7 @@
                         <!-- /.entry-content -->
                     </article>
                 </li>
-                <li class="list-group-item animate">
+                <li class="list-group-item animate fadeInUp">
                     <article class="hentry">
                         <header>
                             <h2><a href="http://furiousslade.github.io/posts/2015/NoCpUseCat.html" rel="bookmark" title="Permalink to 在Android shell下无法使用cp命令的解决方案。">在Android shell下无法使用cp命令的解决方案。</a></h2>
@@ -159,7 +159,7 @@
                         <!-- /.entry-content -->
                     </article>
                 </li>
-                <li class="list-group-item animate">
+                <li class="list-group-item animate fadeInUp">
                     <article class="hentry">
                         <header>
                             <h2><a href="http://furiousslade.github.io/posts/2015/ReadOnlyFileSystem.html" rel="bookmark" title="Permalink to 解决Android复制文件报“Read-only file system”的问题。">解决Android复制文件报“Read-only file system”的问题。</a></h2>
@@ -182,7 +182,7 @@
                         <!-- /.entry-content -->
                     </article>
                 </li>
-                <li class="list-group-item animate">
+                <li class="list-group-item animate fadeInUp">
                     <article class="hentry">
                         <header>
                             <h2><a href="http://furiousslade.github.io/posts/2015/RedmineEmail.html" rel="bookmark" title="Permalink to Redmine异步发送邮件。">Redmine异步发送邮件。</a></h2>
@@ -205,7 +205,7 @@
                         <!-- /.entry-content -->
                     </article>
                 </li>
-                <li class="list-group-item animate">
+                <li class="list-group-item animate fadeInUp">
                     <article class="hentry">
                         <header>
                             <h2><a href="http://furiousslade.github.io/posts/2015/adbmore.html" rel="bookmark" title="Permalink to Adb常用命令。">Adb常用命令。</a></h2>
@@ -228,7 +228,7 @@
                         <!-- /.entry-content -->
                     </article>
                 </li>
-                <li class="list-group-item animate">
+                <li class="list-group-item animate fadeInUp">
                     <article class="hentry">
                         <header>
                             <h2><a href="http://furiousslade.github.io/posts/2015/BlogStart.html" rel="bookmark" title="Permalink to Blog Start!">Blog Start!</a></h2>
@@ -323,7 +323,6 @@
 <script type="text/javascript">
     function setAnimate(i){
             var f = document.getElementsByClassName("animate")[0];
-            f.classList.add("fadeInUp");
             f.style.animationDelay = (0+i/2).toString()+"s";
             f.classList.remove("animate");
         };
@@ -337,12 +336,6 @@
         };
     };
     window.onload = initAnimate();
-    window.onload = function(){
-            for(var i=0,a;a=document.querySelectorAll("#posts-list > li")[i++];){
-                a.style.opacity = 1;
-            };
-        };
-
 </script>
 </body>
 </html>
