@@ -49,8 +49,8 @@
     <!-- navbar end -->
     <div class="container-fluid" id="container">
         <div class="row-fluid">
-            <div class="col-md-2 fadeInLeft" id="sidebar_left">
-            </div>
+<div class="col-md-2 hidden-xs hidden-sm" id="sidebar_left">
+</div>
             <div class="col-md-8" id="center_page">
 <section id="content" class="body fadeInUp">
   <article>
@@ -193,6 +193,15 @@
         s.src = 'https://' + disqus_shortname + '.disqus.com/count.js';
         (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
     }());
+</script>
+<script type="text/javascript">
+    function setTocClass(){
+            var f = document.getElementById("toc");
+            f.classList.add("art-toc");
+            f.classList.add("fadeInLeft");
+            f.style.opacity = 1;
+        };
+    window.onload = setTocClass();
 </script>
 </body>
 </html>

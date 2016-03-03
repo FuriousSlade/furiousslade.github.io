@@ -83,7 +83,7 @@
 .fadeIn {
   animation: fadeIn 1s;
 }
-
+.toc a::before,.toc a::after,
 a.tagged::before,a.tagged::after {
   display: inline-block;
   opacity: 1;
@@ -91,6 +91,7 @@ a.tagged::before,a.tagged::after {
   -moz-transition: -moz-transform 0.3s, opacity 0.2s;
   transition: transform 0.3s, opacity 0.2s;
 }
+.toc a::before,
 a.tagged::before {
   content: '[';
   font-size: 1.2em;
@@ -99,6 +100,7 @@ a.tagged::before {
   -moz-transform: translateX(-10px);
   transform: translateX(-10px);
 }
+.toc a::after,
 a.tagged::after {
   content: ']';
   font-size: 1.2em;
@@ -107,10 +109,18 @@ a.tagged::after {
   -moz-transform: translateX(10px);
   transform: translateX(10px);
 }
+.toc a:hover,
+.toc a:focus,
 a.tagged:hover,
 a.tagged:focus {
   text-decoration: none;
 }
+li.active > a::before,
+li.active > a::after,
+.toc a:hover::before,
+.toc a:hover::after,
+.toc a:focus::before,
+.toc a:focus::after,
 a.tagged:hover::before,
 a.tagged:hover::after,
 a.tagged:focus::before,

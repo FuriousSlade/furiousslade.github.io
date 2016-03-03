@@ -49,11 +49,11 @@
     <!-- navbar end -->
     <div class="container-fluid" id="container">
         <div class="row-fluid">
-            <div class="col-md-2 fadeInLeft" id="sidebar_left">
+<div class="col-md-2 hidden-xs hidden-sm" id="sidebar_left">
+<div id="toc">
 <div class="panel panel-primary">
   <div class="panel-heading"><i class="fa fa-list-ul"></i></div>
-  <div class="panel-body">
-    <nav class="toc">
+  <div class="panel-body nav">
     <div class="toc">
 <ul>
 <li><a href="#pelican-swain">Pelican-Swain</a></li>
@@ -64,10 +64,13 @@
 <li><a href="#screenshot">Screenshot</a></li>
 </ul>
 </div>
-    </nav>
   </div>
 </div>
-            </div>
+</div>
+<script type="text/javascript">
+  $('body').scrollspy();
+</script>
+</div>
             <div class="col-md-8" id="center_page">
 <section id="content" class="body fadeInUp">
   <article>
@@ -288,6 +291,15 @@ You zuo you die, don't ask me why.</p>
         s.src = 'https://' + disqus_shortname + '.disqus.com/count.js';
         (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
     }());
+</script>
+<script type="text/javascript">
+    function setTocClass(){
+            var f = document.getElementById("toc");
+            f.classList.add("art-toc");
+            f.classList.add("fadeInLeft");
+            f.style.opacity = 1;
+        };
+    window.onload = setTocClass();
 </script>
 </body>
 </html>
