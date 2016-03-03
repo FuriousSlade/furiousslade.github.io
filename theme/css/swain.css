@@ -306,6 +306,9 @@ li.active > ul {
 li.active > a {
     font-weight:bold;
 }
+.toc div.tooltip {
+    left: initial !important;
+}
 
 /*tipue_search*/
 span.h01 {

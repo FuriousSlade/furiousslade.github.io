@@ -117,10 +117,6 @@ a.tagged:focus {
 }
 li.active > a::before,
 li.active > a::after,
-.toc a:hover::before,
-.toc a:hover::after,
-.toc a:focus::before,
-.toc a:focus::after,
 a.tagged:hover::before,
 a.tagged:hover::after,
 a.tagged:focus::before,

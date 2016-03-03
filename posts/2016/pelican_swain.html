@@ -69,6 +69,15 @@
 </div>
 <script type="text/javascript">
   $('body').scrollspy();
+  $('.toc a').each(function(){
+    $(this).attr({"data-toggle":"tooltip",
+                "data-placement":"top",
+                "title":$(this).text()
+                });
+  $(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+    });
+  });
 </script>
 </div>
             <div class="col-md-8" id="center_page">
