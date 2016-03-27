@@ -7,6 +7,8 @@ INPUTDIR=$(BASEDIR)/content
 OUTPUTDIR=$(BASEDIR)/output
 CONFFILE=$(BASEDIR)/pelicanconf.py
 PUBLISHCONF=$(BASEDIR)/publishconf.py
+THEME_SWAIN_URL=https://github.com/FuriousSlade/pelican-swain.git
+PELICAN_PLUGINS=https://github.com/getpelican/pelican-plugins.git
 
 FTP_HOST=localhost
 FTP_USER=anonymous
@@ -83,6 +85,8 @@ stopserver:
 	@echo 'Stopped Pelican and SimpleHTTPServer processes running in background.'
 
 publish:
+	git clone --depth 1 $(THEME_SWAIN_URL)
+	git clone --depth 1 $(PELICAN_PLUGINS)
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(PUBLISHCONF) $(PELICANOPTS)
 
 ssh_upload: publish
