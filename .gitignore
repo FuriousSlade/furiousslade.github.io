@@ -1,2 +1,7 @@
 .DS_Store
 .DS_Store.gz
+output/
+/pelican-swain
+/pelican-plugins
+*.pyc
+pelicanconf.py
