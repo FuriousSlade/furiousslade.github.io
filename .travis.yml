@@ -8,7 +8,9 @@ install:
 - pip install ghp-import
 - pip install beautifulsoup4
 script:
-- make github
+- git config --global user.name FuriousSlade
+- git config --global user.email cvslulu@gmail.com
+- make github 2>/dev/null
 env:
   global:
     secure: BwxAVXx6hr2niCE8JYZK7nUo2Yskgcgu2+VBGTu0zV28sLV+s4LpzusUXFy49vsP+ZSE4BKi9r+4ilYjIb+2LgjFpeNspY1yheAl19vpZkcCH5HtjVQeq6pSRO+V06FJhNw3DXxdEa1A7IFCTX4n+k4enOHWPnBP9FD6YraSFdlwqixBo6iJrG6WRCGbQldBizi89M6mlVBDxEwzURG5W5frH508kTtTxwI5As23fGgrdqyHkUNgkgM0pHEOF0GWYufvpwDbrmQVf0zOORNNhL/gg8lN0N8lTqq0ik2Pj5m5r65m566ikFXHQMkpolS9Ir9q93y1165wZ/NtWlvfU6vE14rHbzpluYsNt97CHFXxXb9PWtP2snf8xnJKIQrRI+UnsMWa/HV21SuxtisUJ7zcTK+i/Gc2CtsTgD8mZWZe/z2B7c4HeBoMiozroHx4CpTjep+jkq1sAQo3ysPsOR/5Vx+JDAFmNYMbAJo0xvbq7ONI2xfHnb33zPFvucYlCxWzPgqRozOzxWE9dbKYr8/j5hQWN9Y4ZCIqyWnikbqO0DwosULqDVCXYeVveeOP11e/oSLkSgmHGafPZT15zGlpZVnOGN1erMvEP4F4YaB0o+32ylseZBjZS0wAUUM4Qi2U/aFIenhqLmHkYSxJTM+tKXsZ+rV7iE29TqBTqiY=
