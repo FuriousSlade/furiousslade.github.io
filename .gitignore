@@ -4,3 +4,4 @@
 /pelican-swain/
 /pelican-plugins/
 *.pyc
+pelicanconf.py

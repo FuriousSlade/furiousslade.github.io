@@ -5,7 +5,6 @@ from __future__ import unicode_literals
 AUTHOR = 'Slade'
 SITENAME = u"Slade == u'死累的'"
 SITEURL = u"http://furiousslade.github.io/blog"
-# SITEURL = u"http://127.0.0.1:8000"
 TIMEZONE = "Asia/Shanghai"
 DEFAULT_DATE_FORMAT = "%Y-%m-%d"
 DELETE_OUTPUT_DIRECTORY = True
