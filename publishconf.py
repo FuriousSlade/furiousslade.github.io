@@ -26,6 +26,9 @@ BANNER_ALL_PAGES = True
 DEFAULT_LANG = u'zh'
 FILENAME_METADATA = "(?P<slug>.*)"
 
+STATIC_PATH = ['extra']
+EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'}}
+
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
 CATEGORY_FEED_ATOM = None
