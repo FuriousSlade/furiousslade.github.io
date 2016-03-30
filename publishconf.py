@@ -94,7 +94,6 @@ SITEMAP = {
     }
 }
 
-
 # disqus
 DISQUS_SITENAME = u'furiousslade'
 
