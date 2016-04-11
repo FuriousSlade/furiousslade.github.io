@@ -44,7 +44,7 @@ DIRECT_TEMPLATES = (
 
 RECENT_ARTICLES_COUNT = 10
 
-SOCIAL = (('email', 'mailto:175439093@qq.com'),
+SOCIAL = (('email', 'mailto:owner@chihiro.moe'),
           ('weibo', 'http://weibo.com/slade86'),
           ('github', 'https://github.com/FuriousSlade'),
           ('qq', '175439093'),
@@ -99,12 +99,13 @@ DISQUS_SITENAME = u'furiousslade'
 
 # duoshuo
 # DUOSHUO_SHORTNAME = 'slade'
+
 # projects
-PROJECTS = [{
-    'name': 'Swain',
-    'url': 'https://github.com/FuriousSlade/Swain',
-    'description': 'Pelican Theme'
-}]
+# PROJECTS = [{
+#     'name': 'Swain',
+#     'url': 'https://github.com/FuriousSlade/Swain',
+#     'description': 'Pelican Theme'
+# }]
 
 # Blogroll
 LINKS = (('importcjj', 'http://www.importcjj.com/'),
