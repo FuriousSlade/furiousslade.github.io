@@ -44,7 +44,7 @@ DIRECT_TEMPLATES = (
 
 RECENT_ARTICLES_COUNT = 10
 
-SOCIAL = (('email', 'mailto:owner@chihiro.moe'),
+SOCIAL = (('email', 'mailto:175439093@qq.com'),
           ('weibo', 'http://weibo.com/slade86'),
           ('github', 'https://github.com/FuriousSlade'),
           ('qq', '175439093'),
