@@ -95,10 +95,10 @@ SITEMAP = {
 }
 
 # disqus
-DISQUS_SITENAME = u'furiousslade'
+# DISQUS_SITENAME = u'furiousslade'
 
 # duoshuo
-# DUOSHUO_SHORTNAME = 'slade'
+DUOSHUO_SHORTNAME = 'slade'
 
 # projects
 # PROJECTS = [{
