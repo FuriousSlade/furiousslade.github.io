@@ -98,7 +98,7 @@ SITEMAP = {
 # DISQUS_SITENAME = u'furiousslade'
 
 # duoshuo
-DUOSHUO_SHORTNAME = 'slade'
+DUOSHUO_SHORTNAME = 'chihiro'
 
 # projects
 # PROJECTS = [{
