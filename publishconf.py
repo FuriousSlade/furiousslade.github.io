@@ -56,10 +56,10 @@ MD_EXTENSIONS = (['codehilite(css_class=highlight)',
 
 ABOUT_ME = 'I am Slade.<br>\
             所以我一直死累的。<br>\
-            现就职于扎拉斯网络科技有限公司。'
+            不会开发的运维不是一个好测试。'
 
 DEFAULT_PAGINATION = 10
-SUMMARY_MAX_LENGTH = 30
+SUMMARY_MAX_LENGTH = 20
 
 # Uncomment following line if you want document-relative URLs when developing
 # RELATIVE_URLS = True
