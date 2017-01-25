@@ -4,9 +4,9 @@ branches:
   - master
 install:
 - pip install pelican
-- pip install markdown
+- pip install Markdown==2.6.5
 - pip install ghp-import
-- pip install beautifulsoup4
+- pip install beautifulsoup4==4.4.1
 script:
 - git config --global user.name FuriousSlade
 - git config --global user.email cvslulu@gmail.com
