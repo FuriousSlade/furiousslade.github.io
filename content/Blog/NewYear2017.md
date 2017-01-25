@@ -3,7 +3,11 @@ Date:2017-01-24
 Category:Blog
 Tags:Python
 
-	
+	:::python
+	#!/usr/bin/env python
+	# -*- coding: utf-8 -*-
+
+
 	class Year(object):
 	
 	    def __init__(self):
