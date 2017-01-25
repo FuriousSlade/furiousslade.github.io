@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 
 AUTHOR = 'Slade'
 SITENAME = u"Slade == u'死累的'"
-SITEURL = u"chihiro.moe"
+SITEURL = "http://chihiro.moe"
 TIMEZONE = "Asia/Shanghai"
 DEFAULT_DATE_FORMAT = "%Y-%m-%d"
 DELETE_OUTPUT_DIRECTORY = True
