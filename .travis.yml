@@ -3,7 +3,7 @@ branches:
   only:
   - master
 install:
-- pip install pelican
+- pip install pelican==3.6.3
 - pip install Markdown==2.6.5
 - pip install ghp-import
 - pip install beautifulsoup4==4.4.1
