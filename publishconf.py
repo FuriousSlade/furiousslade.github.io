@@ -44,19 +44,21 @@ DIRECT_TEMPLATES = (
 
 RECENT_ARTICLES_COUNT = 10
 
-SOCIAL = (('email', 'mailto:175439093@qq.com'),
-          ('weibo', 'http://weibo.com/slade86'),
-          ('github', 'https://github.com/FuriousSlade'),
-          ('qq', '175439093'),
-          ('weixin', 'w12046'),
+SOCIAL = (('email', 'mailto:175439093@qq.com')
           )
 
 MD_EXTENSIONS = (['codehilite(css_class=highlight)',
                   'extra', 'toc'])
 
-ABOUT_ME = 'I am Slade.<br>\
-            所以我一直死累的。<br>\
-            不会开发的运维不是一个好测试。'
+ABOUT_ME = '''
+          <h4 style="margin-top: 0px">Lv: 7</h4>
+          <h5>Exp: 30/100</h5>
+          <strong>Hp: 10/100</strong><br/>
+          <strong>Mp: 1/25</strong><br/>
+          <strong>Str: 1</strong><br/>
+          <strong>Int: -5</strong><br/>
+          <strong>Luk: 0</strong><br/>
+          '''
 
 DEFAULT_PAGINATION = 10
 SUMMARY_MAX_LENGTH = 20
