@@ -44,7 +44,7 @@ DIRECT_TEMPLATES = (
 
 RECENT_ARTICLES_COUNT = 10
 
-SOCIAL = (('email', 'mailto:175439093@qq.com')
+SOCIAL = (('email', 'mailto:175439093@qq.com'),
           )
 
 MD_EXTENSIONS = (['codehilite(css_class=highlight)',
