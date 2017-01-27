@@ -4,6 +4,7 @@ from __future__ import unicode_literals
 
 AUTHOR = 'Slade'
 SITENAME = u"Slade == u'死累的'"
+SITESUBTITLE = '<i class="fa fa-copyright" aria-hidden="true"> qi.wang</i>'
 SITEURL = "http://chihiro.moe"
 TIMEZONE = "Asia/Shanghai"
 DEFAULT_DATE_FORMAT = "%Y-%m-%d"
@@ -115,4 +116,3 @@ LINKS = (('importcjj', 'http://www.importcjj.com/'),
 
 GOOGLE_ANALYTICS = 'UA-75717198-1'
 BAIDU_TONGJI = '903bed5b17c3ef49f843500c8cb1a1b0'
-CNZZ = '1254964451'
