@@ -7,7 +7,8 @@ SITENAME = u"Slade == u'死累的'"
 SITESUBTITLE = '<i class="fa fa-copyright" aria-hidden="true"> qi.wang</i>'
 SITEURL = "http://chihiro.moe"
 TIMEZONE = "Asia/Shanghai"
-DEFAULT_DATE_FORMAT = "%Y-%m-%d"
+LOCALE = ('usa', 'en_US')
+DEFAULT_DATE_FORMAT = '%b %d, %Y'
 DELETE_OUTPUT_DIRECTORY = True
 
 ARTICLE_URL = 'posts/{date:%Y}/{slug}.html'
@@ -22,9 +23,9 @@ TAG_SAVE_AS = 'tag/{slug}.html'
 DISPLAY_CATEGORIES_ON_SIDEBAR = True
 LOAD_CONTENT_CACHE = False
 
-PATH = u'content'
+PATH = 'content'
 BANNER_ALL_PAGES = True
-DEFAULT_LANG = u'zh'
+DEFAULT_LANG = 'zh'
 FILENAME_METADATA = "(?P<slug>.*)"
 
 STATIC_PATHS = ['extra/CNAME']
@@ -62,7 +63,7 @@ ABOUT_ME = '''
           '''
 
 DEFAULT_PAGINATION = 10
-SUMMARY_MAX_LENGTH = 20
+SUMMARY_MAX_LENGTH = 25
 
 # Uncomment following line if you want document-relative URLs when developing
 # RELATIVE_URLS = True
