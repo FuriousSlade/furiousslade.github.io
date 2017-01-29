@@ -112,8 +112,8 @@ DISQUS_SITENAME = 'furiousslade'
 # }]
 
 # Blogroll
-LINKS = (('importcjj', 'http://www.importcjj.com/'),
-         ('oreki.moe', 'http://oreki.moe/'),)
+# LINKS = (('importcjj', 'http://www.importcjj.com/'),
+#          ('oreki.moe', 'http://oreki.moe/'),)
 
 GOOGLE_ANALYTICS = 'UA-75717198-1'
 BAIDU_TONGJI = '903bed5b17c3ef49f843500c8cb1a1b0'
