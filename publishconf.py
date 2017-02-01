@@ -3,6 +3,7 @@
 from __future__ import unicode_literals
 
 AUTHOR = 'Slade'
+AUTHOR_EMAIL = '175439093@qq.com'
 SITENAME = u"Slade == u'死累的'"
 SITESUBTITLE = '<i class="fa fa-copyright" aria-hidden="true"> qi.wang</i>'
 SITEURL = "http://chihiro.moe"
@@ -13,9 +14,9 @@ DELETE_OUTPUT_DIRECTORY = True
 
 ARTICLE_URL = 'posts/{date:%Y}/{slug}.html'
 ARTICLE_SAVE_AS = 'posts/{date:%Y}/{slug}.html'
-PAGE_URL = 'pages/{slug}'
+PAGE_URL = 'pages/{slug}.html'
 PAGE_SAVE_AS = 'pages/{slug}.html'
-CATEGORY_URL = 'category/{slug}'
+CATEGORY_URL = 'category/{slug}.html'
 CATEGORY_SAVE_AS = 'category/{slug}.html'
 TAG_URL = 'tag/{slug}.html'
 TAG_SAVE_AS = 'tag/{slug}.html'
@@ -52,15 +53,7 @@ SOCIAL = (('email', 'mailto:175439093@qq.com'),
 MD_EXTENSIONS = (['codehilite(css_class=highlight)',
                   'extra', 'toc'])
 
-ABOUT_ME = '''
-          <h4 style="margin-top: 0px">Lv: 7</h4>
-          <h5>Exp: 30/100</h5>
-          <strong>Hp: 10/100</strong><br/>
-          <strong>Mp: 1/25</strong><br/>
-          <strong>Str: 1</strong><br/>
-          <strong>Int: -5</strong><br/>
-          <strong>Luk: 0</strong><br/>
-          '''
+ABOUT_ME = '''没有人能在我的BGM里战胜我'''
 
 DEFAULT_PAGINATION = 10
 SUMMARY_MAX_LENGTH = 25
@@ -80,6 +73,7 @@ PLUGINS = [
     'extract_toc',
     'tipue_search',
     'related_posts',
+    'always_modified'
 ]
 
 
