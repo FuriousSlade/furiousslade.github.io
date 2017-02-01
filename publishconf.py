@@ -66,16 +66,17 @@ USE_FOLDER_AS_CATEGORY = False
 RELATED_POSTS_MAX = 3
 
 # plugin config
-PLUGIN_PATHS = [u'./pelican-plugins']
+PLUGIN_PATHS = ['./pelican-plugins']
 PLUGINS = [
     'sitemap',
     'gzip_cache',
     'extract_toc',
     'tipue_search',
     'related_posts',
-    'always_modified'
+    'always_modified',
 ]
 
+ALWAYS_MODIFIED = True
 
 # sitemap
 SITEMAP = {
