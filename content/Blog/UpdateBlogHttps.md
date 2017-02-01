@@ -23,4 +23,21 @@ Tags:Blog,Pelican
 		...
 	{% endfor %}
 
+修改发布配置文件：
+
+	PLUGINS = [
+    'sitemap',
+    'gzip_cache',
+    'extract_toc',
+    'tipue_search',
+    'related_posts',
+    'always_modified',
+	]
+
+	ALWAYS_MODIFIED = True
+	
+一开始因为没有增加`ALWAYS_MODIFIED = True`这行配置造成在travis ci构建一直失败。
+
+\_(´ཀ`」 ∠)_
+
 实现根据修改时间排序，并可分页。
