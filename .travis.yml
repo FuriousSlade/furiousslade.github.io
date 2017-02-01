@@ -10,6 +10,7 @@ install:
 script:
 - git config --global user.name FuriousSlade
 - git config --global user.email cvslulu@gmail.com
+- make html
 - make github
 env:
   global:
