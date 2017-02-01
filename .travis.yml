@@ -10,7 +10,8 @@ install:
 script:
 - git config --global user.name FuriousSlade
 - git config --global user.email cvslulu@gmail.com
-- make html
+- make html -s /home/travis/build/FuriousSlade/blog/publishconf.py
+- ls pelican-plugins
 - make github
 env:
   global:
