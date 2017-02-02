@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 
 AUTHOR = 'Slade'
 AUTHOR_EMAIL = '175439093@qq.com'
-SITENAME = u"Slade == u'死累的'"
+SITENAME = "Chihiro.moe"
 SITESUBTITLE = '<i class="fa fa-copyright" aria-hidden="true"> qi.wang</i>'
 SITEURL = "http://chihiro.moe"
 TIMEZONE = "Asia/Shanghai"
