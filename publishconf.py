@@ -99,6 +99,8 @@ DISQUS_SITENAME = 'furiousslade'
 # duoshuo
 # DUOSHUO_SHORTNAME = 'chihiro'
 
+GENTIE = True
+
 # projects
 # PROJECTS = [{
 #     'name': 'Swain',
