@@ -94,11 +94,12 @@ SITEMAP = {
 }
 
 # disqus
-DISQUS_SITENAME = 'furiousslade'
+# DISQUS_SITENAME = 'furiousslade'
 
 # duoshuo
 # DUOSHUO_SHORTNAME = 'chihiro'
 
+# GenTie
 GENTIE = True
 
 # projects
