@@ -4,7 +4,7 @@ Category:Blog
 Tags:Movie
 
 
-<img src="http://wx2.sinaimg.cn/mw1024/446eb9dfgy1fca5qz27e5j21jk0dt438.jpg"></img>
+<img src="http://wx2.sinaimg.cn/mw1024/446eb9dfgy1fca5qz27e5j21jk0dt438.jpg" style="width: 100%"></img>
 
 《Me before you》新年看的第一部电影。
 
