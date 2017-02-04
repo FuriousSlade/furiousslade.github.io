@@ -73,7 +73,8 @@ PLUGINS = [
     'extract_toc',
     'tipue_search',
     'related_posts',
-    'always_modified'
+    'always_modified',
+    'series'
 ]
 
 ALWAYS_MODIFIED = True
