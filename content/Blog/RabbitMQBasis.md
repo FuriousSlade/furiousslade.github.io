@@ -17,11 +17,14 @@ Producer(生产者),投递消息的程序。
 ### Consumer
 Consumer(消费者),接受消息的程序。
 
+### Exchange
+Exchange(交换机)，它指定消息按什么规则，路由到哪个队列
+
 ### Queue
 Queue(队列)是RabbitMQ的内部对象，用于存储消息.
 
-### Exchange
-Exchange(交换机)，它指定消息按什么规则，路由到哪个队列
+### Durable
+Durable(持久化)，队列消息的持久化。
 
 ### Binding
 Binding(绑定)，它的作用就是把exchange和queue按照路由规则绑定起来。
