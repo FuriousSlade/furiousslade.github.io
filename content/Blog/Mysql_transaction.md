@@ -69,7 +69,7 @@ SQL标准定义了4类隔离级别，包括了一些具体规则，用来限定�
   	 <td>Y</td>
   </tr>
   <tr>
-    <td>Serializable（可串行化</td>
+    <td>Serializable（可串行化)</td>
   	  <td>N</td>
   	  <td>N</td>
   	  <td>N</td>
