@@ -16,10 +16,10 @@ ARTICLE_URL = 'posts/{date:%Y}/{slug}.html'
 ARTICLE_SAVE_AS = 'posts/{date:%Y}/{slug}.html'
 PAGE_URL = 'pages/{slug}.html'
 PAGE_SAVE_AS = 'pages/{slug}.html'
-CATEGORY_URL = 'category/{slug}.html'
-CATEGORY_SAVE_AS = 'category/{slug}.html'
-TAG_URL = 'tag/{slug}.html'
-TAG_SAVE_AS = 'tag/{slug}.html'
+CATEGORY_URL = 'categories.html'
+CATEGORY_SAVE_AS = ''
+TAG_URL = 'tags.html'
+TAG_SAVE_AS = ''
 
 DISPLAY_CATEGORIES_ON_SIDEBAR = True
 LOAD_CONTENT_CACHE = False
