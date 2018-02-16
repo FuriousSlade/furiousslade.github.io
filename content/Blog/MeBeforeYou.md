@@ -18,8 +18,6 @@ Tags:Movie
 
 黄老板的《Photograph》作为插曲也是相得益彰。
 
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 style="max-width:100%" src="https://music.163.com/outchain/player?type=2&id=411349429&auto=0&height=66"></iframe>
-
 
 >You are pretty much the only thing that makes mewant to get up in the morning.
 >
