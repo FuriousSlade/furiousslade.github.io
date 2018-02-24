@@ -8,7 +8,7 @@ SITENAME = "Chihiro.moe"
 SITESUBTITLE = '<i class="fa fa-copyright" aria-hidden="true"></i> Qi.Wang'
 SITEURL = "https://chihiro.moe"
 TIMEZONE = "Asia/Shanghai"
-LOCALE = ('usa', 'en_US')
+LOCALE = ('en_US')
 DEFAULT_DATE_FORMAT = '%b %d, %Y'
 DELETE_OUTPUT_DIRECTORY = True
 

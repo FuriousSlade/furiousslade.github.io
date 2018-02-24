@@ -1,0 +1,15 @@
+image: python:2.7-alpine
+
+before_script:
+  - apk add git
+
+pages:
+  script:
+  - pip install -r requirements.txt
+  - git clone --depth 1 https://github.com/FuriousSlade/pelican-swain.git
+  - git clone --depth 1 https://github.com/FuriousSlade/pelican-plugins.git
+  - pelican -s publishconf.py
+  - mv output public
+  artifacts:
+    paths:
+    - public/
