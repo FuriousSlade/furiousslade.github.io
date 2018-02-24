@@ -9,7 +9,7 @@ Tags:Blog,Pelican
 
 通过各种搜百度，搜谷歌，站长工具debug。确认了是GitHub屏蔽了百度的爬虫。GG
 
-参考了[知乎](http://t.cn/RzEyiSv)上的几个解决方案：
+参考了[知乎](https://www.zhihu.com/question/30898326){:target="_blank}上的几个解决方案：
 
 1. 使用CDN
 2. Dnspod 双路解析
@@ -34,7 +34,7 @@ GitLab的pages服务完全符合需求 nice，开搞。
 
 GitLab提供的pages服务使用姿势和GitHub还是有很大不同的。
 
-[GitLab pages搭建官方说明](https://gitlab.com/help/user/project/pages/index.md)
+[GitLab pages搭建官方说明](https://gitlab.com/help/user/project/pages/index.md){:target="_blank}
 
 简单来说就是需要见一个项目，且项目名必须是 {username}.gitlab.io
 
@@ -92,6 +92,8 @@ GitLab提供的pages服务使用姿势和GitHub还是有很大不同的。
 
 确定GitLab能正确触发构建，生成pages页面。
 
-变更域名解析至GitLab pages。
+变更域名解析至GitLab pages（也可以作为Dnspod双路解析Coding的替代）。
 
 最终代码依然提交GitHub，利用GitLab提供pages服务。
+
+实际使用GitLab CI服务后发现构建job经常等待，不如Travis-ci及时，可惜可惜。
