@@ -112,7 +112,7 @@ ifeq ($(TRAVIS_PULL_REQUEST), false)
 	ghp-import -n $(OUTPUTDIR)
 	@git push -fq https://${GH_TOKEN}@github.com/$(TRAVIS_REPO_SLUG).git gh-pages > /dev/null
 	@git push -fq https://${CODING_USER}:${CODING_PASSWD}@git.coding.net/${CODING_USER}/blog.git gh-pages:coding-pages > /dev/null
-	@git push -fq https://${GITEE_USER}:${GITEE_PASSWD}@gitee.com/slade/slade.git gh-pages > /dev/null
+	@git push -fq https://${GITEE_USER}:${GITEE_PASSWD}@gitee.com/slade/slade.git gh-pages
 endif
 
 .PHONY: html help clean regenerate serve devserver publish ssh_upload rsync_upload dropbox_upload ftp_upload s3_upload cf_upload github
