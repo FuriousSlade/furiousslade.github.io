@@ -1,5 +1,6 @@
 Title:Python3学习笔记
 Date:2018-02-25
+Modified:2018-02-26
 Category:笔记
 Tags:Python
 
@@ -163,5 +164,39 @@ print(game_machines)
 ```
 	4.5
 	
+```python
+# float 浮点型
+3.14159 * 3
+```
+	# 浮点计算会存在精度问题需要特别处理
+	9.424769999999999
+	
+### 字符串
+#### 字符串格式化
+*version >= 3.6*
+
+```python
+msg = 'world!'
+print(f'hello {msg}')
+```
+
+	hello world!
+
+```python
+d = {'a':1, 'b':3.1415927}
+print(f'a = {d["a"]}')
+print(f'b = {d["b"]}')
+print(f'b = {d["b"]:.2f}')
+print(f'a + b = {d["a"] + d["b"]:.2f}')
+```
+	a = 1
+	b = 3.1415927
+	b = 3.14
+	a + b = 4.14
+```python
+f'mapping is { {a:b for (a, b) in ((1, 2), (3, 4))} }'
+```
+	'mapping is {1: 2, 3: 4}'
+
 
 ## To be continued ...
