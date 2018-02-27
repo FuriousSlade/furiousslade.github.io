@@ -1,6 +1,6 @@
 Title:Python3学习笔记
 Date:2018-02-25
-Modified:2018-02-26
+Modified:2018-02-27
 Category:笔记
 Tags:Python
 
@@ -197,6 +197,77 @@ print(f'a + b = {d["a"] + d["b"]:.2f}')
 f'mapping is { {a:b for (a, b) in ((1, 2), (3, 4))} }'
 ```
 	'mapping is {1: 2, 3: 4}'
+
+
+## 赋值、浅拷贝、深拷贝
+
+坑过
+
+```python
+import copy
+
+a = ["空银子", {"age": 15}]
+# 赋值
+b = a
+# 浅拷贝
+c = a.copy()
+# 深拷贝
+d = copy.deepcopy(a)
+
+print(f'a is {a}, id is {id(a)}')
+print('-' * 35)
+print(f'b is {b}, id is {id(b)}')
+print(f'c is {c}, id is {id(c)}')
+print(f'd is {d}, id is {id(d)}\r\n')
+print(f'a[1] is {a[1]}, id is {id(a[1])}')
+print('-' * 35)
+print(f'b[1] is {b[1]}, id is {id(b[1])}')
+print(f'c[1] is {c[1]}, id is {id(c[1])}')
+print(f'd[1] is {d[1]}, id is {id(d[1])}\r\n')
+print('Changed a: a[0] = "雏鹤爱", a[1]["age"] = 9\r\n')
+a[0] = "雏鹤爱"
+a[1]["age"] = 9
+print(f'a is {a}, id is {id(a)}')
+print('-' * 35)
+print(f'b is {b}, id is {id(b)}')
+print(f'c is {c}, id is {id(c)}')
+print(f'd is {d}, id is {id(d)}\r\n')
+print(f'a[1] is {a[1]}, id is {id(a[1])}')
+print('-' * 35)
+print(f'b[1] is {b[1]}, id is {id(b[1])}')
+print(f'c[1] is {c[1]}, id is {id(c[1])}')
+print(f'd[1] is {d[1]}, id is {id(d[1])}')
+
+```
+
+```
+a is ['空银子', {'age': 15}], id is 4415182472
+-----------------------------------
+b is ['空银子', {'age': 15}], id is 4415182472
+c is ['空银子', {'age': 15}], id is 4415182408
+d is ['空银子', {'age': 15}], id is 4415184200
+
+a[1] is {'age': 15}, id is 4413290608
+-----------------------------------
+b[1] is {'age': 15}, id is 4413290608
+c[1] is {'age': 15}, id is 4413290608
+d[1] is {'age': 15}, id is 4414213144
+
+Changed a: a[0] = "雏鹤爱", a[1]["age"] = 9
+
+a is ['雏鹤爱', {'age': 9}], id is 4415182472
+-----------------------------------
+b is ['雏鹤爱', {'age': 9}], id is 4415182472
+c is ['空银子', {'age': 9}], id is 4415182408
+d is ['空银子', {'age': 15}], id is 4415184200
+
+a[1] is {'age': 9}, id is 4413290608
+-----------------------------------
+b[1] is {'age': 9}, id is 4413290608
+c[1] is {'age': 9}, id is 4413290608
+d[1] is {'age': 15}, id is 4414213144
+```
+
 
 
 ## To be continued ...
