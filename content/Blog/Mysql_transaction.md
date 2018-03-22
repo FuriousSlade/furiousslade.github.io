@@ -48,7 +48,7 @@ SQL标准定义了4类隔离级别，包括了一些具体规则，用来限定�
   	<td>隔离级别</td>
   	<td>脏读</td>
   	<td>不可重复读</td>
-  	<td>欢读</td>
+  	<td>幻读</td>
   </tr>
   <tr>
   	<td>Read Uncommitted (读取未提交内容)</td>
