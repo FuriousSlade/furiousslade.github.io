@@ -6,7 +6,7 @@ Category: 笔记
 Tags: Linux
 ---
 
-通过 tail, grep, awk 命令组合使用用来统计log中关键字出现的次数
+通过 tail, grep, awk 命令组合使用,统计log中关键字出现的次数
 
 ```shell
 tail -f info.log | awk '/关键字/ {++i;printf "\r%d",i}'
