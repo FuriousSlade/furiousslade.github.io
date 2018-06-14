@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, height=device-width, initial-scale=1">
+    <meta name="author" content="Slade" />
+    <meta name="copyright" content="Slade" />
+    <meta property="og:type" content="article" />
+
+<meta property="og:url" content="/" />
+<meta property="og:site_name" content="Chihiro.moe" />
+<meta property="og:article:author" content="Slade" />
+
+    <title>Chihiro.moe</title>
+<script type="text/javascript" src="/theme/js/jquery-1.12.0.min.js"></script>
+<script type="text/javascript" src="/theme/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/theme/tipuesearch/tipuesearch_set.js"></script>
+<script type="text/javascript" src="/theme/tipuesearch/tipuesearch.min.js"></script>
+<link rel="stylesheet" href="/theme/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/theme/css/font-awesome.min.css" />
+<link rel="stylesheet" type="text/css" href="/theme/tipuesearch/tipuesearch.css" media="screen">
+<link rel="stylesheet" type="text/css" href="/theme/css/pygments.css" media="screen">
+<link rel="stylesheet" type="text/css" href="/theme/css/swain.css" media="screen">
+<link rel="stylesheet" type="text/css" href="/theme/css/animate.css" media="screen">
+    <link rel="icon" href="/theme/images/favicon.ico" type="image/x-icon" />
+    
+    <!-- GOOGLE_ANALYTICS -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-75717198-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+</head>
+<body>
+    <!-- navbar start -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid" style="max-width: 1280px">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <i class="fa fa-bars fa-lg"></i>
+                </button>
+                <a class="navbar-brand" href="/">Chihiro.moe</a>
+            </div>
+
+            <div class="collapse navbar-collapse navbar-right" id="navbar-collapse-1">
+                <ul class="nav navbar-nav">
+ <!--                    <li  class="active"><a href="/">Home</a></li>
+                        <li ><a href="/pages/links.html">友链</a></li>
+                    <li ><a href="/categories.html">Categories</a></li>
+                    <li ><a href="/tags.html">Tags</a></li>
+                    <li ><a href="/archives.html">Archives</a></li> -->
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Index  <span class="caret"></span></a>
+                      <ul class="dropdown-menu dropdown-menu-right">
+                        <li><a href="/">Index</a></li>
+                        <li><a href="/categories.html">Categories</a></li>
+                        <li><a href="/tags.html">Tags</a></li>
+                        <li><a href="/archives.html">Archives</a></li>
+                        <li><a href="/pages/links.html">Links</a></li>
+                      </ul>
+                    </li>                    
+                </ul>
+                <form class="navbar-search navbar-form navbar-right" action="/search.html" onsubmit="return validateForm(this.elements['q'].value);">
+                  <input type="text" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input" required>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <!-- navbar end -->
+    <div class="container-fluid" id="container" style="max-width: 1280px">
+        <div class="row-fluid">
+<div class="col-md-2 hidden-xs hidden-sm" id="sidebar_left">
+<div class="panel panel-default dashboard">
+    <!-- <div class="panel-heading"><i class="fa fa-user"></i></div> -->
+    <div class="panel-body">
+      <div class="col-xs-12">
+        <img class="img-rounded" src="/theme/images/author.jpeg" alt="..." width="100%" height="100%"/>
+<h4>Slade</h4>        <p>没有人能在我的BGM里战胜我</p>
+        <ul class="list-inline">
+ 
+        <li><a href="mailto:175439093@qq.com" title="My email Address" class="sidebar-social-info" target="_blank"><i class="fa fa-envelope-o sidebar-social-infos"></i></a></li>
+   
+        </ul>
+      </div>
+    </div>
+</div>
+</div>
+            <div class="col-md-8" id="center_page">
+    <div id="content" class="row">
+        <ul class="list-group list-unstyled" id="posts-list">
+                <li class="list-group-item animate">
+                    <article class="entry">
+                        <header>
+                            <h2 class="entry-title"><a href="/posts/2017/RabbitMQBasis.html" rel="bookmark" title="Permalink to RabbitMQ基础概念">RabbitMQ基础概念</a></h2>
+                        </header>
+                        <div class="tagged">
+                            <small><samp>
+                                <time class="article-li-time">
+                                    Feb 07, 2017
+                                </time>
+<!--                                                             Category:<a class="tagged" href="/categories.html#bi-ji-ref">笔记</a>
+                                Tag:
+                                    <a class="tagged" href="/tags.html#rabbitmq-ref">RabbitMQ</a>
+ -->
+                            </samp></small>
+                            <!-- <i class="fa fa-commenting"></i><a class="tagged" href="/posts/2017/RabbitMQBasis.html#disqus_thread">_(:з」∠)_</a>
+ -->
+                        </div>
+                        <div class="entry-content">
+                            
+<h2 id="rabbitmq">RabbitMQ简介</h2>
+<p>RabbitMQ是一个开源的AMQP实现，服务器端用Erlang语言编写，支持多种客户端，如：Python、Ruby、.NET、Java、PHP等，支持AJAX。用于在分布式系统中存储转发消息。</p>
+<blockquote>
+<p>AMQP，即Advanced Message Queuing Protocol，高级消息队列协议，是应用层协议的一个开放标准，为面向消息的中间件设计。</p>
+</blockquote>
+<h2 id="_1">关键字</h2>
+<h3 id="producer">Producer</h3>
+<p>Producer(生产者),投递消息的程序 ...</p>
+                        </div>
+                        <div class="row">
+                        <div class="read-me col-sm-12"><a class="btn btn-success"  type="button" style="float: right;" href="/posts/2017/RabbitMQBasis.html" rel="bookmark" title="Permalink to RabbitMQ基础概念">Read more</a>
+                        </div>
+                        </div>
+                        <!-- /.entry-content -->
+                    </article>
+                </li>
+                <li class="list-group-item animate">
+                    <article class="entry">
+                        <header>
+                            <h2 class="entry-title"><a href="/posts/2017/GithubTravis-ciCoding.html" rel="bookmark" title="Permalink to 【转】手把手教你如何滥用Github, Travis-ci, Coding等资源来建立一个博客">【转】手把手教你如何滥用Github, Travis-ci, Coding等资源来建立一个博客</a></h2>
+                        </header>
+                        <div class="tagged">
+                            <small><samp>
+                                <time class="article-li-time">
+                                    Feb 02, 2017
+                                </time>
+<!--                                                             Category:<a class="tagged" href="/categories.html#blog-ref">Blog</a>
+                                Tag:
+                                    <a class="tagged" href="/tags.html#blog-ref">Blog</a>
+                                    <a class="tagged" href="/tags.html#pelican-ref">Pelican</a>
+ -->
+                            </samp></small>
+                            <!-- <i class="fa fa-commenting"></i><a class="tagged" href="/posts/2017/GithubTravis-ciCoding.html#disqus_thread">_(:з」∠)_</a>
+ -->
+                        </div>
+                        <div class="entry-content">
+                            <p>原文链接：<a href="https://oreki.moe/shou-ba-shou-jiao-ni-ru-he-lan-yong-github-travis-ci-codingdeng-zi-yuan-lai-jian-li-yi-ge-bo-ke.html">https://oreki.moe/...</a></p>
+<p>原文：</p>
+<p>---Start---</p>
+<h4 id="_1">这个和一般的博客有什么区别</h4>
+<ul>
+<li>可以在任何地方在Github上写下Markdown语法的内容，然后就会自动编译成html并发布</li>
+<li>可以绑定自己的域名</li>
+<li>可以比较自由地改样式</li>
+<li>和别人家的不太一样，可以装逼</li>
+<li>静态页面打开比较快</li>
+<li>可以分国内外进入不同服务器，打开比较快，~~异地多活~~</li>
+<li>不要钱，不要钱，不要钱</li>
+</ul>
+<h4 id="demo">demo地址</h4>
+<p>当然就是我的博客啦。。</p>
+<p>Github上的地址是：<a href="https://github.com/faith0811/oreki.moe">戳我</a></p>
+<h4 id="_2">准备工作 ...</h4>
+                        </div>
+                        <div class="row">
+                        <div class="read-me col-sm-12"><a class="btn btn-success"  type="button" style="float: right;" href="/posts/2017/GithubTravis-ciCoding.html" rel="bookmark" title="Permalink to 【转】手把手教你如何滥用Github, Travis-ci, Coding等资源来建立一个博客">Read more</a>
+                        </div>
+                        </div>
+                        <!-- /.entry-content -->
+                    </article>
+                </li>
+                <li class="list-group-item animate">
+                    <article class="entry">
+                        <header>
+                            <h2 class="entry-title"><a href="/posts/2017/UpdateBlogHttps.html" rel="bookmark" title="Permalink to Blog改版">Blog改版</a></h2>
+                        </header>
+                        <div class="tagged">
+                            <small><samp>
+                                <time class="article-li-time">
+                                    Feb 01, 2017
+                                </time>
+<!--                                                             Category:<a class="tagged" href="/categories.html#blog-ref">Blog</a>
+                                Tag:
+                                    <a class="tagged" href="/tags.html#blog-ref">Blog</a>
+                                    <a class="tagged" href="/tags.html#pelican-ref">Pelican</a>
+ -->
+                            </samp></small>
+                            <!-- <i class="fa fa-commenting"></i><a class="tagged" href="/posts/2017/UpdateBlogHttps.html#disqus_thread">_(:з」∠)_</a>
+ -->
+                        </div>
+                        <div class="entry-content">
+                            <p>博客模版改版,做了一波减法，清爽多了。</p>
+<p>通过cloudflare成功https。( ´▽` )ﾉ</p>
+<p>使用Pelican插件always_modified给所有的文章默认加上修改时间。</p>
+<p>修改index.html模版:</p>
+<div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">set</span> <span class="nv">paginator_articles</span> <span class="o">=</span> <span class="nv">articles</span><span class="o">|</span><span class="nf">sort</span><span class="o">(</span><span class="nv">reverse</span><span class="o">=</span><span class="kp">True</span><span class="o">,</span><span class="nv">attribute</span><span class="o">=</span><span class="s1">&#39;modified&#39;</span><span class="o">)</span> <span class="cp">%}</span><span class="x"></span>
+<span class="cp">{%</span> <span class="k">set</span> <span class="nv">offset</span> <span class="o">=</span> <span class="o">(</span><span class="nv">articles_page.number</span> <span class="o">-</span> <span class="m">1</span><span class="o">)</span> <span class="o">*</span> <span class="nv">DEFAULT_PAGINATION</span> <span class="cp">%}</span><span class="x"></span>
+<span class="cp">{%</span> <span class="k">set</span> <span class="nv">end</span> <span class="o">=</span> <span class="nv">DEFAULT_PAGINATION ...</span></pre></div>
+                        </div>
+                        <div class="row">
+                        <div class="read-me col-sm-12"><a class="btn btn-success"  type="button" style="float: right;" href="/posts/2017/UpdateBlogHttps.html" rel="bookmark" title="Permalink to Blog改版">Read more</a>
+                        </div>
+                        </div>
+                        <!-- /.entry-content -->
+                    </article>
+                </li>
+                <li class="list-group-item animate">
+                    <article class="entry">
+                        <header>
+                            <h2 class="entry-title"><a href="/posts/2017/MeBeforeYou.html" rel="bookmark" title="Permalink to Me before you">Me before you</a></h2>
+                        </header>
+                        <div class="tagged">
+                            <small><samp>
+                                <time class="article-li-time">
+                                    Jan 31, 2017
+                                </time>
+<!--                                                             Category:<a class="tagged" href="/categories.html#blog-ref">Blog</a>
+                                Tag:
+                                    <a class="tagged" href="/tags.html#movie-ref">Movie</a>
+ -->
+                            </samp></small>
+                            <!-- <i class="fa fa-commenting"></i><a class="tagged" href="/posts/2017/MeBeforeYou.html#disqus_thread">_(:з」∠)_</a>
+ -->
+                        </div>
+                        <div class="entry-content">
+                            <p><img src="http://wx2.sinaimg.cn/mw1024/446eb9dfgy1fca5qz27e5j21jk0dt438.jpg" style="width: 100%"></img></p>
+<p>《Me before you》新年看的第一部电影。</p>
+<p>本来是冲着龙妈去的，虽然大致已被剧透，但还是被剧情触动到了。（//▽//）           </p>
+<p>之前在网上看影评从爱情、社会阶级、已经延伸到安乐死是否该被合法的高度了，感悟是千人千面的。</p>
+<p>生活就该活得精采充实。</p>
+<p>爱情是美妙的，但爱情不是生活的全部。</p>
+<p>黄老板的《Photograph》作为插曲也是相得益彰。</p>
+<blockquote>
+<p>You are pretty much the only thing that ...</p></blockquote>
+                        </div>
+                        <div class="row">
+                        <div class="read-me col-sm-12"><a class="btn btn-success"  type="button" style="float: right;" href="/posts/2017/MeBeforeYou.html" rel="bookmark" title="Permalink to Me before you">Read more</a>
+                        </div>
+                        </div>
+                        <!-- /.entry-content -->
+                    </article>
+                </li>
+                <li class="list-group-item animate">
+                    <article class="entry">
+                        <header>
+                            <h2 class="entry-title"><a href="/posts/2017/NewYear2017.html" rel="bookmark" title="Permalink to new_year.py">new_year.py</a></h2>
+                        </header>
+                        <div class="tagged">
+                            <small><samp>
+                                <time class="article-li-time">
+                                    Jan 29, 2017
+                                </time>
+<!--                                                             Category:<a class="tagged" href="/categories.html#blog-ref">Blog</a>
+                                Tag:
+                                    <a class="tagged" href="/tags.html#python-ref">Python</a>
+ -->
+                            </samp></small>
+                            <!-- <i class="fa fa-commenting"></i><a class="tagged" href="/posts/2017/NewYear2017.html#disqus_thread">_(:з」∠)_</a>
+ -->
+                        </div>
+                        <div class="entry-content">
+                            <div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+
+
+<span class="k">class</span> <span class="nc">Year</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">do_better</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">do_better</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">day</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">day</span> <span class="o">&lt;</span> <span class="mi">365</span><span class="p">:</span>
+            <span class="n">day</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="bp">self ...</span></pre></div>
+                        </div>
+                        <div class="row">
+                        <div class="read-me col-sm-12"><a class="btn btn-success"  type="button" style="float: right;" href="/posts/2017/NewYear2017.html" rel="bookmark" title="Permalink to new_year.py">Read more</a>
+                        </div>
+                        </div>
+                        <!-- /.entry-content -->
+                    </article>
+                </li>
+                <li class="list-group-item animate">
+                    <article class="entry">
+                        <header>
+                            <h2 class="entry-title"><a href="/posts/2016/CookBook.html" rel="bookmark" title="Permalink to CookBook。">CookBook。</a></h2>
+                        </header>
+                        <div class="tagged">
+                            <small><samp>
+                                <time class="article-li-time">
+                                    Jan 25, 2017
+                                </time>
+<!--                                                             Category:<a class="tagged" href="/categories.html#bi-ji-ref">笔记</a>
+                                Tag:
+                                    <a class="tagged" href="/tags.html#chi-ref">吃</a>
+ -->
+                            </samp></small>
+                            <!-- <i class="fa fa-commenting"></i><a class="tagged" href="/posts/2016/CookBook.html#disqus_thread">_(:з」∠)_</a>
+ -->
+                        </div>
+                        <div class="entry-content">
+                            
+<h3 id="_1">耳光炒饭</h3>
+<p>备料：大头虾、胡萝卜丁、豌豆、咸鸭蛋、隔夜饭。</p>
+<ol>
+<li>虾头备用，虾肉下沸水锅加少许盐煮至七成熟。</li>
+<li>将咸蛋的蛋黄蛋白分开捣碎。</li>
+<li>热锅冷油下虾头炼油，当锅内油呈金黄色后，弃虾头。</li>
+<li>虾油锅中下咸蛋黄略炒，入胡萝卜丁、豌豆、和隔夜饭翻炒至米粒均匀上色。放入咸蛋白、虾仁、鸡蛋液继续翻炒均匀。</li>
+<li>完成！</li>
+</ol>
+<h3 id="_2">烤茄子</h3>
+<p>备料：茄子、肉末 ...</p>
+                        </div>
+                        <div class="row">
+                        <div class="read-me col-sm-12"><a class="btn btn-success"  type="button" style="float: right;" href="/posts/2016/CookBook.html" rel="bookmark" title="Permalink to CookBook。">Read more</a>
+                        </div>
+                        </div>
+                        <!-- /.entry-content -->
+                    </article>
+                </li>
+                <li class="list-group-item animate">
+                    <article class="entry">
+                        <header>
+                            <h2 class="entry-title"><a href="/posts/2016/Mysql_transaction.html" rel="bookmark" title="Permalink to Mysql事务隔离。">Mysql事务隔离。</a></h2>
+                        </header>
+                        <div class="tagged">
+                            <small><samp>
+                                <time class="article-li-time">
+                                    Nov 12, 2016
+                                </time>
+<!--                                                             Category:<a class="tagged" href="/categories.html#bi-ji-ref">笔记</a>
+                                Tag:
+                                    <a class="tagged" href="/tags.html#mysql-ref">Mysql</a>
+ -->
+                            </samp></small>
+                            <!-- <i class="fa fa-commenting"></i><a class="tagged" href="/posts/2016/Mysql_transaction.html#disqus_thread">_(:з」∠)_</a>
+ -->
+                        </div>
+                        <div class="entry-content">
+                            
+<h3 id="_1">事务隔离</h3>
+<p>SQL标准定义了4类隔离级别，包括了一些具体规则，用来限定事务内外的哪些改变是可见的，哪些是不可见的。低级别的隔离级一般支持更高的并发处理，并拥有更低的系统开销。</p>
+<h3 id="read-uncommitted">Read Uncommitted (读取未提交内容)</h3>
+<p>在该隔离级别，所有事务都可以看到其他未提交事务的执行结果。本隔离级别很少用于实际应用，因为它的性能也不比其他级别好多少。读取未提交的数据，也被称之为脏读（Dirty Read）。</p>
+<h3 id="read-committed">Read Committed (读取提交内容)</h3>
+<p>这是大多数数据库系统的默认隔离级别（但不是MySQL默认的）。它满足了隔离的简单定义：一个事务只能看见已经提交事务所做的改变 ...</p>
+                        </div>
+                        <div class="row">
+                        <div class="read-me col-sm-12"><a class="btn btn-success"  type="button" style="float: right;" href="/posts/2016/Mysql_transaction.html" rel="bookmark" title="Permalink to Mysql事务隔离。">Read more</a>
+                        </div>
+                        </div>
+                        <!-- /.entry-content -->
+                    </article>
+                </li>
+                <li class="list-group-item animate">
+                    <article class="entry">
+                        <header>
+                            <h2 class="entry-title"><a href="/posts/2016/pelican_swain.html" rel="bookmark" title="Permalink to 用上了自己的模板pelican-swain。">用上了自己的模板pelican-swain。</a></h2>
+                        </header>
+                        <div class="tagged">
+                            <small><samp>
+                                <time class="article-li-time">
+                                    Feb 02, 2016
+                                </time>
+<!--                                                             Category:<a class="tagged" href="/categories.html#blog-ref">Blog</a>
+                                Tag:
+                                    <a class="tagged" href="/tags.html#pelican-ref">Pelican</a>
+ -->
+                            </samp></small>
+                            <!-- <i class="fa fa-commenting"></i><a class="tagged" href="/posts/2016/pelican_swain.html#disqus_thread">_(:з」∠)_</a>
+ -->
+                        </div>
+                        <div class="entry-content">
+                            <p>No zuo no die.没忍住还是作死了。自己花了些时间写了一个Pelican theme。感觉2333333...</p>
+                        </div>
+                        <div class="row">
+                        <div class="read-me col-sm-12"><a class="btn btn-success"  type="button" style="float: right;" href="/posts/2016/pelican_swain.html" rel="bookmark" title="Permalink to 用上了自己的模板pelican-swain。">Read more</a>
+                        </div>
+                        </div>
+                        <!-- /.entry-content -->
+                    </article>
+                </li>
+                <li class="list-group-item animate">
+                    <article class="entry">
+                        <header>
+                            <h2 class="entry-title"><a href="/posts/2016/charles_https.html" rel="bookmark" title="Permalink to 在Mac下使用抓包工具Charles抓取APP的Https请求。">在Mac下使用抓包工具Charles抓取APP的Https请求。</a></h2>
+                        </header>
+                        <div class="tagged">
+                            <small><samp>
+                                <time class="article-li-time">
+                                    Jan 05, 2016
+                                </time>
+<!--                                                             Category:<a class="tagged" href="/categories.html#blog-ref">Blog</a>
+                                Tag:
+                                    <a class="tagged" href="/tags.html#charles-ref">Charles</a>
+ -->
+                            </samp></small>
+                            <!-- <i class="fa fa-commenting"></i><a class="tagged" href="/posts/2016/charles_https.html#disqus_thread">_(:з」∠)_</a>
+ -->
+                        </div>
+                        <div class="entry-content">
+                            <p>在Mac下使用抓包工具Charles抓取APP的Https请求（基于中间人攻击）。部分App的可请求可被解析，也能被有效的防御。</p>
+                        </div>
+                        <div class="row">
+                        <div class="read-me col-sm-12"><a class="btn btn-success"  type="button" style="float: right;" href="/posts/2016/charles_https.html" rel="bookmark" title="Permalink to 在Mac下使用抓包工具Charles抓取APP的Https请求。">Read more</a>
+                        </div>
+                        </div>
+                        <!-- /.entry-content -->
+                    </article>
+                </li>
+                <li class="list-group-item animate">
+                    <article class="entry">
+                        <header>
+                            <h2 class="entry-title"><a href="/posts/2016/2015_bug_prologue.html" rel="bookmark" title="Permalink to 2015年踩过的坑">2015年踩过的坑</a></h2>
+                        </header>
+                        <div class="tagged">
+                            <small><samp>
+                                <time class="article-li-time">
+                                    Jan 01, 2016
+                                </time>
+<!--                                                             Category:<a class="tagged" href="/categories.html#blog-ref">Blog</a>
+                                Tag:
+                                    <a class="tagged" href="/tags.html#bug-ref">Bug</a>
+ -->
+                            </samp></small>
+                            <!-- <i class="fa fa-commenting"></i><a class="tagged" href="/posts/2016/2015_bug_prologue.html#disqus_thread">_(:з」∠)_</a>
+ -->
+                        </div>
+                        <div class="entry-content">
+                            <p>在此记录下2015年踩过的坑，以防再犯。</p>
+                        </div>
+                        <div class="row">
+                        <div class="read-me col-sm-12"><a class="btn btn-success"  type="button" style="float: right;" href="/posts/2016/2015_bug_prologue.html" rel="bookmark" title="Permalink to 2015年踩过的坑">Read more</a>
+                        </div>
+                        </div>
+                        <!-- /.entry-content -->
+                    </article>
+                </li>
+                        </ul><!-- /#posts-list -->
+                            <br/>
+                            <div><div class="text-center" id="index-pagination">
+<div class="btn-group" role="group" aria-label="...">
+        <a type="button" class="btn btn-default " href="/index.html"><i class="fa fa-chevron-left"></i><i class="fa fa-chevron-left"></i></a>
+        <a type="button" class="btn btn-default " href="/index.html"><i class="fa fa-chevron-left"></i></a>
+    <button type="button" class="btn btn-default disabled">2 / 4</button>
+        <a type="button" class="btn btn-default  " href="/index3.html"><i class="fa fa-chevron-right"></i></a>
+        <a type="button" class="btn btn-default " href="/index4.html"><i class="fa fa-chevron-right"></i><i class="fa fa-chevron-right"></i></a>
+</div>
+</div>
+</div>
+                        </div><!-- /#content -->
+            </div>
+            <div class="col-md-2" id="sidebar_right">
+            </div>
+        </div>
+    </div>
+    <!-- Mascot go to top -->
+    <a href="#"><img id="go_top_logo" src="" class="umaru"></a>
+
+    <!-- BAIDU_TONGJI -->
+    <script>
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?903bed5b17c3ef49f843500c8cb1a1b0";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+
+    <!-- footer -->
+    <div id="push"></div>
+<footer class="footer">
+<div id="footer" class="text-center">
+    <span class="site-name">Chihiro.moe</span> - <i class="fa fa-copyright" aria-hidden="true"></i> Qi.Wang
+    Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>.
+</div>
+</footer>    
+<script id="dsq-count-scr" src="//furiousslade.disqus.com/count.js" async></script>
+<script type="text/javascript">
+    function setAnimate(i){
+            var f = document.getElementsByClassName("animate")[0];
+            f.style.animationDelay = (0+i/2).toString()+"s";
+            f.classList.remove("animate");
+        };
+    var n = document.getElementsByClassName("animate").length;
+    function initAnimate(){
+        var i=0;
+        while(i < n)
+        {
+            setAnimate(i);
+            i++;
+        };
+    };
+    window.onload = initAnimate();
+</script>
+</body>
+</html>
+<script type="text/javascript">
+  function validateForm(query) {
+    return (query.length > 0);
+  };
+  var dropdownStatus = false
+  $(document).ready(function(){
+      $(function() {
+        $(window).scroll(function() {
+          if($(this).scrollTop()>20) {
+            $("body > nav").css("background-color", "rgba(255, 255, 255, 0.5)");
+          } else {
+            $("body > nav").css("background-color", "rgba(255, 255, 255, 1)");
+          }
+        });
+      });
+      $("body > nav").mouseover(function() {
+        $(this).css("background-color", "rgba(255, 255, 255, 1)");
+      });
+      $("#navbar-collapse-1").on('shown.bs.collapse', function() {
+          $('.dropdown-toggle').dropdown('toggle');
+          dropdownStatus = true;
+      });
+      $(".dropdown-toggle").mouseenter(function(){
+          $('.dropdown-toggle').dropdown('toggle');
+          dropdownStatus = true;
+      });
+      $("#container").mouseenter(function(){
+          if (dropdownStatus == true) {
+              $('.dropdown-toggle').dropdown('toggle');
+              dropdownStatus = false;
+          };
+      });    
+  });
+  var character_list = [{"img_url":"/theme/images/umaru02.png"},{"img_url":"/theme/images/kanna02.png"}];
+  var random_value=parseInt(Math.random()*2);
+  var character=character_list[random_value];
+  document.getElementById("go_top_logo").src=character["img_url"];
+</script>

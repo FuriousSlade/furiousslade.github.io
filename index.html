@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, height=device-width, initial-scale=1">
+    <meta name="author" content="Slade" />
+    <meta name="copyright" content="Slade" />
+    <meta property="og:type" content="article" />
+
+<meta property="og:url" content="/" />
+<meta property="og:site_name" content="Chihiro.moe" />
+<meta property="og:article:author" content="Slade" />
+
+    <title>Chihiro.moe</title>
+<script type="text/javascript" src="/theme/js/jquery-1.12.0.min.js"></script>
+<script type="text/javascript" src="/theme/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/theme/tipuesearch/tipuesearch_set.js"></script>
+<script type="text/javascript" src="/theme/tipuesearch/tipuesearch.min.js"></script>
+<link rel="stylesheet" href="/theme/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/theme/css/font-awesome.min.css" />
+<link rel="stylesheet" type="text/css" href="/theme/tipuesearch/tipuesearch.css" media="screen">
+<link rel="stylesheet" type="text/css" href="/theme/css/pygments.css" media="screen">
+<link rel="stylesheet" type="text/css" href="/theme/css/swain.css" media="screen">
+<link rel="stylesheet" type="text/css" href="/theme/css/animate.css" media="screen">
+    <link rel="icon" href="/theme/images/favicon.ico" type="image/x-icon" />
+    
+    <!-- GOOGLE_ANALYTICS -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-75717198-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+</head>
+<body>
+    <!-- navbar start -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid" style="max-width: 1280px">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <i class="fa fa-bars fa-lg"></i>
+                </button>
+                <a class="navbar-brand" href="/">Chihiro.moe</a>
+            </div>
+
+            <div class="collapse navbar-collapse navbar-right" id="navbar-collapse-1">
+                <ul class="nav navbar-nav">
+ <!--                    <li  class="active"><a href="/">Home</a></li>
+                        <li ><a href="/pages/links.html">友链</a></li>
+                    <li ><a href="/categories.html">Categories</a></li>
+                    <li ><a href="/tags.html">Tags</a></li>
+                    <li ><a href="/archives.html">Archives</a></li> -->
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Index  <span class="caret"></span></a>
+                      <ul class="dropdown-menu dropdown-menu-right">
+                        <li><a href="/">Index</a></li>
+                        <li><a href="/categories.html">Categories</a></li>
+                        <li><a href="/tags.html">Tags</a></li>
+                        <li><a href="/archives.html">Archives</a></li>
+                        <li><a href="/pages/links.html">Links</a></li>
+                      </ul>
+                    </li>                    
+                </ul>
+                <form class="navbar-search navbar-form navbar-right" action="/search.html" onsubmit="return validateForm(this.elements['q'].value);">
+                  <input type="text" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input" required>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <!-- navbar end -->
+    <div class="container-fluid" id="container" style="max-width: 1280px">
+        <div class="row-fluid">
+<div class="col-md-2 hidden-xs hidden-sm" id="sidebar_left">
+<div class="panel panel-default dashboard">
+    <!-- <div class="panel-heading"><i class="fa fa-user"></i></div> -->
+    <div class="panel-body">
+      <div class="col-xs-12">
+        <img class="img-rounded" src="/theme/images/author.jpeg" alt="..." width="100%" height="100%"/>
+<h4>Slade</h4>        <p>没有人能在我的BGM里战胜我</p>
+        <ul class="list-inline">
+ 
+        <li><a href="mailto:175439093@qq.com" title="My email Address" class="sidebar-social-info" target="_blank"><i class="fa fa-envelope-o sidebar-social-infos"></i></a></li>
+   
+        </ul>
+      </div>
+    </div>
+</div>
+</div>
+            <div class="col-md-8" id="center_page">
+    <div id="content" class="row">
+        <ul class="list-group list-unstyled" id="posts-list">
+                <li class="list-group-item animate">
+                    <article class="entry">
+                        <header>
+                            <h2 class="entry-title"><a href="/posts/2018/TailGrepAwk.html" rel="bookmark" title="Permalink to 命令行统计log中关键字出现的次数">命令行统计log中关键字出现的次数</a></h2>
+                        </header>
+                        <div class="tagged">
+                            <small><samp>
+                                <time class="article-li-time">
+                                    Jun 08, 2018
+                                </time>
+<!--                                                             Category:<a class="tagged" href="/categories.html#bi-ji-ref">笔记</a>
+                                Tag:
+                                    <a class="tagged" href="/tags.html#linux-ref">Linux</a>
+ -->
+                            </samp></small>
+                            <!-- <i class="fa fa-commenting"></i><a class="tagged" href="/posts/2018/TailGrepAwk.html#disqus_thread">_(:з」∠)_</a>
+ -->
+                        </div>
+                        <div class="entry-content">
+                            <p>通过 tail, grep, awk 命令组合使用,统计log中关键字出现的次数</p>
+<div class="highlight"><pre><span></span>tail -f info.log <span class="p">|</span> awk <span class="s1">&#39;/关键字/ {++i;printf &quot;\r%d&quot;,i}&#39;</span>
+</pre></div>
+                        </div>
+                        <div class="row">
+                        <div class="read-me col-sm-12"><a class="btn btn-success"  type="button" style="float: right;" href="/posts/2018/TailGrepAwk.html" rel="bookmark" title="Permalink to 命令行统计log中关键字出现的次数">Read more</a>
+                        </div>
+                        </div>
+                        <!-- /.entry-content -->
+                    </article>
+                </li>
+                <li class="list-group-item animate">
+                    <article class="entry">
+                        <header>
+                            <h2 class="entry-title"><a href="/posts/2018/DockerNotes.html" rel="bookmark" title="Permalink to Docker学习笔记">Docker学习笔记</a></h2>
+                        </header>
+                        <div class="tagged">
+                            <small><samp>
+                                <time class="article-li-time">
+                                    Mar 31, 2018
+                                </time>
+<!--                                                             Category:<a class="tagged" href="/categories.html#bi-ji-ref">笔记</a>
+                                Tag:
+                                    <a class="tagged" href="/tags.html#docker-ref">Docker</a>
+ -->
+                            </samp></small>
+                            <!-- <i class="fa fa-commenting"></i><a class="tagged" href="/posts/2018/DockerNotes.html#disqus_thread">_(:з」∠)_</a>
+ -->
+                        </div>
+                        <div class="entry-content">
+                            
+<h3 id="docker">Docker 是什么</h3>
+<blockquote>
+<p>Docker 是使用 Google 公司推出的 Go 语言进行开发实现，基于 Linux 内核的 cgroup，namespace，以及 AUFS 类的 Union FS 等技术，对进程进行封装隔离，属于操作系统层面的虚拟化技术。由于隔离的进程独立于宿主和其它的隔离的进程，因此也称其为容器。最初实现是基于 LXC ...</p></blockquote>
+                        </div>
+                        <div class="row">
+                        <div class="read-me col-sm-12"><a class="btn btn-success"  type="button" style="float: right;" href="/posts/2018/DockerNotes.html" rel="bookmark" title="Permalink to Docker学习笔记">Read more</a>
+                        </div>
+                        </div>
+                        <!-- /.entry-content -->
+                    </article>
+                </li>
+                <li class="list-group-item animate">
+                    <article class="entry">
+                        <header>
+                            <h2 class="entry-title"><a href="/posts/2018/Ac68uMerlin.html" rel="bookmark" title="Permalink to AC68U折腾笔记">AC68U折腾笔记</a></h2>
+                        </header>
+                        <div class="tagged">
+                            <small><samp>
+                                <time class="article-li-time">
+                                    Mar 16, 2018
+                                </time>
+<!--                                                             Category:<a class="tagged" href="/categories.html#bi-ji-ref">笔记</a>
+                                Tag:
+                                    <a class="tagged" href="/tags.html#merlin-ref">merlin</a>
+ -->
+                            </samp></small>
+                            <!-- <i class="fa fa-commenting"></i><a class="tagged" href="/posts/2018/Ac68uMerlin.html#disqus_thread">_(:з」∠)_</a>
+ -->
+                        </div>
+                        <div class="entry-content">
+                            
+<h2 id="uopt">自动挂载U盘至/opt</h2>
+<div class="highlight"><pre><span></span>cat &lt;&lt; EOF &gt; /tmp/script_usbmount.tmp
+if [ \$1 = "/tmp/mnt/sda" ]
+then
+ln -sf \$1 /tmp/opt
+/opt/etc/init.d/rc.unslung start ...</pre></div>
+                        </div>
+                        <div class="row">
+                        <div class="read-me col-sm-12"><a class="btn btn-success"  type="button" style="float: right;" href="/posts/2018/Ac68uMerlin.html" rel="bookmark" title="Permalink to AC68U折腾笔记">Read more</a>
+                        </div>
+                        </div>
+                        <!-- /.entry-content -->
+                    </article>
+                </li>
+                <li class="list-group-item animate">
+                    <article class="entry">
+                        <header>
+                            <h2 class="entry-title"><a href="/posts/2018/CrontabBadHourError.html" rel="bookmark" title="Permalink to Crontab bad hour error">Crontab bad hour error</a></h2>
+                        </header>
+                        <div class="tagged">
+                            <small><samp>
+                                <time class="article-li-time">
+                                    Mar 16, 2018
+                                </time>
+<!--                                                             Category:<a class="tagged" href="/categories.html#bi-ji-ref">笔记</a>
+                                Tag:
+                                    <a class="tagged" href="/tags.html#crontab-ref">crontab</a>
+ -->
+                            </samp></small>
+                            <!-- <i class="fa fa-commenting"></i><a class="tagged" href="/posts/2018/CrontabBadHourError.html#disqus_thread">_(:з」∠)_</a>
+ -->
+                        </div>
+                        <div class="entry-content">
+                            <div class="highlight"><pre><span></span>crontab -e
+</pre></div>
+
+
+<div class="highlight"><pre><span></span># bug
+*/10 23-06 * * * echo hello
+
+# right
+*/10 23,00-06 * * * echo hello
+</pre></div>
+                        </div>
+                        <div class="row">
+                        <div class="read-me col-sm-12"><a class="btn btn-success"  type="button" style="float: right;" href="/posts/2018/CrontabBadHourError.html" rel="bookmark" title="Permalink to Crontab bad hour error">Read more</a>
+                        </div>
+                        </div>
+                        <!-- /.entry-content -->
+                    </article>
+                </li>
+                <li class="list-group-item animate">
+                    <article class="entry">
+                        <header>
+                            <h2 class="entry-title"><a href="/posts/2018/CurlNoProxy.html" rel="bookmark" title="Permalink to Curl 不使用代理">Curl 不使用代理</a></h2>
+                        </header>
+                        <div class="tagged">
+                            <small><samp>
+                                <time class="article-li-time">
+                                    Mar 07, 2018
+                                </time>
+<!--                                                             Category:<a class="tagged" href="/categories.html#bi-ji-ref">笔记</a>
+                                Tag:
+                                    <a class="tagged" href="/tags.html#curl-ref">Curl</a>
+ -->
+                            </samp></small>
+                            <!-- <i class="fa fa-commenting"></i><a class="tagged" href="/posts/2018/CurlNoProxy.html#disqus_thread">_(:з」∠)_</a>
+ -->
+                        </div>
+                        <div class="entry-content">
+                            <p>被系统全局http代理折腾了一把</p>
+<div class="highlight"><pre><span></span>curl -X POST <span class="se">\</span>
+  http://ip:port/rpc <span class="se">\</span>
+  -d <span class="s1">&#39;{</span>
+<span class="s1">    &quot;hello&quot;: &quot;world&quot;</span>
+<span class="s1">}&#39;</span> --noproxy <span class="s2">&quot;*&quot;</span>
+</pre></div>
+                        </div>
+                        <div class="row">
+                        <div class="read-me col-sm-12"><a class="btn btn-success"  type="button" style="float: right;" href="/posts/2018/CurlNoProxy.html" rel="bookmark" title="Permalink to Curl 不使用代理">Read more</a>
+                        </div>
+                        </div>
+                        <!-- /.entry-content -->
+                    </article>
+                </li>
+                <li class="list-group-item animate">
+                    <article class="entry">
+                        <header>
+                            <h2 class="entry-title"><a href="/posts/2018/LearnPython3.html" rel="bookmark" title="Permalink to Python3学习笔记">Python3学习笔记</a></h2>
+                        </header>
+                        <div class="tagged">
+                            <small><samp>
+                                <time class="article-li-time">
+                                    Feb 27, 2018
+                                </time>
+<!--                                                             Category:<a class="tagged" href="/categories.html#bi-ji-ref">笔记</a>
+                                Tag:
+                                    <a class="tagged" href="/tags.html#python-ref">Python</a>
+ -->
+                            </samp></small>
+                            <!-- <i class="fa fa-commenting"></i><a class="tagged" href="/posts/2018/LearnPython3.html#disqus_thread">_(:з」∠)_</a>
+ -->
+                        </div>
+                        <div class="entry-content">
+                            
+<h2 id="_1">简述</h2>
+<p>Life is short, you need Python.</p>
+<p>Shut up and show me the code.</p>
+<h2 id="_2">基础语法</h2>
+<h3 id="_3">编码</h3>
+<p>Python 3 源码文件默认以 UTF-8 编码。也可以自行指定。</p>
+<div class="highlight"><pre><span></span># -*- coding: &lt;encoding_name&gt; -*-
+</pre></div>
+<p>encoding_name ...</p>
+                        </div>
+                        <div class="row">
+                        <div class="read-me col-sm-12"><a class="btn btn-success"  type="button" style="float: right;" href="/posts/2018/LearnPython3.html" rel="bookmark" title="Permalink to Python3学习笔记">Read more</a>
+                        </div>
+                        </div>
+                        <!-- /.entry-content -->
+                    </article>
+                </li>
+                <li class="list-group-item animate">
+                    <article class="entry">
+                        <header>
+                            <h2 class="entry-title"><a href="/posts/2018/BaiduSpiderAndGHPages.html" rel="bookmark" title="Permalink to 解决百度爬虫无法爬取Github Pages上的个人博客">解决百度爬虫无法爬取Github Pages上的个人博客</a></h2>
+                        </header>
+                        <div class="tagged">
+                            <small><samp>
+                                <time class="article-li-time">
+                                    Feb 24, 2018
+                                </time>
+<!--                                                             Category:<a class="tagged" href="/categories.html#blog-ref">Blog</a>
+                                Tag:
+                                    <a class="tagged" href="/tags.html#blog-ref">Blog</a>
+                                    <a class="tagged" href="/tags.html#pelican-ref">Pelican</a>
+ -->
+                            </samp></small>
+                            <!-- <i class="fa fa-commenting"></i><a class="tagged" href="/posts/2018/BaiduSpiderAndGHPages.html#disqus_thread">_(:з」∠)_</a>
+ -->
+                        </div>
+                        <div class="entry-content">
+                            <p>某天突然发现无法百度到自己的博客内容了，于是乎开始一段曲折的排障过程。</p>
+<p>我的blog是放在GitHub pages，并通过cloudflare搞了一个伪https，并且使用了cloudflare的cdn服务。</p>
+<p>通过各种搜百度，搜谷歌，站长工具debug。确认了是GitHub屏蔽了百度的爬虫。GG</p>
+<p>参考了<a href="https://www.zhihu.com/question/30898326" target="&quot;_blank">知乎</a>上的几个解决方案：</p>
+<ol>
+<li>使用CDN</li>
+<li>Dnspod 双路解析</li>
+<li>更换pages服务商</li>
+</ol>
+<p>我原本就使用了cdn服务依然出现爬虫失败的问题，分析下来一个是流量本身太小（是根本没有好吗），造成请求很容易回源，然后403。</p>
+<p>Dnspod 双路解析的话就无法使用cloudflare提供的伪https了 ...</p>
+                        </div>
+                        <div class="row">
+                        <div class="read-me col-sm-12"><a class="btn btn-success"  type="button" style="float: right;" href="/posts/2018/BaiduSpiderAndGHPages.html" rel="bookmark" title="Permalink to 解决百度爬虫无法爬取Github Pages上的个人博客">Read more</a>
+                        </div>
+                        </div>
+                        <!-- /.entry-content -->
+                    </article>
+                </li>
+                <li class="list-group-item animate">
+                    <article class="entry">
+                        <header>
+                            <h2 class="entry-title"><a href="/posts/2017/WantToDo.html" rel="bookmark" title="Permalink to 想看和已看">想看和已看</a></h2>
+                        </header>
+                        <div class="tagged">
+                            <small><samp>
+                                <time class="article-li-time">
+                                    Nov 26, 2017
+                                </time>
+<!--                                                             Category:<a class="tagged" href="/categories.html#blog-ref">Blog</a>
+                                Tag:
+                                    <a class="tagged" href="/tags.html#blog-ref">Blog</a>
+ -->
+                            </samp></small>
+                            <!-- <i class="fa fa-commenting"></i><a class="tagged" href="/posts/2017/WantToDo.html#disqus_thread">_(:з」∠)_</a>
+ -->
+                        </div>
+                        <div class="entry-content">
+                            
+<h2 id="to-do">To do</h2>
+<h4 id="_1">老师！</h4>
+<blockquote>
+<p>《老师！》是由三木孝浩指导，生田斗真、广濑铃主演的真人版漫改电影。影片将于2017年秋季在日本上映。《老师！》根据河原和音创作的师生纯爱漫画改编。</p>
+</blockquote>
+<h4 id="-">声之形-漫画</h4>
+<p>看了电影，再看看漫画吧。</p>
+<h2 id="done">Done</h2>
+<h4 id="2">刀剑神域2</h4>
+<p>看完想入游戏了，不过刀剑神域几部游戏反响都不高。</p>
+<h4 id="_2">来自深渊</h4>
+<p>萌萌的娜娜奇。
+画面美到窒息，故事致郁无比。</p>
+<h4 id="_3">刀剑神域：序列之争</h4>
+<p>错过电影了，讨厌加班 ...</p>
+                        </div>
+                        <div class="row">
+                        <div class="read-me col-sm-12"><a class="btn btn-success"  type="button" style="float: right;" href="/posts/2017/WantToDo.html" rel="bookmark" title="Permalink to 想看和已看">Read more</a>
+                        </div>
+                        </div>
+                        <!-- /.entry-content -->
+                    </article>
+                </li>
+                <li class="list-group-item animate">
+                    <article class="entry">
+                        <header>
+                            <h2 class="entry-title"><a href="/posts/2017/GetF460Admin.html" rel="bookmark" title="Permalink to 中兴光猫F460管理员账号破解">中兴光猫F460管理员账号破解</a></h2>
+                        </header>
+                        <div class="tagged">
+                            <small><samp>
+                                <time class="article-li-time">
+                                    Oct 16, 2017
+                                </time>
+<!--                                                             Category:<a class="tagged" href="/categories.html#bi-ji-ref">笔记</a>
+                                Tag:
+                                    <a class="tagged" href="/tags.html#network-ref">Network</a>
+ -->
+                            </samp></small>
+                            <!-- <i class="fa fa-commenting"></i><a class="tagged" href="/posts/2017/GetF460Admin.html#disqus_thread">_(:з」∠)_</a>
+ -->
+                        </div>
+                        <div class="entry-content">
+                            <p>浏览器访问</p>
+<p><a href="http://192.168.1.1/manager_dev_config_t.gch">http://192.168.1.1/manager_dev_config_t.gch</a></p>
+<p>可下载光猫配置文件。</p>
+<p>使用offzip解压config.bin可得到多个dat文件，用文本编辑器打开000000d8.dat。</p>
+<p>搜索telecomadmin。</p>
+                        </div>
+                        <div class="row">
+                        <div class="read-me col-sm-12"><a class="btn btn-success"  type="button" style="float: right;" href="/posts/2017/GetF460Admin.html" rel="bookmark" title="Permalink to 中兴光猫F460管理员账号破解">Read more</a>
+                        </div>
+                        </div>
+                        <!-- /.entry-content -->
+                    </article>
+                </li>
+                <li class="list-group-item animate">
+                    <article class="entry">
+                        <header>
+                            <h2 class="entry-title"><a href="/posts/2017/ForHonor.html" rel="bookmark" title="Permalink to 荣耀战魂，手残党，痛并快乐着。">荣耀战魂，手残党，痛并快乐着。</a></h2>
+                        </header>
+                        <div class="tagged">
+                            <small><samp>
+                                <time class="article-li-time">
+                                    Aug 27, 2017
+                                </time>
+<!--                                                             Category:<a class="tagged" href="/categories.html#blog-ref">Blog</a>
+                                Tag:
+                                    <a class="tagged" href="/tags.html#ps4-ref">PS4</a>
+ -->
+                            </samp></small>
+                            <!-- <i class="fa fa-commenting"></i><a class="tagged" href="/posts/2017/ForHonor.html#disqus_thread">_(:з」∠)_</a>
+ -->
+                        </div>
+                        <div class="entry-content">
+                            <p><img src="http://wx3.sinaimg.cn/large/446eb9dfgy1fiyldtd4mcj20m8070js5.jpg" style="width: 100%"></img></p>
+<p>入坑PS4荣耀战魂，Ubisoft的为PS4准备的土豆服务器还算可以，电信裸连，折腾了一下AC68U后NAT OPEN的情况下玩的还算舒爽。就是大佬太多，天天被按在地板上摩擦。(╥﹏╥)</p>
+                        </div>
+                        <div class="row">
+                        <div class="read-me col-sm-12"><a class="btn btn-success"  type="button" style="float: right;" href="/posts/2017/ForHonor.html" rel="bookmark" title="Permalink to 荣耀战魂，手残党，痛并快乐着。">Read more</a>
+                        </div>
+                        </div>
+                        <!-- /.entry-content -->
+                    </article>
+                </li>
+                        </ul><!-- /#posts-list -->
+                            <br/>
+                            <div><div class="text-center" id="index-pagination">
+<div class="btn-group" role="group" aria-label="...">
+        <a type="button" class="btn btn-default disabled" href="/index.html"><i class="fa fa-chevron-left"></i><i class="fa fa-chevron-left"></i></a>
+        <a type="button" class="btn btn-default disabled" href="/"><i class="fa fa-chevron-left"></i></a>
+    <button type="button" class="btn btn-default disabled">1 / 4</button>
+        <a type="button" class="btn btn-default  " href="/index2.html"><i class="fa fa-chevron-right"></i></a>
+        <a type="button" class="btn btn-default " href="/index4.html"><i class="fa fa-chevron-right"></i><i class="fa fa-chevron-right"></i></a>
+</div>
+</div>
+</div>
+                        </div><!-- /#content -->
+            </div>
+            <div class="col-md-2" id="sidebar_right">
+            </div>
+        </div>
+    </div>
+    <!-- Mascot go to top -->
+    <a href="#"><img id="go_top_logo" src="" class="umaru"></a>
+
+    <!-- BAIDU_TONGJI -->
+    <script>
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?903bed5b17c3ef49f843500c8cb1a1b0";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+
+    <!-- footer -->
+    <div id="push"></div>
+<footer class="footer">
+<div id="footer" class="text-center">
+    <span class="site-name">Chihiro.moe</span> - <i class="fa fa-copyright" aria-hidden="true"></i> Qi.Wang
+    Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>.
+</div>
+</footer>    
+<script id="dsq-count-scr" src="//furiousslade.disqus.com/count.js" async></script>
+<script type="text/javascript">
+    function setAnimate(i){
+            var f = document.getElementsByClassName("animate")[0];
+            f.style.animationDelay = (0+i/2).toString()+"s";
+            f.classList.remove("animate");
+        };
+    var n = document.getElementsByClassName("animate").length;
+    function initAnimate(){
+        var i=0;
+        while(i < n)
+        {
+            setAnimate(i);
+            i++;
+        };
+    };
+    window.onload = initAnimate();
+</script>
+</body>
+</html>
+<script type="text/javascript">
+  function validateForm(query) {
+    return (query.length > 0);
+  };
+  var dropdownStatus = false
+  $(document).ready(function(){
+      $(function() {
+        $(window).scroll(function() {
+          if($(this).scrollTop()>20) {
+            $("body > nav").css("background-color", "rgba(255, 255, 255, 0.5)");
+          } else {
+            $("body > nav").css("background-color", "rgba(255, 255, 255, 1)");
+          }
+        });
+      });
+      $("body > nav").mouseover(function() {
+        $(this).css("background-color", "rgba(255, 255, 255, 1)");
+      });
+      $("#navbar-collapse-1").on('shown.bs.collapse', function() {
+          $('.dropdown-toggle').dropdown('toggle');
+          dropdownStatus = true;
+      });
+      $(".dropdown-toggle").mouseenter(function(){
+          $('.dropdown-toggle').dropdown('toggle');
+          dropdownStatus = true;
+      });
+      $("#container").mouseenter(function(){
+          if (dropdownStatus == true) {
+              $('.dropdown-toggle').dropdown('toggle');
+              dropdownStatus = false;
+          };
+      });    
+  });
+  var character_list = [{"img_url":"/theme/images/umaru02.png"},{"img_url":"/theme/images/kanna02.png"}];
+  var random_value=parseInt(Math.random()*2);
+  var character=character_list[random_value];
+  document.getElementById("go_top_logo").src=character["img_url"];
+</script>

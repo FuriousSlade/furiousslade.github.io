@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, height=device-width, initial-scale=1">
+    <meta name="author" content="Slade" />
+    <meta name="copyright" content="Slade" />
+    <meta property="og:type" content="article" />
+
+<meta name="keywords" content="Blog, Pelican, Blog, " />
+
+    <title>解决百度爬虫无法爬取Github Pages上的个人博客</title>
+<script type="text/javascript" src="/theme/js/jquery-1.12.0.min.js"></script>
+<script type="text/javascript" src="/theme/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/theme/tipuesearch/tipuesearch_set.js"></script>
+<script type="text/javascript" src="/theme/tipuesearch/tipuesearch.min.js"></script>
+<link rel="stylesheet" href="/theme/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/theme/css/font-awesome.min.css" />
+<link rel="stylesheet" type="text/css" href="/theme/tipuesearch/tipuesearch.css" media="screen">
+<link rel="stylesheet" type="text/css" href="/theme/css/pygments.css" media="screen">
+<link rel="stylesheet" type="text/css" href="/theme/css/swain.css" media="screen">
+<link rel="stylesheet" type="text/css" href="/theme/css/animate.css" media="screen">
+    <link rel="icon" href="/theme/images/favicon.ico" type="image/x-icon" />
+    
+    <!-- GOOGLE_ANALYTICS -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-75717198-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+</head>
+<body>
+    <!-- navbar start -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid" style="max-width: 1280px">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <i class="fa fa-bars fa-lg"></i>
+                </button>
+                <a class="navbar-brand" href="/">Chihiro.moe</a>
+            </div>
+
+            <div class="collapse navbar-collapse navbar-right" id="navbar-collapse-1">
+                <ul class="nav navbar-nav">
+ <!--                    <li ><a href="/">Home</a></li>
+                        <li ><a href="/pages/links.html">友链</a></li>
+                    <li ><a href="/categories.html">Categories</a></li>
+                    <li ><a href="/tags.html">Tags</a></li>
+                    <li ><a href="/archives.html">Archives</a></li> -->
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">  解决百度爬虫无法爬取Github Pages上的个人博客  <span class="caret"></span></a>
+                      <ul class="dropdown-menu dropdown-menu-right">
+                        <li><a href="/">Index</a></li>
+                        <li><a href="/categories.html">Categories</a></li>
+                        <li><a href="/tags.html">Tags</a></li>
+                        <li><a href="/archives.html">Archives</a></li>
+                        <li><a href="/pages/links.html">Links</a></li>
+                      </ul>
+                    </li>                    
+                </ul>
+                <form class="navbar-search navbar-form navbar-right" action="/search.html" onsubmit="return validateForm(this.elements['q'].value);">
+                  <input type="text" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input" required>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <!-- navbar end -->
+    <div class="container-fluid" id="container" style="max-width: 1280px">
+        <div class="row-fluid">
+<div class="col-md-2 hidden-xs hidden-sm" id="sidebar_left">
+</div>
+            <div class="col-md-8" id="center_page">
+<section id="content" class="body">
+  <article>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <header>
+          <h2 class="entry-title">
+            <a href="/posts/2018/BaiduSpiderAndGHPages.html" rel="bookmark"
+               title="Permalink to 解决百度爬虫无法爬取Github Pages上的个人博客">解决百度爬虫无法爬取Github Pages上的个人博客</a></h2>
+        </header>
+        <hr/>
+        <div class="entry-content">
+          <p>某天突然发现无法百度到自己的博客内容了，于是乎开始一段曲折的排障过程。</p>
+<p>我的blog是放在GitHub pages，并通过cloudflare搞了一个伪https，并且使用了cloudflare的cdn服务。</p>
+<p>通过各种搜百度，搜谷歌，站长工具debug。确认了是GitHub屏蔽了百度的爬虫。GG</p>
+<p>参考了<a href="https://www.zhihu.com/question/30898326" target="&quot;_blank">知乎</a>上的几个解决方案：</p>
+<ol>
+<li>使用CDN</li>
+<li>Dnspod 双路解析</li>
+<li>更换pages服务商</li>
+</ol>
+<p>我原本就使用了cdn服务依然出现爬虫失败的问题，分析下来一个是流量本身太小（是根本没有好吗），造成请求很容易回源，然后403。</p>
+<p>Dnspod 双路解析的话就无法使用cloudflare提供的伪https了，瞬间逼格就下来了。</p>
+<p>最终我选择了更换pages服务提供者。</p>
+<p>Coding的pages服务，5秒广告，谢谢不送。</p>
+<p>GitCafe被Coding收购了 GG。</p>
+<p>又看了下Gitee（码云）的pages服务，不支持自定义域名，不符合需求。</p>
+<p>GitLab的pages服务完全符合需求 nice，开搞。</p>
+<p>原本blog使用的python的pelican框架代码在GitHub上并通过Travis-ci进行构建的，并不是本地构建后推送到远端的，主要是因为懒，这样只需要写Markdown文件，提交，持续集成，持续发布。所以又想了一个懒办法。在Travis-ci进行构建GitHub pages的同时把代码提交到GitLab仓库，再由GitLab的CI/CD进行持续集成构建。</p>
+<p>GitLab提供的pages服务使用姿势和GitHub还是有很大不同的。</p>
+<p><a href="https://gitlab.com/help/user/project/pages/index.md" target="&quot;_blank">GitLab pages搭建官方说明</a></p>
+<p>简单来说就是需要见一个项目，且项目名必须是 {username}.gitlab.io</p>
+<p>并在项目下建立GitLab Ci所用配置文件 .gitlab-ci.yml</p>
+<p>以我使用的python pelican blog生成器举例 .gitlab-ci.yml：</p>
+<div class="highlight"><pre><span></span><span class="n">image</span><span class="o">:</span> <span class="n">python</span><span class="o">:</span><span class="mf">2.7</span><span class="o">-</span><span class="n">alpine</span>
+
+<span class="n">before_script</span><span class="o">:</span>
+  <span class="o">-</span> <span class="n">apk</span> <span class="n">update</span> <span class="o">&amp;&amp;</span> <span class="n">apk</span> <span class="n">upgrade</span> <span class="o">&amp;&amp;</span> <span class="n">apk</span> <span class="n">add</span> <span class="n">git</span>
+
+<span class="n">pages</span><span class="o">:</span>
+  <span class="n">script</span><span class="o">:</span>
+  <span class="o">-</span> <span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">r</span> <span class="n">requirements</span><span class="o">.</span><span class="na">txt</span>
+  <span class="o">-</span> <span class="n">git</span> <span class="n">clone</span> <span class="o">--</span><span class="n">depth</span> <span class="mi">1</span> <span class="n">https</span><span class="o">://</span><span class="n">github</span><span class="o">.</span><span class="na">com</span><span class="sr">/FuriousSlade/</span><span class="n">pelican</span><span class="o">-</span><span class="n">swain</span><span class="o">.</span><span class="na">git</span>
+  <span class="o">-</span> <span class="n">git</span> <span class="n">clone</span> <span class="o">--</span><span class="n">depth</span> <span class="mi">1</span> <span class="n">https</span><span class="o">://</span><span class="n">github</span><span class="o">.</span><span class="na">com</span><span class="sr">/FuriousSlade/</span><span class="n">pelican</span><span class="o">-</span><span class="n">plugins</span><span class="o">.</span><span class="na">git</span>
+  <span class="o">-</span> <span class="n">pelican</span> <span class="o">-</span><span class="n">s</span> <span class="n">publishconf</span><span class="o">.</span><span class="na">py</span>
+  <span class="o">-</span> <span class="n">mv</span> <span class="n">output</span> <span class="kd">public</span>
+  <span class="n">artifacts</span><span class="o">:</span>
+    <span class="n">paths</span><span class="o">:</span>
+    <span class="o">-</span> <span class="kd">public</span><span class="o">/</span>
+</pre></div>
+
+
+<p>详解：</p>
+<div class="highlight"><pre><span></span># 构建使用的docker镜像
+image: python:2.7-alpine
+
+# 构建前执行脚本
+# 因为需要git clone 依赖的模版和插件，构建前先安装git（基础镜像无git命令）
+before_script:
+  - apk update &amp;&amp; apk upgrade &amp;&amp; apk add git
+
+# 构建pages
+pages:
+  script:
+  # pip安装依赖库
+  - pip install -r requirements.txt
+  # git clone 依赖模版
+  - git clone --depth 1 https://github.com/FuriousSlade/pelican-swain.git
+  # git clone 依赖插件
+  - git clone --depth 1 https://github.com/FuriousSlade/pelican-plugins.git
+  # 构建静态blog
+  - pelican -s publishconf.py
+  # 将构建结果目录output重命名为public，注意静态资源的输出目录必须是public
+  - mv output public
+  artifacts:
+    paths:
+    # 最终将会发布到pages的目录
+    # 本来我改了目录为output最终导致pages 404
+    # 只有使用public时pages服务正常可用，不知道是不是潜规则
+    - public/
+</pre></div>
+
+
+<p>确定GitLab能正确触发构建，生成pages页面。</p>
+<p>变更域名解析至GitLab pages（也可以作为Dnspod双路解析Coding的替代）。</p>
+<p>最终代码依然提交GitHub，利用GitLab提供pages服务。</p>
+<p>实际使用GitLab CI服务后发现构建job经常等待，不如Travis-ci及时，可惜可惜。</p>
+        </div><!-- /.entry-content -->
+
+        <div class="social-share" data-sites="weibo,facebook,twitter"></div>
+        <link rel="stylesheet" href="/theme/css/share.min.css">
+        <script src="/theme/js/jquery.share.min.js"></script>
+        
+        <div class="comments">
+          <div id="disqus_thread"></div>
+          <script type="text/javascript">
+              var disqus_shortname = 'furiousslade';
+              var disqus_config = function () {
+                  this.page.url = 'https://chihiro.moe/posts/2018/BaiduSpiderAndGHPages.html';
+                  this.page.identifier = '/posts/2018/BaiduSpiderAndGHPages.html';
+                  this.page.title = '解决百度爬虫无法爬取Github Pages上的个人博客';
+              };
+              (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+                  var d = document, s = d.createElement('script');
+                  s.src = '//' + disqus_shortname + '.disqus.com/embed.js';  // IMPORTANT: Replace EXAMPLE with your forum shortname!
+                  s.setAttribute('data-timestamp', +new Date());
+                  (d.head || d.body).appendChild(s);
+              })();
+          </script>
+          <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+        </div>
+    </div>
+  </div>      
+    <div class="panel panel-default">
+      <div class="panel-heading">Related posts</div>
+      <div class="panel-body">
+        <ul class="list-unstyled">
+        <li><a href="/posts/2017/GithubTravis-ciCoding.html">【转】手把手教你如何滥用Github, Travis-ci, Coding等资源来建立一个博客</a></li>
+        <li><a href="/posts/2017/UpdateBlogHttps.html">Blog改版</a></li>
+        <li><a href="/posts/2017/WantToDo.html">想看和已看</a></li>
+        </ul>
+      </div>
+    </div>
+
+  </article>
+</section>
+            </div>
+            <div class="col-md-2" id="sidebar_right">
+<div class="panel panel-default">
+  <!-- <div class="panel-heading">Article <i class="fa fa-info-circle"></i>nfo</div> -->
+    <div class="panel-body">
+      <div class="published">
+                <h5>Published</h5>
+                <p><time>Feb 24, 2018</time></p>
+      </div>
+      <div class="modified">
+                <h5>Updated</h5>
+                <p><time>Feb 24, 2018</time></p>
+      </div>
+      <div class="category">
+              <h5>Category</h5>
+              <p><a class="btn btn-default btn-xs" style="text-transform:none" type="button" href="/categories.html#blog-ref">Blog</a></p>
+      </div>
+      <div class="tags">
+            <h5>Tags</h5>
+            <ul class="list-inline list-of-tags tags-in-article">
+                <li><a class="btn btn-default btn-xs" style="text-transform:none" type="button" href="/tags.html#blog-ref">Blog
+                    <span class="badge">4</span>
+</a></li>
+                <li><a class="btn btn-default btn-xs" style="text-transform:none" type="button" href="/tags.html#pelican-ref">Pelican
+                    <span class="badge">5</span>
+</a></li>
+            </ul>
+      </div>
+      <address class="vcard author">
+                By       <a href="mailto:175439093@qq.com">Slade</a>
+      </address>
+
+    </div>
+</div>            </div>
+        </div>
+    </div>
+    <!-- Mascot go to top -->
+    <a href="#"><img id="go_top_logo" src="" class="umaru"></a>
+
+    <!-- BAIDU_TONGJI -->
+    <script>
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?903bed5b17c3ef49f843500c8cb1a1b0";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+
+    <!-- footer -->
+    <div id="push"></div>
+<footer class="footer">
+<div id="footer" class="text-center">
+    <span class="site-name">Chihiro.moe</span> - <i class="fa fa-copyright" aria-hidden="true"></i> Qi.Wang
+    Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>.
+</div>
+</footer>    
+<script id="dsq-count-scr" src="//furiousslade.disqus.com/count.js" async></script>
+<script type="text/javascript">
+    function setTocClass() {
+        var f = document.getElementById("toc");
+        if (f != null) {
+          f.classList.add("art-toc");
+        };
+    };
+    window.onload = setTocClass();
+</script>
+</body>
+</html>
+<script type="text/javascript">
+  function validateForm(query) {
+    return (query.length > 0);
+  };
+  var dropdownStatus = false
+  $(document).ready(function(){
+      $(function() {
+        $(window).scroll(function() {
+          if($(this).scrollTop()>20) {
+            $("body > nav").css("background-color", "rgba(255, 255, 255, 0.5)");
+          } else {
+            $("body > nav").css("background-color", "rgba(255, 255, 255, 1)");
+          }
+        });
+      });
+      $("body > nav").mouseover(function() {
+        $(this).css("background-color", "rgba(255, 255, 255, 1)");
+      });
+      $("#navbar-collapse-1").on('shown.bs.collapse', function() {
+          $('.dropdown-toggle').dropdown('toggle');
+          dropdownStatus = true;
+      });
+      $(".dropdown-toggle").mouseenter(function(){
+          $('.dropdown-toggle').dropdown('toggle');
+          dropdownStatus = true;
+      });
+      $("#container").mouseenter(function(){
+          if (dropdownStatus == true) {
+              $('.dropdown-toggle').dropdown('toggle');
+              dropdownStatus = false;
+          };
+      });    
+  });
+  var character_list = [{"img_url":"/theme/images/umaru02.png"},{"img_url":"/theme/images/kanna02.png"}];
+  var random_value=parseInt(Math.random()*2);
+  var character=character_list[random_value];
+  document.getElementById("go_top_logo").src=character["img_url"];
+</script>

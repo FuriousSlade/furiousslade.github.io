@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, height=device-width, initial-scale=1">
+    <meta name="author" content="Slade" />
+    <meta name="copyright" content="Slade" />
+    <meta property="og:type" content="article" />
+
+<meta name="keywords" content="Android, iOS, Blog, " />
+
+    <title>移动客户端的性能监控。</title>
+<script type="text/javascript" src="/theme/js/jquery-1.12.0.min.js"></script>
+<script type="text/javascript" src="/theme/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/theme/tipuesearch/tipuesearch_set.js"></script>
+<script type="text/javascript" src="/theme/tipuesearch/tipuesearch.min.js"></script>
+<link rel="stylesheet" href="/theme/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/theme/css/font-awesome.min.css" />
+<link rel="stylesheet" type="text/css" href="/theme/tipuesearch/tipuesearch.css" media="screen">
+<link rel="stylesheet" type="text/css" href="/theme/css/pygments.css" media="screen">
+<link rel="stylesheet" type="text/css" href="/theme/css/swain.css" media="screen">
+<link rel="stylesheet" type="text/css" href="/theme/css/animate.css" media="screen">
+    <link rel="icon" href="/theme/images/favicon.ico" type="image/x-icon" />
+    
+    <!-- GOOGLE_ANALYTICS -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-75717198-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+</head>
+<body>
+    <!-- navbar start -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid" style="max-width: 1280px">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <i class="fa fa-bars fa-lg"></i>
+                </button>
+                <a class="navbar-brand" href="/">Chihiro.moe</a>
+            </div>
+
+            <div class="collapse navbar-collapse navbar-right" id="navbar-collapse-1">
+                <ul class="nav navbar-nav">
+ <!--                    <li ><a href="/">Home</a></li>
+                        <li ><a href="/pages/links.html">友链</a></li>
+                    <li ><a href="/categories.html">Categories</a></li>
+                    <li ><a href="/tags.html">Tags</a></li>
+                    <li ><a href="/archives.html">Archives</a></li> -->
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">  移动客户端的性能监控。  <span class="caret"></span></a>
+                      <ul class="dropdown-menu dropdown-menu-right">
+                        <li><a href="/">Index</a></li>
+                        <li><a href="/categories.html">Categories</a></li>
+                        <li><a href="/tags.html">Tags</a></li>
+                        <li><a href="/archives.html">Archives</a></li>
+                        <li><a href="/pages/links.html">Links</a></li>
+                      </ul>
+                    </li>                    
+                </ul>
+                <form class="navbar-search navbar-form navbar-right" action="/search.html" onsubmit="return validateForm(this.elements['q'].value);">
+                  <input type="text" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input" required>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <!-- navbar end -->
+    <div class="container-fluid" id="container" style="max-width: 1280px">
+        <div class="row-fluid">
+<div class="col-md-2 hidden-xs hidden-sm" id="sidebar_left">
+</div>
+            <div class="col-md-8" id="center_page">
+<section id="content" class="body">
+  <article>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <header>
+          <h2 class="entry-title">
+            <a href="/posts/2015/ClientMonitor.html" rel="bookmark"
+               title="Permalink to 移动客户端的性能监控。">移动客户端的性能监控。</a></h2>
+        </header>
+        <hr/>
+        <div class="entry-content">
+          <h1 id="_1">起因</h1>
+<p>在测试一款通话类APP时，需要精确的统计客户端的流量消耗，电量消耗，CPU，内存等指标。磕磕碰碰的最终还是顺利的完成。在测试Android客户端的程中我一开始使用了Android SDK中的DDMS工具。</p>
+<h2 id="ddms">DDMS</h2>
+<p>ddms位于"D:\adt-bundle-windows-x86\sdk\tools"相似的目录下。运行ddms.bat</p>
+<p><img alt="" src="http://ww1.sinaimg.cn/bmiddle/0067jSM2jw1es8e5cej4wj311y0kgn6v.jpg" /></p>
+<p>选择相应的应用进程例如：com.paobao.verytele 选择Network标签。可以看到该进程网络统计模块。</p>
+<p><img alt="" src="http://ww3.sinaimg.cn/bmiddle/0067jSM2jw1es8e8si1m1j30wq0i779j.jpg" /></p>
+<p><strong>RX</strong>为下行数据，<strong>TX</strong>为上行数据。可选择统计数据的时间间隔（250ms），点击Start，就会开始采集数据。</p>
+<p><img alt="" src="http://ww3.sinaimg.cn/bmiddle/0067jSM2jw1es8ea2im2wj30wq0i7gr7.jpg" /></p>
+<p>因为DDMS使用起来并不是最符合我的需求，所以在这里只做简单的介绍，具体功能可以自己挖掘。</p>
+<h2 id="emmagee">Emmagee</h2>
+<p>最终Android端我选择了网易开源项目<a href="https://github.com/NetEase/Emmagee" target="_blank">Emmagee</a>。支持中文，简单直观的选择应用开启统计，可设置采集间隔，并可以设置将报告发送至指定邮箱。报告为Excel格式，统计了APP的CPU、内存、流量、电量以及整体性能状态。</p>
+<p><img src="http://ww1.sinaimg.cn/bmiddle/0067jSM2jw1esozs65rfwj30dc0m8ad8.jpg" width="180px" />
+<img src="http://ww1.sinaimg.cn/bmiddle/0067jSM2jw1esozs5stmnj30dc0m8jsb.jpg" width="180px" />
+<img src="http://ww3.sinaimg.cn/bmiddle/0067jSM2jw1esozs5vxrdj30dc0m83zr.jpg" width="180px" />
+<img src="http://ww2.sinaimg.cn/bmiddle/0067jSM2jw1esozs5qvt2j30dc0m8gnm.jpg" width="180px" /></p>
+<h2 id="gt">GT</h2>
+<p>iOS端的性能监测工具找到了腾讯的项目<a href="http://gt.tencent.com/index.html" target="_blank">GT</a>。GT本身支持Android和iOS双平台，不过Android没有Emmagee更易用而已。iOS端是一个Framework包，必须嵌入APP工程。我让开发帮我集成进了APP中，同样可以统计APP的CPU、内存、流量、电量以及整体性能状态。</p>
+        </div><!-- /.entry-content -->
+
+        <div class="social-share" data-sites="weibo,facebook,twitter"></div>
+        <link rel="stylesheet" href="/theme/css/share.min.css">
+        <script src="/theme/js/jquery.share.min.js"></script>
+        
+        <div class="comments">
+          <div id="disqus_thread"></div>
+          <script type="text/javascript">
+              var disqus_shortname = 'furiousslade';
+              var disqus_config = function () {
+                  this.page.url = 'https://chihiro.moe/posts/2015/ClientMonitor.html';
+                  this.page.identifier = '/posts/2015/ClientMonitor.html';
+                  this.page.title = '移动客户端的性能监控。';
+              };
+              (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+                  var d = document, s = d.createElement('script');
+                  s.src = '//' + disqus_shortname + '.disqus.com/embed.js';  // IMPORTANT: Replace EXAMPLE with your forum shortname!
+                  s.setAttribute('data-timestamp', +new Date());
+                  (d.head || d.body).appendChild(s);
+              })();
+          </script>
+          <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+        </div>
+    </div>
+  </div>      
+    <div class="panel panel-default">
+      <div class="panel-heading">Related posts</div>
+      <div class="panel-body">
+        <ul class="list-unstyled">
+        <li><a href="/posts/2015/Robotium.html">Robotium只有apk情况下的代码片段。</a></li>
+        <li><a href="/posts/2015/adbmore.html">Adb常用命令。</a></li>
+        <li><a href="/posts/2015/NoCpUseCat.html">在Android shell下无法使用cp命令的解决方案。</a></li>
+        </ul>
+      </div>
+    </div>
+
+  </article>
+</section>
+            </div>
+            <div class="col-md-2" id="sidebar_right">
+<div class="panel panel-default">
+  <!-- <div class="panel-heading">Article <i class="fa fa-info-circle"></i>nfo</div> -->
+    <div class="panel-body">
+      <div class="published">
+                <h5>Published</h5>
+                <p><time>May 18, 2015</time></p>
+      </div>
+      <div class="modified">
+                <h5>Updated</h5>
+                <p><time>May 18, 2015</time></p>
+      </div>
+      <div class="category">
+              <h5>Category</h5>
+              <p><a class="btn btn-default btn-xs" style="text-transform:none" type="button" href="/categories.html#blog-ref">Blog</a></p>
+      </div>
+      <div class="tags">
+            <h5>Tags</h5>
+            <ul class="list-inline list-of-tags tags-in-article">
+                <li><a class="btn btn-default btn-xs" style="text-transform:none" type="button" href="/tags.html#android-ref">Android
+                    <span class="badge">6</span>
+</a></li>
+                <li><a class="btn btn-default btn-xs" style="text-transform:none" type="button" href="/tags.html#ios-ref">iOS
+                    <span class="badge">2</span>
+</a></li>
+            </ul>
+      </div>
+      <address class="vcard author">
+                By       <a href="mailto:175439093@qq.com">Slade</a>
+      </address>
+
+    </div>
+</div>            </div>
+        </div>
+    </div>
+    <!-- Mascot go to top -->
+    <a href="#"><img id="go_top_logo" src="" class="umaru"></a>
+
+    <!-- BAIDU_TONGJI -->
+    <script>
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?903bed5b17c3ef49f843500c8cb1a1b0";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+
+    <!-- footer -->
+    <div id="push"></div>
+<footer class="footer">
+<div id="footer" class="text-center">
+    <span class="site-name">Chihiro.moe</span> - <i class="fa fa-copyright" aria-hidden="true"></i> Qi.Wang
+    Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>.
+</div>
+</footer>    
+<script id="dsq-count-scr" src="//furiousslade.disqus.com/count.js" async></script>
+<script type="text/javascript">
+    function setTocClass() {
+        var f = document.getElementById("toc");
+        if (f != null) {
+          f.classList.add("art-toc");
+        };
+    };
+    window.onload = setTocClass();
+</script>
+</body>
+</html>
+<script type="text/javascript">
+  function validateForm(query) {
+    return (query.length > 0);
+  };
+  var dropdownStatus = false
+  $(document).ready(function(){
+      $(function() {
+        $(window).scroll(function() {
+          if($(this).scrollTop()>20) {
+            $("body > nav").css("background-color", "rgba(255, 255, 255, 0.5)");
+          } else {
+            $("body > nav").css("background-color", "rgba(255, 255, 255, 1)");
+          }
+        });
+      });
+      $("body > nav").mouseover(function() {
+        $(this).css("background-color", "rgba(255, 255, 255, 1)");
+      });
+      $("#navbar-collapse-1").on('shown.bs.collapse', function() {
+          $('.dropdown-toggle').dropdown('toggle');
+          dropdownStatus = true;
+      });
+      $(".dropdown-toggle").mouseenter(function(){
+          $('.dropdown-toggle').dropdown('toggle');
+          dropdownStatus = true;
+      });
+      $("#container").mouseenter(function(){
+          if (dropdownStatus == true) {
+              $('.dropdown-toggle').dropdown('toggle');
+              dropdownStatus = false;
+          };
+      });    
+  });
+  var character_list = [{"img_url":"/theme/images/umaru02.png"},{"img_url":"/theme/images/kanna02.png"}];
+  var random_value=parseInt(Math.random()*2);
+  var character=character_list[random_value];
+  document.getElementById("go_top_logo").src=character["img_url"];
+</script>

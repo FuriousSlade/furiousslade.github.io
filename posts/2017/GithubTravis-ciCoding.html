@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, height=device-width, initial-scale=1">
+    <meta name="author" content="Slade" />
+    <meta name="copyright" content="Slade" />
+    <meta property="og:type" content="article" />
+
+<meta name="keywords" content="Blog, Pelican, Blog, " />
+
+    <title>【转】手把手教你如何滥用Github, Travis-ci, Coding等资源来建立一个博客</title>
+<script type="text/javascript" src="/theme/js/jquery-1.12.0.min.js"></script>
+<script type="text/javascript" src="/theme/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/theme/tipuesearch/tipuesearch_set.js"></script>
+<script type="text/javascript" src="/theme/tipuesearch/tipuesearch.min.js"></script>
+<link rel="stylesheet" href="/theme/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/theme/css/font-awesome.min.css" />
+<link rel="stylesheet" type="text/css" href="/theme/tipuesearch/tipuesearch.css" media="screen">
+<link rel="stylesheet" type="text/css" href="/theme/css/pygments.css" media="screen">
+<link rel="stylesheet" type="text/css" href="/theme/css/swain.css" media="screen">
+<link rel="stylesheet" type="text/css" href="/theme/css/animate.css" media="screen">
+    <link rel="icon" href="/theme/images/favicon.ico" type="image/x-icon" />
+    
+    <!-- GOOGLE_ANALYTICS -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-75717198-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+</head>
+<body>
+    <!-- navbar start -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid" style="max-width: 1280px">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <i class="fa fa-bars fa-lg"></i>
+                </button>
+                <a class="navbar-brand" href="/">Chihiro.moe</a>
+            </div>
+
+            <div class="collapse navbar-collapse navbar-right" id="navbar-collapse-1">
+                <ul class="nav navbar-nav">
+ <!--                    <li ><a href="/">Home</a></li>
+                        <li ><a href="/pages/links.html">友链</a></li>
+                    <li ><a href="/categories.html">Categories</a></li>
+                    <li ><a href="/tags.html">Tags</a></li>
+                    <li ><a href="/archives.html">Archives</a></li> -->
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">  【转】手把手教你如何滥用Github, Travis-ci, Coding等资源来建立一个博客  <span class="caret"></span></a>
+                      <ul class="dropdown-menu dropdown-menu-right">
+                        <li><a href="/">Index</a></li>
+                        <li><a href="/categories.html">Categories</a></li>
+                        <li><a href="/tags.html">Tags</a></li>
+                        <li><a href="/archives.html">Archives</a></li>
+                        <li><a href="/pages/links.html">Links</a></li>
+                      </ul>
+                    </li>                    
+                </ul>
+                <form class="navbar-search navbar-form navbar-right" action="/search.html" onsubmit="return validateForm(this.elements['q'].value);">
+                  <input type="text" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input" required>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <!-- navbar end -->
+    <div class="container-fluid" id="container" style="max-width: 1280px">
+        <div class="row-fluid">
+<div class="col-md-2 hidden-xs hidden-sm" id="sidebar_left">
+</div>
+            <div class="col-md-8" id="center_page">
+<section id="content" class="body">
+  <article>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <header>
+          <h2 class="entry-title">
+            <a href="/posts/2017/GithubTravis-ciCoding.html" rel="bookmark"
+               title="Permalink to 【转】手把手教你如何滥用Github, Travis-ci, Coding等资源来建立一个博客">【转】手把手教你如何滥用Github, Travis-ci, Coding等资源来建立一个博客</a></h2>
+        </header>
+        <hr/>
+        <div class="entry-content">
+          <p>原文链接：<a href="https://oreki.moe/shou-ba-shou-jiao-ni-ru-he-lan-yong-github-travis-ci-codingdeng-zi-yuan-lai-jian-li-yi-ge-bo-ke.html">https://oreki.moe/...</a></p>
+<p>原文：</p>
+<p>---Start---</p>
+<h4 id="_1">这个和一般的博客有什么区别</h4>
+<ul>
+<li>可以在任何地方在Github上写下Markdown语法的内容，然后就会自动编译成html并发布</li>
+<li>可以绑定自己的域名</li>
+<li>可以比较自由地改样式</li>
+<li>和别人家的不太一样，可以装逼</li>
+<li>静态页面打开比较快</li>
+<li>可以分国内外进入不同服务器，打开比较快，~~异地多活~~</li>
+<li>不要钱，不要钱，不要钱</li>
+</ul>
+<h4 id="demo">demo地址</h4>
+<p>当然就是我的博客啦。。</p>
+<p>Github上的地址是：<a href="https://github.com/faith0811/oreki.moe">戳我</a></p>
+<h4 id="_2">准备工作</h4>
+<ul>
+<li>建一个Github账号，如果没有的话</li>
+<li>建一个Travis-ci账号，并与Github绑定，如果没有的话</li>
+<li>安装travis的cli命令行工具（<code>sudo gem install travis</code>）</li>
+<li>建一个Coding账号，如果没有的话（可选）</li>
+<li>保证自己有Python, pip等工具（可选）</li>
+<li>准备一个域名（可选）</li>
+</ul>
+<h4 id="_3">让我们开始吧</h4>
+<p>因为我的博客用了<code>pelican</code>，所以我就用他作为教程的一部分了。。如果你喜欢<code>hexo</code>之类的，只要替换掉这个部分的内容就行了。</p>
+<h4 id="pelican">第一步，本地安装pelican并且完成配置</h4>
+<p>一般来说，只要<code>pip install pelican markdown</code>就能搞定了。。</p>
+<p>如果不行的话，就<a href="http://docs.getpelican.com/en/3.6.3/install.html">戳我</a>来看官方的安装文档吧。。</p>
+<p>然后就依次执行</p>
+<div class="highlight"><pre><span></span>mkdir -p ~/projects/yoursite
+<span class="nb">cd</span> ~/projects/yoursite
+pelican-quickstart
+</pre></div>
+
+
+<p>注意把对应的目录名字改掉。。。</p>
+<p>然后就会有一个亲切的人机互动界面，你可以按照他的提示，把必要的信息填进去，填错也没关系，之后可以改</p>
+<p>然后你的目录大概看上去长这样</p>
+<div class="highlight"><pre><span></span>.
+├── Makefile
+├── content
+├── develop_server.sh
+├── fabfile.py
+├── output
+├── pelicanconf.py
+└── publishconf.py
+</pre></div>
+
+
+<p>然后，你可以在content文件夹内，加入你的第一篇博客，你可以这么写</p>
+<div class="highlight"><pre><span></span>Title: 呵呵
+Date: 2016-03-18 18:28:12
+Category: HEHE
+
+大家好我是博客主体内容。:)
+</pre></div>
+
+
+<p>然后保存为<code>hello_world.md</code>就行了。。</p>
+<p>再之后，你只要做<code>pelican content</code>就可以build出html页面并输出到<code>./output</code>下。</p>
+<p>你可以通过进入output目录，再使用pelican自带的服务器启动预览</p>
+<div class="highlight"><pre><span></span>python -m pelican.server
+</pre></div>
+
+
+<p>来看看成果吧。进入<code>http://localhost:8000</code>来访问。</p>
+<p>接下来你可以对你的博客进行各个角度的调整，例如增加插件啊，更换模板啊，更改名字啊等等。。</p>
+<h4 id="pushgithub">第二步 将源码push至Github</h4>
+<p>看到这里的时候，你需要保证你的博客已经能够顺利地build了</p>
+<p>现在，我们需要在Github上增加一个public的repo来储存你的博客的源码。</p>
+<p>创建repo的话，<a href="https://github.com/new">戳这里</a></p>
+<p>之后就将你刚才创建的源码加入git版本控制中</p>
+<div class="highlight"><pre><span></span>cd /path/to/your/blog/directory
+git init
+git remote add origin git@github.com:your_name/your_repo.git
+git push origin master
+</pre></div>
+
+
+<p>如果一切顺利，你的代码就被push到github上托管了。</p>
+<p>顺带一提的是，你的<code>output</code>文件夹内的内容其实是build生成的，应该被排除在版本控制之外。</p>
+<p>所以可以在<code>.gitignore</code>这个文件中添加<code>output/</code>来将整个文件夹去除。</p>
+<h4 id="github-pages">第三步 开启github pages</h4>
+<p>Github Pages是Github的一个静态页面托管的服务。你可以将静态的html放在git的<code>gh-pages</code>分支。</p>
+<p>在push至github之后，他就会自动地将该分支内的内容发布至互联网上。</p>
+<p>这一步其实非常简单，我们使用一个插件来帮助我们完成这个动作。</p>
+<p>这个插件的名字叫<code>ghp-import</code></p>
+<p>可以通过pip来安装</p>
+<div class="highlight"><pre><span></span>pip install ghp-import
+</pre></div>
+
+
+<p>使用的话也很简单，只需要一行命令</p>
+<div class="highlight"><pre><span></span><span class="n">ghp</span><span class="o">-</span><span class="kn">import</span> <span class="o">-</span><span class="n">n</span> <span class="n">output</span><span class="o">/</span>
+</pre></div>
+
+
+<p>这行命令会创建gh-pages分支，并填充指定的文件夹下的内容。</p>
+<p>再之后我们只需要push该分支至github就行</p>
+<div class="highlight"><pre><span></span>git checkout gh-pages
+git push origin gh-pages
+</pre></div>
+
+
+<p>然后，你就可以通过<code>http://your_name.github.io/your_repo</code>来访问你的博客了。</p>
+<p>关于怎么使用自己的域名，可以<a href="https://help.github.com/articles/using-a-custom-domain-with-github-pages/">戳这里</a></p>
+<h4 id="travis-ci">第四步 使用travis-ci来构建博客</h4>
+<p>其实做到第三步，理论上你已经可以完整地使用你的博客了。</p>
+<p>但是，每次都要在cli下执行一坨命令来build博客再上传是不是很麻烦呢，而且也不支持在线编辑。</p>
+<p>所以我们需要一个第三方的平台来帮我们构建自己的博客。</p>
+<p>在这种情况下，提供开源免费服务的travis-ci就是首选了。</p>
+<p>核心的思路就是，每当任何代码被push至blog的master分支后，travis-ci帮我去做build以及push至对应repo的动作。</p>
+<p>那问题就来了，怎么让travis-ci拥有权限push代码到我的repo中呢？</p>
+<p>在这里，我们需要使用github的一个功能叫做person_access_token</p>
+<p>可以通过<a href="https://github.com/settings/tokens">戳这里</a>来添加token。</p>
+<p>只需要勾选public_repo的权限就可以了。。</p>
+<p>之后在Makefile中添加了github的方法以及在项目根目录中添加<code>.travis.yml</code>文件，来让travis-ci能够识别并正确执行build流程</p>
+<div class="highlight"><pre><span></span><span class="n">Makefile</span><span class="err">添加：</span>
+
+<span class="n">github</span><span class="p">:</span> <span class="n">publish</span>
+<span class="n">ifeq</span> <span class="p">(</span><span class="err">$</span><span class="p">(</span><span class="n">TRAVIS_PULL_REQUEST</span><span class="p">),</span> <span class="n">false</span><span class="p">)</span>
+        <span class="n">ghp</span><span class="o">-</span><span class="kn">import</span> <span class="o">-</span><span class="n">n</span> <span class="err">$</span><span class="p">(</span><span class="n">OUTPUTDIR</span><span class="p">)</span>
+        <span class="nd">@git</span> <span class="n">push</span> <span class="o">-</span><span class="n">fq</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="err">$</span><span class="p">{</span><span class="n">GH_TOKEN</span><span class="p">}</span><span class="nd">@github.com</span><span class="o">/</span><span class="err">$</span><span class="p">(</span><span class="n">TRAVIS_REPO_SLUG</span><span class="p">)</span><span class="o">.</span><span class="n">git</span> <span class="n">gh</span><span class="o">-</span><span class="n">pages</span> <span class="o">&gt;</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">null</span>
+<span class="n">endif</span>
+
+<span class="o">.</span><span class="n">travis</span><span class="o">.</span><span class="n">yml</span><span class="err">文件添加：</span>
+
+<span class="n">language</span><span class="p">:</span> <span class="n">python</span>
+<span class="n">branches</span><span class="p">:</span>
+  <span class="n">only</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">master</span>
+<span class="n">install</span><span class="p">:</span>
+<span class="o">-</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">pelican</span>
+<span class="o">-</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">markdown</span>
+<span class="o">-</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">ghp</span><span class="o">-</span><span class="kn">import</span>
+<span class="nn">script</span><span class="p">:</span>
+<span class="o">-</span> <span class="s1">&#39;make github 2&gt; /dev/null&#39;</span>
+<span class="n">env</span><span class="p">:</span>
+  <span class="k">global</span><span class="p">:</span>
+  <span class="o">-</span> <span class="n">GH_TOKEN</span><span class="p">:</span> <span class="mi">9</span><span class="n">c898c9b98a877663e4a556989b</span>
+</pre></div>
+
+
+<p>但是，如果这样做的话，你的person_access_token就会被放进代码库中，会被任何人获取到，存在安全隐患。</p>
+<p>所以我们需要对它进行加密。。</p>
+<p>还好travis-ci预料到了这样的需求发生，它允许你拥有一些不能被别人知道的变量。</p>
+<p>你可以通过命令来创建它</p>
+<div class="highlight"><pre><span></span>cd /path/to/your/repo
+travis encrypt GH_TOKEN=9c898c9b98a877663e4a556989b
+</pre></div>
+
+
+<p>之后travis会给你一长串字符串，这个字符串是通过RSA加密过的，private key是保存在travis服务器上，普通人只能拿到public key，所以相对还是比较安全的。</p>
+<p>然后，我们把这个key加入<code>.travis.yml</code>中</p>
+<div class="highlight"><pre><span></span><span class="n">env</span><span class="o">:</span>
+  <span class="n">global</span><span class="o">:</span>
+  <span class="o">-</span> <span class="n">secure</span><span class="o">:</span> <span class="n">xUPoc</span><span class="o">+</span><span class="n">miOMcmsgKu2kpQM5Sl5pRxN1HaNoXK20Iog4ynVo0DRA9gBkvS8Q</span><span class="sr">/H15+ddDqu+fNMblCw2jIbXtUQmaciS1e+Gx1+vtBnD8f2i9JFwwo8P8sdTRX6ucvQuZBRssmrId6qY6qsz+iTri+kG1P5wzNasvMWpvPWgexK7enhDeoaGPeDwLT6KLZmXdsIuGCM1X7kGnVhMYi8pom0dDN4HFYrtzp/PidYFA3xsAOjyjqfgeMdZ1Oxot3281ilvAvY8DDhJ3ZNhkiNFBFAYN2MmQxOLQj4d15puJ8tAr4bKLmxOJkHBP0CE621bDZcLkTkk82TtgJyq3KZWv503ni6LFQ0qmJGEICSYfP/5lWKF/6BQzTBjOoeKCunZKqP1KVgUkXDgAqwo8yv+f3ZTOxD0xoysOnnE+q8QBWlxojWRFx01Ihg/G1kYpIgm+HXzY4huqIXST3Vu1Me4UISeGX/lSXeJ3/kjbCqNRMdeybag7nLSrKudnr/A+6R4gbQFOks6FjEl7HWCX/jSGcNSupIJCd+dhYlsz0KxhYxIuWDmRphGS0mM4z58T71GdL0YNZ40q8NG7fSGGF2j++u8KqtvLIXSj6RpIE6I3qum7iJkZhYEBAFpzQjlT6lfHZg13PTZljk+juW/zm2kDYat5U/10djOUru1jQ/</span><span class="n">B256xaI</span><span class="o">=</span>
+</pre></div>
+
+
+<p>记得删除之前的GH_TOKEN。。。</p>
+<p>然后<code>git push origin master</code>，并在travis中完成设置，你的博客就可以由travis来build啦。。</p>
+<h4 id="coding">第五步 使用Coding为国内分流</h4>
+<p>因为Coding在国内也提供相类似的服务，并且在国内拥有比较好的访问速度。</p>
+<p>所以我们在push build完的html的时候，可以同时push至两个地方（github以及coding）。</p>
+<p>再通过dnspod来区分国内外的流量来做分流。</p>
+<p>push至coding的方法与github比较相似，在这里就不展开了。如果有问题可以看我blog的repo来参考。。</p>
+<h4 id="_4">总结</h4>
+<p>我已经写的很详细了。。好累啊</p>
+<p>---End---</p>
+        </div><!-- /.entry-content -->
+
+        <div class="social-share" data-sites="weibo,facebook,twitter"></div>
+        <link rel="stylesheet" href="/theme/css/share.min.css">
+        <script src="/theme/js/jquery.share.min.js"></script>
+        
+        <div class="comments">
+          <div id="disqus_thread"></div>
+          <script type="text/javascript">
+              var disqus_shortname = 'furiousslade';
+              var disqus_config = function () {
+                  this.page.url = 'https://chihiro.moe/posts/2017/GithubTravis-ciCoding.html';
+                  this.page.identifier = '/posts/2017/GithubTravis-ciCoding.html';
+                  this.page.title = '【转】手把手教你如何滥用Github, Travis-ci, Coding等资源来建立一个博客';
+              };
+              (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+                  var d = document, s = d.createElement('script');
+                  s.src = '//' + disqus_shortname + '.disqus.com/embed.js';  // IMPORTANT: Replace EXAMPLE with your forum shortname!
+                  s.setAttribute('data-timestamp', +new Date());
+                  (d.head || d.body).appendChild(s);
+              })();
+          </script>
+          <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+        </div>
+    </div>
+  </div>      
+    <div class="panel panel-default">
+      <div class="panel-heading">Related posts</div>
+      <div class="panel-body">
+        <ul class="list-unstyled">
+        <li><a href="/posts/2017/UpdateBlogHttps.html">Blog改版</a></li>
+        <li><a href="/posts/2018/BaiduSpiderAndGHPages.html">解决百度爬虫无法爬取Github Pages上的个人博客</a></li>
+        <li><a href="/posts/2017/WantToDo.html">想看和已看</a></li>
+        </ul>
+      </div>
+    </div>
+
+  </article>
+</section>
+            </div>
+            <div class="col-md-2" id="sidebar_right">
+<div class="panel panel-default">
+  <!-- <div class="panel-heading">Article <i class="fa fa-info-circle"></i>nfo</div> -->
+    <div class="panel-body">
+      <div class="published">
+                <h5>Published</h5>
+                <p><time>Feb 02, 2017</time></p>
+      </div>
+      <div class="modified">
+                <h5>Updated</h5>
+                <p><time>Feb 02, 2017</time></p>
+      </div>
+      <div class="category">
+              <h5>Category</h5>
+              <p><a class="btn btn-default btn-xs" style="text-transform:none" type="button" href="/categories.html#blog-ref">Blog</a></p>
+      </div>
+      <div class="tags">
+            <h5>Tags</h5>
+            <ul class="list-inline list-of-tags tags-in-article">
+                <li><a class="btn btn-default btn-xs" style="text-transform:none" type="button" href="/tags.html#blog-ref">Blog
+                    <span class="badge">4</span>
+</a></li>
+                <li><a class="btn btn-default btn-xs" style="text-transform:none" type="button" href="/tags.html#pelican-ref">Pelican
+                    <span class="badge">5</span>
+</a></li>
+            </ul>
+      </div>
+      <address class="vcard author">
+                By       <a href="mailto:175439093@qq.com">Slade</a>
+      </address>
+
+    </div>
+</div>            </div>
+        </div>
+    </div>
+    <!-- Mascot go to top -->
+    <a href="#"><img id="go_top_logo" src="" class="umaru"></a>
+
+    <!-- BAIDU_TONGJI -->
+    <script>
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?903bed5b17c3ef49f843500c8cb1a1b0";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+
+    <!-- footer -->
+    <div id="push"></div>
+<footer class="footer">
+<div id="footer" class="text-center">
+    <span class="site-name">Chihiro.moe</span> - <i class="fa fa-copyright" aria-hidden="true"></i> Qi.Wang
+    Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>.
+</div>
+</footer>    
+<script id="dsq-count-scr" src="//furiousslade.disqus.com/count.js" async></script>
+<script type="text/javascript">
+    function setTocClass() {
+        var f = document.getElementById("toc");
+        if (f != null) {
+          f.classList.add("art-toc");
+        };
+    };
+    window.onload = setTocClass();
+</script>
+</body>
+</html>
+<script type="text/javascript">
+  function validateForm(query) {
+    return (query.length > 0);
+  };
+  var dropdownStatus = false
+  $(document).ready(function(){
+      $(function() {
+        $(window).scroll(function() {
+          if($(this).scrollTop()>20) {
+            $("body > nav").css("background-color", "rgba(255, 255, 255, 0.5)");
+          } else {
+            $("body > nav").css("background-color", "rgba(255, 255, 255, 1)");
+          }
+        });
+      });
+      $("body > nav").mouseover(function() {
+        $(this).css("background-color", "rgba(255, 255, 255, 1)");
+      });
+      $("#navbar-collapse-1").on('shown.bs.collapse', function() {
+          $('.dropdown-toggle').dropdown('toggle');
+          dropdownStatus = true;
+      });
+      $(".dropdown-toggle").mouseenter(function(){
+          $('.dropdown-toggle').dropdown('toggle');
+          dropdownStatus = true;
+      });
+      $("#container").mouseenter(function(){
+          if (dropdownStatus == true) {
+              $('.dropdown-toggle').dropdown('toggle');
+              dropdownStatus = false;
+          };
+      });    
+  });
+  var character_list = [{"img_url":"/theme/images/umaru02.png"},{"img_url":"/theme/images/kanna02.png"}];
+  var random_value=parseInt(Math.random()*2);
+  var character=character_list[random_value];
+  document.getElementById("go_top_logo").src=character["img_url"];
+</script>

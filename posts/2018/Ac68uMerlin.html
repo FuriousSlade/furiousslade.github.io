@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, height=device-width, initial-scale=1">
+    <meta name="author" content="Slade" />
+    <meta name="copyright" content="Slade" />
+    <meta property="og:type" content="article" />
+
+<meta name="keywords" content="merlin, 笔记, " />
+
+    <title>AC68U折腾笔记</title>
+<script type="text/javascript" src="/theme/js/jquery-1.12.0.min.js"></script>
+<script type="text/javascript" src="/theme/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/theme/tipuesearch/tipuesearch_set.js"></script>
+<script type="text/javascript" src="/theme/tipuesearch/tipuesearch.min.js"></script>
+<link rel="stylesheet" href="/theme/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/theme/css/font-awesome.min.css" />
+<link rel="stylesheet" type="text/css" href="/theme/tipuesearch/tipuesearch.css" media="screen">
+<link rel="stylesheet" type="text/css" href="/theme/css/pygments.css" media="screen">
+<link rel="stylesheet" type="text/css" href="/theme/css/swain.css" media="screen">
+<link rel="stylesheet" type="text/css" href="/theme/css/animate.css" media="screen">
+    <link rel="icon" href="/theme/images/favicon.ico" type="image/x-icon" />
+    
+    <!-- GOOGLE_ANALYTICS -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-75717198-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+</head>
+<body>
+    <!-- navbar start -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid" style="max-width: 1280px">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <i class="fa fa-bars fa-lg"></i>
+                </button>
+                <a class="navbar-brand" href="/">Chihiro.moe</a>
+            </div>
+
+            <div class="collapse navbar-collapse navbar-right" id="navbar-collapse-1">
+                <ul class="nav navbar-nav">
+ <!--                    <li ><a href="/">Home</a></li>
+                        <li ><a href="/pages/links.html">友链</a></li>
+                    <li ><a href="/categories.html">Categories</a></li>
+                    <li ><a href="/tags.html">Tags</a></li>
+                    <li ><a href="/archives.html">Archives</a></li> -->
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">  AC68U折腾笔记  <span class="caret"></span></a>
+                      <ul class="dropdown-menu dropdown-menu-right">
+                        <li><a href="/">Index</a></li>
+                        <li><a href="/categories.html">Categories</a></li>
+                        <li><a href="/tags.html">Tags</a></li>
+                        <li><a href="/archives.html">Archives</a></li>
+                        <li><a href="/pages/links.html">Links</a></li>
+                      </ul>
+                    </li>                    
+                </ul>
+                <form class="navbar-search navbar-form navbar-right" action="/search.html" onsubmit="return validateForm(this.elements['q'].value);">
+                  <input type="text" class="search-query form-control" placeholder="Search" name="q" id="tipue_search_input" required>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <!-- navbar end -->
+    <div class="container-fluid" id="container" style="max-width: 1280px">
+        <div class="row-fluid">
+<div class="col-md-2 hidden-xs hidden-sm" id="sidebar_left">
+<div id="toc">
+  <div class="panel panel-default">
+    <div class="panel-body nav">
+      <div class="toc">
+<ul>
+<li><a href="#uopt">自动挂载U盘至/opt</a></li>
+<li><a href="#entware">安装 Entware</a></li>
+</ul>
+</div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  $('body').scrollspy();
+  $('.toc a').each(function(){
+    $(this).attr({"data-toggle":"tooltip",
+                "data-placement":"top",
+                "title":$(this).text()
+                });
+  $(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+    });
+  });
+</script>
+</div>
+            <div class="col-md-8" id="center_page">
+<section id="content" class="body">
+  <article>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <header>
+          <h2 class="entry-title">
+            <a href="/posts/2018/Ac68uMerlin.html" rel="bookmark"
+               title="Permalink to AC68U折腾笔记">AC68U折腾笔记</a></h2>
+        </header>
+        <hr/>
+        <div class="entry-content">
+          
+<h2 id="uopt">自动挂载U盘至/opt</h2>
+<div class="highlight"><pre><span></span>cat &lt;&lt; EOF &gt; /tmp/script_usbmount.tmp
+if [ \$1 = "/tmp/mnt/sda" ]
+then
+ln -sf \$1 /tmp/opt
+/opt/etc/init.d/rc.unslung start
+fi
+EOF
+nvram set script_usbmount="`cat /tmp/script_usbmount.tmp`"
+cat &lt;&lt; EOF &gt; /tmp/script_usbumount.tmp
+if [ \$1 = "/tmp/mnt/sda" ]
+then
+/opt/etc/init.d/rc.unslung stop
+fi
+EOF
+</pre></div>
+<div class="highlight"><pre><span></span>nvram set script_usbumount="`cat /tmp/script_usbumount.tmp`"
+nvram commit 
+</pre></div>
+<div class="highlight"><pre><span></span>reboot
+</pre></div>
+<h2 id="entware">安装 Entware</h2>
+<p>较新版本的merlin系统已自带entware安装脚本</p>
+<div class="highlight"><pre><span></span>entware-setup.sh
+</pre></div>
+<div class="highlight"><pre><span></span># 更新仓库索引
+opkg update
+# 安装软件
+opkg install {package}
+</pre></div>
+        </div><!-- /.entry-content -->
+
+        <div class="social-share" data-sites="weibo,facebook,twitter"></div>
+        <link rel="stylesheet" href="/theme/css/share.min.css">
+        <script src="/theme/js/jquery.share.min.js"></script>
+        
+        <div class="comments">
+          <div id="disqus_thread"></div>
+          <script type="text/javascript">
+              var disqus_shortname = 'furiousslade';
+              var disqus_config = function () {
+                  this.page.url = 'https://chihiro.moe/posts/2018/Ac68uMerlin.html';
+                  this.page.identifier = '/posts/2018/Ac68uMerlin.html';
+                  this.page.title = 'AC68U折腾笔记';
+              };
+              (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+                  var d = document, s = d.createElement('script');
+                  s.src = '//' + disqus_shortname + '.disqus.com/embed.js';  // IMPORTANT: Replace EXAMPLE with your forum shortname!
+                  s.setAttribute('data-timestamp', +new Date());
+                  (d.head || d.body).appendChild(s);
+              })();
+          </script>
+          <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+        </div>
+    </div>
+  </div>      
+
+  </article>
+</section>
+            </div>
+            <div class="col-md-2" id="sidebar_right">
+<div class="panel panel-default">
+  <!-- <div class="panel-heading">Article <i class="fa fa-info-circle"></i>nfo</div> -->
+    <div class="panel-body">
+      <div class="published">
+                <h5>Published</h5>
+                <p><time>Mar 07, 2018</time></p>
+      </div>
+      <div class="modified">
+                <h5>Updated</h5>
+                <p><time>Mar 16, 2018</time></p>
+      </div>
+      <div class="category">
+              <h5>Category</h5>
+              <p><a class="btn btn-default btn-xs" style="text-transform:none" type="button" href="/categories.html#bi-ji-ref">笔记</a></p>
+      </div>
+      <div class="tags">
+            <h5>Tags</h5>
+            <ul class="list-inline list-of-tags tags-in-article">
+                <li><a class="btn btn-default btn-xs" style="text-transform:none" type="button" href="/tags.html#merlin-ref">merlin
+                    <span class="badge">1</span>
+</a></li>
+            </ul>
+      </div>
+      <address class="vcard author">
+                By       <a href="mailto:175439093@qq.com">Slade</a>
+      </address>
+
+    </div>
+</div>            </div>
+        </div>
+    </div>
+    <!-- Mascot go to top -->
+    <a href="#"><img id="go_top_logo" src="" class="umaru"></a>
+
+    <!-- BAIDU_TONGJI -->
+    <script>
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?903bed5b17c3ef49f843500c8cb1a1b0";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+
+    <!-- footer -->
+    <div id="push"></div>
+<footer class="footer">
+<div id="footer" class="text-center">
+    <span class="site-name">Chihiro.moe</span> - <i class="fa fa-copyright" aria-hidden="true"></i> Qi.Wang
+    Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>.
+</div>
+</footer>    
+<script id="dsq-count-scr" src="//furiousslade.disqus.com/count.js" async></script>
+<script type="text/javascript">
+    function setTocClass() {
+        var f = document.getElementById("toc");
+        if (f != null) {
+          f.classList.add("art-toc");
+        };
+    };
+    window.onload = setTocClass();
+</script>
+</body>
+</html>
+<script type="text/javascript">
+  function validateForm(query) {
+    return (query.length > 0);
+  };
+  var dropdownStatus = false
+  $(document).ready(function(){
+      $(function() {
+        $(window).scroll(function() {
+          if($(this).scrollTop()>20) {
+            $("body > nav").css("background-color", "rgba(255, 255, 255, 0.5)");
+          } else {
+            $("body > nav").css("background-color", "rgba(255, 255, 255, 1)");
+          }
+        });
+      });
+      $("body > nav").mouseover(function() {
+        $(this).css("background-color", "rgba(255, 255, 255, 1)");
+      });
+      $("#navbar-collapse-1").on('shown.bs.collapse', function() {
+          $('.dropdown-toggle').dropdown('toggle');
+          dropdownStatus = true;
+      });
+      $(".dropdown-toggle").mouseenter(function(){
+          $('.dropdown-toggle').dropdown('toggle');
+          dropdownStatus = true;
+      });
+      $("#container").mouseenter(function(){
+          if (dropdownStatus == true) {
+              $('.dropdown-toggle').dropdown('toggle');
+              dropdownStatus = false;
+          };
+      });    
+  });
+  var character_list = [{"img_url":"/theme/images/umaru02.png"},{"img_url":"/theme/images/kanna02.png"}];
+  var random_value=parseInt(Math.random()*2);
+  var character=character_list[random_value];
+  document.getElementById("go_top_logo").src=character["img_url"];
+</script>
