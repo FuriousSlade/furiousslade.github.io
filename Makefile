@@ -1,4 +1,4 @@
-> /dev/nullPY?=python
+PY?=python
 PELICAN?=pelican
 PELICANOPTS=
 
