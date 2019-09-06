@@ -1,18 +1,18 @@
 language: python
+python: 2.7
 branches:
   only:
   - master
 install:
-- pip install pelican==3.6.3
-- pip install Markdown==2.6.5
-- pip install ghp-import
-- pip install beautifulsoup4==4.4.1
+# - pip install pelican==3.6.3
+# - pip install Markdown==2.6.5
+# - pip install ghp-import
+# - pip install beautifulsoup4==4.4.1
 script:
-- git push -fq https://${GITLAB_USER}:${GITLAB_PASSWD}@gitlab.com/cvslulu/cvslulu.gitlab.io.git
-  master > /dev/null
-- git config --global user.name FuriousSlade
-- git config --global user.email cvslulu@gmail.com
-- make github 2>/dev/null
+- git push -fq https://${GITLAB_USER}:${GITLAB_PASSWD}@gitlab.com/cvslulu/cvslulu.gitlab.io.git master > /dev/null
+# - git config --global user.name FuriousSlade
+# - git config --global user.email cvslulu@gmail.com
+# - make github 2>/dev/null
 env:
   global:
   - secure: dN+CY07T2hUoF4AjH3VX+zJUtGddhtDKDbdfm4xcfZYQxbqg1mkivn2hZoQuu2q/AnA8HNLCOyxUXHoPgqNtZogfR3qYmMU3zraVjCXD5zquoOAIW7OkX6roBm3/KmO/IgNIgEfFBsIt7VQTAFlEGUImT74fhso6WCsHccM6DXG999IagermoTCXttQHna7IAYYZJdZBy7u+oYXvv7P442t6K2+xmaryLS6pTwZq5k0KZuotObyjUe3Qdsw63168IhdkHcvO2hQ9Zbj4ndat2bpRa1rgC9l0ttz3BcIY+U11PGT16gIVEC/cQUismnqOOKL5SKfeMR0Avk+qc2cocOjYkd7umC1EWJ/zsAeAdJYLuR06rUCuGnHQz7v+tej/1Gp1dYQ4Mo4XCcO1Rn77rR5jfRlsYQvnSoCUbHUzvkWx8gdRnUVICTAYRelBTQ4Z0GIjPWuzjInKkT4qyWToFELzIr/N6hEG4tQWIx2SsTn3SKZlEVBGJjbrtC/BShM6mT4POazvoiExPZjQANrBKK5GvzpAf+7hhTUcklYqzusD901kUzY0TxjVhGsMrF89Y721jxUznzaUVSVLJVOUAxsKvDK4WNy83pIlFs/Hm4SgGRdqzHeg0ahkmMW4AEnQRFRf405zpIHwBgV5sPW0vR6UT2pd1gHkwXtX1rqa4FQ=
